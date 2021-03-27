@@ -1,0 +1,7 @@
+{
+  "extends": "@taglivros/eslint-config-tag/src/react",
+  "rules": {
+    "sort-keys": "off",
+    "react/jsx-child-element-spacing": "off"
+  }
+}

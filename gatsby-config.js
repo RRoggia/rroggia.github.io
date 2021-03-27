@@ -1,14 +1,14 @@
 module.exports = {
-  siteMetadata: {
-    title: "rroggia.github.io",
+  'siteMetadata': {
+    'title': 'rroggia.github.io',
   },
-  plugins: [
-    "gatsby-plugin-styled-components",
+  'plugins': [
+    'gatsby-plugin-styled-components',
     {
-      resolve: "gatsby-plugin-google-analytics",
-      options: {
-        trackingId: "UA-150419482-1",
+      'resolve': 'gatsby-plugin-google-analytics',
+      'options': {
+        'trackingId': 'UA-150419482-1',
       },
     },
   ],
-};
+}
