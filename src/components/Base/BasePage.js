@@ -1,7 +1,7 @@
 import React from 'react'
-import BaseLayout from '../components/BaseLayout'
-import Header from './Header/Header'
-import Footer from '../components/Footer'
+import BaseLayout from './BaseLayout'
+import Header from '../Header/Header'
+import Footer from '../Footer/Footer'
 
 const BasePage = ( { children } ) => {
   return (

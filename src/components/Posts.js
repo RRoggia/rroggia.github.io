@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 import React from 'react'
 import styled from 'styled-components'
 import PostPreview from './PostPreview.js'
@@ -11,7 +12,13 @@ export default function Posts( { posts } ) {
   return (
     <Wrapper>
       <h2>Dear diary ...</h2>
-      { !posts ? <p>No post was found.</p> : posts.map( p => <PostPreview key={p.title} {...p} />) }
+      { !posts
+        ? <p>No post was found.</p>
+        : posts.map( p => (
+          <PostPreview
+            key={ p.title }
+            { ...p }
+          /> ) ) }
     </Wrapper>
   )
 }

@@ -1,5 +1,5 @@
 import * as React from 'react'
-import BasePage from '../components/BasePage'
+import BasePage from '../components/Base/BasePage'
 
 
 const NotFoundPage = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
-import BasePage from '../components/BasePage'
+import BasePage from '../components/Base/BasePage'
 
-const BooksPage = ( ) => {
+const NotesPage = ( ) => {
   return (
     <BasePage>
       <div>
@@ -11,4 +11,4 @@ const BooksPage = ( ) => {
   )
 }
 
-export default BooksPage
+export default NotesPage

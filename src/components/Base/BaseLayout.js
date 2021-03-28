@@ -1,5 +1,5 @@
-import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
+import React from 'react'
+import styled, { createGlobalStyle } from 'styled-components'
 
 const Wrapper = styled.div`
   margin: auto 10%;
@@ -27,7 +27,7 @@ export default function BaseLayout( { children } ) {
   return (
     <Wrapper>
       <GlobalStyle />
-        {children}
+      {children}
     </Wrapper>
   )
 }

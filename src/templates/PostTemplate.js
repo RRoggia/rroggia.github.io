@@ -1,9 +1,9 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import BasePage from '../components/BasePage'
+import BasePage from '../components/Base/BasePage'
 
 export default function PostTemplate( { data } ) {
-  const { markdownRemark: { frontmatter: post, html } } = data
+  const { 'markdownRemark': { 'frontmatter': post, html } } = data
   return (
     <BasePage>
       <div>
@@ -12,7 +12,8 @@ export default function PostTemplate( { data } ) {
         </h1>
         <h2>{ new Date( post.date ).toLocaleDateString() }</h2>
         <div
-          dangerouslySetInnerHTML={{ __html: html }}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ '__html': html }}
         />
       </div>
     </BasePage>
