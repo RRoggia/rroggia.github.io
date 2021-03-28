@@ -1,8 +1,8 @@
 ---
-title: 'You Dont know JS - Closures'
+title: 'You Dont know JS - Scope & Closures'
 language: 'en-US'
 status: 'aaaaaaa'
-coverPath: '/images/cover/you-dont-know-js-closures.jpg'
+coverPath: 'you-dont-know-js-scope-closures'
 date: '2021-01-01'
 ---
 

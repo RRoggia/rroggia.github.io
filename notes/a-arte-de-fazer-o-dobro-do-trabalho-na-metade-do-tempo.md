@@ -2,7 +2,7 @@
 title: 'A arte de fazer o dobro do trabalho na metade do tempo'
 language: 'pt-BR'
 status: 'aaaaaaa'
-coverPath: '/images/cover/a-arte-de-fazer-o-dobro-na-metade-do-tempo.jpg'
+coverPath: 'a-arte-de-fazer-o-dobro-do-trabalho-na-metade-do-tempo'
 date: '2020-01-01'
 ---
 

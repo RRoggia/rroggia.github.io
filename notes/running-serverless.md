@@ -2,7 +2,7 @@
 title: 'Running Serverless'
 language: 'en-US'
 status: 'aaaaaaa'
-coverPath: '/images/cover/running-serverless.jpg'
+coverPath: 'running-serverless'
 date: '2021-01-01'
 ---
 

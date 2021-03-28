@@ -2,7 +2,7 @@
 title: 'Arquitetura Limpa'
 language: 'pt-BR'
 status: 'aaaaaaa'
-coverPath: '/images/cover/arquitetura-limpa.jpg'
+coverPath: 'arquitetura-limpa'
 date: '2021-01-01'
 ---
 

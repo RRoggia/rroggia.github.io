@@ -2,7 +2,7 @@
 title: 'You Dont know JS - Get Started'
 language: 'en-US'
 status: 'aaaaaaa'
-coverPath: '/images/cover/you-dont-know-js-get-started.jpg'
+coverPath: 'you-dont-know-js-get-started'
 date: '2021-01-01'
 ---
 

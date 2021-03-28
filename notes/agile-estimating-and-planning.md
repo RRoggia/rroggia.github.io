@@ -2,7 +2,7 @@
 title: 'Agile estimating and planning'
 language: 'en-US'
 status: 'aaaaaaa'
-coverPath: '/images/cover/agile-estimating-and-planning.jpg'
+coverPath: 'agile-estimating-and-planning'
 date: '2021-01-01'
 ---
 

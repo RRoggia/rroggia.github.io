@@ -2,7 +2,7 @@
 title: 'Refactoring 2nd edition - Improving the design of existing code'
 language: 'en-US'
 status: 'aaaaaaa'
-coverPath: '/images/cover/refactoring-2nd-edition-improving-the-design-of-existing-code.jpg'
+coverPath: 'refactoring-2nd-edition-improving-the-design-of-existing-code'
 date: '2021-01-01'
 ---
 
