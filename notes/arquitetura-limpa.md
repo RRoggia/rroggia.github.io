@@ -1,3 +1,11 @@
+---
+title: 'Arquitetura Limpa'
+language: 'pt-BR'
+status: 'aaaaaaa'
+coverPath: '/images/cover/arquitetura-limpa.jpg'
+date: '2021-01-01'
+---
+
 # I - Introdução
 
 A introdução é focada em explicar a diferença entre fazer funcionar e fazer direito.

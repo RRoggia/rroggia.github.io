@@ -1,3 +1,11 @@
+---
+title: 'Agile estimating and planning'
+language: 'en-US'
+status: 'aaaaaaa'
+coverPath: '/images/cover/agile-estimating-and-planning.jpg'
+date: '2021-01-01'
+---
+
 # Foreword - Jim Highsmith
 
 > Agile planning is deceptive. At one level, it's pretty easy - create a few story cards, prioritize them, allocate them to release iterations, then add additional detail to get a next iteration plan.

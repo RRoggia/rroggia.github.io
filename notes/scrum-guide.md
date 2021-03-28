@@ -1,3 +1,11 @@
+---
+title: 'Scrum guide'
+language: 'en-US'
+status: 'aaaaaaa'
+coverPath: '/images/cover/scrum-guide.jpg'
+date: '2021-01-01'
+---
+
 # Definition of Scrum
 
 > Scrum (n): A framework within which people can address complex adaptive problems, while productively and creatively delivering products of the highest possible value.

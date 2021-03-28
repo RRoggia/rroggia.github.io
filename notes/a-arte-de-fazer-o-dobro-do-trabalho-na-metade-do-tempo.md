@@ -1,3 +1,11 @@
+---
+title: 'A arte de fazer o dobro do trabalho na metade do tempo'
+language: 'pt-BR'
+status: 'aaaaaaa'
+coverPath: '/images/cover/a-arte-de-fazer-o-dobro-na-metade-do-tempo.jpg'
+date: '2020-01-01'
+---
+
 # Prefacio
 
 > Até aquele ponto — e até 2005 —, a maior parte do desenvolvimento de software era feita usando o método em cascata

@@ -1,3 +1,11 @@
+---
+title: 'You Dont know JS - Closures'
+language: 'en-US'
+status: 'aaaaaaa'
+coverPath: '/images/cover/you-dont-know-js-closures.jpg'
+date: '2021-01-01'
+---
+
 # Chapter 1 - What's the Scope?
 
 ## Compiled vs Interpreted

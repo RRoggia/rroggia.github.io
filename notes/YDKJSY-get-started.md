@@ -1,3 +1,11 @@
+---
+title: 'You Dont know JS - Get Started'
+language: 'en-US'
+status: 'aaaaaaa'
+coverPath: '/images/cover/you-dont-know-js-get-started.jpg'
+date: '2021-01-01'
+---
+
 ## Chapter 2
 
 ### Comparisons

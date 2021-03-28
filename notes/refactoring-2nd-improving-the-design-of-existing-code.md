@@ -1,3 +1,11 @@
+---
+title: 'Refactoring 2nd edition - Improving the design of existing code'
+language: 'en-US'
+status: 'aaaaaaa'
+coverPath: '/images/cover/refactoring-2nd-edition-improving-the-design-of-existing-code.jpg'
+date: '2021-01-01'
+---
+
 # Foreword to the First Edition
 
 > Frameworkers know that a framework won't be right the first time around - it must evolve as they gain experience. They also know that the code will be read and modified more frequently than it will be written. The key to keeping code readable and more modifiable is refactoring - for frameworks, in particular, but also for software in general.
