@@ -44,14 +44,13 @@ const SpanAlignRight = styled.span`
   font-size: 0.8rem;
 `
 
-export default function PostPreview( { title, image, excerpt, timeToRead, url, date } ) {
+export default function PostPreview( { title, excerpt, timeToRead, url, date } ) {
   return (
     <a href={url}>
       <Card>
         <Grid>
           <Title>{title}</Title><SpanAlignRight>{ timeToRead } minutes</SpanAlignRight>
         </Grid>
-        <img src={image}></img>
         <p>{excerpt}</p>
         <TextAlignRight>{ `Published ${ date}` }</TextAlignRight>
       </Card>
