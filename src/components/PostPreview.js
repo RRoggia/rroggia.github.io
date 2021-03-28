@@ -33,6 +33,7 @@ const Title = styled.h2`
 
 const TextAlignRight = styled.p`
   text-align: right;
+  font-size: 0.8rem;
 `
 
 const SpanAlignRight = styled.span`

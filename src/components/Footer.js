@@ -29,6 +29,7 @@ const AdditionalInfoWrapper = styled.div`
 
   @media (max-width: 600px) {
     margin-top: 1.3rem;
+    text-align: center;
   }
 `
 
