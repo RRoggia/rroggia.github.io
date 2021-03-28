@@ -1,7 +1,7 @@
-import * as React from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import BaseLayout from '../components/BaseLayout'
-import MenuBar from '../components/MenuBar'
+import Header from '../components/Header'
 import Posts from '../components/Posts'
 import Footer from '../components/Footer'
 import myPhoto from '../images/my-photo.jpg'
@@ -30,18 +30,11 @@ const contactMe = {
 
 const IndexPage = ( { data } ) => {
   const { allMarkdownRemark: { edges } } = data
-  const posts = edges.map( node => {
-    return {
-      ...node.node.frontmatter,
-      excerpt: node.node.excerpt,
-      timeToRead: node.node.timeToRead,
-      url: createPostPath( node.node.frontmatter.title )
-    }
-  } )
+  const posts = edges.map( nodeToPost )
 
   return (
     <BaseLayout>
-      <MenuBar { ...mySelf } />
+      <Header mySelf={ mySelf } />
       <Posts posts={ posts } />
       <Footer contactMe={ contactMe } />
     </BaseLayout>
@@ -66,3 +59,11 @@ export const pageQuery = graphql`
     }
   }
 `
+function nodeToPost( node ) {
+  return {
+    ...node.node.frontmatter,
+    excerpt: node.node.excerpt,
+    timeToRead: node.node.timeToRead,
+    url: createPostPath( node.node.frontmatter.title )
+  }
+}

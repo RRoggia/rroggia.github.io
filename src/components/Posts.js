@@ -4,13 +4,13 @@ import PostPreview from './PostPreview.js'
 
 const Wrapper = styled.div`
   width: 85%;
-  margin: 0px auto;
+  margin: 2rem auto;
 `
 
 export default function Posts( { posts } ) {
   return (
     <Wrapper>
-      <h1>Dear diary ...</h1>
+      <h2>Dear diary ...</h2>
       { !posts ? <p>No post was found.</p> : posts.map( p => <PostPreview key={p.title} {...p} />) }
     </Wrapper>
   )

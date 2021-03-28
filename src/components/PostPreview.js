@@ -12,6 +12,13 @@ const Card = styled.div`
     transform: scale(1.005, 1.005);
     box-shadow: 10px 10px lightgray;
   }
+
+  @media (max-width: 600px) {
+    &:hover, &:active {
+      transform: scale(1.005, 1.005);
+      box-shadow: 10px 10px lightgray;        
+    }
+  }
 `
 
 const Grid = styled.div`
