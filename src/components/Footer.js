@@ -9,6 +9,7 @@ const FooterWrapper = styled.div`
   border-top: 1px solid black;
   padding: 3rem;
   text-transform: uppercase;
+  margin-top 3rem;
 `
 
 const ContactWrapper = styled.div`

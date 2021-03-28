@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Card = styled.div`
-  margin: 1.5rem;
+  margin-bottom: 1.5rem;
   padding: 2rem;
   border-radius: 0.3rem;
   border: 0.5px black solid;
@@ -40,7 +40,7 @@ const SpanAlignRight = styled.span`
   margin-right: 0px;
   align-item: center;
   text-align: right;
-  
+  font-size: 0.8rem;
 `
 
 export default function PostPreview( { title, image, excerpt, timeToRead, url, date } ) {
@@ -48,7 +48,7 @@ export default function PostPreview( { title, image, excerpt, timeToRead, url, d
     <a href={url}>
       <Card>
         <Grid>
-          <Title>{title}</Title><SpanAlignRight>Estimated time to read { timeToRead } minutes</SpanAlignRight>
+          <Title>{title}</Title><SpanAlignRight>{ timeToRead } minutes</SpanAlignRight>
         </Grid>
         <img src={image}></img>
         <p>{excerpt}</p>

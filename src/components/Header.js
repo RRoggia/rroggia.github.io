@@ -6,7 +6,6 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items:center;
-  margin: auto 10%;
 
   @media (max-width: 600px) {
     display:block;
@@ -23,7 +22,12 @@ const NavigationButton = styled.a`
   text-shadow: 3px 3px lightgray;
   text-align: center;
   width: 20rem;
+  text-transform: uppercase;
   font-weight: bold;
+
+  &: hover {
+    transform: scale(1.2, 1.2);
+  }
 
   @media (max-width: 600px) {
     font-size: 1.5rem;

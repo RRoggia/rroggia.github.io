@@ -1,6 +1,10 @@
 module.exports = {
   'siteMetadata': {
     'title': 'rroggia.github.io',
+    'mySelf' : {
+      'name': 'Renan Roggia',
+      'description': 'I consider myself a tech problem solver.'
+    }
   },
   'plugins': [
     'gatsby-plugin-styled-components',

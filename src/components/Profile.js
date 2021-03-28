@@ -4,6 +4,12 @@ import styled from 'styled-components'
 const PersonalInfoWrapper = styled.div`
   padding: 1rem;
   text-align:center;
+
+  @media (max-width: 600px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items:center;
+  }
 `
 const RoundedAuthorPhoto = styled.img`
   border-radius: 100%;
@@ -12,6 +18,11 @@ const RoundedAuthorPhoto = styled.img`
   border: 1px solid black;
   &:hover {
     border: 2px solid black;
+  }
+
+  @media (max-width: 600px) {
+    max-width: 75px;
+    max-height: 75px;
   }
 `
 const Name = styled.p`

@@ -1,6 +1,14 @@
 import React from "react"
-import { createGlobalStyle } from "styled-components"
+import styled, { createGlobalStyle } from "styled-components"
 
+
+const Wrapper = styled.div`
+  margin: auto 10%;
+
+  @media (max-width: 600px) {
+    margin: auto 5%;
+  }
+`
 const GlobalStyle = createGlobalStyle`
   body {
     background: white; 
@@ -18,9 +26,9 @@ const GlobalStyle = createGlobalStyle`
 
 export default function BaseLayout( { children } ) {
   return (
-    <React.Fragment>
+    <Wrapper>
       <GlobalStyle />
         {children}
-    </React.Fragment>
+    </Wrapper>
   )
 }
