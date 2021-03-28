@@ -3,7 +3,7 @@
   "rules": {
     "sort-keys": "off",
     "react/jsx-sort-props": "off",
-    "react/props-types": "off",
+    "react/prop-types": "off",
     "react/jsx-child-element-spacing": "off"
   }
 }

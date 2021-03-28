@@ -1,13 +1,13 @@
 module.exports = {
   'siteMetadata': {
     'title': 'rroggia.github.io',
-    'mySelf' : {
+    'mySelf': {
       'name': 'Renan Roggia',
       'description': 'I consider myself a tech problem solver.'
     },
     'contactMe': {
       'email': 'renanzr@gmail.com',
-      'socialNetworks' : [
+      'socialNetworks': [
         {
           'name': 'linkedin',
           'url': 'https://www.linkedin.com/in/renanroggia/',
@@ -28,27 +28,32 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/posts`,
-        name: `posts`,
+      'resolve': 'gatsby-source-filesystem',
+      'options': {
+        'path': `${__dirname}/posts`,
+        'name': 'posts',
       },
     },
-    `gatsby-transformer-remark`,
     {
-      resolve: `gatsby-plugin-google-fonts`,
-      options: {
-        fonts: [
-          `roboto`,
-        ],
-        display: 'swap'
+      'resolve': 'gatsby-source-filesystem',
+      'options': {
+        'path': `${__dirname}/notes`,
+        'name': 'notes',
+      },
+    },
+    'gatsby-transformer-remark',
+    {
+      'resolve': `gatsby-plugin-google-fonts`,
+      'options': {
+        'fonts': [ `roboto` ],
+        'display': 'swap'
       }
     },
     {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: '/images/'
+      'resolve': 'gatsby-plugin-react-svg',
+      'options': {
+        'rule': {
+          'include': '/images/'
         }
       }
     }

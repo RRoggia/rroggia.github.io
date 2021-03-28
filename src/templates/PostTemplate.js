@@ -1,21 +1,15 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BasePage from '../components/Base/BasePage'
+import Post from '../components/Post'
 
 export default function PostTemplate( { data } ) {
   const { 'markdownRemark': { 'frontmatter': post, html } } = data
   return (
     <BasePage>
-      <div>
-        <h1>
-          {post.title}
-        </h1>
-        <h2>{ new Date( post.date ).toLocaleDateString() }</h2>
-        <div
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{ '__html': html }}
-        />
-      </div>
+      <Post
+        { ...{ post, html } }
+      />
     </BasePage>
   )
 }
