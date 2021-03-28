@@ -42,6 +42,7 @@ module.exports = {
       },
     },
     'gatsby-transformer-remark',
+
     {
       'resolve': `gatsby-plugin-google-fonts`,
       'options': {
@@ -56,6 +57,16 @@ module.exports = {
           'include': '/images/'
         }
       }
-    }
+    },
+    {
+      'resolve': 'gatsby-source-filesystem',
+      'options': {
+        'path': `${__dirname}/covers`,
+        'name': 'covers',
+      },
+    },
+    'gatsby-plugin-image',
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp'
   ],
 }

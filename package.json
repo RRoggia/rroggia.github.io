@@ -21,10 +21,13 @@
     "gatsby": "^3.1.2",
     "gatsby-plugin-google-analytics": "^3.1.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
+    "gatsby-plugin-image": "^1.1.2",
     "gatsby-plugin-react-svg": "^3.0.0",
+    "gatsby-plugin-sharp": "^3.1.2",
     "gatsby-plugin-styled-components": "^4.1.0",
     "gatsby-source-filesystem": "^3.1.0",
     "gatsby-transformer-remark": "^3.1.0",
+    "gatsby-transformer-sharp": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "styled-components": "^5.2.1"
