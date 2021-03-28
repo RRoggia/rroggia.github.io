@@ -4,6 +4,19 @@ module.exports = {
     'mySelf' : {
       'name': 'Renan Roggia',
       'description': 'I consider myself a tech problem solver.'
+    },
+    'contactMe': {
+      'email': 'renanzr@gmail.com',
+      'socialNetworks' : [
+        {
+          'name': 'linkedin',
+          'url': 'https://www.linkedin.com/in/renanroggia/',
+        },
+        {
+          'name': 'github',
+          'url': 'https://github.com/rroggia',
+        }
+      ]
     }
   },
   'plugins': [

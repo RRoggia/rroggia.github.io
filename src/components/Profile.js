@@ -1,5 +1,7 @@
+import { useStaticQuery, graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
+import myPhoto from '../images/my-photo.jpg'
 
 const PersonalInfoWrapper = styled.div`
   padding: 1rem;
@@ -31,12 +33,20 @@ const Name = styled.p`
   color: gray;
 `
 
-export default function MenuBar( { 
-  myPhoto,
-  name,
-  description
-} ) {
-
+export default function MenuBar() {
+  const data = useStaticQuery( graphql`
+    query Profile{
+      site {
+        siteMetadata {
+          mySelf {
+            name
+            description
+          }
+        }
+      }
+    }
+  ` )
+  const { site: { siteMetadata: { mySelf: { name, description } } } } = data
   return (
     <PersonalInfoWrapper>
       <RoundedAuthorPhoto src={myPhoto} alt={ `${ name }'s photo` }></RoundedAuthorPhoto>

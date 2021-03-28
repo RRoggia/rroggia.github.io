@@ -1,39 +1,13 @@
 import React from 'react'
-import BaseLayout from '../components/BaseLayout'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import myPhoto from '../images/my-photo.jpg'
-import { linkedin, github } from '../images/logos'
+import BasePage from '../components/BasePage'
 
-const BooksPage = ( ) => {
-  const mySelf = {
-    myPhoto,
-    name: 'Renan Roggia',
-    description: 'I consider myself a tech problem solver.'
-  }
-
-  const contactMe = {
-    email: 'renanzr@gmail.com',
-    socialNetworks : [
-      {
-        url: 'https://www.linkedin.com/in/renanroggia/',
-        logo: linkedin
-      },
-      {
-        url: 'https://github.com/rroggia',
-        logo: github
-      }
-    ]
-  }
-
+const BooksPage = () => {
   return (
-    <BaseLayout>
-      <Header mySelf={ mySelf } />
+    <BasePage>
       <div>
         <p>In progress</p>
       </div>
-      <Footer contactMe={ contactMe } />
-    </BaseLayout>
+    </BasePage>
   )
 }
 
