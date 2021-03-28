@@ -1,21 +1,24 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BasePage from '../components/Base/BasePage'
-import Post from '../components/Posts/Post'
 
-export default function PostTemplate( { data } ) {
+export default function NoteTemplate( { data } ) {
   const { 'markdownRemark': { 'frontmatter': post, html } } = data
   return (
     <BasePage>
-      <Post
-        { ...{ post, html } }
+      <h1>
+        { post.title}
+      </h1>
+      <div
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ '__html': html }}
       />
     </BasePage>
   )
 }
 
 export const pageQuery = graphql`
-  query Post( $title: String) {
+  query Note( $title: String) {
     markdownRemark( frontmatter: {title: { eq: $title} } ) {
       frontmatter {
         title

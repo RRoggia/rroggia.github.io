@@ -1,8 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import BasePage from '../components/Base/BasePage'
-import Posts from '../components/Posts'
-import createPostPath from '../navigation/postPath'
+import Posts from '../components/Posts/Posts'
+import createPostPath from '../components/Posts/postPath'
 
 function nodeToPost( node ) {
   return {
