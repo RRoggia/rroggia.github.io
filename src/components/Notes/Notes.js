@@ -1,3 +1,4 @@
+/* eslint-disable id-length */
 import React from 'react'
 import styled from 'styled-components'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
@@ -73,7 +74,7 @@ export default function Notes( { notes } ) {
                 alt={ n.title }
               />
             </NoteCard>
-          </a> 
+          </a>
         ) )}
       </Grid>
     </>
