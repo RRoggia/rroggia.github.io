@@ -202,9 +202,97 @@ Even for non commercial organization, how technology performs can predict overal
 
 Because, delivery performance impacts on organizational performance, you have a strong argument to avoid outsourcing the development of software that is strategic to your business, most likely this software should be considered a core of your company.
 
+## Chapter 3 - Measuring and Changing Culture
 
+### Modeling and measuring culture
 
+> Organizational culture can exist at three levels in organizations: basic assumptions, values, and artifacts (Schein 1985).
 
+> ... further insight was that the organizational culture predicts the way information flows through an organization.
+
+### Measuring Culture
+
+> First, in organizations with a generative culture, people collaborate more effectively and there is a higher level of trust both across the organization and up and down the hierarchy. Second, "generative culture emphasizes the mission, an emphasis that allows people involved to put aside their personal issues and also the departmental issues that are so evident in bureaucratic organizations. The mission is primary. And third, generativity encourages a 'level playing filed,' in which hierarchy plays less of a role"
+
+> ... the goal of bureaucracy is to "ensure fairness by applying rules to administrative behavior. The rules would be the same for all cases - no one would receive preferential or discriminatory treatment. Not only that, but the rules would represent the best products of the accumulated knowledge of the organization: Formulated by bureaucrats who were experts in their fields, the rules would impose efficient structures and processes while guaranteeing fairness and eliminating arbitrariness".
+
+> Westrum's description of a rule-oriented culture is perhaps best thought of as one where following the rules is considered more important than achieving the mission.
+
+### What does Westrum organizational culture predict?
+
+> Westrum's theory posits that organizations with better information flow function more effectively.
+
+### Consequences of Westrum's theory for technology organizations
+
+> Analysis showed that only lead time, release frequency and time to restore together form a valid and reliable construct.
+
+> Our goal should be to discover how we could improve information flow, or to find better tools to help prevent catastrophic failures following apparently mundane operations.
+
+### How do we change culture?
+
+> What my ... experience taught me that was so powerful was that the way to change culture is not to first change how people think, bu instead to start by changing how people behave - what they do".
+
+> ... implementing the practices of these movements (Lean and agile) can have an effect on culture
+
+### My Summary
+
+This chapter the authors are looking for a scientific definition of culture.
+
+Culture is formed by three levels in organizations:
+
+- Basic assumptions: 
+  - Formed over time as members of a group make sens of relationships, events and activities.
+  - Least visible. The things we know.
+- Values
+  - A lens through which group members view and interpret the relationships, events and activities around them.
+  - Values establish social norms which impact the interactions and practices
+  - More visible than *"Basic assumptions"*.
+  - The culture we think of when we talk about the culture of a group of people.
+- Artifacts
+  - Written mission statements or creeds, technology, formal procedures or even heroes and rituals.
+  - The most visible.
+
+Their research choose the Westrum model of culture in the second level (Values).
+
+Westrum describes the following typology of organizational culture:
+
+- Pathological (power-oriented): 
+  - Large amount of fear and threat.
+  - People hoard information or withhold it for political reasons, or distort it.
+- Bureaucratic (rule-oriented):
+  - Protect departments.
+  - Departments wants to maintain their autonomy and their rules.
+- Generative (performance-oriented):
+  - Focus on the mission.
+  - Everything is subordinated to good performance, to doing what we are supposed to do.
+
+The organizational culture predicts the information flow and performance outcomes.
+
+A good information flow must have 3 characteristics:
+
+1. It provides answers to the questions that the receiver needs answered.
+2. It is timely.
+3. It is presented in such a way that it can be effectively used by the receiver.
+
+Generative culture enables information processing through 3 mechanisms:
+
+1. Effective collaboration and trust across different layers of the hierarchy
+2. Emphasis on the mission to put aside personal or department issues
+3. Level playing field. Hierarchy plays less of a role.
+
+In order to a organization culture to impact the information flow there are some requisites:
+
+1. Trust and cooperation between people across the organization
+2. Higher quality decision making due to more information available and the ability to easily reverse wrong decisions, since the culture is more transparent and open.
+3. The cultural norms are likely to do a better job with people. Problems are more rapidly discovered and improved.
+
+When trying to build a construct they found that the only valid and reliable construct didn't consider *Change fail rate*., so software delivery performance only considers Delivery lead time, deployment frequency and time to restore. But, consider that *Change fail rate* is highly correlated with the construct.
+
+Reliability and ability to quickly innovate are two culture characteristics that are connected. These culture characteristics positively impacts software delivery and organizational performance. For example, a company that uses failures to improve their information flow instead of looking for a responsible for the problem are more likely due to their culture to have better software delivery and organizational performance.
+
+At last the authors propose that by applying Lean and agile practices you can change the culture of your organization.
+
+## Chapter 4 - Technical Practices
 
 
 
