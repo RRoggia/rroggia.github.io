@@ -18,11 +18,20 @@ const Grid = styled.div`
   }
 `
 
+const NoteLink = styled.a`
+  margin-bottom: 3rem;
+`
+
 const Title = styled.h2`
 `
 
 const NoteCard = styled.div`
   display: inline;
+`
+const BookCover = styled( GatsbyImage )`
+  @media (max-width: 600px) {
+    margin-bottom: 2rem;
+  }
 `
 
 function getCoverImage( covers, title, emptyCover ) {
@@ -63,18 +72,18 @@ export default function Notes( { notes } ) {
       <Title>My notes ...</Title>
       <Grid>
         { notes && notes.map( n => (
-          <a
+          <NoteLink
             href={ createNotePath( n.title ) }
             key={ n.title }
           >
             <NoteCard >
               <h3> { n.title } </h3>
-              <GatsbyImage
+              <BookCover
                 image={ getImage( getCoverImage( covers, `${n.coverPath}`, emptyCover ) ) }
                 alt={ n.title }
               />
             </NoteCard>
-          </a>
+          </NoteLink>
         ) )}
       </Grid>
     </>
