@@ -82,11 +82,23 @@ date: '2015-06-01'
 
 > The real difference is that we like to do these tests as early in the development process as we can so that they can also drive design and coding.
 
->  The difference here is that all the testing is not left until the end.
+> The difference here is that all the testing is not left until the end.
+
+### My Summary
+
+This chapter explains what is agile testing and who are the person responsible for it and their roles.
+
+Writing automated tests and applying TDD is not necessarily an agile testing practice. Even, teams that don't consider themselves agile could apply these techniques simply because they improve software design and prevent defects. This technology facing tests are part of the programmer's domain.
+
+Agile development and testing is about working closely together and being responsible for delivering the best quality product to customers.
+
+The author defines "Agile testing" as business facing tests. Tests that define the business expert domain.
+
+They also define "Testing" is something more broad, from functional, system, load, performance, security, stress, usability, exploratory, e2e and user acceptance. And, all other types of tests.
+
+Agile teams, composed of customer and developer teams, should collaborate as they are a whole team, in order to achieve business goals. The main difference from agile and phased (traditional ) development is that agile brings tests as early as possible in the development process, while in phased development tests are one of the last phases.
 
 ## Chapter 2 Ten Principles for Agile Testers
-
-
 
 She’s ready to gather and share information, to work with the customer or product owner in order to help them express their requirements adequately so that they can get the features they need, and to provide feedback on project progress to everyone. 
 Creativity, openness to ideas, willingness to take on any task or role, focus on the customer, and a constant view of the big picture are just some components of the agile testing mind-set. 
