@@ -6,31 +6,88 @@ coverPath: 'agile-testing-a-practical-guide-for-testers-and-agile-teams'
 date: '2015-06-01'
 ---
 
-Build quality into the product rather than trying to test it in later. 
-delivering business value using tests that the business can understand. 
-Agile development isn’t the only way to successfully deliver software. 
-The programmers write and automate unit and integration tests that provide good code coverage. They are disciplined in the use of source code control and code integration. Skilled testers are involved from the start of the development cycle and are given time and resources to do an adequate job of all necessary forms of testing. An automated regression suite that covers the system functionality at a higher level is run and checked regularly. The development team understands the customers’ jobs and their needs, and works closely together with the business experts. 
-Test automation is a central focus of successful agile teams, and it’s a scary topic for lots of people 
-Experiment constantly, evaluate the results,                 
-he answered: “Start doing it—today!”                         
-The “whole team” approach promoted by agile development is central to our attitude toward quality and testing, 
-With TDD, the programmer writes a test for a tiny bit of functionality, sees it fail, writes the code that makes it pass, and then moves on to the next tiny bit of functionality. 
-Programmers also write code integration tests to make sure the small units of code work together as intended. 
-helping the programmers know what code to write next.        
-Agile development encourages us to solve our problems as a team. 
-we’re working together with a team of people who all feel responsible for delivering the best possible quality, and who are all focused on testing. 
-Testing an application with a plan to learn about it as you go, and letting that information guide your testing, 
-The customer team writes the stories or feature sets that the developer team delivers. 
-examples that will drive coding in the form of business-facing tests. 
-helping elicit requirements and examples and helping the customers express their requirements as tests. 
-Many agile practitioners discourage specialized roles on teams and encourage all team members to transfer their skills to others as much as possible. 
-Testers advocate for quality on behalf of the customer and assist the development team in delivering the maximum business value. 
-The customer and developer teams work closely together at all times. 
-Ideally, they’re just one team with a common goal.           
-They’ll work together to define requirements with tests and examples, and write the code that makes the tests pass. 
-someone will need to write tests that illustrate the requirements for each story days or hours before coding begins. 
-The real difference is that we like to do these tests as early in the development process as we can so that they can also drive design and coding. 
-The difference here is that all the testing is not left until the end. 
+# Foreword by Mike Cohn
+
+>  Build quality into the product rather than trying to test it in later.
+
+# Preface
+
+## Why We Wrote This Book
+
+> delivering business value using tests that the business can understand. 
+
+> Agile development isn’t the only way to successfully deliver software.
+
+> The programmers write and automate unit and integration tests that provide good code coverage. They are disciplined in the use of source code control and code integration. Skilled testers are involved from the start of the development cycle and are given time and resources to do an adequate job of all necessary forms of testing. An automated regression suite that covers the system functionality at a higher level is run and checked regularly. The development team understands the customers’ jobs and their needs, and works closely together with the business experts.
+
+## How to Use This Book
+
+> Test automation is a central focus of successful agile teams, and it’s a scary topic for lots of people
+
+## Just Start Doing It - Today!
+
+> ... what he thought was the number one success factor for agile testing, he answered: “Start doing it—today!"
+
+# Part I Introduction
+
+## Chapter 1 What Is Agile Testing, Anyway?
+
+>  The “whole team” approach promoted by agile development is central to our attitude toward quality and testing,
+
+### What Dow We Mean by "Agile Testing"?
+
+> With TDD, the programmer writes a test for a tiny bit of functionality, sees it fail, writes the code that makes it pass, and then moves on to the next tiny bit of functionality.
+
+> Programmers also write code integration tests to make sure the small units of code work together as intended.
+
+> (About unit or component testing) ...helping the programmers know what code to write next.
+
+> Agile development encourages us to solve our problems as a team.
+
+> we’re working together with a team of people who all feel responsible for delivering the best possible quality, and who are all focused on testing.
+
+> When we say "agile testing" in this book, we're usually talking about business-facing tests, tests that define the business experts' desired features and functionalities. "Testing" in this book (...) includes just about everything beyond unit and component level testing: functional, system, load, performance, security, stress, usability, exploratory, end-to-end, and user-acceptance.
+
+> Testing an application with a plan to learn about it as you go, and letting that information guide your testing,
+
+### A Little Context for Roles and Activities on an Agile Team
+
+#### Customer Team
+
+> The customer team writes the stories or feature sets that the developer team delivers.
+
+> They provide examples that will drive coding in the form of business-facing tests.
+
+> helping elicit requirements and examples and helping the customers express their requirements as tests.
+
+#### Developer Team
+
+> Everyone involved with delivering code is a developer
+
+> Many agile practitioners discourage specialized roles on teams and encourage all team members to transfer their skills to others as much as possible.
+
+> Testers advocate for quality on behalf of the customer and assist the development team in delivering the maximum business value.
+
+#### Interaction between Customer and Developer Teams
+
+> The customer and developer teams work closely together at all times.
+
+> Ideally, they’re just one team with a common goal.
+
+> They’ll work together to define requirements with tests and examples, and write the code that makes the tests pass.
+
+### Traditional vs Agile Testing
+
+> someone will need to write tests that illustrate the requirements for each story days or hours before coding begins.
+
+> The real difference is that we like to do these tests as early in the development process as we can so that they can also drive design and coding.
+
+>  The difference here is that all the testing is not left until the end.
+
+## Chapter 2 Ten Principles for Agile Testers
+
+
+
 She’s ready to gather and share information, to work with the customer or product owner in order to help them express their requirements adequately so that they can get the features they need, and to provide feedback on project progress to everyone. 
 Creativity, openness to ideas, willingness to take on any task or role, focus on the customer, and a constant view of the big picture are just some components of the agile testing mind-set. 
 One of the agile tester’s most important contributions is helping the product owner or customer articulate requirements for each story in the form of examples and tests. 

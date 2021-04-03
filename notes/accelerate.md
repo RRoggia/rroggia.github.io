@@ -6,15 +6,15 @@ coverPath: 'accelerate'
 date: '2021-03-25'
 ---
 
-## Praise for accelerate
+# Praise for accelerate
 
 > Whether they recognize it or not, most organization today are in the business of software development in one way, shape, or form. And most are being dragged down by slow lead times, buggy output, and complicated features that add expense and frustrate users. It doesn't need to be this way.
 
-## Foreword by Martin Fowler
+# Foreword by Martin Fowler
 
 > Their evidence refutes the bimodal IT notion that you have to choose between speed and stability - instead, speed depends on stability, so good IT practices gives you both.
 
-## Preface
+# Preface
 
 > improvements in software delivery are possible for every team and in every company, as long as leadership provides consistent support - including time, actions, and resources - demonstrating a true commitment to improvement, and as long as team members commit themselves to work.
 
@@ -402,4 +402,6 @@ About the CD practices:
   - Integrating security practices into the delivery process contributed to software delivery performance.
 
 Although those practices do have a lot of positive points they do require rethink architecture, how the teams works, relationships, tools, processes and so on...
+
+## Chapter 5 - Architecture
 
