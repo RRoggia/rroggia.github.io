@@ -3,7 +3,7 @@ title: 'Refactoring 2nd edition - Improving the design of existing code'
 language: 'en-US'
 status: 'aaaaaaa'
 coverPath: 'refactoring-2nd-edition-improving-the-design-of-existing-code'
-date: '2021-01-01'
+date: '2021-03-16'
 ---
 
 # Foreword to the First Edition

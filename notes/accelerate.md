@@ -71,7 +71,7 @@ Use capability model:
 
 *Which* capabilities to focus varies. But, it's not because of age and technology, because or developers or operations doing deployments.
 
-It's astonishingly to see the gap between high performers that are applying devops with those that aren't. It was never about stability or speed. By adding quality in the process you achieve both.
+It's astonishingly to see the gap between high performers that are applying DevOps with those that aren't. It was never about stability or speed. By adding quality in the process you achieve both.
 
 ## Chapter 2 - Measuring Performance
 
@@ -286,7 +286,7 @@ In order to a organization culture to impact the information flow there are some
 2. Higher quality decision making due to more information available and the ability to easily reverse wrong decisions, since the culture is more transparent and open.
 3. The cultural norms are likely to do a better job with people. Problems are more rapidly discovered and improved.
 
-When trying to build a construct they found that the only valid and reliable construct didn't consider *Change fail rate*., so software delivery performance only considers Delivery lead time, deployment frequency and time to restore. But, consider that *Change fail rate* is highly correlated with the construct.
+When trying to build a construct they found that the only valid and reliable construct didn't consider *Change fail rate*. So software delivery performance only considers *Delivery lead time*, *Deployment frequency* and *Time to restore*. But, consider that *Change fail rate* is highly correlated with the construct.
 
 Reliability and ability to quickly innovate are two culture characteristics that are connected. These culture characteristics positively impacts software delivery and organizational performance. For example, a company that uses failures to improve their information flow instead of looking for a responsible for the problem are more likely due to their culture to have better software delivery and organizational performance.
 
@@ -294,7 +294,112 @@ At last the authors propose that by applying Lean and agile practices you can ch
 
 ## Chapter 4 - Technical Practices
 
+### What is continuous delivery?
 
+> Continuous delivery is a set of capabilities that enable us to get changes of all kinds - features, configuration changes, bug fixes, experiments - into production or into the hands of users *safely*, *quickly* and *sustainably*.
 
+> A key objective for management is making the state of these system-level outcomes transparent, working with the rest of the organization to set measurable, achievable, time-bound goals for these outcomes, and then helping their teams work toward them.
 
+> Implementing continuous delivery means crating multiple feedback loops to ensure that high-quality software gets delivered to users more frequently and more reliably.
+
+### The impact of continuous delivery
+
+> However, they also have other significant benefits: they help to decrease deployment pain and team burnout.
+
+> By giving developers the tools to detect problems when they occur, the time and resources to invest in their development, and the authority to fix problems straight away, we create an environment where developers accept responsibility for global outcomes such as quality and stability.
+
+> This means that investments in technology are also investments in people, and these investments will make our technology process more sustainable.
+
+### The impact of continuous delivery on quality
+
+> Furthermore, continuous delivery predicts lower levels of unplanned work and rework in a statistically significant way.
+
+> Unplanned work and rework are useful proxies for quality because they represent a failure to build quality into our products.
+
+> ( Analogy to the car with low fuel alert, and running out of gas in the highway) ... the organization can fix the problem in a planned manner, without much urgency or disruption to other scheduled work. In the second case, they must fix the problem in a highly urgent manner, often requiring all hands on deck - for example, have six engineers drop everything ...
+
+> demand for work caused by the failure to do the right thing the first time by improving quality of service we provide.
+
+### Continuous delivery practices: What works and what doesn't
+
+> Too many test suites are flaky and unreliable, producing false positives and negatives - it's worth investing ongoing effort into a suite that is reliable.
+
+> First, the code becomes more testable when developers write tests. This is one of the main reasons why test-driven development (TDD) is an important practice - it forces developers to create more testable designs.
+
+> In our data, successful teams had adequate test data to run their fully automated test suites and could acquire test data for running automated tests on demand.
+
+> We should note that GitHub Flow is sustainable for open source projects whose contributors are not working on a project full time.
+
+### Adopting Continuous Delivery
+
+> A critical obstacle to implementing continuous delivery is enterprise and application architecture.
+
+### My Summary
+
+This chapter demonstrates the impact of technical practices on software delivery performance, organizational culture, team burnout and deployment pain.
+
+Continuous delivery is a set of practices that enable us to ship code into production quick,  safely and sustainably. Continuous delivery creates several feedback loops to ensure shipped code is high-quality and reliable.
+
+CD Practices are Version control, Deployment automation, Continuous integration, Trunk-based development, Test automation, Test data management, Shift left on security, Loosely coupled architecture, Empowered teams, Monitoring, Proactive notification.
+
+The 5 key principles of continuous delivery:
+
+- Build quality in:
+  - We invest in building a cultured supported by people and tools that can detect and fix issues quickly and cheaply.
+- Work in small batches:
+  -  Smaller chunks provide faster feedback.
+  - It's easier to adapt the plans.
+  - Avoid delivering zero or non value items.
+- Computers perform repetitive tasks; people solve problems:
+  - Automate repetitive work to reduce cost and errors
+  - Free people to higher value tasks
+- Relentlessly pursue continuous improvement:
+  - Continuous improvement
+- Everyone is responsible:
+  - Close collaboration and everyone involved in the software delivery process
+
+In order to create Continuous delivery, we must build this foundation:
+
+- Comprehensive configuration management:
+  - Infrastructure as a code
+  - Config, the 3rd principle of the Twelve-factor app
+- Continuous integration (CI):
+  - short lived feature branches or trunk based development
+  - Pipelines that ensure code quality and project standard
+- Continuous testing:
+  - Test as integral part of development
+  - High amount of test automation 
+  - Testers doing exploratory testing
+
+Their research shows that Continuous Delivery capabilities have the following outcomes:
+
+- A strong positive impact on software delivery performance, which leads to organizational performance.
+- Reduces the deployment pain and team burnout.
+- Stronger identification with the organization.
+- A generative, performance-oriented, culture.
+- Lower change fail rate ( Less rework )
+
+With those outcomes we can also conclude that investing in technology is investing in people. And, applying CD can also be linked to the agile manifest principle: "*Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely*".
+
+Then the authors also answer the question *whether CD increases quality*. And the answer is also yes. Not only by reducing the change fail rate. But, also,  High performers applying CD, have more time to spent on New Work, 11% more than lower performers which have to spent more time working on Unplanned Work or Rework.
+
+Unplanned Work or Rework has a great analogy about a car with low fuel warning, and running out of gas on the highway.
+
+About the CD practices:
+
+- Version Control: Handle not only code but also configuration as a primary concern for versioning.
+- Test automation: 
+  - Reliable automated tests. You have to fix flaky and unreliable tests.
+  - Developers as responsible for test automation.
+    - TDD, and achieve a more testable design
+    - Invest more effort maintaining the tests
+- Test Data Management: 
+  - Successful teams must had adequate test data
+- Trunk-based development: 
+  - Short feature branches (less than a day) or trunk based
+  - No code freezes or stabilization period
+- Information security:
+  - Integrating security practices into the delivery process contributed to software delivery performance.
+
+Although those practices do have a lot of positive points they do require rethink architecture, how the teams works, relationships, tools, processes and so on...
 
