@@ -405,3 +405,64 @@ Although those practices do have a lot of positive points they do require rethin
 
 ## Chapter 5 - Architecture
 
+> We found that High performance is possible with all kinds of systems, provided that systems -and the teams that build and maintain them - are loosely coupled
+
+### Types of systems and delivery performance
+
+> We discovered that low performers were more likely to say that the software they were building - or the set of services they had to interact with - was custom software developed by another company (e.g., an outsourcing partner). Low performers were also more likely to be working on mainframe systems.
+
+> It's possible to achieve these characteristics even with packaged software and "legacy" mainframe systems - and, conversely, employing the latest whizzy microservices architecture deployed on containers is no guarantee of higher performance if you ignore these characteristics.
+
+> testability and deployability, are important in creating high performance.
+
+### Focus on deployability and testability
+
+> To enable this, we must also ensure delivery teams are cross-functional, with all the skills necessary to design, develop, test, deploy, and operate the system on the team.
+
+> Architectural approaches that enable this strategy include use of bounded context and APIs as a way to decouple large domains into smaller, more loosely coupled units, and the use of test double and virtualization as a way to test services or components in isolation.
+
+> Of course DevOps is all about better collaboration between teams, and we don't mean to suggest teams shouldn't work together.
+
+### A loosely coupled architecture enables scaling
+
+> Second, we can substantially grow the size of our engineering organization and increase productivity linearly - or better than linearly - as we do so.
+
+> (Scaling the frequency of deployments per day) This allows our business to move *faster* as we add more people, not slow down, as is more typically the case.
+
+### Allow teams to choose their own tools
+
+> However, there is a downside to this lack of flexibility: it prevents teams from choosing technologies that will be most suitable for their particular needs, and from experimenting with new approaches and paradigms to solve their problems.
+
+> When the tools provided actually make life easier for the engineers who use them, they will adopt them of their own free will.
+
+### Architects should focus on engineers and outcomes, not tools or technologies
+
+> What is important is enabling teams to make changes to their products or services without depending on other teams or systems.
+
+### My Summary
+
+The architecture of your system can be a barrier to apply continuous delivery practices and increase both tempo and stability.
+
+Loose coupling is the key architectural property that enables teams to test, deploy, and scale with ease. Also, it's the responsible for ensuring the organization productivity scales as the organization scales.
+
+The type of system is not a key factor to team's performance. You can achieve either good performance with legacy systems or bad performance with latest microservices architecture. It all depends whether you achieve a loose coupled architecture. In order, to decouple the architecture you could use bounded context and APIs.
+
+The authors found two main characteristics that are more likely to be found on high performers:
+
+- Testing without required integrated environment (testability)
+- Independent Deploy (deployability)
+
+To achieve that you'll need cross functional teams (designer, ops, sec, devs, ...).
+
+Organizations should evolve their organization structure to achieve the desired architecture (inverse Conway law). The intent of DevOps is not to avoid collaboration, but that the communication is not a bottleneck for delivering value.
+
+In addition to delivery performance, a loosely coupled architecture enables linear or better than linear productivity at scale. High performers deploy at a significantly increasing frequency at scale, which allows company to move faster as they add more people.
+
+Even though, restricting the technologies to a approved list has benefits like reducing the technological complexity, that the teams have all the skills to manage technology's lifecycle and so on. It also means that teams will be restricted without experimentation and they might lack the most suitable tools for their needs.
+
+The organization must work closely to team, providing tools, libraries, and what they need with a great developer experience. This way organization's developer will choose by their will the tools provided by the organization.
+
+Architects should be focusing on collaborate closely with teams to enable them to change their products and services without depending on other teams.
+
+## Chapter 6 - Integrating infosec into delivery lifecycle
+
