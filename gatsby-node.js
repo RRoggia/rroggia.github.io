@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 function createPath( pathPrefix, title ) {
   return `${pathPrefix}/${title.toLowerCase().replace( /\s/ug, '-' )}`
 }
@@ -36,37 +37,25 @@ exports.createPages = async( { actions, graphql, reporter } ) => {
     return
   }
 
-  result.data.posts.edges.forEach( ( { node } ) => {
-    const { title } = node.frontmatter
+  result.data.posts.edges.forEach( createTemplatePages( 'posts', blogPostTemplate ) )
+  result.data.notes.edges.forEach( createTemplatePages( 'notes', noteTemplate ) )
 
-    if ( !title ) {
-      return
+  function createTemplatePages( pathPrefix, template ) {
+    return ( { node } ) => {
+      const { title } = node.frontmatter
+
+      if ( !title ) {
+        return
+      }
+
+      const path = createPath( pathPrefix, title )
+      createPage( {
+        path,
+        'component': template,
+        'context': {
+          title,
+        },
+      } )
     }
-
-    const path = createPath( 'posts', title )
-    createPage( {
-      path,
-      'component': blogPostTemplate,
-      'context': {
-        title,
-      },
-    } )
-  } )
-
-  result.data.notes.edges.forEach( ( { node } ) => {
-    const { title } = node.frontmatter
-
-    if ( !title ) {
-      return
-    }
-
-    const path = createPath( 'notes', title )
-    createPage( {
-      path,
-      'component': noteTemplate,
-      'context': {
-        title,
-      },
-    } )
-  } )
+  }
 }
