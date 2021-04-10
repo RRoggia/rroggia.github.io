@@ -42,7 +42,10 @@ export default function ContactMe() {
     <ContactWrapper>
       <p>Did you like my work? Contact me at:</p>
       <a href={ `mailto:${email}` }>
-        <ContactImage src={ emailLogo } />
+        <ContactImage
+          src={ emailLogo }
+          alt="email"
+        />
       </a>
       { socialNetworks.map( sn => (
         <a
