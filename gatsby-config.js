@@ -1,6 +1,7 @@
 module.exports = {
   'siteMetadata': {
     'title': 'rroggia.github.io',
+    'domainUrl': 'rroggia.github.io',
     'mySelf': {
       'name': 'Renan Roggia',
       'description': 'I consider myself a tech problem solver.'
@@ -67,6 +68,7 @@ module.exports = {
     },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp'
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet'
   ],
 }
