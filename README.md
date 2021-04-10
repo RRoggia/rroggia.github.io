@@ -1,48 +1,79 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# My blog
+The intent is to have **very** simplistic blog where I can centralize information about me, things I read, and things I would like to share.
 
-## 🚀 Quick start
+## Structure
+I tried my best to differentiate what is content, and what is part of the blog structure.
 
-1.  **Create a Gatsby site.**
+### Config
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+In the root folder the `gatsby-config.js` configures the structure described below.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+It also adds metadata to the blog like the Google Analytics TAG and my social network tags.
 
-2.  **Start developing.**
+### Markup Folders
+These folders represent the content shown in the blog.
 
-    Navigate into your new site’s directory and start it up.
+#### Notes
+Each note will have its own path created during build time. Its path is created based on the file name.
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+Each file must have a `frontmatter` identification. For example:
 
-3.  **Open the code and start customizing!**
+```
+---
+title: 'Accelerate'
+language: 'en-US'
+status: 'Reading'
+coverPath: 'accelerate'
+date: '2021-03-25'
+---
+```
 
-    Your site is now running at http://localhost:8000!
+- The `coverPath` must match the name of a cover within `covers`. If empty, there is a default image.
+- Notes are sorted by Date. The date represents either the finish reading date or the last time I read it.
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+#### Posts
+Each Post will have its own path created during build time. Its path is created based on the file name.
 
-4.  **Learn more**
+Each file must have a `frontmatter` identification. For example:
+```
+---
+title: 'Book club'
+tags: []
+published: true
+date: '2019-11-06'
+---
+```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Pages
+The `pages` folder contains the resources created statically. The file name represents the path you can access it in production. For example, you can access the `notes` pages in the `/notes` path.
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+A page might use a GraphQL query to load the content from the markup folders and render a list of this content.
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+### Templates
+Templates are the base structure for dynamically created resources. For example, each Note and each Post follow the structure of, respectively, the `NoteTemplate` and the `PostTemplate`. Each dynamic resource is created during build time in the `gatsby-node.js` file.
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## Scripts
+Check the `package.json` to see all the scripts:
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Install the dependencies with `npm i`.
+
+### Running locally
+Either `npm start` or `npm run develop`.
+
+Gatsby will start the server at `localhost:8000` and the GraphQL API at `localhost:8000/___graphql`.
+
+### Build & check static
+
+```
+  npm run build 
+  npm run serve
+```
+
+### Deploy to production
+In the root folder run `npm run deploy`.
+
+The deploy command will create the static build and push it to the GitHub `production` branch. The *rroggia.github.io* repository has the `production` branch configured as the GH page.
+
+#### Automatic Deploy
+Pushing changes to master will automatically trigger a new deploy in production using the GH Actions. Check the `.github/main.yml` for more info about it.
