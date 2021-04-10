@@ -1,0 +1,2 @@
+(self.webpackChunkrroggia_github_io=self.webpackChunkrroggia_github_io||[]).push([[883],{9616:function(e,r,n){"use strict";n.r(r);var t=n(7294),u=n(6706);r.default=function(){return t.createElement(u.Z,null,t.createElement("div",null,"In progress"))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-edae4ea31fee5911cd23.js.map
