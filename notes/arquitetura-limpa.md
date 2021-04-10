@@ -1,7 +1,7 @@
 ---
 title: 'Arquitetura Limpa'
 language: 'pt-BR'
-status: 'aaaaaaa'
+status: 'Reading'
 coverPath: 'arquitetura-limpa'
 date: '2021-01-01'
 ---

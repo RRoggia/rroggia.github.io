@@ -1,7 +1,7 @@
 ---
 title: 'You Dont know JS - Get Started'
 language: 'en-US'
-status: 'aaaaaaa'
+status: 'Read'
 coverPath: 'you-dont-know-js-get-started'
 date: '2021-01-01'
 ---

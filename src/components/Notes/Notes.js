@@ -34,6 +34,34 @@ const BookCover = styled( GatsbyImage )`
   }
 `
 
+const Ribbon = styled.div`
+  color: white;
+  background-color: ${( note ) => {
+    switch ( note.status ) {
+      case 'Read':
+        return 'green'
+      case 'Notes':
+        return 'orange'
+      default:
+        return 'red'
+    }
+  }};
+  position: absolute;
+  transform: rotate(45deg);
+  z-index: 1;
+  width: 80px;
+  margin-top: 10%;
+  margin-left: 58%;
+
+`
+const RibbonKiller = styled.div`
+  overflow: hidden;
+  display: block;
+  width: 150px;
+  position: relative;
+  margin: auto;
+`
+
 function getCoverImage( covers, title, emptyCover ) {
   const coverNode = covers.find( cover => {
     return cover.node.name === title
@@ -79,10 +107,13 @@ export default function Notes( { notes } ) {
           >
             <NoteCard >
               <h3> { n.title } </h3>
-              <BookCover
-                image={ getImage( getCoverImage( covers, `${n.coverPath}`, emptyCover ) ) }
-                alt={ n.title }
-              />
+              <RibbonKiller>
+                <Ribbon status={ n.status }>{ n.status }</Ribbon>
+                <BookCover
+                  image={ getImage( getCoverImage( covers, `${n.coverPath}`, emptyCover ) ) }
+                  alt={ n.title }
+                />
+              </RibbonKiller>
             </NoteCard>
           </NoteLink>
         ) )}

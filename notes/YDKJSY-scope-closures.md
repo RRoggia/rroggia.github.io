@@ -1,7 +1,7 @@
 ---
 title: 'You Dont know JS - Scope & Closures'
 language: 'en-US'
-status: 'aaaaaaa'
+status: 'Read'
 coverPath: 'you-dont-know-js-scope-closures'
 date: '2021-01-01'
 ---

@@ -1,7 +1,7 @@
 ---
 title: 'Scrum guide'
 language: 'en-US'
-status: 'aaaaaaa'
+status: 'Read'
 coverPath: '/images/cover/scrum-guide.jpg'
 date: '2021-01-01'
 ---

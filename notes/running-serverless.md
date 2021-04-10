@@ -1,7 +1,7 @@
 ---
 title: 'Running Serverless'
 language: 'en-US'
-status: 'aaaaaaa'
+status: 'Reading'
 coverPath: 'running-serverless'
 date: '2021-01-01'
 ---

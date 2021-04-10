@@ -1,7 +1,7 @@
 ---
 title: 'Agile estimating and planning'
 language: 'en-US'
-status: 'aaaaaaa'
+status: 'Reading'
 coverPath: 'agile-estimating-and-planning'
 date: '2021-01-01'
 ---
