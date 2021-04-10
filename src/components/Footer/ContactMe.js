@@ -53,6 +53,7 @@ export default function ContactMe() {
           <ContactImage
             key={ sn.url }
             src={ logos[ sn.name ] }
+            alt={ sn.name }
           />
         </a>
       ) ) }
