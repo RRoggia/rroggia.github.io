@@ -46,12 +46,13 @@ const Ribbon = styled.div`
         return 'red'
     }
   }};
+  font-size:1.2rem;
   position: absolute;
   transform: rotate(45deg);
   z-index: 1;
-  width: 80px;
-  margin-top: 10%;
-  margin-left: 58%;
+  width: 100px;
+  margin-top: 11%;
+  margin-left: 48%;
 
 `
 const RibbonKiller = styled.div`
