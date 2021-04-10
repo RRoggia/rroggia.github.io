@@ -1,2 +1,0 @@
-(self.webpackChunkrroggia_github_io=self.webpackChunkrroggia_github_io||[]).push([[140],{1774:function(e,t,r){"use strict";r.r(t),r.d(t,{default:function(){return u}});var n=r(7294),a=r(7853);function u(e){var t=e.data.markdownRemark,r=t.frontmatter,u=t.html;return n.createElement(a.Z,null,n.createElement("h1",null,r.title),n.createElement("div",{dangerouslySetInnerHTML:{__html:u}}))}}}]);
-//# sourceMappingURL=component---src-templates-note-template-js-ff1e60d9e96382406c4b.js.map
