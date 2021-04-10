@@ -1,10 +1,12 @@
 module.exports = {
   'siteMetadata': {
-    'title': 'rroggia.github.io',
+    'title': 'Renan Roggia - A developer with flipflops',
     'domainUrl': 'rroggia.github.io',
+    'description': 'The amazing stuff I\'ve been working on',
     'mySelf': {
       'name': 'Renan Roggia',
-      'description': 'I consider myself a tech problem solver.'
+      'description': 'I consider myself a tech problem solver.',
+      'image': 'https://rroggia.github.io/images/my-photo.jpg'
     },
     'contactMe': {
       'email': 'renanzr@gmail.com',
