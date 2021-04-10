@@ -467,3 +467,4 @@ Architects should be focusing on collaborate closely with teams to enable them t
 ## Chapter 6 - Integrating infosec into delivery lifecycle
 > However this kind of behavior is not limited to just development and operations, it occurs wherever different functions within the software delivery value stream do not work effectively together.
 
+### Shifting Left On Security
