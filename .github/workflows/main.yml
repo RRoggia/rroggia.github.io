@@ -1,0 +1,25 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: npm i
+
+      - name: Deploy to production
+        run: |
+          git config --local user.email "renanzr@gmail.com"
+          git config --local user.name "RRoggia"
+          git remote set-url origin https://RRoggia:${{ secrets.AUTH_PASS }}@github.com/RRoggia/rroggia.github.io.git
+          npm run deploy
