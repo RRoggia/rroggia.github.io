@@ -8,7 +8,7 @@ export default function SEO() {
       site {
         siteMetadata {
           title
-          domainUrl
+          siteUrl
           description
           mySelf {
             image
@@ -17,7 +17,7 @@ export default function SEO() {
       }
     }
   ` )
-  const { 'site': { 'siteMetadata': { title, domainUrl, description, 'mySelf': { image } } } } = data
+  const { 'site': { 'siteMetadata': { title, siteUrl, description, 'mySelf': { image } } } } = data
 
   return (
     <Helmet>
@@ -37,7 +37,7 @@ export default function SEO() {
       />
       <meta
         property="og:url"
-        content={ domainUrl }
+        content={ siteUrl }
       />
       <meta
         property="og:title"
@@ -58,7 +58,7 @@ export default function SEO() {
       />
       <meta
         property="twitter:url"
-        content={ domainUrl }
+        content={ siteUrl }
       />
       <meta
         property="twitter:title"
