@@ -1,7 +1,7 @@
 module.exports = {
   'siteMetadata': {
     'title': 'Renan Roggia - A developer with flipflops',
-    'siteUrl': 'rroggia.github.io',
+    'siteUrl': 'https://rroggia.github.io',
     'description': 'The amazing stuff I\'ve been working on',
     'mySelf': {
       'name': 'Renan Roggia',
