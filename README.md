@@ -1,6 +1,20 @@
 # My blog
 The intent is to have **very** simplistic blog where I can centralize information about me, things I read, and things I would like to share.
 
+- [My blog](#my-blog)
+  - [Structure](#structure)
+    - [Config](#config)
+    - [Markup Folders](#markup-folders)
+      - [Notes](#notes)
+      - [Posts](#posts)
+    - [Pages](#pages)
+    - [Templates](#templates)
+  - [Scripts](#scripts)
+    - [Running locally](#running-locally)
+    - [Build & check static](#build--check-static)
+    - [Deploy to production](#deploy-to-production)
+      - [Automatic Deploy](#automatic-deploy)
+
 ## Structure
 I tried my best to differentiate what is content, and what is part of the blog structure.
 
