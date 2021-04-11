@@ -465,6 +465,29 @@ The organization must work closely to team, providing tools, libraries, and what
 Architects should be focusing on collaborate closely with teams to enable them to change their products and services without depending on other teams.
 
 ## Chapter 6 - Integrating infosec into delivery lifecycle
-> However this kind of behavior is not limited to just development and operations, it occurs wherever different functions within the software delivery value stream do not work effectively together.
+> (Referring to bring people together) However this kind of behavior is not limited to just development and operations, it occurs wherever different functions within the software delivery value stream do not work effectively together.
 
 ### Shifting Left On Security
+
+> Information security should be integrated into the entire software delivery lifecycle from development through operations.
+
+> We found that high performers were spending 50% less time remediating security issues than low performers.
+
+### My Summary
+
+Whenever different functions of the value stream does not work effectively together, you should work to bring together these functions.
+
+The role of Infosec is downplayed in the organizations.
+
+Shifting security left, or bringing to the beginning of the development increases software delivery performance.
+
+There are 3 aspects that represent shift left:
+
+1. Security reviews are conducted for all major features.
+2. Security is integrated with the development lifecycle.
+3. Security team provide tools and processes required to the development and operation team.
+
+The Rugged manifest describes the practices or the mindset behind organization building survivable, defensible, secure and resilient software.
+
+## Chapter 7 - Management Practices For Software
+
