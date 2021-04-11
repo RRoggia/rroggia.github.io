@@ -491,3 +491,43 @@ The Rugged manifest describes the practices or the mindset behind organization b
 
 ## Chapter 7 - Management Practices For Software
 
+### Lean Management Practices
+
+> Limit Work In Progress (WIP)
+>
+> Visual Management
+>
+> Feedback from Production
+>
+> Lightweight Change Approvals
+
+> WIP limits are no good if they don't lead to improvements that increase flow.
+
+> The central concepts here are the types of information being displayed, how broadly it is being shared, and how easy it is to access. Visibility, and the high-quality communication it enables are key.
+
+### Implement a Lightweight Change Management Process
+
+> We found that approval for high-risk changes was not correlated with software delivery performance. Teams that reported no approval process or used peer review achieved higher software delivery performance.
+
+> Our recommendation based on these results is to use a lightweight change approval process based on peer review, such as pair programming or intra team code review, combined with a deployment pipeline to detect and reject bad changes.
+
+> This idea is a form of risk management theater: we check boxes so that when something goes wrong, we can say that at least we followed the process.
+
+### My Summary
+
+Consider as Lean Management practices the following:
+
+1. Limiting WIP: Use it to drive process improvements and increase throughput.
+2. Visual management: Key quality, productive metrics and current status of work visible to everyone. Also, aligning metrics with operational goals.
+3. Feedback from production: Application performance and infrastructure monitoring.
+
+Limiting WIP by itself does not strongly predict delivery performance. But combined with points 2 and 3 they found a strong effect in delivery performance.
+
+The teams should focus on using the WIP to highlight the bottlenecks and work to improve the overall stream value.
+
+The visual management together with feedback from production brings visibility to people working on software and enables a high-quality communication.
+
+The researchers found that is better a lightweight process for changes such as peer review, pair programming or intra team code review.
+
+## Chapter 8 - Product Development
+
