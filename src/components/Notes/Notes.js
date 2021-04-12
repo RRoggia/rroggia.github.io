@@ -115,6 +115,8 @@ export default function Notes( { notes } ) {
                   alt={ n.title }
                 />
               </RibbonKiller>
+              <p>Language: { n.language }</p>
+              <p>Date: { n.date }</p>
             </NoteCard>
           </NoteLink>
         ) )}
