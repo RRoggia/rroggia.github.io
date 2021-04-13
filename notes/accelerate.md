@@ -531,3 +531,30 @@ The researchers found that is better a lightweight process for changes such as p
 
 ## Chapter 8 - Product Development
 
+### Lean Product Development Practices
+
+> Improving your software delivery effectiveness will improve your ability to work in small batches and incorporate customer feedback along the way.
+
+> The key to working in small batches is to have work decomposed into features that allow for rapid development, instead of complex features developed on branches and released infrequently.
+
+> Working in small batches enables short lead times and faster feedbacks loops.
+
+### Team Experimentation
+
+> Many development teams working in organizations that claim to be Agile are nonetheless obliged to follow requirements created by different teams. This restriction can create some real problems and can result in products that don't actually delight and engage customers and won't deliver the expected business results.
+
+> Our analysis showed that the ability of teams to try out new ideas and create and update specifications during the development process, without requiring the approval of people outside th team, is an important factor in predicting organizational performance as measured in terms of profitability, productivity and market share.
+
+### My Summary
+
+Working in small batches, making a flow of work visible, Gather and implement customer feedback and team experimentation are statistically significant to predict higher software delivery performance and organizational performance, as well as improving organizational culture and decreasing burnout.
+
+- *Working in small batches*: Short lead time and reduced feedback loop.
+- *Visible flow of work*: Stream of value from business to customer.
+- *Customer feedback*: Actively and regularly seeking customer feedback.
+- *Team experimentation*: The team uses small batches and the visible flow of work to implement the customer feedback. Increasing the probability of delivering delight to customers.
+
+## Chapter 9 - Making Work Sustainable
+
+
+
