@@ -379,7 +379,7 @@ Their research shows that Continuous Delivery capabilities have the following ou
 - A generative, performance-oriented, culture.
 - Lower change fail rate ( Less rework )
 
-With those outcomes we can also conclude that investing in technology is investing in people. And, applying CD can also be linked to the agile manifest principle: "*Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a constant pace indefinitely*".
+With those outcomes we can also conclude that investing in technology is investing in people. And, applying CD can also be linked to the agile manifest principle: "*Agile processes promote sustainable development. The sponsors, developers, and users should be able to maintain a Technical praticeconstant pace indefinitely*".
 
 Then the authors also answer the question *whether CD increases quality*. And the answer is also yes. Not only by reducing the change fail rate. But, also,  High performers applying CD, have more time to spent on New Work, 11% more than lower performers which have to spent more time working on Unplanned Work or Rework.
 
@@ -520,6 +520,7 @@ Consider as Lean Management practices the following:
 1. Limiting WIP: Use it to drive process improvements and increase throughput.
 2. Visual management: Key quality, productive metrics and current status of work visible to everyone. Also, aligning metrics with operational goals.
 3. Feedback from production: Application performance and infrastructure monitoring.
+4. Lightweight process
 
 Limiting WIP by itself does not strongly predict delivery performance. But combined with points 2 and 3 they found a strong effect in delivery performance.
 
@@ -556,5 +557,104 @@ Working in small batches, making a flow of work visible, Gather and implement cu
 
 ## Chapter 9 - Making Work Sustainable
 
+### Deployment Pain
 
+> The fear and anxiety that engineers and technical staff feel when they push code into production can tell us a lot about a team's software delivery performance.
+
+> And the barriers that hide the work of deployment from developers are rarely good, because they isolate developers from the downstream consequences of their work.
+
+> ... the technical practices that improve our ability to deliver software with both speed and stability also reduce the stress and anxiety associated with pushing code to production.
+
+> First, software is often not written with deployability in mind. A common symptom here is when complex, orchestrated deployments are required because the software expects its environment and dependencies to be set up in a very particular way and does not tolerate any kind of deviation from these expectations, giving little useful information to administrators on what is wrong and why it is failing to operate correctly.
+
+> Second, the probability of a failed deployment rises substantially when manual changes must be made to production environments as part of the deployment process.
+
+> Finally, complex deployments often require multiple handoffs between teams, particularly in siloed organizations where database administrators, network administrators, system administrators, infosec, testing/QA and developers all work in separate teams.
+
+### Burnout
+
+> Burnout can make the things we once loved about our work and life seem insignificant and dull.
+
+> Job stress also affects employers, costing the US economy $300 billion per year in sick time, long-term disability, and excessive job turnover.
+
+> Technology managers, like so many other well-meaning managers, often try to fix the person while ignoring the work environment, even though changing the environment is far more vital for long-term success.
+
+> Managers are ultimately responsible for fostering a supportive and respectful work environment, and they can do so by creating a blame-free environment, striving to learn from failures and communicating a shared sense of purpose.
+
+> Managers and leaders should ask their teams how painful their deployments are and fix the things that hurt the most.
+
+> Responsibility of a team leader include limiting work in process and eliminating roadblocks for the team so they can get their work done.
+
+> Investing in training and providing people with the necessary support and resources (including time)to acquire new skills are critical to the successful adoption of DevOps.
+
+> This means creating a work environment that supports experimentation, failure, and learning, and allows employees to make decisions that affect their jobs.
+
+> When organizational values and individual values aren't aligned, you are more likely to see burnout in employees, particularly in demanding and high-risk work like technology.
+
+> (Lack of alignment between individuals and organizational values) This is an area of potential impact that organizations neglect at their own peril
+
+### My Summary
+
+Deployment pain is the fear and anxiety that engineers feel to push code to production.
+
+The Microsoft team, found an increase of 38% in work/life balance satisfaction score, after they started to apply CD practices.
+
+The development team should be aware of the software deployment process. If they don't, it could be an warning that software delivery performance could be low.
+
+CD reduces the deployment pain, which creates a better IT performance, organizational performance and organizational culture.
+
+Deployments outside business hours are a good signal of deployment pain.
+
+Pillars of deployment pain:
+
+- Software not build with deployability in mind: Requires the environments to be in a very specific state otherwise won't work. The system don't provide enough information to troubleshoot.
+- Manual changes in production: Human are prone to errors. Manual steps allow a deviation between environments.
+- Handoffs between teams: Loss of information, delay in delivery, complex deployment process.
+
+To reduce deployment pain:
+
+- Reproducibility: Build systems that are able to be easily reproduced in multiple environments.
+- Fault tolerant: The system can detect and tolerate failures.
+- Automate: Ideally it should have near to none manual steps.
+
+To avoid burnout, manager should concentrate on:
+
+- Learning with failure
+- Communicating a strong sense of purpose
+- Investing in employee development
+- Removing obstacles
+- Giving employee time, space and resources to experiment and learn
+
+Six organizational risk factors that predict burnout:
+
+1. Work Overload: excessive job demands
+2. Lack of control: unable to change influence decisions
+3. Insufficient reward: financial, institutional or social rewards.
+4. Breakdown of community: unsupportive workplace.
+5. Absence of fairness: lack of fairness in decision making.
+6. Value conflicts: mismatch organizational values.
+
+Improving technical practices contribute to reduce the feelings of burnout.
+
+According to their own research, to reduce or fight burnout:
+
+1. Organizational Culture: 
+   1. Avoid pathological or power-oriented culture.
+   2. Create a blame-free environment with a transparent purpose (human error is never the root cause).
+2. Deployment pain:
+   1. Avoid out of business hour deploy.
+   2. Tackle the deployment pain. Managers should hear the team's pain and help to fix it.
+3. Effectiveness of leaders:
+   1. Reduce WIP
+   2. Remove obstacles of teams
+4. Organizational investments in DevOps:
+   1. Investing in training
+   2. Providing people the necessary support (including time)
+5. Organizational performance:
+   1. Create work environment with support to experimentation, failure and learning
+   2. Enable employees to change their reality
+
+It's also very important to have the organization's values aligned with the employee values. This lessens the effects of the burnout.
+
+# Chapter 10 -  Employee satisfaction, identity and engagement
 
