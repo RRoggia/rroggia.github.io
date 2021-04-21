@@ -658,3 +658,57 @@ It's also very important to have the organization's values aligned with the empl
 
 # Chapter 10 -  Employee satisfaction, identity and engagement
 
+> With market pressures to deliver technologies and solutions even faster the importance of hiring, retaining, and engaging our workforce is greater than ever.
+
+### Employee Loyalty
+
+> Our research found that employees in high-performing organization were 2.2 times more likely to recommend their organization as a great place to work.
+
+> ... when employees see the connection between the work they do and its positive impact on customers, they identify more strongly with the company's purpose, which leads to better software delivery and organizational performance.
+
+### Changing organizational culture and identity
+
+> People are an organization's greatest asset - yet so often they're treated like expendable resources.
+
+> by creating higher levels of software delivery performance, we increase the rate at which teams can validate their ideas, creating higher levels of job satisfaction and organizational performance.
+
+> This is in contrast to the way many companies still work: requirements are handed down to development teams who must then deliver large stacks of work in batches. In this model , employees feel little control over the products they build and the customer outcomes they create, and little connections to the organizations they work for.
+
+> Our analysis is clear: in today's fast-moving and competitive world, the best thing you can do for your products, your company, and your people is institute a culture of experimentation and learning, and invest in the technical and management capabilities that enable it.
+
+### How does job satisfaction impact organizational performance?
+
+> The cycle of continuous improvement and learning is what sets successful companies apart, enabling them to innovate, get ahead of the competition - and win.
+
+> Automation matters because it gives over to computers the things computers are good at- rote tasks that require no thinking and that in fact are done better when you don't think too much about them.
+
+### Diversity in tech - what our research found
+
+> It is also important to note that diversity is not enough. Teams and organizations must also be inclusive. An inclusive organization is one where "all organizational members feel welcome and valued for who they are and what they 'bring to the table'."
+
+> - 33% reported working on teams with no women.
+> - 56% reported working on teams that were less than 10% female
+> - 81% reported working on teams that were less than 25% female
+
+> Women and underrepresented minorities report harassment, microaggressions, and unequal pay. These are all things we can actively watch for and improve as leaders and peers.
+
+### My Summary
+
+The people are the most important asset of an organization. Therefore, you should ensure hiring, retaining and engaging workforce is as smooth as possible. You can use the employee Net Promoter Score (eNPS) to measure employee loyalty.
+
+Enabling workers to do their best, fostering continuous delivery and lean practices, creates an identity between the employee and the organization, which leads to organizational performance. Employees are more likely to go get the extra mile to achieve success.
+
+There are two virtuous cycle to look for:
+
+- The higher the software delivery performance the faster the teams can validate ideas and deliver software, this creates a higher level of job satisfaction which leads to better organizational performance and software delivery performance
+- Investments in technology, like CD and Lean help to reduce burnout, which lead to higher level of job satisfaction which leads to better organizational performance and enables more investments in technology.
+
+The default work model for many companies is the exact opposite of the virtuous cycle. Where there are lots of top down decisions and handover of work. The teams have little to none autonomy to experiment and learn.
+
+You should aim for a culture with high experimentation and learning. In addition, applying continuous improvement enables the teams to innovate and get ahead of competition.
+
+Diversity also plays a role in better performance. Other research shows that teams with more diversity achieve better performance and better business outcomes. Organizations must be not only diverse but also inclusive. Everyone in the organization should feel welcome and valued.
+
+91% of the respondents considered themselves Male. 6% Female and 3% Non-binary or others. 77% of the respondents don't consider to be part of a underrepresented group. These numbers are an example of the lack of diversity in the technology field.
+
+Not only there are few women and underrepresented groups, but they also suffer from harassment, microaggressions and unequal pay.
