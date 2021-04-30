@@ -656,7 +656,7 @@ According to their own research, to reduce or fight burnout:
 
 It's also very important to have the organization's values aligned with the employee values. This lessens the effects of the burnout.
 
-# Chapter 10 -  Employee satisfaction, identity and engagement
+## Chapter 10 -  Employee satisfaction, identity and engagement
 
 > With market pressures to deliver technologies and solutions even faster the importance of hiring, retaining, and engaging our workforce is greater than ever.
 
@@ -712,3 +712,6 @@ Diversity also plays a role in better performance. Other research shows that tea
 91% of the respondents considered themselves Male. 6% Female and 3% Non-binary or others. 77% of the respondents don't consider to be part of a underrepresented group. These numbers are an example of the lack of diversity in the technology field.
 
 Not only there are few women and underrepresented groups, but they also suffer from harassment, microaggressions and unequal pay.
+
+## Chapter 11 - Leaders and Managers
+

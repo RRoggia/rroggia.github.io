@@ -33,3 +33,29 @@ date: '2021-04-04'
 
 # I - Colocando o modelo de domínio em ação
 
+>Mapas são modelos, e cada modelo representa algum aspecto da realidade com uma ideia que seja de interesse. Um modelo é uma simplificação. Ele é uma interpretação da realidade que destaca os aspectos relevantes para resolver o problema que se tem em mãos ignorando os detalhes estranhos.
+
+> (O modelo) Ele não é simplesmente o conhecimento existente na cabeça de um especialista em domínios; *ele é uma abstração rigorosamente organizada e seletiva daquele conhecimento.*
+
+> O coração do software está na sua capacidade de resolver problemas relacionados ao domínio para o seu usuário. Todas as outras características, por mais vitais que possam ser, se apoiam nessa finalidade básica.
+
+> A complexidade existente no coração de um software deve ser enfrentada cara a cara. Qualquer tentativa de se fazer o contrário é arriscar a irrelevância.
+
+> Um desenvolvedor de software tem essa mesma perspectiva quando se depara com um domínio complicado e que nunca foi formalizado. Criar um modelo lúcido que elimine essa complexidade é algo excitante.
+
+## Meu Sumário
+
+Mapas são modelos que representam aspectos da realidade. Uma simplificação da realidade. Programas de software estão relacionados com domínios de negócio. Modelos ajudam em estruturar o conhecimento necessário para criar o software de forma simplificada.
+
+O foco dos modelos é transmitir o conhecimento, e não detalhar todo o conhecimento existente.
+
+Um modelo DDD tem 3 utilidades básicas:
+
+1. *O modelo e o coração do design dão forma um ao outro*: Modelo e implementação tem ligação intima.
+2. *O modelo é a espinha dorsal de uma linguagem utilizada por todos os membros da equipe*: Linguagem de comunicação entre desenvolvedores e especialistas.
+3. *O modelo é um conhecimento destilado*: É a forma que a equipe entende e estrutura o sistema. É dinâmico e evolui.
+
+O coração do software está na capacidade de resolver problemas do domínio. Se o domínio é muito complexo, deve-se enfrentar a complexidade para tentar reduzi-la.
+
+## UM - Assimilando o conhecimento
+
