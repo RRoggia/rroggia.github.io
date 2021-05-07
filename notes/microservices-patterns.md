@@ -32,6 +32,12 @@ date: '2021-05-04'
 
 > Using the microservice architecture makes it much more difficult to iterate rapidly. A startup should almost certainly begin with a monolithic application.
 
+> But in addition to having the right architecture, successful software development requires you to also have organization, and development and delivery processes.
+
+> It’s important, therefore, to apply Conway’s law in reverse and design your organization so that its structure mirrors your microservice architecture. By doing so, you ensure that your development teams are as loosely coupled as the services
+
+> A key characteristic of continuous delivery is that software is always releasable. It relies on a high level of automation, including automated testing. Continuous deployment takes continuous delivery one step further in the practice of automatically deploying releasable code into production.
+
 ## My Summary
 
 Monolithic hell is an application's state where it has become too large and too complex. It might be written with obsolete technology. To make changes is almost impossible and take too much time.
@@ -100,4 +106,37 @@ The Drawbacks of Microservices:
 - Distributed systems are complex, which makes development, testing, and deployment difficult: More complex, requires interprocess communication. Harder to implement transactional queries that span services. Operational complexity due to the several parts running.
 - Deploying features that span multiple services requires careful coordination: Coordination between several development teams. Roll-out plan.
 - Deciding when to adopt the microservice architecture is difficult: It's better to start with a monolith, since it's faster. But it's harder to break it down later.
+
+The author then explains about patterns and it's useful because it describes the context it applies.
+
+The microservices patterns consists of a group of patterns that are solution to problems encountered in microservices. The groups are part of 3 layers:
+
+1. Infrastructure patterns - Infrastructure issues
+2. Application Infrastructure - Infrastructure issues that impact development
+3. Application patterns - Application issues
+
+The groups are:
+
+- Decomposition: How to break the microservices
+- Communication:
+  - Communication Style: Choose mechanism to communicate
+  - Discovery: Client and Service recognition
+  - Reliability: reliable communication even when servers might be unreliable.
+  - Transactional Messaging: Applying database transaction with messaging and events 
+  - External API: Clients and Service communication
+- Data consistency: Maintain consistency with distributed databases
+- Queries: With data distributed how to retrieve data scattered.
+- Deployment: Deploying microservices
+- Observability: Runtime behavior and troubleshooting problems
+- Testing: Testing smaller pieces but a more complex system.
+- Cross-cutting: External configuration
+- Security: Securing the whole system.
+
+When the organization starts to succeed it's expected that the number of developers will  increase. Applying the inverse Conway's, and structuring the organization in a manner to have small, cross-functional and autonomous teams, the system will mirror this structure. Enabling to add more people and maintain the productivity by avoiding communication overhead.
+
+In addition, it's ideal to use microservice with a agile / DevOps mindsets. Microservices eases to apply concepts like CD by reducing the size of the services you make it easier to apply changes to production faster. 
+
+During a transition to microservice architecture, you have to consider the human side of the developers in order to ensure a good transition.
+
+# Chapter 2 - Decomposition Strategies
 
