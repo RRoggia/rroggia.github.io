@@ -173,5 +173,22 @@ SRE team is responsible for the:
   - Organic growth (natural adoption)
   - Inorganic growth (feature launches, marketing campaign, ...)
 
-  
+## Chapter 2 - The Production Environment at Google, from the Viewpoint of an SRE
 
+### System Software That "Organizes" the Hardware
+
+> Given the large number of hardware components in a cluster, hardware failures occur quite frequently. In a single cluster in a typical year, thousands of machines fail and thousands of hard disks break; when multiplied by the number of clusters we operate globally, these numbers become somewhat breathtaking.
+
+#### Networking
+
+> In order to minimize latency for globally distributed services, we want to direct users to the closest datacenter with available capacity.
+
+### Our Development Environment
+
+> When software is built, the build request is sent to build servers in a datacenter. Even large builds are executed quickly, as many build servers can compile in parallel. This infrastructure is also used for continuous testing. Each time a CL is submitted, tests run on all software that may depend on that CL, either directly or indirectly. If the framework determines that the change likely broke other parts in the system, it notifies the owner of the submitted change. Some projects use a push-on-green system, where a new version is automatically pushed to production after passing tests.
+
+### My Summary
+
+This chapter they describe Google's Environment.
+
+The cluster operating system Borg handles resource allocation. Borg is the precedent of Kubernetes. r
