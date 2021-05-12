@@ -59,3 +59,61 @@ O coração do software está na capacidade de resolver problemas do domínio. S
 
 ## UM - Assimilando o conhecimento
 
+> Escrevi um protótipo bastante simples, movido por um framework de teste automatizado. Evitei toda a infraestrutura. Não havia nenhuma persistência e nenhuma interface com o usuário (IU).
+
+### Os ingredientes de uma modelagem eficaz
+
+> É a criatividade das ideias e da experimentação maciça, alavancadas através de uma linguagem baseada em modelos e disciplinada pelo ciclo de feedback, através da implementação, que possibilita encontrar um modelo rico em conhecimento e destila-lo.
+
+### Assimilando o conhecimento
+
+> Essa destilação é uma expressão rigorosa do conhecimento especifico considerado mais relevante.
+
+> Mas, se não estiverem interessados no domínio, os programadores aprendem somente o que o aplicativo deve fazem e não os princípios existentes por trás dele. Softwares úteis podem ser construídos dessa forma, mas o projeto nunca chegará ao ponto em que novos recursos poderosos revelam como corolários aos antigos recursos.
+
+> A interação entre os membros da equipe muda à medida que todos os membros digerem aquele modelo em conjunto.
+
+### Aprendizado contínuo
+
+> Quando decidimos escrever um software, nunca sabemos o suficiente.
+
+> Equipes altamente produtivas aumentam seu conhecimento conscientemente, praticando o aprendizado contínuo.
+
+### Extraindo um conceito oculto
+
+> Um design mais explicito apresenta as seguintes vantagens:
+>
+> 1. Para que o design chegue a esse estágio [Explícito], os programadores e todas as outras pessoas envolvidas terão de entender a natureza do overbooking [regra do domínio] como uma regra de negócio distinta e importante, e não simplesmente um cálculo obscuro.
+> 2. Os programadores podem mostrar aos especialistas daquele negócio artefatos técnicos, até mesmo códigos, que devem ser inteligíveis para os especialistas de domínio (com um pouco de ajuda), fechando assim um ciclo de feedback.
+
+### Modelos profundos
+
+> A assimilação do conhecimento é uma exploração, e é impossível saber onde se pode chegar.
+
+### Meu Sumário
+
+O capitulo começa com uma conversa entre especialistas do domínio e os desenvolvedores. Onde eles desenham juntos um modelo do domínio. Uma vez que o desenvolvedor da conversa tem esse exemplo ele foca em construir esse modelo focando nas camadas de negócios, e usando testes para trazer segurança que o código foi escrito da maneira correta. Isso trouxe uma velocidade para a demonstração do domínio para os especialistas, o que trouxe novos feedbacks e evolução do modelo.
+
+O que torna uma modelagem eficaz?
+
+1. Ligando o modelo e a implementação: Protótipo do modelo para entender viabilidade.
+2. Cultivando uma linguagem baseada no modelo: Tanto os desenvolvedores quanto os especialistas conhecem e podem utilizar a linguagem do modelo. A linguagem é útil e representa as partes mais relevantes do domínio.
+3. Desenvolvendo um modelo rico em conhecimento: O modelo não é somente um desenho, ele de fato representa o conhecimento da área de negócio.
+4. Destilando o modelo: Os conceitos representados no modelo são mutáveis de acordo com a importância que eles tem. Quando param de ser importantes são removidos do modelo. Assim como, novos conceitos são adicionados conforme o entendimento avança.
+5. Colhendo ideias e experimentando: A linguagem tem um papel fundamental em transformar qualquer conversa em um laboratório de experimentação. Cada frase poem em prova o modelo, e traz visibilidade para possíveis melhorias.
+
+Ou seja, uma modelagem eficaz, traz transparência e entendimento conjunto para o domínio de negócio. A transparência permite que o domínio seja constantemente exercitado e criticado o que facilita no refinamento do modelo assim como no assimilação do conhecimento.
+
+Os modeladores de domínio devem buscar ativamente quais são as informações mais importantes do domínio. Não é esperado que uma primeira seja uma versão que representa perfeitamente o domínio, justamente o oposto, vários modelos serão tentados, rejeitados e sofrerão transformações até encontrar um modelo que representa o conhecimento considerado mais importante do domínio.
+
+O modelador deve ativamente engajar em discussões com especialistas do domínio, não sendo portanto, uma responsabilidade exclusiva dele a assimilação do conhecimento. Metodologias em etapas (método cascata) que separam os desenvolvedores dos especialistas do domínio tendem portanto a alcançar resultados inferiores pela falta de feedback e restrição da informação. Metodologias iterativas, reduzem o problema, e permite a criação de uma aplicação que atende as necessidades, principalmente se a refatoração acontecer conforme o projeto evolui. Entretanto, se não houver uma busca dos desenvolvedores em aprender o domínio, a aplicação nunca chegará a um ponto onde novos recursos sejam construídos com facilidade sobre o que já existe.
+
+Conforme o entendimento dos desenvolvedores evolui, o modelo acaba sendo refinado e os conhecimentos mais relevantes descritos por ele mudam. Ou seja, o refinamento do modelo faz parte de um processo de aprendizado contínuo e não pontual.
+
+**Palavras chaves**: modelagem eficaz, assimilar conhecimento, aprendizado contínuo, refinamento do modelo, design explicito, modelo profundo.
+
+## DOIS - Comunicação e uso da linguagem
+
+
+
+
