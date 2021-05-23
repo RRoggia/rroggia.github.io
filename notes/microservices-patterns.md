@@ -140,3 +140,191 @@ During a transition to microservice architecture, you have to consider the human
 
 # Chapter 2 - Decomposition Strategies
 
+> The key challenge, which is the essence of the microservice architecture, is the functional decomposition of the application into services.
+
+## What is the microservice architecture exactly?
+
+> The architecture of a software application is its high-level structure, which consists of constituent parts and the dependencies between those parts.
+
+> The reason architecture is important is because it determines the application’s software quality attributes or -ilities.
+
+### What is software architecture and why does it matter?
+
+> The software architecture of a computing system is the set of structures needed to reason about the system, which comprise software elements, relations among them, and properties of both.
+
+> The 4+1 model, shown in Figure 2.1, defines four different views of a software architecture. Each describes a particular aspect of the architecture and consists of a particular set of software elements and relationships between them.
+
+> Architecture is important because it enables an application to satisfy the second category of requirements: its quality of service requirements. These are also known as quality attributes and are the so-called -ilities.
+
+> The quality of service requirements define the runtime qualities such as scalability and reliability. They also define development time qualities including maintainability, testability, and deployability
+
+### Overview of architectural styles
+
+> An architectural style, then, defines a family of such systems in terms of a pattern of structural organization. More specifically, an architectural style determines the vocabulary of components and connectors that can be used in instances of that style, together with a set of constraints on how they can be combined.
+
+> the monolithic architecture is an architectural style that structures the implementation view as a single (executable/deployable) component. The microservice architecture structures an application as a set of loosely coupled services.
+
+> A layered architecture organizes software elements into layers. Each layer has a well-defined set of responsibilities. A layered architecture also constraints the dependencies between the layers.
+
+> hexagonal architecture style organizes the logical view in a way that places the business logic at the center.
+
+> the application has one or more inbound adapters that handle requests from the outside by invoking the business logic... the application has one or
+> more outbound adapters that are invoked by the business logic and invoke external applications.
+
+> There are two kinds of ports: inbound and outbound ports. An inbound port is an API exposed by the business logic, which enables it to be invoked
+> by external applications. ... An outbound port is how the business logic invokes external systems.
+
+> Hexagonal architecture is a great way to describe the architecture of each service in a microservice architecture.
+
+### The microservice architecture is an architectural style
+
+> Monolithic architecture is an architectural style that structures the implementation view as a single component
+
+> A monolithic application can, for example, have a logical view that’s organized along the lines of a hexagonal architecture.
+
+> It structures the implementation view as a set of multiple components
+
+> Each service has its own logical view architecture, which is typically a hexagonal architecture
+
+> A key constraint imposed by the microservice architecture is that the services are loosely coupled. Consequently, there are restrictions on how the services collaborate.
+
+> A service is a standalone, independently deployable software component that implements some useful functionality.
+
+> A service has an API that provides its clients access to its functionality. There are two types of operations: commands and queries. The API consists of commands, queries, and events. A command, such as createOrder() , performs actions and updates data. A query, such as findOrderById() , retrieves data. A service also publishes events, such as OrderCreated , which are consumed by its clients.
+
+> the microservice architecture enforces the application’s modularity.
+
+> An essential requirement, however, is that a service has an API and is independently deployable.
+
+> All interaction with a service happens via its API, which encapsulates its implementation details. This enables the implementation of the service to change without impacting its clients
+
+> You must treat a service’s persistent data like the fields of a class and keep them private
+
+> [About shared libraries] you need to ensure that you don’t accidentally introduce coupling between your services.
+
+## Defining an application's microservice architecture
+
+> A system operation is an abstraction of a request that the application must handle. It’s either a command, which updates data, or a query, which retrieves data. The behavior of each command is defined in terms of an abstract domain model, which is also derived from the requirements. The system operations become the architectural scenarios that illustrate how the services collaborate.
+
+### Identifying the system operations
+
+> The domain model is derived primarily from the nouns of the user stories, and the system operations are derived mostly from the verbs.
+
+> The behavior of each system operation is described in terms of its effect on one or more domain objects and the relationships between them.
+
+> an architecture consisting of services that are primarily organized around business rather than technical concepts.
+
+### Defining services by applying the Decompose by business capability pattern
+
+> An organization’s business capabilities capture what an organization’s business is.
+
+> An organization’s business capabilities are identified by analyzing the organization’s purpose, structure, and business processes. Each business capability can be thought of as a service, except it’s business-oriented rather than technical.
+
+> A key benefit of organizing services around capabilities is that because they’re stable, the resulting architecture will also be relatively stable. The individual components of the architecture may evolve as the how aspect of the business changes, but the architecture remains unchanged.
+
+> They may evolve over time as we learn more about the application domain. In particular, an important step in the architecture definition process is investigating how the services collaborate in each of the key architectural services.
+
+### Defining services by applying the Decompose by sub-domain pattern
+
+> DDD avoids these problems (overly used and complex models) by defining multiple domain models, each with an explicit scope.
+
+> DDD calls the scope of a domain model a bounded context. A bounded context includes the code artifacts that implement the model. When using the microservice architecture, each bounded context is a service or possibly a set of services. We can create a microservice architecture by applying DDD and defining a service for each subdomain.
+
+> Also, the microservice architecture’s concept of autonomous teams owning services is completely aligned with the DDD’s concept of each domain
+> model being owned and developed by a single team.
+
+### Decomposition guidelines
+
+> We can apply SRP when defining a microservice architecture and create small, cohesive services that each have a single responsibility. This will reduce the size of the services and increase their stability.
+
+> We can apply CCP when creating a microservice architecture and package components that change for the same reason into the same service.
+
+> A saga is a sequence of local transactions that are coordinated using messaging.
+
+### Defining service APIs
+
+> In order to fully define the service APIs, you need to analyze each system operation and determine what collaboration is required.
+
+## My Summary
+
+There are several definitions for software architecture. One way of describe it is to think of the architecture as the bigger picture that decomposes the elements and their relationships. Therefore, decomposition plays a important role because will define how the division of knowledge and work will be distributed between teams, the lifecycle of each element, with each other element they interact and so on.
+
+Another point of view is to consider the 4+1 model. Where as the architecture is composed by 4 views:
+
+- Logical: The software created by developers.
+- Implementation: The output of the system and its relationships.
+- Process: The components at runtime.
+- Deployment: How the processes are mapped to machines.
+- Scenarios: The most important requirement as use cases or scenarios.
+
+The architecture is important because it will define the -ilities of the applications composing the architecture. The quality of service, aka quality attributes or the -ilities determine non functional requirements like scalability, performance, maintainability, testability, deployability and so on...
+
+An architecture style defines patterns, vocabulary and a set of constraints. A very common architecture style is the layered architecture.
+
+The popular three-tier architecture is the layered architecture applied to the logical view. Three tiers, the dependency goes top to bottom (constrain between layers).
+
+- Presentation layer: UI
+- Business logic layer: Business
+- Persistence layer: Database
+
+The hexagonal architecture is an alternative to the layered architectural style. It also applies to the logical view. And places the business logic in the center of the hexagon. The hexagonal architecture is composed by
+
+- Adapters: Middleware between external code and business logic. 
+  - Inbound: Handle request from the outside (HTTP, Queue, ...)
+  - Outbound: Invoked by the business logic and invokes external application (Database, HTTP, ...)
+- Ports: Set of operations exposed by the business logic
+  - Inbound: Enables external applications to call the ports
+  - Outbound: Enables business logic to invoke an external system
+
+Monolithic and microservices are both architectural styles.
+
+- Monolithic: Implementation view as a single component.
+- Microservices: Implementation view as multiple components.
+  - Each service has its own logical view which might be an hexagonal architecture.
+  - Loosely coupled, there are restrictions on how services communicate (usually through APIs)
+  - A service is a standalone, independently deployable software component that implements some useful functionality
+
+The API is composed of:
+
+1. Command: Performs action or updates data
+2. Query: Retrieves data
+3. Events: Events triggered by the API
+
+Three-step process to to define a microservices architecture:
+
+1. Describe the system operation
+   1. Command: Create, update and delete data
+      1. Operation
+      2. Return
+      3. Pre-condition
+      4. Post-conditions
+   2. Query: System operations that read (query) data
+2. Decomposition into services:
+   1. Services accordingly to business capabilities
+   2. DDD Subdomains
+3. Determine the service's API
+
+A system operation is a more abstract notion of a request. It can be derived from User Stories or some other form of requirements. A system operation will be mapped to a High Level domain.
+
+Once you have identified the system operations, we have to decompose the services by business capabilities or by domain driven design.
+
+Business capabilities is something that the business does to generate value. Business capabilities captures the *what*, in opposition of the *how*, of a organization. You identify the organization's business capabilities by looking at the organization's purpose, structure and business processes. A business capability might have sub capabilities.
+
+Once you have the capabilities you can define a service for each capability or group of capabilities. The benefit of this approach is that you end up with a stable architecture since the business capabilities are usually stable. The services that compose the a capability will of course evolve.
+
+DDD fits extremely well to decompose services due to sub-domains and its bounded contexts. Once you identify the subdomains of your problem, each subdomain has its own bounded context, its scope. Each bounded context can be one or a set of services.
+
+Obstacles to decomposition:
+
+1. Network latency ( or Impractical due to too many round-trips)
+2. Reduced availability due to synchronous communication
+3. Maintaining data consistency across services
+4. Obtaining a consistent view of the data
+5. God classes preventing decomposition
+
+Once we have decomposed the system operations and its respective sub-domain. The last step is to define a service API. To define the service API, you assign the system operations to Services. To have fully operating API, one should also map the relationship between the APIs.
+
+# Chapter 3 -Interprocess communication in a microservice architecture
+
+
+
