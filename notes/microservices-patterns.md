@@ -326,5 +326,352 @@ Once we have decomposed the system operations and its respective sub-domain. The
 
 # Chapter 3 -Interprocess communication in a microservice architecture
 
+## Overview of interprocess communication in a microservice architecture
+### Defining API in microservices architecture
+
+> A well-designed interface exposes useful functionality while hiding the implementation. It enables the implementation to change without impacting clients.
+
+> A service’s API is a contract between the service and its clients.
+
+> Doing this up-front design increases your chances of building a service that meets the needs of its clients.
+
+> Ideally, you should strive to only make backward-compatible changes. Backward compatible changes are additive changes to an API:
+>
+> - Adding optional attributes to request
+> - Adding attributes to a response
+> - Adding new operations
+
+> Services should provide default values for missing request attributes. Similarly, clients should ignore any extra response attributes. In order for this to be painless, clients and services must use a request and response format that supports the Robustness principle.
+
+> Because you can’t force clients to upgrade immediately, a service must simultaneously support old and new versions of an API for some period of time.
+
+> In order to support multiple versions of an API, the service’s adapters that implement the APIs will contain logic that translates between the old and new versions.
+
+### Message formats
+
+> In either case, it’s essential to use a cross-language message format.
+
+## Communicating using the synchronous Remote procedure invocation pattern
+
+> a client sends a request to a service, and the service processes the request and sends back a response. Some clients may block waiting for a response, and others might have a reactive, non-blocking architecture. But unlike when using messaging, the client assumes that the response will arrive in a timely fashion.
+
+### Using REST
+
+> A key concept in REST is a resource, which typically represents a single business object, such as a Customer or Product, or a collection of business objects
+
+> REST uses the HTTP verbs for manipulating resources, which are referenced using a URL
+
+> - Level 0—Clients of a level 0 service invoke the service by making HTTP POST requests to its sole URL endpoint. Each request specifies the action to perform, the target of the action (for example, the business object), and any parameters.
+> - Level 1—A level 1 service supports the idea of resources. To perform an action on a resource, a client makes a POST request that specifies the action to perform and any parameters.
+> - Level 2—A level 2 service uses HTTP verbs to perform actions: GET to retrieve, POST to create, and PUT to update. The request query parameters and body, if any, specify the actions' parameters. This enables services to use web infrastructure such as caching for GET requests.
+> - Level 3—The design of a level 3 service is based on the terribly named HATEOAS (Hypertext As The Engine Of Application State) principle. The
+>   basic idea is that the representation of a resource returned by a GET request contains links for performing actions on that resource. For example, a client can cancel an order using a link in the representation returned by the GET request that retrieved the order. The benefits of HATEOAS include no longer having to hard-wire URLs into client code
+
+> Consequently, a common problem when designing a REST API is how to enable the client to retrieve multiple related objects in a single request
+
+> This has led to the increasing popularity of alternative API technologies such as GraphQL and Netflix Falcor, which are designed to support efficient data fetching.
+
+> A REST API should use PUT for updates, but there may be multiple ways to update an order, including cancelling it, revising the order, and so on.
+
+### Using gRPC
+
+> A gRPC API consists of one or more services and request/response message definitions
+
+> As well as supporting simple request/response RPC, gRPC support streaming RPC.
+
+> gRPC uses Protocol Buffers as the message format.
+
+> Each field of a Protocol Buffers message is numbered and has a type code. A message recipient can extract the fields that it needs and skip over the fields that it doesn’t recognize.
+
+### Handling partial failure using the Circuit breaker pattern
+
+> In a distributed system, whenever a service makes a synchronous request to another service, there is an ever-present risk of partial failure.
+
+> - Network timeouts—Never block indefinitely and always use timeouts when waiting for a response. Using timeouts ensures that resources are never tied up indefinitely.
+> - Limiting the number of outstanding requests from a client to a service—Impose an upper bound on the number of outstanding requests that a client can make to a particular service. If the limit has been reached, it’s probably pointless to make additional requests, and those attempts should fail immediately.
+> - Circuit breaker pattern —Track the number of successful and failed requests, and if the error rate exceeds some threshold, trip the circuit breaker so that further attempts fail immediately. A large number of requests failing suggests that the service is unavailable and that sending more requests is pointless. After a timeout period, the client should try again, and, if successful, close the circuit breaker.
+
+> Service discovery is conceptually quite simple: its key component is a service registry, which is a database of the network locations of an application’s service instances.
+
+> One drawback of platform-provided service discovery is that it only supports the discovery of services that have been deployed using the platform.
+
+## Communicating using the Asynchronous messaging pattern
+
+> A messaging-based application typically uses a message broker, which acts as an intermediary between the services, although another option is to use a brokerless architecture, where the services communicate directly with each other. A service client makes a request to a service by sending it a message. If the service instance is expected to reply, it will do so by sending a separate message back to the client. Because the communication is asynchronous, the client doesn’t block waiting for a reply
+
+### Overview of messaging
+
+> A sender (an application or service) writes a message to a channel, and a receiver (an application or service) reads messages from a channel.
+
+> message consists of a header and a message body
+
+> - Document—A generic message that contains only data. The receiver decides how to interpret it. The reply to a command is an example of a document message.
+> - Command—A message that’s the equivalent of an RPC request. It specifies the operation to invoke and its parameters.
+> - Event—A message indicating that something notable has occurred in the sender. An event is often a domain event, which represents a state change of a domain object such as an Order , or a Customer .
+
+> There are two kinds of channels:
+>
+> - A point-to-point channel delivers a message to exactly one of the consumers that is reading from the channel. Services use point-to-point channels for the one-to-one interaction styles described earlier. For example, a command message is often sent over a point-to-point channel.
+> - A publish-subscribe channel delivers each message to all of the attached consumers. Services use publish-subscribe channels for the one-to-many interaction styles described earlier. For example, an event message is usually sent over a publish-subscribe channel.
+
+### Creating an API specification for a messaging-based service API
+
+> specify the names of the message channels, the message types that are exchanged over each channel, and their formats. You must also describe the format of the messages using a standard such as JSON, XML, or Protobuf
+
+### Using a message broker
+
+> You can also use a brokerless-based messaging architecture, in which the services communicate with one another directly.
+
+> In fact, some of these drawbacks, such as reduced availability and the need for service discovery, are the same as when using synchronous, response/response.
+
+> A message broker is an intermediary through which all messages flow. A sender writes the message to the message broker, and the message broker delivers it to the receiver.
+
+> - Supported programming languages—You probably should pick one that supports a variety of programming languages.
+> - Supported messaging standards—Does the message broker support any standards, such as AMQP and STOMP, or is it proprietary?
+> - Messaging ordering—Does the message broker preserve ordering of messages?
+> - Delivery guarantees—What kind of delivery guarantees does the broker make?
+> - Persistence—Are messages persisted to disk and able to survive broker crashes?
+> - Durability—If a consumer reconnects to the message broker, will it receive the messages that were sent while it was disconnected?
+> - Scalability—How scalable is the message broker?
+> - Latency—What is the end-to-end latency?
+> - Competing consumers—Does the message broker support competing consumers?
+
+> Explicit interprocess communication—RPC-based mechanism attempts to make invoking a remote service look the same as calling a local service. But due to the laws of physics and the possibility of partial failure, they’re in fact quite different.
+
+### Competing receivers and message ordering
+
+> Using multiple threads and service instances to concurrently process messages increases the throughput of the application. But the challenge with processing messages concurrently is ensuring that each message is processed once and in order.
+
+### Handling duplicate messages
+
+> A message broker should ideally deliver each message only once, but guaranteeing exactly-once messaging is usually too costly. Instead, most message brokers promise to deliver a message at least once.
 
 
+
+## My Summary
+
+Two dimensions to characterize client server communication
+
+1. Interactions
+   1. One-to-one
+   2. One-to-many
+2. Sincronicity
+   1. Synchronous
+   2. Asynchronous
+
+- One-to-one
+  - Request and Response: One to one and synchronous communication. The client requests and awaits for the response. (Tightly coupled services).
+  - Asynchronous Request and Response: The client requests, the response is sent asynchronously. The client doesn't block while waiting.
+  - One-way notifications: The request is sent, but no response is expected
+- One-to-many
+  - publish/subscribe: Client publishes a message. Zero or more consumers consume it.
+  - Publish/async response: The client publishes a message and awaits for a certain time for the response from interested services.
+
+When defining APIs a good approach is to use a API first approach. Designing the API and aligning with the clients of the API, once it's aligned you start the implementation.
+
+As the APIs evolve with time it's a good idea to use a SemVer to version your API, you can use it in the URI, through a HTTP header, or in the message body. In addition to SemVer, apply the Robustness principle to enable backward compatible changes. Servers should provide default values, and clients ignore any additional fields in the request.
+
+When applying a major change, which are incompatible for clients, you should maintain two version concurrently, since you cannot ensure the client speed to change to the new API. You can then create an adapter that maps the logic from one API to another.
+
+Message format:
+
+1. Text
+   1. JSON
+   2. XML
+2. Binary
+   1. Protocol buffers
+   2. Avro
+   3. Thrift
+
+Text message format are verbose and require an overhead to parse the text.
+
+Binary message format provide a Interface definition language (IDL) for defining the structure of the message.
+
+Remote Procedure Invocation: Sends a request and expects a response.
+
+The book covers two models of RPI: REST and gRPC
+
+1. *REST*
+
+Models the APIs based on the resources of the domain. And have well defined usage of HTTP methods.
+
+There's the Richardson maturity model for REST's APIs. See in the quotes.
+
+The main problems with REST APIs are:
+
+1. Fetching data from multiple resources at the same time (E.g. Customer, orders, contractors, ...)
+2. Mapping HTTP verbs to business operations (E.g. Create/update lead)
+
+
+
+2. *gRPC*
+
+It's a binary based protocol, that unlike REST it's not restricted by the HTTP methods. It uses a Protocol Buffer to create to generate client-side stubs and server side skeleton.
+
+The gRPC API is composed of a set of services and request/response messages definitions.  It can only be used as synchronous communication.
+
+Since RPI invocations are synchronous they have the problem of partial failure, where either the server does not respond within an expected time and blocking the client meanwhile.
+
+To handle this problem
+
+1. Use network timeouts
+2. Limiting the number of outstanding requests from a client to a service
+3. Circuit breaker pattern. Track requests and if exceeds a threshold, trip the circuit breaker so that following requests fails.
+
+To recover from an unavailable service, you have some options:
+
+- Respond with an error
+- Respond with cached information
+- Respond with default information
+
+Service discovery:
+
+- Application level - the services and their clients interact directly with the service registry.
+- The deployment infrastructure handles service discovery.
+
+The author describes the basics of messaging system described in the Enterprise Integration Patterns.
+
+Messaging systems enable several Interaction Styles:
+
+- request/response
+- async request/response
+- one way notification
+- publish/subscribe
+- publish/ async responses
+
+Differently from HTTP APIs messaging APIs do not have a standardized tool for documentation. One should focus on document the channels (both command and reply), the message expected and events channels.
+
+Messaging can have two different architecture
+
+- broker based
+  - Loose coupling
+  - Message buffering: Store the messages until a consumer consumes it
+  - Flexible communication
+  - Explicit interprocess comunication: very explicit RPC
+  - Potential performance bottleneck
+  - Potential single point of failure
+  - Additional operational complexity
+- brokerless
+  - Better latency (less nodes to traffic the message)
+  - avoid the broker performance bottleneck
+  - less complexity
+  - Requires 'service discovery'
+  - reduced availability
+
+Must consider the points highlighted above in the notes when considering a message broker tool.
+
+A common solution to avoid competing receivers and messages out of order is to use *sharded* (partitioned) channels. A channel is a set of shards ( channels). The client sends the shard key. The messaging routes to the shards of a channel based on the shard key.
+
+**Need to finish the chapter 3**
+
+# Chapter 4 - Managing transactions with sagas
+
+> ACID (Atomicity, Consistency, Isolation, Durability) transactions greatly simplify the job of the developer by providing the illusion that each transaction has exclusive access to the data. In a microservice architecture, transactions that are within a single service can still use ACID transactions.
+
+> an operation that spans services must use what’s known as a saga, a message-driven sequence of local transactions, to maintain data
+> consistency.
+
+> They lack the isolation feature of traditional ACID transactions. As a result, an application must use what are known as countermeasures, design techniques that prevent or reduce the impact of concurrency anomalies caused by the lack of isolation.
+
+## Transaction management in a microservice architecture
+
+### The trouble with distributed transactions
+
+> The traditional approach to maintaining data consistency across multiple services, databases, or message brokers is to use distributed transactions. The de facto standard for distributed transaction management is the X/Open Distributed Transaction Processing (DTP) Model (X/Open XA).
+
+> XA uses two-phase commit (2PC) to ensure that all participants in a transaction either commit or rollback.
+
+> One problem is that many modern technologies, including NoSQL databases such as MongoDB and Cassandra, don’t support them
+
+> Another problem with distributed transactions is that they are a form of synchronous IPC, which reduces availability. In order for a distributed transaction to commit, all the participating services must be available.
+
+### Using the Saga pattern to maintain data consistency
+
+> You define a saga for each system command that needs to update data in multiple services. A saga is a sequence of local transactions. Each local transaction updates data within a single service using the familiar ACID transaction frameworks and libraries mentioned earlier.
+
+## Coordinating sagas
+
+> - Choreography—Distribute the decision making and sequencing among the saga participants. They primarily communicate by exchanging events.
+> - Orchestration—Centralize a saga’s coordination logic in a saga orchestrator class. A saga orchestrator sends command messages to saga participants telling them which operations to perform.
+
+### Choreography-based sagas
+
+> When using choreography, there’s no central coordinator telling the saga participants what to do. Instead, the saga participants subscribe to each other’s events and respond accordingly
+
+> The first issue is ensuring that a saga participant updates its database and publishes an event as part of a database transaction.
+
+> The second issue you need to consider is ensuring that a saga participant must be able to map each event that it receives to its own data.
+
+> choreography distributes the implementation of the saga among the services. Consequently, it’s sometimes difficult for a developer to understand how a given saga works.
+
+> The saga participants subscribe to each other’s events, which often creates cyclic dependencies
+
+### Orchestration-based sagas
+
+> When using orchestration, you define an orchestrator class whose sole responsibility is to tell the saga participants what to do
+
+> A good way to model a saga orchestrator is as a state machine. A state machine consists of a set of states and a set of transitions between states that are triggered by events. Each transition can have an action, which for a saga is the invocation of a saga participant. The transitions between states are triggered by the completion of a local transaction performed by a saga participant. The current state and the specific outcome of the local transaction determine the state transition and what action, if any, to perform. There are also effective testing strategies for state machines. As a result, using a state machine model makes designing, implementing, and testing sagas easier.
+
+> One benefit of orchestration is that it doesn’t introduce cyclic dependencies.
+
+> This results in a design where the smart orchestrator tells the dumb services what operations to do. Fortunately, you can avoid this problem by designing orchestrators that are solely responsible for sequencing and don’t contain any other business logic.
+
+## Handling the lack of isolation
+
+> The isolation property of ACID transactions ensures that the outcome of executing multiple transactions concurrently is the same as if they were executed in some serial order.
+
+> First, other sagas can change the data accessed by the saga while it’s executing. And other sagas can read its data before the saga has completed its updates, and consequently can be exposed to inconsistent data. You can, in fact, consider a saga to be ACD:
+>
+> - Atomicity—The saga implementation ensures that all transactions are executed or all changes are undone.
+> - Consistency—Referential integrity within a service is handled by local databases. Referential integrity across services is handled by the services.
+> - Durability—Handled by local databases.
+
+### Overview of Anomalies
+
+> - Lost updates—One saga overwrites without reading changes made by another saga.
+> - Dirty reads—A transaction or a saga reads the updates made by a saga that has not yet completed those updates.
+> - Fuzzy/nonrepeatable reads—Two different steps of a saga read the same data and get different results because another saga has made updates.
+
+### Countermeasures for handling the lack of isolation
+
+> It’s the responsibility of the developer to write sagas in a way that either prevents the anomalies or minimizes their impact on the business.
+
+> - Semantic lock—An application-level lock.
+> - Commutative updates—Design update operations to be executable in any order.
+> - Pessimistic view—Reorder the steps of a saga to minimize business risk.
+> - Reread value—Prevent dirty writes by rereading data to verify that it’s unchanged before overwriting it.
+> - Version file—Record the updates to a record so that they can be reordered.
+> - By value—Use each request’s business risk to dynamically select the concurrency mechanism.
+
+> - Compensatable transactions—Transactions that can potentially be rolled back using a compensating transaction.
+> - Pivot transaction—The go/no-go point in a saga. If the pivot transaction commits, the saga will run until completion. A pivot transaction can be a transaction that’s neither compensatable nor retriable. Alternatively, it can be the last compensatable transaction or the first retriable
+> - Retriable transactions—Transactions that follow the pivot transaction and are guaranteed to succeed.
+
+> when migrating to microservices, the monolith must sometimes participate in sagas and that it’s significantly simpler if the monolith only ever needs to execute retriable transactions.
+
+> When using the semantic lock countermeasure, a saga’s compensatable transaction sets a flag in any record that it creates or updates.
+
+> The flag can either be a lock that prevents other transactions from accessing the record or a warning that indicates that other transactions should treat that record with suspicion. It’s cleared by either a retriable transaction—saga is completing successfully—or by a compensating transaction: the saga is rolling back.
+
+> (about managing the lock) One option is for the cancelOrder() system command to fail and tell the client to try again later
+
+> (about managing the lock) Another option is for cancelOrder() to block until the lock is released.
+
+> One straightforward countermeasure is to design the update operations to be commutative. Operations are commutative if they can be executed in any order
+
+> It reorders the steps of a saga to minimize business risk due to a dirty read
+
+> A saga that uses this countermeasure rereads a record before updating it, verifies that it’s unchanged, and then updates the record. If the record has changed, the saga aborts and possibly restarts 
+
+> it records the operations that are performed on a record so that it can reorder them. It’s a way to turn noncommutative operations into commutative operations
+
+> An application that uses this countermeasure uses the properties of each request to decide between using sagas and distributed transactions
+
+## My Summary
+
+
+
+# TODO
+
+- CAP Theorem
+- BASE 
