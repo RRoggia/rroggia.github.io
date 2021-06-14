@@ -77,7 +77,65 @@ data-styled.g27[id="Note__NoteContainer-i7okha-1"]{content:"ZkJVA,"}/*!sc*/
 <li><a href="#my-summary-1">My Summary</a></li>
 </ul>
 </li>
-<li><a href="#chapter-3--interprocess-communication-in-a-microservice-architecture">Chapter 3 -Interprocess communication in a microservice architecture</a></li>
+<li>
+<p><a href="#chapter-3--interprocess-communication-in-a-microservice-architecture">Chapter 3 -Interprocess communication in a microservice architecture</a></p>
+<ul>
+<li>
+<p><a href="#overview-of-interprocess-communication-in-a-microservice-architecture">Overview of interprocess communication in a microservice architecture</a></p>
+<ul>
+<li><a href="#defining-api-in-microservices-architecture">Defining API in microservices architecture</a></li>
+<li><a href="#message-formats">Message formats</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#communicating-using-the-synchronous-remote-procedure-invocation-pattern">Communicating using the synchronous Remote procedure invocation pattern</a></p>
+<ul>
+<li><a href="#using-rest">Using REST</a></li>
+<li><a href="#using-grpc">Using gRPC</a></li>
+<li><a href="#handling-partial-failure-using-the-circuit-breaker-pattern">Handling partial failure using the Circuit breaker pattern</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#communicating-using-the-asynchronous-messaging-pattern">Communicating using the Asynchronous messaging pattern</a></p>
+<ul>
+<li><a href="#overview-of-messaging">Overview of messaging</a></li>
+<li><a href="#creating-an-api-specification-for-a-messaging-based-service-api">Creating an API specification for a messaging-based service API</a></li>
+<li><a href="#using-a-message-broker">Using a message broker</a></li>
+<li><a href="#competing-receivers-and-message-ordering">Competing receivers and message ordering</a></li>
+<li><a href="#handling-duplicate-messages">Handling duplicate messages</a></li>
+</ul>
+</li>
+<li><a href="#my-summary-2">My Summary</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#chapter-4---managing-transactions-with-sagas">Chapter 4 - Managing transactions with sagas</a></p>
+<ul>
+<li>
+<p><a href="#transaction-management-in-a-microservice-architecture">Transaction management in a microservice architecture</a></p>
+<ul>
+<li><a href="#the-trouble-with-distributed-transactions">The trouble with distributed transactions</a></li>
+<li><a href="#using-the-saga-pattern-to-maintain-data-consistency">Using the Saga pattern to maintain data consistency</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#coordinating-sagas">Coordinating sagas</a></p>
+<ul>
+<li><a href="#choreography-based-sagas">Choreography-based sagas</a></li>
+<li><a href="#orchestration-based-sagas">Orchestration-based sagas</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#handling-the-lack-of-isolation">Handling the lack of isolation</a></p>
+<ul>
+<li><a href="#overview-of-anomalies">Overview of Anomalies</a></li>
+<li><a href="#countermeasures-for-handling-the-lack-of-isolation">Countermeasures for handling the lack of isolation</a></li>
+</ul>
+</li>
+<li><a href="#my-summary-3">My Summary</a></li>
+</ul>
+</li>
+<li><a href="#todo">TODO</a></li>
 </ul></div><h2>The notes</h2><div class="Note__NoteContainer-i7okha-1 ZkJVA"><h1>Chapter 1 - Escaping monolithic hell</h1>
 <blockquote>
 <p>(Abour Big ball of Mud) “haphazardly structured, sprawling, sloppy, duct-tape and bailing wire, spaghetti code jungle.”</p>
@@ -443,7 +501,430 @@ model being owned and developed by a single team.</p>
 <li>God classes preventing decomposition</li>
 </ol>
 <p>Once we have decomposed the system operations and its respective sub-domain. The last step is to define a service API. To define the service API, you assign the system operations to Services. To have fully operating API, one should also map the relationship between the APIs.</p>
-<h1>Chapter 3 -Interprocess communication in a microservice architecture</h1></div><div class="Footer__FooterWrapper-sc-1j1fu1i-0 hMUEgu"><div class="ContactMe__ContactWrapper-azhkgc-0 cAtMQC"><p>Did you like my work? Contact me at:</p><a href="mailto:renanzr@gmail.com"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0xMC42ODgsOTUuMTU2QzgwLjk1OCwxNTQuNjY3LDIwNC4yNiwyNTkuMzY1LDI0MC41LDI5Mi4wMWM0Ljg2NSw0LjQwNiwxMC4wODMsNi42NDYsMTUuNSw2LjY0Ng0KCQkJCWM1LjQwNiwwLDEwLjYxNS0yLjIxOSwxNS40NjktNi42MDRjMzYuMjcxLTMyLjY3NywxNTkuNTczLTEzNy4zODUsMjI5Ljg0NC0xOTYuODk2YzQuMzc1LTMuNjk4LDUuMDQyLTEwLjE5OCwxLjUtMTQuNzE5DQoJCQkJQzQ5NC42MjUsNjkuOTksNDgyLjQxNyw2NCw0NjkuMzMzLDY0SDQyLjY2N2MtMTMuMDgzLDAtMjUuMjkyLDUuOTktMzMuNDc5LDE2LjQzOEM1LjY0Niw4NC45NTgsNi4zMTMsOTEuNDU4LDEwLjY4OCw5NS4xNTZ6Ii8+DQoJCQk8cGF0aCBkPSJNNTA1LjgxMywxMjcuNDA2Yy0zLjc4MS0xLjc2LTguMjI5LTEuMTQ2LTExLjM3NSwxLjU0MkM0MTYuNTEsMTk1LjAxLDMxNy4wNTIsMjc5LjY4OCwyODUuNzYsMzA3Ljg4NQ0KCQkJCWMtMTcuNTYzLDE1Ljg1NC00MS45MzgsMTUuODU0LTU5LjU0Mi0wLjAyMWMtMzMuMzU0LTMwLjA1Mi0xNDUuMDQyLTEyNS0yMDguNjU2LTE3OC45MTdjLTMuMTY3LTIuNjg4LTcuNjI1LTMuMjgxLTExLjM3NS0xLjU0Mg0KCQkJCUMyLjQxNywxMjkuMTU2LDAsMTMyLjkyNywwLDEzNy4wODN2MjY4LjI1QzAsNDI4Ljg2NSwxOS4xMzUsNDQ4LDQyLjY2Nyw0NDhoNDI2LjY2N0M0OTIuODY1LDQ0OCw1MTIsNDI4Ljg2NSw1MTIsNDA1LjMzMw0KCQkJCXYtMjY4LjI1QzUxMiwxMzIuOTI3LDUwOS41ODMsMTI5LjE0Niw1MDUuODEzLDEyNy40MDZ6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="email" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://www.linkedin.com/in/renanroggia/" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM4MiAzODIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4MiAzODI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiMwMDc3Qjc7IiBkPSJNMzQ3LjQ0NSwwSDM0LjU1NUMxNS40NzEsMCwwLDE1LjQ3MSwwLDM0LjU1NXYzMTIuODg5QzAsMzY2LjUyOSwxNS40NzEsMzgyLDM0LjU1NSwzODJoMzEyLjg4OQ0KCUMzNjYuNTI5LDM4MiwzODIsMzY2LjUyOSwzODIsMzQ3LjQ0NFYzNC41NTVDMzgyLDE1LjQ3MSwzNjYuNTI5LDAsMzQ3LjQ0NSwweiBNMTE4LjIwNywzMjkuODQ0YzAsNS41NTQtNC41MDIsMTAuMDU2LTEwLjA1NiwxMC4wNTYNCglINjUuMzQ1Yy01LjU1NCwwLTEwLjA1Ni00LjUwMi0xMC4wNTYtMTAuMDU2VjE1MC40MDNjMC01LjU1NCw0LjUwMi0xMC4wNTYsMTAuMDU2LTEwLjA1Nmg0Mi44MDYNCgljNS41NTQsMCwxMC4wNTYsNC41MDIsMTAuMDU2LDEwLjA1NlYzMjkuODQ0eiBNODYuNzQ4LDEyMy40MzJjLTIyLjQ1OSwwLTQwLjY2Ni0xOC4yMDctNDAuNjY2LTQwLjY2NlM2NC4yODksNDIuMSw4Ni43NDgsNDIuMQ0KCXM0MC42NjYsMTguMjA3LDQwLjY2Niw0MC42NjZTMTA5LjIwOCwxMjMuNDMyLDg2Ljc0OCwxMjMuNDMyeiBNMzQxLjkxLDMzMC42NTRjMCw1LjEwNi00LjE0LDkuMjQ2LTkuMjQ2LDkuMjQ2SDI4Ni43Mw0KCWMtNS4xMDYsMC05LjI0Ni00LjE0LTkuMjQ2LTkuMjQ2di04NC4xNjhjMC0xMi41NTYsMy42ODMtNTUuMDIxLTMyLjgxMy01NS4wMjFjLTI4LjMwOSwwLTM0LjA1MSwyOS4wNjYtMzUuMjA0LDQyLjExdjk3LjA3OQ0KCWMwLDUuMTA2LTQuMTM5LDkuMjQ2LTkuMjQ2LDkuMjQ2aC00NC40MjZjLTUuMTA2LDAtOS4yNDYtNC4xNC05LjI0Ni05LjI0NlYxNDkuNTkzYzAtNS4xMDYsNC4xNC05LjI0Niw5LjI0Ni05LjI0Nmg0NC40MjYNCgljNS4xMDYsMCw5LjI0Niw0LjE0LDkuMjQ2LDkuMjQ2djE1LjY1NWMxMC40OTctMTUuNzUzLDI2LjA5Ny0yNy45MTIsNTkuMzEyLTI3LjkxMmM3My41NTIsMCw3My4xMzEsNjguNzE2LDczLjEzMSwxMDYuNDcyDQoJTDM0MS45MSwzMzAuNjU0TDM0MS45MSwzMzAuNjU0eiIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" alt="linkedin" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://github.com/rroggia" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQzOC41MzZweCIgaGVpZ2h0PSI0MzguNTM2cHgiIHZpZXdCb3g9IjAgMCA0MzguNTM2IDQzOC41MzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQzOC41MzYgNDM4LjUzNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xNTguMTczLDM1Mi41OTljLTMuMDQ5LDAuNTY4LTQuMzgxLDEuOTk5LTMuOTk5LDQuMjgxYzAuMzgsMi4yODMsMi4wOTMsMy4wNDYsNS4xMzgsMi4yODMNCgkJCWMzLjA0OS0wLjc2LDQuMzgtMi4wOTUsMy45OTctMy45OTdDMTYyLjkzMSwzNTMuMDc0LDE2MS4yMTgsMzUyLjIxNiwxNTguMTczLDM1Mi41OTl6Ii8+DQoJCTxwYXRoIGQ9Ik0xNDEuODk4LDM1NC44ODVjLTMuMDQ2LDAtNC41NjgsMS4wNDEtNC41NjgsMy4xMzljMCwyLjQ3NCwxLjYxOSwzLjUxOCw0Ljg1MywzLjEzOGMzLjA0NiwwLDQuNTctMS4wNDcsNC41Ny0zLjEzOA0KCQkJQzE0Ni43NTMsMzU1LjU1MywxNDUuMTM0LDM1NC41MDIsMTQxLjg5OCwzNTQuODg1eiIvPg0KCQk8cGF0aCBkPSJNMTE5LjYyOSwzNTQuMDIyYy0wLjc2LDIuMDk1LDAuNDc4LDMuNTE5LDMuNzExLDQuMjg0YzIuODU1LDEuMTM3LDQuNjY0LDAuNTY4LDUuNDI0LTEuNzE0DQoJCQljMC41NzItMi4wOTEtMC42NjYtMy42MS0zLjcxMS00LjU2OEMxMjIuMTk3LDM1MS4yNjUsMTIwLjM5LDM1MS45MjIsMTE5LjYyOSwzNTQuMDIyeiIvPg0KCQk8cGF0aCBkPSJNNDE0LjQxLDI0LjEyM0MzOTguMzI2LDguMDQyLDM3OC45NjQsMCwzNTYuMzA5LDBIODIuMjI1QzU5LjU3NywwLDQwLjIwOCw4LjA0MiwyNC4xMjMsMjQuMTIzDQoJCQlDOC4wNDIsNDAuMjA3LDAsNTkuNTc2LDAsODIuMjI1djI3NC4wODhjMCwyMi42NSw4LjA0Miw0Mi4wMTcsMjQuMTIzLDU4LjA5OGMxNi4wODQsMTYuMDg0LDM1LjQ1NCwyNC4xMjYsNTguMTAyLDI0LjEyNmg2My45NTMNCgkJCWM0LjE4NCwwLDcuMzI3LTAuMTQ0LDkuNDItMC40MjRjMi4wOTItMC4yODgsNC4xODQtMS41MjYsNi4yNzktMy43MTdjMi4wOTYtMi4xODcsMy4xNC01LjM3NiwzLjE0LTkuNTYyDQoJCQljMC0wLjU2OC0wLjA1LTcuMDQ2LTAuMTQ0LTE5LjQxN2MtMC4wOTctMTIuMzc1LTAuMTQ0LTIyLjE3Ni0wLjE0NC0yOS40MWwtNi41NjcsMS4xNDNjLTQuMTg3LDAuNzYtOS40NjksMS4wOTUtMTUuODQ2LDAuOTk5DQoJCQljLTYuMzc0LTAuMDk2LTEyLjk5LTAuNzYtMTkuODQxLTEuOTk4Yy02Ljg1NS0xLjIzOS0xMy4yMjktNC4wOTMtMTkuMTMtOC41NjJjLTUuODk4LTQuNDc3LTEwLjA4NS0xMC4zMjgtMTIuNTYtMTcuNTU5DQoJCQlsLTIuODU2LTYuNTcxYy0xLjkwMy00LjM3My00Ljg5OS05LjIyOS04Ljk5Mi0xNC41NTRjLTQuMDkzLTUuMzMyLTguMjMyLTguOTQ5LTEyLjQxOS0xMC44NTJsLTEuOTk5LTEuNDI4DQoJCQljLTEuMzMxLTAuOTUxLTIuNTY4LTIuMDk4LTMuNzExLTMuNDI5Yy0xLjE0MS0xLjMzNS0xLjk5Ny0yLjY2OS0yLjU2OC0zLjk5N2MtMC41NzEtMS4zMzUtMC4wOTctMi40MywxLjQyNy0zLjI4OQ0KCQkJYzEuNTI0LTAuODU1LDQuMjgxLTEuMjc5LDguMjgtMS4yNzlsNS43MDgsMC44NTVjMy44MDgsMC43Niw4LjUxNiwzLjA0MiwxNC4xMzQsNi44NTFjNS42MTQsMy44MDYsMTAuMjI5LDguNzU0LDEzLjg0NiwxNC44NDMNCgkJCWM0LjM4LDcuODA2LDkuNjU3LDEzLjc1LDE1Ljg0NiwxNy44NDNjNi4xODQsNC4wOTcsMTIuNDE5LDYuMTQzLDE4LjY5OSw2LjE0M3MxMS43MDQtMC40NzYsMTYuMjc0LTEuNDI0DQoJCQljNC41NjUtMC45NTQsOC44NDgtMi4zODUsMTIuODQ3LTQuMjg4YzEuNzEzLTEyLjc1MSw2LjM3Ny0yMi41NTksMTMuOTg4LTI5LjQxYy0xMC44NDgtMS4xNDMtMjAuNjAyLTIuODU0LTI5LjI2NS01LjE0DQoJCQljLTguNjU4LTIuMjg2LTE3LjYwNS01Ljk5NS0yNi44MzUtMTEuMTM2Yy05LjIzNC01LjE0LTE2Ljg5NC0xMS41MTItMjIuOTg1LTE5LjEzYy02LjA5LTcuNjE4LTExLjA4OC0xNy42MS0xNC45ODctMjkuOTc4DQoJCQljLTMuOTAxLTEyLjM3NS01Ljg1Mi0yNi42NTItNS44NTItNDIuODI5YzAtMjMuMDI5LDcuNTIxLTQyLjYzNywyMi41NTctNTguODE0Yy03LjA0NC0xNy4zMi02LjM3OS0zNi43MzIsMS45OTctNTguMjQyDQoJCQljNS41Mi0xLjcxNCwxMy43MDYtMC40MjgsMjQuNTU0LDMuODU1YzEwLjg1LDQuMjg2LDE4Ljc5NCw3Ljk1MSwyMy44NCwxMC45OTJjNS4wNDYsMy4wNDIsOS4wODksNS42MTQsMTIuMTM1LDcuNzENCgkJCWMxNy43MDUtNC45NDksMzUuOTc2LTcuNDIzLDU0LjgxOC03LjQyM2MxOC44NDEsMCwzNy4xMTUsMi40NzQsNTQuODIxLDcuNDIzbDEwLjg0OS02Ljg1MmM3LjQyNi00LjU3LDE2LjE4LTguNzU3LDI2LjI2OS0xMi41NjINCgkJCWMxMC4wODgtMy44MDYsMTcuNzk1LTQuODU0LDIzLjEyNy0zLjE0YzguNTYyLDIxLjUxLDkuMzI4LDQwLjkyMiwyLjI3OSw1OC4yNDFjMTUuMDM2LDE2LjE3OSwyMi41NTksMzUuNzg2LDIyLjU1OSw1OC44MTUNCgkJCWMwLDE2LjE4LTEuOTUxLDMwLjUwNS01Ljg1Miw0Mi45NjljLTMuODk4LDEyLjQ2Ny04LjkzOSwyMi40NjMtMTUuMTMsMjkuOTgxYy02LjE4NCw3LjUxOS0xMy44OTQsMTMuODQzLTIzLjEyNCwxOC45ODYNCgkJCWMtOS4yMzIsNS4xMzctMTguMTc4LDguODUzLTI2Ljg0LDExLjEzMmMtOC42NjEsMi4yODYtMTguNDE0LDQuMDA0LTI5LjI2Myw1LjE0N2M5Ljg5MSw4LjU2MiwxNC44MzksMjIuMDcyLDE0LjgzOSw0MC41Mzh2NjguMjM4DQoJCQljMCwzLjIzNywwLjQ3Miw1Ljg1MiwxLjQyNCw3Ljg1MWMwLjk1OCwxLjk5OCwyLjQ3OCwzLjM3NCw0LjU3MSw0LjE0MWMyLjEwMiwwLjc2LDMuOTQ5LDEuMjM1LDUuNTcxLDEuNDI0DQoJCQljMS42MjIsMC4xOTEsMy45NDksMC4yODcsNi45OTUsMC4yODdoNjMuOTUzYzIyLjY0OCwwLDQyLjAxOC04LjA0Miw1OC4wOTUtMjQuMTI2YzE2LjA4NC0xNi4wODQsMjQuMTI2LTM1LjQ1NCwyNC4xMjYtNTguMTAyDQoJCQlWODIuMjI1QzQzOC41MzMsNTkuNTc2LDQzMC40OTEsNDAuMjA0LDQxNC40MSwyNC4xMjN6Ii8+DQoJCTxwYXRoIGQ9Ik04Ni43OTMsMzE5LjE5NWMtMS4zMzEsMC45NDgtMS4xNDEsMi40NzEsMC41NzIsNC41NjVjMS45MDYsMS45MDIsMy40MjcsMi4xODksNC41NywwLjg1NQ0KCQkJYzEuMzMxLTAuOTQ4LDEuMTQxLTIuNDcxLTAuNTc1LTQuNTY5Qzg5LjQ1OCwzMTguMzM2LDg3LjkzNiwzMTguMDQ5LDg2Ljc5MywzMTkuMTk1eiIvPg0KCQk8cGF0aCBkPSJNNzcuMzc0LDMxMi4wNTdjLTAuNTcsMS4zMzUsMC4wOTYsMi40NzgsMS45OTksMy40MjZjMS41MjEsMC45NTUsMi43NjIsMC43NjcsMy43MTEtMC41NjgNCgkJCWMwLjU3LTEuMzM1LTAuMDk2LTIuNDc4LTEuOTk5LTMuNDMzQzc5LjE4MiwzMTAuOTEsNzcuOTQ1LDMxMS4xMDIsNzcuMzc0LDMxMi4wNTd6Ii8+DQoJCTxwYXRoIGQ9Ik05NS42NDYsMzMwLjMzMWMtMS43MTUsMC45NDgtMS43MTUsMi42NjYsMCw1LjEzN2MxLjcxMywyLjQ3OCwzLjMyOCwzLjE0Miw0Ljg1MywxLjk5OGMxLjcxNC0xLjMzNCwxLjcxNC0zLjE0MiwwLTUuNDI3DQoJCQlDOTguOTc4LDMyOS41NzEsOTcuMzU5LDMyOC45OTMsOTUuNjQ2LDMzMC4zMzF6Ii8+DQoJCTxwYXRoIGQ9Ik0xMDUuNjQxLDM0My4xNzRjLTEuNzE0LDEuNTI2LTEuMzM2LDMuMzI3LDEuMTQyLDUuNDI4YzIuMjgxLDIuMjc5LDQuMTg1LDIuNTY2LDUuNzA4LDAuODQ5DQoJCQljMS41MjQtMS41MTksMS4xNDMtMy4zMjYtMS4xNDItNS40MkMxMDkuMDY4LDM0MS43NTEsMTA3LjE2NCwzNDEuNDYzLDEwNS42NDEsMzQzLjE3NHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="github" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a></div><div></div><div class="AdditionalInformation__AdditionalInfoWrapper-itnhco-0 gMVlmL"><p>This blog was created by Renan Roggia using gatsby.</p><p>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+<h1>Chapter 3 -Interprocess communication in a microservice architecture</h1>
+<h2>Overview of interprocess communication in a microservice architecture</h2>
+<h3>Defining API in microservices architecture</h3>
+<blockquote>
+<p>A well-designed interface exposes useful functionality while hiding the implementation. It enables the implementation to change without impacting clients.</p>
+</blockquote>
+<blockquote>
+<p>A service’s API is a contract between the service and its clients.</p>
+</blockquote>
+<blockquote>
+<p>Doing this up-front design increases your chances of building a service that meets the needs of its clients.</p>
+</blockquote>
+<blockquote>
+<p>Ideally, you should strive to only make backward-compatible changes. Backward compatible changes are additive changes to an API:</p>
+<ul>
+<li>Adding optional attributes to request</li>
+<li>Adding attributes to a response</li>
+<li>Adding new operations</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Services should provide default values for missing request attributes. Similarly, clients should ignore any extra response attributes. In order for this to be painless, clients and services must use a request and response format that supports the Robustness principle.</p>
+</blockquote>
+<blockquote>
+<p>Because you can’t force clients to upgrade immediately, a service must simultaneously support old and new versions of an API for some period of time.</p>
+</blockquote>
+<blockquote>
+<p>In order to support multiple versions of an API, the service’s adapters that implement the APIs will contain logic that translates between the old and new versions.</p>
+</blockquote>
+<h3>Message formats</h3>
+<blockquote>
+<p>In either case, it’s essential to use a cross-language message format.</p>
+</blockquote>
+<h2>Communicating using the synchronous Remote procedure invocation pattern</h2>
+<blockquote>
+<p>a client sends a request to a service, and the service processes the request and sends back a response. Some clients may block waiting for a response, and others might have a reactive, non-blocking architecture. But unlike when using messaging, the client assumes that the response will arrive in a timely fashion.</p>
+</blockquote>
+<h3>Using REST</h3>
+<blockquote>
+<p>A key concept in REST is a resource, which typically represents a single business object, such as a Customer or Product, or a collection of business objects</p>
+</blockquote>
+<blockquote>
+<p>REST uses the HTTP verbs for manipulating resources, which are referenced using a URL</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Level 0—Clients of a level 0 service invoke the service by making HTTP POST requests to its sole URL endpoint. Each request specifies the action to perform, the target of the action (for example, the business object), and any parameters.</li>
+<li>Level 1—A level 1 service supports the idea of resources. To perform an action on a resource, a client makes a POST request that specifies the action to perform and any parameters.</li>
+<li>Level 2—A level 2 service uses HTTP verbs to perform actions: GET to retrieve, POST to create, and PUT to update. The request query parameters and body, if any, specify the actions' parameters. This enables services to use web infrastructure such as caching for GET requests.</li>
+<li>Level 3—The design of a level 3 service is based on the terribly named HATEOAS (Hypertext As The Engine Of Application State) principle. The
+basic idea is that the representation of a resource returned by a GET request contains links for performing actions on that resource. For example, a client can cancel an order using a link in the representation returned by the GET request that retrieved the order. The benefits of HATEOAS include no longer having to hard-wire URLs into client code</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Consequently, a common problem when designing a REST API is how to enable the client to retrieve multiple related objects in a single request</p>
+</blockquote>
+<blockquote>
+<p>This has led to the increasing popularity of alternative API technologies such as GraphQL and Netflix Falcor, which are designed to support efficient data fetching.</p>
+</blockquote>
+<blockquote>
+<p>A REST API should use PUT for updates, but there may be multiple ways to update an order, including cancelling it, revising the order, and so on.</p>
+</blockquote>
+<h3>Using gRPC</h3>
+<blockquote>
+<p>A gRPC API consists of one or more services and request/response message definitions</p>
+</blockquote>
+<blockquote>
+<p>As well as supporting simple request/response RPC, gRPC support streaming RPC.</p>
+</blockquote>
+<blockquote>
+<p>gRPC uses Protocol Buffers as the message format.</p>
+</blockquote>
+<blockquote>
+<p>Each field of a Protocol Buffers message is numbered and has a type code. A message recipient can extract the fields that it needs and skip over the fields that it doesn’t recognize.</p>
+</blockquote>
+<h3>Handling partial failure using the Circuit breaker pattern</h3>
+<blockquote>
+<p>In a distributed system, whenever a service makes a synchronous request to another service, there is an ever-present risk of partial failure.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Network timeouts—Never block indefinitely and always use timeouts when waiting for a response. Using timeouts ensures that resources are never tied up indefinitely.</li>
+<li>Limiting the number of outstanding requests from a client to a service—Impose an upper bound on the number of outstanding requests that a client can make to a particular service. If the limit has been reached, it’s probably pointless to make additional requests, and those attempts should fail immediately.</li>
+<li>Circuit breaker pattern —Track the number of successful and failed requests, and if the error rate exceeds some threshold, trip the circuit breaker so that further attempts fail immediately. A large number of requests failing suggests that the service is unavailable and that sending more requests is pointless. After a timeout period, the client should try again, and, if successful, close the circuit breaker.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Service discovery is conceptually quite simple: its key component is a service registry, which is a database of the network locations of an application’s service instances.</p>
+</blockquote>
+<blockquote>
+<p>One drawback of platform-provided service discovery is that it only supports the discovery of services that have been deployed using the platform.</p>
+</blockquote>
+<h2>Communicating using the Asynchronous messaging pattern</h2>
+<blockquote>
+<p>A messaging-based application typically uses a message broker, which acts as an intermediary between the services, although another option is to use a brokerless architecture, where the services communicate directly with each other. A service client makes a request to a service by sending it a message. If the service instance is expected to reply, it will do so by sending a separate message back to the client. Because the communication is asynchronous, the client doesn’t block waiting for a reply</p>
+</blockquote>
+<h3>Overview of messaging</h3>
+<blockquote>
+<p>A sender (an application or service) writes a message to a channel, and a receiver (an application or service) reads messages from a channel.</p>
+</blockquote>
+<blockquote>
+<p>message consists of a header and a message body</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Document—A generic message that contains only data. The receiver decides how to interpret it. The reply to a command is an example of a document message.</li>
+<li>Command—A message that’s the equivalent of an RPC request. It specifies the operation to invoke and its parameters.</li>
+<li>Event—A message indicating that something notable has occurred in the sender. An event is often a domain event, which represents a state change of a domain object such as an Order , or a Customer .</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>There are two kinds of channels:</p>
+<ul>
+<li>A point-to-point channel delivers a message to exactly one of the consumers that is reading from the channel. Services use point-to-point channels for the one-to-one interaction styles described earlier. For example, a command message is often sent over a point-to-point channel.</li>
+<li>A publish-subscribe channel delivers each message to all of the attached consumers. Services use publish-subscribe channels for the one-to-many interaction styles described earlier. For example, an event message is usually sent over a publish-subscribe channel.</li>
+</ul>
+</blockquote>
+<h3>Creating an API specification for a messaging-based service API</h3>
+<blockquote>
+<p>specify the names of the message channels, the message types that are exchanged over each channel, and their formats. You must also describe the format of the messages using a standard such as JSON, XML, or Protobuf</p>
+</blockquote>
+<h3>Using a message broker</h3>
+<blockquote>
+<p>You can also use a brokerless-based messaging architecture, in which the services communicate with one another directly.</p>
+</blockquote>
+<blockquote>
+<p>In fact, some of these drawbacks, such as reduced availability and the need for service discovery, are the same as when using synchronous, response/response.</p>
+</blockquote>
+<blockquote>
+<p>A message broker is an intermediary through which all messages flow. A sender writes the message to the message broker, and the message broker delivers it to the receiver.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Supported programming languages—You probably should pick one that supports a variety of programming languages.</li>
+<li>Supported messaging standards—Does the message broker support any standards, such as AMQP and STOMP, or is it proprietary?</li>
+<li>Messaging ordering—Does the message broker preserve ordering of messages?</li>
+<li>Delivery guarantees—What kind of delivery guarantees does the broker make?</li>
+<li>Persistence—Are messages persisted to disk and able to survive broker crashes?</li>
+<li>Durability—If a consumer reconnects to the message broker, will it receive the messages that were sent while it was disconnected?</li>
+<li>Scalability—How scalable is the message broker?</li>
+<li>Latency—What is the end-to-end latency?</li>
+<li>Competing consumers—Does the message broker support competing consumers?</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Explicit interprocess communication—RPC-based mechanism attempts to make invoking a remote service look the same as calling a local service. But due to the laws of physics and the possibility of partial failure, they’re in fact quite different.</p>
+</blockquote>
+<h3>Competing receivers and message ordering</h3>
+<blockquote>
+<p>Using multiple threads and service instances to concurrently process messages increases the throughput of the application. But the challenge with processing messages concurrently is ensuring that each message is processed once and in order.</p>
+</blockquote>
+<h3>Handling duplicate messages</h3>
+<blockquote>
+<p>A message broker should ideally deliver each message only once, but guaranteeing exactly-once messaging is usually too costly. Instead, most message brokers promise to deliver a message at least once.</p>
+</blockquote>
+<h2>My Summary</h2>
+<p>Two dimensions to characterize client server communication</p>
+<ol>
+<li>
+<p>Interactions</p>
+<ol>
+<li>One-to-one</li>
+<li>One-to-many</li>
+</ol>
+</li>
+<li>
+<p>Sincronicity</p>
+<ol>
+<li>Synchronous</li>
+<li>Asynchronous</li>
+</ol>
+</li>
+<li>
+<p>One-to-one</p>
+<ul>
+<li>Request and Response: One to one and synchronous communication. The client requests and awaits for the response. (Tightly coupled services).</li>
+<li>Asynchronous Request and Response: The client requests, the response is sent asynchronously. The client doesn't block while waiting.</li>
+<li>One-way notifications: The request is sent, but no response is expected</li>
+</ul>
+</li>
+<li>
+<p>One-to-many</p>
+<ul>
+<li>publish/subscribe: Client publishes a message. Zero or more consumers consume it.</li>
+<li>Publish/async response: The client publishes a message and awaits for a certain time for the response from interested services.</li>
+</ul>
+</li>
+</ol>
+<p>When defining APIs a good approach is to use a API first approach. Designing the API and aligning with the clients of the API, once it's aligned you start the implementation.</p>
+<p>As the APIs evolve with time it's a good idea to use a SemVer to version your API, you can use it in the URI, through a HTTP header, or in the message body. In addition to SemVer, apply the Robustness principle to enable backward compatible changes. Servers should provide default values, and clients ignore any additional fields in the request.</p>
+<p>When applying a major change, which are incompatible for clients, you should maintain two version concurrently, since you cannot ensure the client speed to change to the new API. You can then create an adapter that maps the logic from one API to another.</p>
+<p>Message format:</p>
+<ol>
+<li>
+<p>Text</p>
+<ol>
+<li>JSON</li>
+<li>XML</li>
+</ol>
+</li>
+<li>
+<p>Binary</p>
+<ol>
+<li>Protocol buffers</li>
+<li>Avro</li>
+<li>Thrift</li>
+</ol>
+</li>
+</ol>
+<p>Text message format are verbose and require an overhead to parse the text.</p>
+<p>Binary message format provide a Interface definition language (IDL) for defining the structure of the message.</p>
+<p>Remote Procedure Invocation: Sends a request and expects a response.</p>
+<p>The book covers two models of RPI: REST and gRPC</p>
+<ol>
+<li><em>REST</em></li>
+</ol>
+<p>Models the APIs based on the resources of the domain. And have well defined usage of HTTP methods.</p>
+<p>There's the Richardson maturity model for REST's APIs. See in the quotes.</p>
+<p>The main problems with REST APIs are:</p>
+<ol>
+<li>Fetching data from multiple resources at the same time (E.g. Customer, orders, contractors, ...)</li>
+<li>Mapping HTTP verbs to business operations (E.g. Create/update lead)</li>
+<li><em>gRPC</em></li>
+</ol>
+<p>It's a binary based protocol, that unlike REST it's not restricted by the HTTP methods. It uses a Protocol Buffer to create to generate client-side stubs and server side skeleton.</p>
+<p>The gRPC API is composed of a set of services and request/response messages definitions.  It can only be used as synchronous communication.</p>
+<p>Since RPI invocations are synchronous they have the problem of partial failure, where either the server does not respond within an expected time and blocking the client meanwhile.</p>
+<p>To handle this problem</p>
+<ol>
+<li>Use network timeouts</li>
+<li>Limiting the number of outstanding requests from a client to a service</li>
+<li>Circuit breaker pattern. Track requests and if exceeds a threshold, trip the circuit breaker so that following requests fails.</li>
+</ol>
+<p>To recover from an unavailable service, you have some options:</p>
+<ul>
+<li>Respond with an error</li>
+<li>Respond with cached information</li>
+<li>Respond with default information</li>
+</ul>
+<p>Service discovery:</p>
+<ul>
+<li>Application level - the services and their clients interact directly with the service registry.</li>
+<li>The deployment infrastructure handles service discovery.</li>
+</ul>
+<p>The author describes the basics of messaging system described in the Enterprise Integration Patterns.</p>
+<p>Messaging systems enable several Interaction Styles:</p>
+<ul>
+<li>request/response</li>
+<li>async request/response</li>
+<li>one way notification</li>
+<li>publish/subscribe</li>
+<li>publish/ async responses</li>
+</ul>
+<p>Differently from HTTP APIs messaging APIs do not have a standardized tool for documentation. One should focus on document the channels (both command and reply), the message expected and events channels.</p>
+<p>Messaging can have two different architecture</p>
+<ul>
+<li>
+<p>broker based</p>
+<ul>
+<li>Loose coupling</li>
+<li>Message buffering: Store the messages until a consumer consumes it</li>
+<li>Flexible communication</li>
+<li>Explicit interprocess comunication: very explicit RPC</li>
+<li>Potential performance bottleneck</li>
+<li>Potential single point of failure</li>
+<li>Additional operational complexity</li>
+</ul>
+</li>
+<li>
+<p>brokerless</p>
+<ul>
+<li>Better latency (less nodes to traffic the message)</li>
+<li>avoid the broker performance bottleneck</li>
+<li>less complexity</li>
+<li>Requires 'service discovery'</li>
+<li>reduced availability</li>
+</ul>
+</li>
+</ul>
+<p>Must consider the points highlighted above in the notes when considering a message broker tool.</p>
+<p>A common solution to avoid competing receivers and messages out of order is to use <em>sharded</em> (partitioned) channels. A channel is a set of shards ( channels). The client sends the shard key. The messaging routes to the shards of a channel based on the shard key.</p>
+<p><strong>Need to finish the chapter 3</strong></p>
+<h1>Chapter 4 - Managing transactions with sagas</h1>
+<blockquote>
+<p>ACID (Atomicity, Consistency, Isolation, Durability) transactions greatly simplify the job of the developer by providing the illusion that each transaction has exclusive access to the data. In a microservice architecture, transactions that are within a single service can still use ACID transactions.</p>
+</blockquote>
+<blockquote>
+<p>an operation that spans services must use what’s known as a saga, a message-driven sequence of local transactions, to maintain data
+consistency.</p>
+</blockquote>
+<blockquote>
+<p>They lack the isolation feature of traditional ACID transactions. As a result, an application must use what are known as countermeasures, design techniques that prevent or reduce the impact of concurrency anomalies caused by the lack of isolation.</p>
+</blockquote>
+<h2>Transaction management in a microservice architecture</h2>
+<h3>The trouble with distributed transactions</h3>
+<blockquote>
+<p>The traditional approach to maintaining data consistency across multiple services, databases, or message brokers is to use distributed transactions. The de facto standard for distributed transaction management is the X/Open Distributed Transaction Processing (DTP) Model (X/Open XA).</p>
+</blockquote>
+<blockquote>
+<p>XA uses two-phase commit (2PC) to ensure that all participants in a transaction either commit or rollback.</p>
+</blockquote>
+<blockquote>
+<p>One problem is that many modern technologies, including NoSQL databases such as MongoDB and Cassandra, don’t support them</p>
+</blockquote>
+<blockquote>
+<p>Another problem with distributed transactions is that they are a form of synchronous IPC, which reduces availability. In order for a distributed transaction to commit, all the participating services must be available.</p>
+</blockquote>
+<h3>Using the Saga pattern to maintain data consistency</h3>
+<blockquote>
+<p>You define a saga for each system command that needs to update data in multiple services. A saga is a sequence of local transactions. Each local transaction updates data within a single service using the familiar ACID transaction frameworks and libraries mentioned earlier.</p>
+</blockquote>
+<h2>Coordinating sagas</h2>
+<blockquote>
+<ul>
+<li>Choreography—Distribute the decision making and sequencing among the saga participants. They primarily communicate by exchanging events.</li>
+<li>Orchestration—Centralize a saga’s coordination logic in a saga orchestrator class. A saga orchestrator sends command messages to saga participants telling them which operations to perform.</li>
+</ul>
+</blockquote>
+<h3>Choreography-based sagas</h3>
+<blockquote>
+<p>When using choreography, there’s no central coordinator telling the saga participants what to do. Instead, the saga participants subscribe to each other’s events and respond accordingly</p>
+</blockquote>
+<blockquote>
+<p>The first issue is ensuring that a saga participant updates its database and publishes an event as part of a database transaction.</p>
+</blockquote>
+<blockquote>
+<p>The second issue you need to consider is ensuring that a saga participant must be able to map each event that it receives to its own data.</p>
+</blockquote>
+<blockquote>
+<p>choreography distributes the implementation of the saga among the services. Consequently, it’s sometimes difficult for a developer to understand how a given saga works.</p>
+</blockquote>
+<blockquote>
+<p>The saga participants subscribe to each other’s events, which often creates cyclic dependencies</p>
+</blockquote>
+<h3>Orchestration-based sagas</h3>
+<blockquote>
+<p>When using orchestration, you define an orchestrator class whose sole responsibility is to tell the saga participants what to do</p>
+</blockquote>
+<blockquote>
+<p>A good way to model a saga orchestrator is as a state machine. A state machine consists of a set of states and a set of transitions between states that are triggered by events. Each transition can have an action, which for a saga is the invocation of a saga participant. The transitions between states are triggered by the completion of a local transaction performed by a saga participant. The current state and the specific outcome of the local transaction determine the state transition and what action, if any, to perform. There are also effective testing strategies for state machines. As a result, using a state machine model makes designing, implementing, and testing sagas easier.</p>
+</blockquote>
+<blockquote>
+<p>One benefit of orchestration is that it doesn’t introduce cyclic dependencies.</p>
+</blockquote>
+<blockquote>
+<p>This results in a design where the smart orchestrator tells the dumb services what operations to do. Fortunately, you can avoid this problem by designing orchestrators that are solely responsible for sequencing and don’t contain any other business logic.</p>
+</blockquote>
+<h2>Handling the lack of isolation</h2>
+<blockquote>
+<p>The isolation property of ACID transactions ensures that the outcome of executing multiple transactions concurrently is the same as if they were executed in some serial order.</p>
+</blockquote>
+<blockquote>
+<p>First, other sagas can change the data accessed by the saga while it’s executing. And other sagas can read its data before the saga has completed its updates, and consequently can be exposed to inconsistent data. You can, in fact, consider a saga to be ACD:</p>
+<ul>
+<li>Atomicity—The saga implementation ensures that all transactions are executed or all changes are undone.</li>
+<li>Consistency—Referential integrity within a service is handled by local databases. Referential integrity across services is handled by the services.</li>
+<li>Durability—Handled by local databases.</li>
+</ul>
+</blockquote>
+<h3>Overview of Anomalies</h3>
+<blockquote>
+<ul>
+<li>Lost updates—One saga overwrites without reading changes made by another saga.</li>
+<li>Dirty reads—A transaction or a saga reads the updates made by a saga that has not yet completed those updates.</li>
+<li>Fuzzy/nonrepeatable reads—Two different steps of a saga read the same data and get different results because another saga has made updates.</li>
+</ul>
+</blockquote>
+<h3>Countermeasures for handling the lack of isolation</h3>
+<blockquote>
+<p>It’s the responsibility of the developer to write sagas in a way that either prevents the anomalies or minimizes their impact on the business.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Semantic lock—An application-level lock.</li>
+<li>Commutative updates—Design update operations to be executable in any order.</li>
+<li>Pessimistic view—Reorder the steps of a saga to minimize business risk.</li>
+<li>Reread value—Prevent dirty writes by rereading data to verify that it’s unchanged before overwriting it.</li>
+<li>Version file—Record the updates to a record so that they can be reordered.</li>
+<li>By value—Use each request’s business risk to dynamically select the concurrency mechanism.</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>Compensatable transactions—Transactions that can potentially be rolled back using a compensating transaction.</li>
+<li>Pivot transaction—The go/no-go point in a saga. If the pivot transaction commits, the saga will run until completion. A pivot transaction can be a transaction that’s neither compensatable nor retriable. Alternatively, it can be the last compensatable transaction or the first retriable</li>
+<li>Retriable transactions—Transactions that follow the pivot transaction and are guaranteed to succeed.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>when migrating to microservices, the monolith must sometimes participate in sagas and that it’s significantly simpler if the monolith only ever needs to execute retriable transactions.</p>
+</blockquote>
+<blockquote>
+<p>When using the semantic lock countermeasure, a saga’s compensatable transaction sets a flag in any record that it creates or updates.</p>
+</blockquote>
+<blockquote>
+<p>The flag can either be a lock that prevents other transactions from accessing the record or a warning that indicates that other transactions should treat that record with suspicion. It’s cleared by either a retriable transaction—saga is completing successfully—or by a compensating transaction: the saga is rolling back.</p>
+</blockquote>
+<blockquote>
+<p>(about managing the lock) One option is for the cancelOrder() system command to fail and tell the client to try again later</p>
+</blockquote>
+<blockquote>
+<p>(about managing the lock) Another option is for cancelOrder() to block until the lock is released.</p>
+</blockquote>
+<blockquote>
+<p>One straightforward countermeasure is to design the update operations to be commutative. Operations are commutative if they can be executed in any order</p>
+</blockquote>
+<blockquote>
+<p>It reorders the steps of a saga to minimize business risk due to a dirty read</p>
+</blockquote>
+<blockquote>
+<p>A saga that uses this countermeasure rereads a record before updating it, verifies that it’s unchanged, and then updates the record. If the record has changed, the saga aborts and possibly restarts </p>
+</blockquote>
+<blockquote>
+<p>it records the operations that are performed on a record so that it can reorder them. It’s a way to turn noncommutative operations into commutative operations</p>
+</blockquote>
+<blockquote>
+<p>An application that uses this countermeasure uses the properties of each request to decide between using sagas and distributed transactions</p>
+</blockquote>
+<h2>My Summary</h2>
+<h1>TODO</h1>
+<ul>
+<li>CAP Theorem</li>
+<li>BASE </li>
+</ul></div><div class="Footer__FooterWrapper-sc-1j1fu1i-0 hMUEgu"><div class="ContactMe__ContactWrapper-azhkgc-0 cAtMQC"><p>Did you like my work? Contact me at:</p><a href="mailto:renanzr@gmail.com"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0xMC42ODgsOTUuMTU2QzgwLjk1OCwxNTQuNjY3LDIwNC4yNiwyNTkuMzY1LDI0MC41LDI5Mi4wMWM0Ljg2NSw0LjQwNiwxMC4wODMsNi42NDYsMTUuNSw2LjY0Ng0KCQkJCWM1LjQwNiwwLDEwLjYxNS0yLjIxOSwxNS40NjktNi42MDRjMzYuMjcxLTMyLjY3NywxNTkuNTczLTEzNy4zODUsMjI5Ljg0NC0xOTYuODk2YzQuMzc1LTMuNjk4LDUuMDQyLTEwLjE5OCwxLjUtMTQuNzE5DQoJCQkJQzQ5NC42MjUsNjkuOTksNDgyLjQxNyw2NCw0NjkuMzMzLDY0SDQyLjY2N2MtMTMuMDgzLDAtMjUuMjkyLDUuOTktMzMuNDc5LDE2LjQzOEM1LjY0Niw4NC45NTgsNi4zMTMsOTEuNDU4LDEwLjY4OCw5NS4xNTZ6Ii8+DQoJCQk8cGF0aCBkPSJNNTA1LjgxMywxMjcuNDA2Yy0zLjc4MS0xLjc2LTguMjI5LTEuMTQ2LTExLjM3NSwxLjU0MkM0MTYuNTEsMTk1LjAxLDMxNy4wNTIsMjc5LjY4OCwyODUuNzYsMzA3Ljg4NQ0KCQkJCWMtMTcuNTYzLDE1Ljg1NC00MS45MzgsMTUuODU0LTU5LjU0Mi0wLjAyMWMtMzMuMzU0LTMwLjA1Mi0xNDUuMDQyLTEyNS0yMDguNjU2LTE3OC45MTdjLTMuMTY3LTIuNjg4LTcuNjI1LTMuMjgxLTExLjM3NS0xLjU0Mg0KCQkJCUMyLjQxNywxMjkuMTU2LDAsMTMyLjkyNywwLDEzNy4wODN2MjY4LjI1QzAsNDI4Ljg2NSwxOS4xMzUsNDQ4LDQyLjY2Nyw0NDhoNDI2LjY2N0M0OTIuODY1LDQ0OCw1MTIsNDI4Ljg2NSw1MTIsNDA1LjMzMw0KCQkJCXYtMjY4LjI1QzUxMiwxMzIuOTI3LDUwOS41ODMsMTI5LjE0Niw1MDUuODEzLDEyNy40MDZ6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="email" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://www.linkedin.com/in/renanroggia/" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM4MiAzODIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4MiAzODI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiMwMDc3Qjc7IiBkPSJNMzQ3LjQ0NSwwSDM0LjU1NUMxNS40NzEsMCwwLDE1LjQ3MSwwLDM0LjU1NXYzMTIuODg5QzAsMzY2LjUyOSwxNS40NzEsMzgyLDM0LjU1NSwzODJoMzEyLjg4OQ0KCUMzNjYuNTI5LDM4MiwzODIsMzY2LjUyOSwzODIsMzQ3LjQ0NFYzNC41NTVDMzgyLDE1LjQ3MSwzNjYuNTI5LDAsMzQ3LjQ0NSwweiBNMTE4LjIwNywzMjkuODQ0YzAsNS41NTQtNC41MDIsMTAuMDU2LTEwLjA1NiwxMC4wNTYNCglINjUuMzQ1Yy01LjU1NCwwLTEwLjA1Ni00LjUwMi0xMC4wNTYtMTAuMDU2VjE1MC40MDNjMC01LjU1NCw0LjUwMi0xMC4wNTYsMTAuMDU2LTEwLjA1Nmg0Mi44MDYNCgljNS41NTQsMCwxMC4wNTYsNC41MDIsMTAuMDU2LDEwLjA1NlYzMjkuODQ0eiBNODYuNzQ4LDEyMy40MzJjLTIyLjQ1OSwwLTQwLjY2Ni0xOC4yMDctNDAuNjY2LTQwLjY2NlM2NC4yODksNDIuMSw4Ni43NDgsNDIuMQ0KCXM0MC42NjYsMTguMjA3LDQwLjY2Niw0MC42NjZTMTA5LjIwOCwxMjMuNDMyLDg2Ljc0OCwxMjMuNDMyeiBNMzQxLjkxLDMzMC42NTRjMCw1LjEwNi00LjE0LDkuMjQ2LTkuMjQ2LDkuMjQ2SDI4Ni43Mw0KCWMtNS4xMDYsMC05LjI0Ni00LjE0LTkuMjQ2LTkuMjQ2di04NC4xNjhjMC0xMi41NTYsMy42ODMtNTUuMDIxLTMyLjgxMy01NS4wMjFjLTI4LjMwOSwwLTM0LjA1MSwyOS4wNjYtMzUuMjA0LDQyLjExdjk3LjA3OQ0KCWMwLDUuMTA2LTQuMTM5LDkuMjQ2LTkuMjQ2LDkuMjQ2aC00NC40MjZjLTUuMTA2LDAtOS4yNDYtNC4xNC05LjI0Ni05LjI0NlYxNDkuNTkzYzAtNS4xMDYsNC4xNC05LjI0Niw5LjI0Ni05LjI0Nmg0NC40MjYNCgljNS4xMDYsMCw5LjI0Niw0LjE0LDkuMjQ2LDkuMjQ2djE1LjY1NWMxMC40OTctMTUuNzUzLDI2LjA5Ny0yNy45MTIsNTkuMzEyLTI3LjkxMmM3My41NTIsMCw3My4xMzEsNjguNzE2LDczLjEzMSwxMDYuNDcyDQoJTDM0MS45MSwzMzAuNjU0TDM0MS45MSwzMzAuNjU0eiIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" alt="linkedin" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://github.com/rroggia" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQzOC41MzZweCIgaGVpZ2h0PSI0MzguNTM2cHgiIHZpZXdCb3g9IjAgMCA0MzguNTM2IDQzOC41MzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQzOC41MzYgNDM4LjUzNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xNTguMTczLDM1Mi41OTljLTMuMDQ5LDAuNTY4LTQuMzgxLDEuOTk5LTMuOTk5LDQuMjgxYzAuMzgsMi4yODMsMi4wOTMsMy4wNDYsNS4xMzgsMi4yODMNCgkJCWMzLjA0OS0wLjc2LDQuMzgtMi4wOTUsMy45OTctMy45OTdDMTYyLjkzMSwzNTMuMDc0LDE2MS4yMTgsMzUyLjIxNiwxNTguMTczLDM1Mi41OTl6Ii8+DQoJCTxwYXRoIGQ9Ik0xNDEuODk4LDM1NC44ODVjLTMuMDQ2LDAtNC41NjgsMS4wNDEtNC41NjgsMy4xMzljMCwyLjQ3NCwxLjYxOSwzLjUxOCw0Ljg1MywzLjEzOGMzLjA0NiwwLDQuNTctMS4wNDcsNC41Ny0zLjEzOA0KCQkJQzE0Ni43NTMsMzU1LjU1MywxNDUuMTM0LDM1NC41MDIsMTQxLjg5OCwzNTQuODg1eiIvPg0KCQk8cGF0aCBkPSJNMTE5LjYyOSwzNTQuMDIyYy0wLjc2LDIuMDk1LDAuNDc4LDMuNTE5LDMuNzExLDQuMjg0YzIuODU1LDEuMTM3LDQuNjY0LDAuNTY4LDUuNDI0LTEuNzE0DQoJCQljMC41NzItMi4wOTEtMC42NjYtMy42MS0zLjcxMS00LjU2OEMxMjIuMTk3LDM1MS4yNjUsMTIwLjM5LDM1MS45MjIsMTE5LjYyOSwzNTQuMDIyeiIvPg0KCQk8cGF0aCBkPSJNNDE0LjQxLDI0LjEyM0MzOTguMzI2LDguMDQyLDM3OC45NjQsMCwzNTYuMzA5LDBIODIuMjI1QzU5LjU3NywwLDQwLjIwOCw4LjA0MiwyNC4xMjMsMjQuMTIzDQoJCQlDOC4wNDIsNDAuMjA3LDAsNTkuNTc2LDAsODIuMjI1djI3NC4wODhjMCwyMi42NSw4LjA0Miw0Mi4wMTcsMjQuMTIzLDU4LjA5OGMxNi4wODQsMTYuMDg0LDM1LjQ1NCwyNC4xMjYsNTguMTAyLDI0LjEyNmg2My45NTMNCgkJCWM0LjE4NCwwLDcuMzI3LTAuMTQ0LDkuNDItMC40MjRjMi4wOTItMC4yODgsNC4xODQtMS41MjYsNi4yNzktMy43MTdjMi4wOTYtMi4xODcsMy4xNC01LjM3NiwzLjE0LTkuNTYyDQoJCQljMC0wLjU2OC0wLjA1LTcuMDQ2LTAuMTQ0LTE5LjQxN2MtMC4wOTctMTIuMzc1LTAuMTQ0LTIyLjE3Ni0wLjE0NC0yOS40MWwtNi41NjcsMS4xNDNjLTQuMTg3LDAuNzYtOS40NjksMS4wOTUtMTUuODQ2LDAuOTk5DQoJCQljLTYuMzc0LTAuMDk2LTEyLjk5LTAuNzYtMTkuODQxLTEuOTk4Yy02Ljg1NS0xLjIzOS0xMy4yMjktNC4wOTMtMTkuMTMtOC41NjJjLTUuODk4LTQuNDc3LTEwLjA4NS0xMC4zMjgtMTIuNTYtMTcuNTU5DQoJCQlsLTIuODU2LTYuNTcxYy0xLjkwMy00LjM3My00Ljg5OS05LjIyOS04Ljk5Mi0xNC41NTRjLTQuMDkzLTUuMzMyLTguMjMyLTguOTQ5LTEyLjQxOS0xMC44NTJsLTEuOTk5LTEuNDI4DQoJCQljLTEuMzMxLTAuOTUxLTIuNTY4LTIuMDk4LTMuNzExLTMuNDI5Yy0xLjE0MS0xLjMzNS0xLjk5Ny0yLjY2OS0yLjU2OC0zLjk5N2MtMC41NzEtMS4zMzUtMC4wOTctMi40MywxLjQyNy0zLjI4OQ0KCQkJYzEuNTI0LTAuODU1LDQuMjgxLTEuMjc5LDguMjgtMS4yNzlsNS43MDgsMC44NTVjMy44MDgsMC43Niw4LjUxNiwzLjA0MiwxNC4xMzQsNi44NTFjNS42MTQsMy44MDYsMTAuMjI5LDguNzU0LDEzLjg0NiwxNC44NDMNCgkJCWM0LjM4LDcuODA2LDkuNjU3LDEzLjc1LDE1Ljg0NiwxNy44NDNjNi4xODQsNC4wOTcsMTIuNDE5LDYuMTQzLDE4LjY5OSw2LjE0M3MxMS43MDQtMC40NzYsMTYuMjc0LTEuNDI0DQoJCQljNC41NjUtMC45NTQsOC44NDgtMi4zODUsMTIuODQ3LTQuMjg4YzEuNzEzLTEyLjc1MSw2LjM3Ny0yMi41NTksMTMuOTg4LTI5LjQxYy0xMC44NDgtMS4xNDMtMjAuNjAyLTIuODU0LTI5LjI2NS01LjE0DQoJCQljLTguNjU4LTIuMjg2LTE3LjYwNS01Ljk5NS0yNi44MzUtMTEuMTM2Yy05LjIzNC01LjE0LTE2Ljg5NC0xMS41MTItMjIuOTg1LTE5LjEzYy02LjA5LTcuNjE4LTExLjA4OC0xNy42MS0xNC45ODctMjkuOTc4DQoJCQljLTMuOTAxLTEyLjM3NS01Ljg1Mi0yNi42NTItNS44NTItNDIuODI5YzAtMjMuMDI5LDcuNTIxLTQyLjYzNywyMi41NTctNTguODE0Yy03LjA0NC0xNy4zMi02LjM3OS0zNi43MzIsMS45OTctNTguMjQyDQoJCQljNS41Mi0xLjcxNCwxMy43MDYtMC40MjgsMjQuNTU0LDMuODU1YzEwLjg1LDQuMjg2LDE4Ljc5NCw3Ljk1MSwyMy44NCwxMC45OTJjNS4wNDYsMy4wNDIsOS4wODksNS42MTQsMTIuMTM1LDcuNzENCgkJCWMxNy43MDUtNC45NDksMzUuOTc2LTcuNDIzLDU0LjgxOC03LjQyM2MxOC44NDEsMCwzNy4xMTUsMi40NzQsNTQuODIxLDcuNDIzbDEwLjg0OS02Ljg1MmM3LjQyNi00LjU3LDE2LjE4LTguNzU3LDI2LjI2OS0xMi41NjINCgkJCWMxMC4wODgtMy44MDYsMTcuNzk1LTQuODU0LDIzLjEyNy0zLjE0YzguNTYyLDIxLjUxLDkuMzI4LDQwLjkyMiwyLjI3OSw1OC4yNDFjMTUuMDM2LDE2LjE3OSwyMi41NTksMzUuNzg2LDIyLjU1OSw1OC44MTUNCgkJCWMwLDE2LjE4LTEuOTUxLDMwLjUwNS01Ljg1Miw0Mi45NjljLTMuODk4LDEyLjQ2Ny04LjkzOSwyMi40NjMtMTUuMTMsMjkuOTgxYy02LjE4NCw3LjUxOS0xMy44OTQsMTMuODQzLTIzLjEyNCwxOC45ODYNCgkJCWMtOS4yMzIsNS4xMzctMTguMTc4LDguODUzLTI2Ljg0LDExLjEzMmMtOC42NjEsMi4yODYtMTguNDE0LDQuMDA0LTI5LjI2Myw1LjE0N2M5Ljg5MSw4LjU2MiwxNC44MzksMjIuMDcyLDE0LjgzOSw0MC41Mzh2NjguMjM4DQoJCQljMCwzLjIzNywwLjQ3Miw1Ljg1MiwxLjQyNCw3Ljg1MWMwLjk1OCwxLjk5OCwyLjQ3OCwzLjM3NCw0LjU3MSw0LjE0MWMyLjEwMiwwLjc2LDMuOTQ5LDEuMjM1LDUuNTcxLDEuNDI0DQoJCQljMS42MjIsMC4xOTEsMy45NDksMC4yODcsNi45OTUsMC4yODdoNjMuOTUzYzIyLjY0OCwwLDQyLjAxOC04LjA0Miw1OC4wOTUtMjQuMTI2YzE2LjA4NC0xNi4wODQsMjQuMTI2LTM1LjQ1NCwyNC4xMjYtNTguMTAyDQoJCQlWODIuMjI1QzQzOC41MzMsNTkuNTc2LDQzMC40OTEsNDAuMjA0LDQxNC40MSwyNC4xMjN6Ii8+DQoJCTxwYXRoIGQ9Ik04Ni43OTMsMzE5LjE5NWMtMS4zMzEsMC45NDgtMS4xNDEsMi40NzEsMC41NzIsNC41NjVjMS45MDYsMS45MDIsMy40MjcsMi4xODksNC41NywwLjg1NQ0KCQkJYzEuMzMxLTAuOTQ4LDEuMTQxLTIuNDcxLTAuNTc1LTQuNTY5Qzg5LjQ1OCwzMTguMzM2LDg3LjkzNiwzMTguMDQ5LDg2Ljc5MywzMTkuMTk1eiIvPg0KCQk8cGF0aCBkPSJNNzcuMzc0LDMxMi4wNTdjLTAuNTcsMS4zMzUsMC4wOTYsMi40NzgsMS45OTksMy40MjZjMS41MjEsMC45NTUsMi43NjIsMC43NjcsMy43MTEtMC41NjgNCgkJCWMwLjU3LTEuMzM1LTAuMDk2LTIuNDc4LTEuOTk5LTMuNDMzQzc5LjE4MiwzMTAuOTEsNzcuOTQ1LDMxMS4xMDIsNzcuMzc0LDMxMi4wNTd6Ii8+DQoJCTxwYXRoIGQ9Ik05NS42NDYsMzMwLjMzMWMtMS43MTUsMC45NDgtMS43MTUsMi42NjYsMCw1LjEzN2MxLjcxMywyLjQ3OCwzLjMyOCwzLjE0Miw0Ljg1MywxLjk5OGMxLjcxNC0xLjMzNCwxLjcxNC0zLjE0MiwwLTUuNDI3DQoJCQlDOTguOTc4LDMyOS41NzEsOTcuMzU5LDMyOC45OTMsOTUuNjQ2LDMzMC4zMzF6Ii8+DQoJCTxwYXRoIGQ9Ik0xMDUuNjQxLDM0My4xNzRjLTEuNzE0LDEuNTI2LTEuMzM2LDMuMzI3LDEuMTQyLDUuNDI4YzIuMjgxLDIuMjc5LDQuMTg1LDIuNTY2LDUuNzA4LDAuODQ5DQoJCQljMS41MjQtMS41MTksMS4xNDMtMy4zMjYtMS4xNDItNS40MkMxMDkuMDY4LDM0MS43NTEsMTA3LjE2NCwzNDEuNDYzLDEwNS42NDEsMzQzLjE3NHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="github" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a></div><div></div><div class="AdditionalInformation__AdditionalInfoWrapper-itnhco-0 gMVlmL"><p>This blog was created by Renan Roggia using gatsby.</p><p>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   
   
   if(true) {
