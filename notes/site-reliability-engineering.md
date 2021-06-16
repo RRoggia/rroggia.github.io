@@ -192,3 +192,106 @@ SRE team is responsible for the:
 This chapter they describe Google's Environment.
 
 The cluster operating system Borg handles resource allocation. Borg is the precedent of Kubernetes. r
+
+# Part II - Principles
+
+## Chapter 3 - Embracing Risk
+
+> It turns out that past a certain point, however, increasing reliability is worse for a service (and its users) rather than better! Extreme reliability comes at a cost: maximizing stability limits how fast new features can be developed and how quickly products can be delivered to users, and dramatically increases their cost, which in turn reduces the numbers of features a team can afford to offer
+
+>  Site Reliability Engineering seeks to balance the risk of unavailability with the goals of rapid innovation and efficient service operations, so that users’ overall happiness—with features, service, and performance—is optimized.
+
+### Managing Risks
+
+> We strive to make a service reliable enough, but no *more* reliable than it needs to be.
+
+> That is, when we set an availability target of 99.99%,we want to exceed it, but not by much: that would waste opportunities to add features to the system, clean up technical debt, or reduce its operational costs.
+
+### Measuring Service Risk
+
+> As standard practice at Google, we are often best served by identifying an objective metric to represent the property of a system we want to optimize. By setting a target, we can assess our current performance and track improvements or degradations over time.
+
+> For most services, the most straightforward way of representing risk tolerance is in terms of the acceptable level of unplanned downtime.
+
+#### Time-based availability
+
+> Availability = uptime / (uptime + downtime)
+
+#### Aggregate availability
+
+>  Availability = successful request / total requests
+
+> Most often, we set quarterly availability targets for a service and track our performance against those targets on a weekly, or even daily, basis. This strategy lets us manage the service to a high-level availability objective by looking for, tracking down, and fixing meaningful deviations as they inevitably arise
+
+## Risk Tolerance of Services
+
+> SREs must work with the product owners to turn a set of business goals into explicit objectives to which we can engineer. In this case, the business goals we’re concerned about have a direct impact on the performance and reliability of the service offered.
+
+### Identifying the Risk Tolerance of Consumer Services
+
+> - What level of availability is required?
+> - Do different types of failures have different effects on the service?
+> - How can we use the service cost to help locate a service on the risk continuum?
+> - What other service metrics are important to take into account?
+
+#### Target level of availability
+
+> - What level of service will the users expect?
+> - Does this service tie directly to revenue (either our revenue, or our customers’ revenue)?
+> - Is this a paid service, or is it free?
+> - If there are competitors in the marketplace, what level of service do those competitors provide?
+> - Is this service targeted at consumers, or at enterprises?
+
+#### Types of failures
+
+> Which is worse for the service: a constant low rate of failures, or an occasional full-site outage? Both types of failure may result in the same absolute number of errors, but may have vastly different impacts on the business.
+
+> Because most of this work takes place during normal business hours, we determined that occasional, regular, scheduled outages in the form of maintenance windows would be acceptable, and we counted these scheduled outages as planned downtime, not unplanned downtime.
+
+#### Cost
+
+> It may be harder to set these targets when we do not have a simple translation function between reliability and revenue.
+
+### Identifying the Risk Tolerance of Infrastructure Services
+
+> A fundamental difference is that, by definition, infrastructure components have multiple clients, often with varying needs.
+
+## Motivation for Error Budgets
+
+> The product developers have more visibility into the time and effort involved in writing and releasing their code, while the SREs have more visibility into the service’s reliability (and the state of production in general).
+
+> Instead, our goal is to define an objective metric, agreed upon by both sides, that can be used to guide the negotiations in a reproducible way.
+
+#### Forming Your Error Budget
+
+> The error budget provides a clear, objective metric that determines how unreliable the service is allowed to be within a single quarter.
+
+> - Product Management defines an SLO, which sets an expectation of how much uptime the service should have per quarter.
+> - The actual uptime is measured by a neutral third party: our monitoring system.
+> - The difference between these two numbers is the "budget" of how much "unreliability" is remaining for the quarter.
+> - As long as the uptime measured is above the SLO—in other words, as long as there is error budget remaining—new releases can be pushed.
+
+### Benefits
+
+> The main benefit of an error budget is that it provides a common incentive that allows both product development and SRE to focus on finding the right balance between innovation and reliability.
+
+> If SLO violations occur frequently enough to expend the error budget, releases are temporarily halted while additional resources are invested in system testing and development to make the system more resilient, improve its performance, and so on.
+
+>  If the team is having trouble launching new features, they may elect to loosen the SLO (thus increasing the error budget) in order to increase innovation.
+
+### My Summary
+
+The cost:
+
+- The redundant compute resources
+- The opportunity cost
+
+Typical tension:
+
+- Software fault tolerance
+- Testing
+- Push frequency
+- Canary duration and size
+
+## Chapter 4 - Service Level Objectives
+
