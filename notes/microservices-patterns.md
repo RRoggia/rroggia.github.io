@@ -562,7 +562,7 @@ Must consider the points highlighted above in the notes when considering a messa
 
 A common solution to avoid competing receivers and messages out of order is to use *sharded* (partitioned) channels. A channel is a set of shards ( channels). The client sends the shard key. The messaging routes to the shards of a channel based on the shard key.
 
-**Need to finish the chapter 3**
+**I need to finish notes from the chapter 3**
 
 # Chapter 4 - Managing transactions with sagas
 
@@ -668,6 +668,86 @@ A common solution to avoid competing receivers and messages out of order is to u
 > An application that uses this countermeasure uses the properties of each request to decide between using sagas and distributed transactions
 
 ## My Summary
+
+**I need to finish notes from the chapter 4**
+
+# Chapter 5 - Designing business logic in a microservice architecture
+
+> First, a typical domain model is a tangled web of interconnected classes. Although this isn’t a problem in a monolithic application, in a microservice architecture, where classes are scattered around different services, you need to eliminate object references that would otherwise span service boundaries. The second challenge is designing business logic that works within the transaction management constraints of a microservice architecture.
+
+> The Aggregate pattern structures a service’s business logic as a collection of aggregates. An aggregate is a cluster of objects that can be treated as a unit. There are two reasons why aggregates are useful when developing business logic in a microservice architecture:
+>
+> - Aggregates avoid any possibility of object references spanning service boundaries, because an inter-aggregate reference is a primary key value rather than an object reference.
+> - Because a transaction can only create or update a single aggregate, aggregates fit the constraints of the microservices transaction model.
+
+## Business Logic organization patterns
+
+### Designing business logic using the Transaction script pattern
+
+> an important characteristic of this approach is that the classes that implement behavior are separate from those that store state.
+
+### Designing business logic using the Domain model pattern
+
+> Organize the business logic as an object model consisting of classes that have state and behavior.
+
+> In an object-oriented design, the business logic consists of an object model, a network of relatively small classes. These classes typically correspond directly to concepts from the problem domain.
+
+> In such a design some classes have only either state or behavior, but many contain both, which is the hallmark of a well-designed class.
+
+> Moreover, its state is private and can only be accessed indirectly via its methods.
+
+## Designing a domain model using the DDD aggregate pattern
+
+### Aggregates have explicit boundaries
+
+> An aggregate is a cluster of domain objects within a boundary that can be treated as a unit.
+
+> It consists of a root entity and possibly one or more other entities and value objects.
+
+> Aggregates decompose a domain model into chunks, which are individually easier to understand.
+
+> A service, for example, uses a repository to load an aggregate from the database and obtain a reference to the aggregate root. It updates an aggregate by invoking a method on the aggregate root.
+
+> The use of identity rather than object references means that the aggregates are loosely coupled. It ensures that the aggregate boundaries between aggregates are well defined and avoids accidentally updating a different aggregate.
+
+> Another rule that aggregates must obey is that a transaction can only create or update a single aggregate.
+
+### Aggregate granularity
+
+> When developing a domain model, a key decision you must make is how large to make each aggregate. On one hand, aggregates should ideally be small. Because updates to each aggregate are serialized, more fine-grained aggregates will increase the number of simultaneous requests that the application can handle, improving scalability. It will also improve the user experience because it reduces the chance of two users attempting conflicting updates of the same aggregate. On the other hand, because an aggregate is the scope of transaction, you may need to define a larger aggregate in order to make a particular update atomic.
+
+## Publishing domain events
+
+> In the context of DDD, a domain event is something that has happened to an aggregate. It’s represented by a class in the domain model. An event usually represents a state change.
+
+### What is a domain event?
+
+> A domain event is a class with a name formed using a past-participle verb. It has properties that meaningfully convey the event. Each property is either a primitive value or a value object.
+
+> A domain event typically also has metadata, such as the event ID, and a timestamp. It might also have the identity of the user who made the change, because that’s useful for auditing. The metadata can be part of the event object, perhaps defined in a superclass. Alternatively, the event metadata can be in an envelope object that wraps the event object
+
+### Event enrichment
+
+> An alternative approach known as event enrichment is for events to contain information that consumers need. It simplifies event consumers because they no longer need to request that data from the service that published the event
+
+> Although event enrichment simplifies consumers, the drawback is that it risks making the event classes less stable.
+
+### Identifying domain events
+
+> Event storming is an event-centric workshop format for understanding a complex domain. It involves gathering domain experts in a room, lots of sticky notes, and a very large surface—a whiteboard or paper roll—to stick the notes on.
+
+
+
+## My Summary
+
+Two main patterns for organizing business logic:
+
+- Transaction script pattern
+  - One script (method) for each system operation which contains the business logic.
+  - Classes that store state are not the same that implement behavior
+- Object oriented domain model pattern
+
+
 
 
 

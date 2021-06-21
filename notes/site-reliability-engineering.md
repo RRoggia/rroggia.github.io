@@ -223,11 +223,11 @@ The cluster operating system Borg handles resource allocation. Borg is the prece
 
 > Most often, we set quarterly availability targets for a service and track our performance against those targets on a weekly, or even daily, basis. This strategy lets us manage the service to a high-level availability objective by looking for, tracking down, and fixing meaningful deviations as they inevitably arise
 
-## Risk Tolerance of Services
+### Risk Tolerance of Services
 
 > SREs must work with the product owners to turn a set of business goals into explicit objectives to which we can engineer. In this case, the business goals we’re concerned about have a direct impact on the performance and reliability of the service offered.
 
-### Identifying the Risk Tolerance of Consumer Services
+#### Identifying the Risk Tolerance of Consumer Services
 
 > - What level of availability is required?
 > - Do different types of failures have different effects on the service?
@@ -256,7 +256,7 @@ The cluster operating system Borg handles resource allocation. Borg is the prece
 
 > A fundamental difference is that, by definition, infrastructure components have multiple clients, often with varying needs.
 
-## Motivation for Error Budgets
+### Motivation for Error Budgets
 
 > The product developers have more visibility into the time and effort involved in writing and releasing their code, while the SREs have more visibility into the service’s reliability (and the state of production in general).
 
@@ -294,4 +294,91 @@ Typical tension:
 - Canary duration and size
 
 ## Chapter 4 - Service Level Objectives
+
+> We use intuition, experience, and an understanding of what users want to define *service level indicators* (SLIs), *objectives* (SLOs), and *agreements* (SLAs). These measurements describe basic properties of metrics that matter, what values we want those metrics to have, and how we’ll react if we can’t provide the expected service.
+
+#### Indicators
+
+> An SLI is a service level *indicator*—a carefully defined quantitative measure of some aspect of the level of service that is provided.
+
+> Most services consider *request latency*—how long it takes to return a response to a request—as a key SLI. Other common SLIs include the *error rate*, often expressed as a fraction of all requests received, and *system throughput*, typically measured in requests per second.
+
+> Another kind of SLI important to SREs is *availability*, or the fraction of the time that a service is usable. It is often defined in terms of the fraction of well-formed requests that succeed, sometimes called *yield*.
+
+> Although 100% availability is impossible, near-100% availability is often readily achievable, and the industry commonly expresses high-availability values in terms of the number of "nines" in the availability percentage.
+
+#### Objectives
+
+> An SLO is a *service level objective*: a target value or range of values for a service level that is measured by an SLI.
+
+> *SLI ≤ target*, or *lower bound ≤ SLI ≤ upper bound*.
+
+> Choosing and publishing SLOs to users sets expectations about how a service will perform. This strategy can reduce unfounded complaints to service owners about, for example, the service being slow.
+
+#### Agreements
+
+> Finally, SLAs are service level *agreements*: an explicit or implicit contract with your users that includes consequences of meeting (or missing) the SLOs they contain.
+
+> SRE does, however, get involved in helping to avoid triggering the consequences of missed SLOs
+
+### Indicators in Practice
+
+#### What Do You and Your Users Care About?
+
+> Choosing too many indicators makes it hard to pay the right level of attention to the indicators that matter, while choosing too few may leave significant behaviors of your system unexamined
+
+#### Collecting Indicators
+
+> However, some systems should be instrumented with *client*-side collection, because not measuring behavior at the client can miss a range of problems that affect users but don’t affect server-side metrics.
+
+#### Aggregation
+
+> Most metrics are better thought of as *distributions* rather than averages. 
+
+> Using percentiles for indicators allows you to consider the shape of the distribution and its differing attributes: a high-order percentile, such as the 99th or 99.9th, shows you a plausible worst-case value, while using the 50th percentile (also known as the median) emphasizes the typical case.
+
+> User studies have shown that people typically prefer a slightly slower system to one with high variance in response time, so some SRE teams focus only on high percentile values, on the grounds that if the 99.9th percentile behavior is good, then the typical experience is certainly going to be.
+
+> We recommend that you standardize on common definitions for SLIs so that you don’t have to reason about them from first principles each time.
+
+### Objectives in Practice
+
+> Start by thinking about (or finding out!) what your users care about, not what you can measure. Often, what your users care about is difficult or impossible to measure, so you’ll end up approximating users’ needs in some way.
+
+#### Defining Objectives
+
+> SLOs should specify how they’re measured and the conditions under which they’re valid.
+
+> It’s both unrealistic and undesirable to insist that SLOs will be met 100% of the time: doing so can reduce the rate of innovation and deployment, require expensive, overly conservative solutions, or both. Instead, it is better to allow an error budget—a rate at which the SLOs can be missed—and track that on a daily or weekly basis. Upper management will probably want a monthly or quarterly assessment, too.
+
+#### Have as few SLOs as possible
+
+> Choose just enough SLOs to provide good coverage of your system’s attributes.
+
+#### Perfection can wait
+
+> You can always refine SLO definitions and targets over time as you learn about a system’s behavior
+
+> SLOs can—and should—be a major driver in prioritizing work for SREs and product developers, because they reflect what users care abou
+
+#### Control Measure
+
+> 1. Monitor and measure the system’s SLIs.
+> 2. Compare the SLIs to the SLOs, and decide whether or not action is needed.
+> 3. If action is needed, figure out *what* needs to happen in order to meet the target.
+> 4. Take that action.
+
+#### Keep a safety margin
+
+> Using a tighter internal SLO than the SLO advertised to users gives you room to respond to chronic problems before they become visible externally. 
+
+## My Summary
+
+- *User-facing serving systems*: *availability*, *latency*, and *throughput*.
+- *Storage systems*: *latency*, *availability*, and *durability*.
+- *Big data systems*: *Throughput* and *end-to-end latency*
+
+
+
+
 
