@@ -186,3 +186,91 @@ You are not an extreme programmer master because you read a book.
 
 # Chapter 4. Values
 
+> He knows in his bones what matters and what doesn't.
+
+> The difference between what I think is valuable and what is really valuable creates waste.
+
+> What actually matters is not how any given person behaves as much as how the individuals behave as part of a team and as part of an organization.
+
+> XP embraces five values to guide development: communication, simplicity, feedback, courage and respect.
+
+## Communication
+
+> What matters most in team software development is communication.
+
+> When problems arise in development, most often someone already knows the solution; but that knowledge doesn't get through to someone with the power to make the change.
+
+> However, motion without communication is not progress.
+
+> When you encounter a problem, ask yourselves if the problem was caused by a lack of communication.
+
+> Communication is important for creating a sense of team and effective cooperation.
+
+## Simplicity
+
+> To make a system simple enough to gracefully solve only today's problem is hard work.
+
+> Simplicity only makes sense in context.
+
+> Improving communication helps achieve simplicity enabling unneeded or deferrable requirements from today's concerns.
+
+## Feedback
+
+> Directions set in advance of experience have an especially short half-life. Change is inevitable, but change creates the need for feedback.
+
+> Being satisfied with improvement rather than expecting instant perfection, we use feedback to get closer and closer to our goals.
+
+> XP teams strive to generate as much feedback as they can handle as quickly as possible.
+
+> The sooner you know, the sooner you can adapt.
+
+> For example, suppose you move to quarterly releases and suddenly have more defect reports than you can respond to before the next quarter's release. Slow down releases until you can handle the defect reports and still develop new functionalities.
+
+## Courage
+
+> Courage is effective action in the face of fear.
+
+> It's how they handle their fear that dictates whether they are working as an effective part of a team.
+
+> If you know what the problem is, do something about it. Sometimes courage manifests as patience. If you know there is a problem but you don't know what it is, it takes courage to wait for the real problem to emerge distinctly.
+
+> Doing something without regard for the consequences is not effective teamwork.
+
+> The courage to speak truths, pleasant or unpleasant, fosters communication and trust. The courage to discard failing solutions and seek new ones encourages simplicity. The courage to eek real, concrete answers creates feedback.
+
+## Respect
+
+> If members of a team don't care about each other and what they are doing, XP won't work. If members of a team don't care about a project, nothing can save it.
+
+> For software development to simultaneously improve in humanity and productivity, the contributions of each person on the team need to be respected.
+
+> Values don't provide concrete advice about what to do in software development. Because of the distance between values and practices, we need a way to bridge the gap between them. Principles are the tool we need.
+
+## My Summary
+
+Communication is key in software development. The sum of knowledge of all the people in a project is a great solution/problem catalog.
+
+If the problem is about not having the knowledge, then you can either learn with people that had similar problems or avoid that it become a recurring problem. Other than that there is nothing you can do.
+
+Simplicity as the opposite of complexity. Do only what you need to do. It is different from taking shortcuts. 
+
+Our plans will change, feedback avoid generating too much waste. It helps to do small corrections in the direction of the right goal.
+
+When building a solution:
+
+- You might not know what the right is. Or there might be several right solutions.
+- Time changes business requirements, or even technical requirements.
+- Requirements change too often, at a certain point that would invalidate a right solution even before it's done.
+
+Feedback is opinions, the implementation, if the code is testable, if tests pass, the solution in production. We seek as much feedback as we can handle. The shorter the feedback cycle the better, as long we can handle it.
+
+Courage can be either acting in the face of fear, or taking action to wait for a real problem to emerge. It shouldn't be reckless. It's power together with the other values.
+
+Respect lies below the surface of the other values. Without respect there isn't a team.
+
+# Chapter 5. Principles
+
+
+
+
+
