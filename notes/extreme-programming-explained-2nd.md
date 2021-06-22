@@ -156,3 +156,33 @@ This analogy works in two different levels:
 
 # Chapter 3. Values, Principles and Practices
 
+> Practices are the things you do day-to-day. Specifying practices is useful because they are clear and objective. You either write a test before you change code or you don't.
+
+> Call this level of knowledge and understanding values. Values are the roots of the things we like and don't like in a situation.
+
+> Making values explicit is important because without values, practices quickly become rote, activities performed for their own sake but lacking any purpose or direction.
+
+> The defect itself might be a failure of technique, but the reluctance to learn from the defect shows that the programmer doesn't actually value learning and elf-improvement as much as something else.
+
+> Values bring purpose to practices.
+
+> Just as values bring purpose to practices, practices bring accountability to values.
+
+> Principles are domain-specific guidelines for life.
+
+> It is a start but it isn't enough for you to master XP.
+
+## My Summary
+
+Third chapter starts with an analogy about learning the basics about a skill and being a gardening master.
+
+Level of understanding:
+
+- Practice: Clear and objective. Either you do or you don't. A place to start. Value's accountability.
+- Principles: The bridge between practice and value. It's domain specific.
+- Values: The roots of the things we like and don't like in a situation. A highly developed sense of good and bad. Experience. Practice's purpose.
+
+You are not an extreme programmer master because you read a book.
+
+# Chapter 4. Values
+
