@@ -163,6 +163,18 @@ data-styled.g27[id="Note__NoteContainer-i7okha-1"]{content:"ZkJVA,"}/*!sc*/
 <li><a href="#my-summary-4">My Summary</a></li>
 </ul>
 </li>
+<li>
+<p><a href="#chapter-6---developing-business-logic-with-event-sourcing">Chapter 6 - Developing business logic with event sourcing</a></p>
+<ul>
+<li>
+<p><a href="#developing-business-logic-using-event-sourcing">Developing business logic using event sourcing</a></p>
+<ul>
+<li><a href="#the-trouble-with-traditional-persistence">The trouble with traditional persistence</a></li>
+<li><a href="#overview-of-event-sourcing">Overview of event sourcing</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><a href="#todo">TODO</a></li>
 </ul></div><h2>The notes</h2><div class="Note__NoteContainer-i7okha-1 ZkJVA"><h1>Chapter 1 - Escaping monolithic hell</h1>
 <blockquote>
@@ -1036,6 +1048,49 @@ consistency.</p>
 </li>
 <li>Object oriented domain model pattern</li>
 </ul>
+<h1>Chapter 6 - Developing business logic with event sourcing</h1>
+<blockquote>
+<p>event sourcing, an event-centric way of writing business logic and persisting domain objects.</p>
+</blockquote>
+<h2>Developing business logic using event sourcing</h2>
+<blockquote>
+<p>It persists an aggregate as a sequence of events. Each event represents a state change of the aggregate. An application recreates the current state of an aggregate by replaying the events.</p>
+</blockquote>
+<h3>The trouble with traditional persistence</h3>
+<blockquote>
+<p>The traditional approach to persistence maps classes to database tables, fields of those classes to table columns, and instances of those classes to rows in those tables.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Object-Relational impedance mismatch.</li>
+<li>Lack of aggregate history.</li>
+<li>Implementing audit logging is tedious and error prone.</li>
+<li>Event publishing is bolted on to the business logic.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>There’s a fundamental conceptual mismatch between the tabular relational schema and the graph structure of a rich domain model with its complex relationships.</p>
+</blockquote>
+<blockquote>
+<p>Another limitation of traditional persistence is that it only stores the current state of an aggregate.</p>
+</blockquote>
+<blockquote>
+<p>rather than store each Order as a row in an ORDER table, event sourcing persists each Order aggregate as one or more rows in an EVENTS table.</p>
+</blockquote>
+<h3>Overview of event sourcing</h3>
+<blockquote>
+<p>Every state change of an aggregate, including its creation, is represented by a domain event.</p>
+</blockquote>
+<blockquote>
+<p>What’s more, an event must contain the data that the aggregate needs to perform the state transition.</p>
+</blockquote>
+<blockquote>
+<p>The business logic handles a request to update an aggregate by calling a command method on the aggregate root.</p>
+</blockquote>
+<blockquote>
+<p>The first method takes a command object parameter, which represents the request, and determines what state changes need to be performed. It validates its arguments, and without changing the state of the aggregate, returns a list of events representing the state changes. This method typically throws an exception if the command cannot be performed.</p>
+<p>The other methods each take a particular event type as a parameter and update the aggregate. There’s one of these methods for each event. It’s important to note that these methods can’t fail, because an event represents a state change that has happened. Each method updates the aggregate based on the event.</p>
+</blockquote>
 <h1>TODO</h1>
 <ul>
 <li>CAP Theorem</li>
