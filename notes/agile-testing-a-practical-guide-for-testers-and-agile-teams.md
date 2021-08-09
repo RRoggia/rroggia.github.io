@@ -34,7 +34,7 @@ date: '2015-06-01'
 
 >  The “whole team” approach promoted by agile development is central to our attitude toward quality and testing,
 
-### What Dow We Mean by "Agile Testing"?
+### What Do We Mean by "Agile Testing"?
 
 > With TDD, the programmer writes a test for a tiny bit of functionality, sees it fail, writes the code that makes it pass, and then moves on to the next tiny bit of functionality.
 
@@ -100,49 +100,142 @@ Agile teams, composed of customer and developer teams, should collaborate as the
 
 ## Chapter 2 Ten Principles for Agile Testers
 
-She’s ready to gather and share information, to work with the customer or product owner in order to help them express their requirements adequately so that they can get the features they need, and to provide feedback on project progress to everyone. 
-Creativity, openness to ideas, willingness to take on any task or role, focus on the customer, and a constant view of the big picture are just some components of the agile testing mind-set. 
-One of the agile tester’s most important contributions is helping the product owner or customer articulate requirements for each story in the form of examples and tests. 
-run these tests early and often so they’re continually guided by meaningful feedback. 
-Is management worried about how work is progressing? Display a big visible chart of tests written, run, and passing every day. 
-If we let new features creep in, we risk delivering nothing on time. 
-If we get too caught up with edge cases and miss core functionality on the happy path, we won’t provide the value the business needs. 
-The worst-case scenario is that only the core functionality gets released. That’s better than delivering nothing or something that works only halfway. 
-we still need to start by making sure the happy path works.  
-and add negative and boundary tests later.                   
-The agile tester should look for unique ways to facilitate communication. 
-We found great success with the “Power of Three.” This meant that all discussions about a feature needed a programmer, a tester, and theproduct owner. 
-They can help customers and developers achieve a common language. 
-Brian Marick (2003) recommends that we use examples to develop this language. 
-We need courage to allow others to make mistakes, because that’s the only way to learn the lesson. 
-take a simple approach to ensuring that software meets the customer requirements. 
-because it’s up to the customer team to decide what level of quality they want to pay for. 
-The ultimate decisions are up to the customer. The team can help the customer make good decisions by its taking a simple, step-by-step approach to its work. 
-Agile testing means doing the simplest tests possible to verify that a piece of functionality exists or that the customer’s quality standard (eg., performance) has been met. 
-Simple doesn’t mean easy. For testers, it means testing “just enough” with the lightest-weight tools and techniques we can find that will dothe job. 
-We need to automate regression tests, but we should push them down to the lowest level possible in order to encourage fast feedback. Evensimple smoke tests might be enough for business-facing test automation. 
-but start with the basics, time-boxing side trips and evaluating how far to go with edge cases. 
-Testers bring testing issues up for the whole team to address. 
-Agile testers and their teams are always on the lookout for tools, skills, or practices that might help them add more value or get a better return on the customer’s investment. 
-“AADD,” Agile Attention Deficit Disorder. Anything not learned quickly might be deemed useless. 
-Agile testers use this opportunity to raise testing-related issues and ask the team to brainstorm ways to address them. 
-I suggested keeping an “impediment backlog” of items that were keeping us from being as productive as we’d like to be. 
-Stability is what testers crave so that they can say, “I’ve tested that; it’s done.” Continuously changing requirements are a tester’snightmare. However, as agile testers, we have to welcome change. 
-Some teams have analysts who can spend more time with the business experts to do some advance planning. 
-Automated testing is one key to the solution. One thing we know for sure: No agile team will succeed doing only manual testing. We need robust automation in order to deliver business value in a time frame that makes it valuable. 
-Automating tests is hard, but it is much easier when you have the whole team working together. Any testing issue is easier to address when you have people with multiple skill sets and multiple perspectives attacking it. 
-Story                                                        
-share                                                        
-The programmers would start implementing new stories in a new, testable architecture, using test-driven development. The testers would write manual regression test scripts, and the entire team—programmers, testers, the system administrator, and the DBA—would execute them on the last two days of every iteration. 
-When an agile team faces a big problem, perhaps a production showstopper or a broken build, it’s everyone’s problem. 
-When the team creates its own approach and commits to it, its members adopt a new attitude toward testing. 
-In the history of software development, testers haven’t always enjoyed parity with other roles on the development team. Some people saw testers as failed programmers or second-class citizens in the world of software development. 
-Testing knowledge is one component of any team’s ability to deliver value. 
-In agile development, the whole team takes responsibility for delivering high-quality software that delights customers and makes the business more profitable. 
-Even with short iterations and frequent releases, it’s easy to develop a gap between what the customer team expects and what the team delivers.Using tests to drive development helps to prevent this, but you still need the right tests. 
-Programmers focus on making things work. If they’re coding to the right requirements, customers will be happy. 
-Agile testers ask questions of both customers and developers early and often, and help shape the answers into the right tests. 
-By the end of the iteration, testers verify that the minimum testing was completed. 
+### What's an Agile Tester?
+
+> a professional tester who embraces change, collaborates well with both technical and business people, and understands the concept of using tests to document requirements and drive development. Agile testers tend to have good technical skills, know how to collaborate with others to automate tests, and are also experienced exploratory testers.
+
+### The Agile Testing Mind-Set
+
+> To us, an agile team is one that continually focuses on doing its best work and delivering the best possible product.
+
+> She's ready to gather and share information, to work with the customer or product owner in order to help them express their requirements adequately so that they can get the features they need, and to provide feedback on project progress to everyone.
+
+> Creativity, openness to ideas, willingness to take on any task or role, focus on the customer, and a constant view of the big picture are just some components of the agile testing mind-set.
+
+### Applying Agile Principles and Values
+
+> - Provide Continuous Feedback
+> - Deliver Value to the Customer
+> - Enable Face-to-Face Communication
+> - Have Courage
+> - Keep It Simple
+> - Practice Continuous Improvement
+> - Respond to Change
+> - Self-Organize
+> - Focus on People
+> - Enjoy
+
+#### Provide Continuous Feedback
+
+> One of the agile tester’s most important contributions is helping the product owner or customer articulate requirements for each story in the form of examples and tests.
+
+> run these tests early and often so they’re continually guided by meaningful feedback.
+
+> Is management worried about how work is progressing? Display a big visible chart of tests written, run, and passing every day.
+
+#### Deliver Value to the Customer
+
+> If we let new features creep in, we risk delivering nothing on time.
+
+> If we get too caught up with edge cases and miss core functionality on the happy path, we won’t provide the value the business needs.
+
+> The worst-case scenario is that only the core functionality gets released. That’s better than delivering nothing or something that works only halfway. 
+
+> we still need to start by making sure the happy path works.
+
+> and add negative and boundary tests later.
+
+#### Enable Face-to-Face Communication
+
+> The agile tester should look for unique ways to facilitate communication.
+
+> We found great success with the “Power of Three.” This meant that all discussions about a feature needed a programmer, a tester, and the product owner.
+
+#### Have Courage
+
+> We need courage to allow others to make mistakes, because that’s the only way to learn the lesson.
+
+#### Keep It Simple
+
+> take a simple approach to ensuring that software meets the customer requirements.
+
+> because it’s up to the customer team to decide what level of quality they want to pay for.
+
+> The ultimate decisions are up to the customer. The team can help the customer make good decisions by its taking a simple, step-by-step approach to its work.
+
+> Agile testing means doing the simplest tests possible to verify that a piece of functionality exists or that the customer’s quality standard (eg., performance) has been met.
+
+> Simple doesn’t mean easy. For testers, it means testing “just enough” with the lightest-weight tools and techniques we can find that will do the job.
+
+> We need to automate regression tests, but we should push them down to the lowest level possible in order to encourage fast feedback. Even simple smoke tests might be enough for business-facing test automation.
+
+> but start with the basics, time-boxing side trips and evaluating how far to go with edge cases.
+
+#### Practice Continuous Improvement
+
+> Testers bring testing issues up for the whole team to address. 
+
+> Agile testers and their teams are always on the lookout for tools, skills, or practices that might help them add more value or get a better return on the customer’s investment. 
+
+> “AADD,” Agile Attention Deficit Disorder. Anything not learned quickly might be deemed useless. 
+
+> Agile testers use this opportunity to raise testing-related issues and ask the team to brainstorm ways to address them. 
+
+> I suggested keeping an “impediment backlog” of items that were keeping us from being as productive as we’d like to be. 
+
+#### Respond to Change
+
+> Stability is what testers crave so that they can say, “I’ve tested that; it’s done.” Continuously changing requirements are a tester’s nightmare. However, as agile testers, we have to welcome change. 
+
+> Some teams have analysts who can spend more time with the business experts to do some advance planning. 
+
+> Automated testing is one key to the solution. One thing we know for sure: No agile team will succeed doing only manual testing. We need robust automation in order to deliver business value in a time frame that makes it valuable. 
+
+#### Self-Organize
+
+> Automating tests is hard, but it is much easier when you have the whole team working together. Any testing issue is easier to address when you have people with multiple skill sets and multiple perspectives attacking it. 
+
+> The programmers would start implementing new stories in a new, testable architecture, using test-driven development. The testers would write manual regression test scripts, and the entire team—programmers, testers, the system administrator, and the DBA—would execute them on the last two days of every iteration. 
+
+> When an agile team faces a big problem, perhaps a production show stopper or a broken build, it’s everyone’s problem. 
+
+> When the team creates its own approach and commits to it, its members adopt a new attitude toward testing. 
+
+#### Focus on People
+
+> In the history of software development, testers haven’t always enjoyed parity with other roles on the development team. Some people saw testers as failed programmers or second-class citizens in the world of software development. 
+
+> Testing knowledge is one component of any team’s ability to deliver value. 
+
+#### Enjoy
+
+#### Adding Value
+
+> In agile development, the whole team takes responsibility for delivering high-quality software that delights customers and makes the business more profitable.
+
+> Even with short iterations and frequent releases, it’s easy to develop a gap between what the customer team expects and what the team delivers. Using tests to drive development helps to prevent this, but you still need the right tests.
+
+> Programmers focus on making things work. If they’re coding to the right requirements, customers will be happy. 
+
+> Agile testers ask questions of both customers and developers early and often, and help shape the answers into the right tests. 
+
+> By the end of the iteration, testers verify that the minimum testing was completed. 
+
+### My Summary
+
+An Agile tester is defined as a professional tester who embraces changes ( which goes against the common sense looking for stability ), collaborates with technical and business people to foster the quality mindset within the team.
+
+An agile team is looking to continually achieve the best they can do.
+
+
+
+# Part II Organizational Challenges
+
+
+
+
+
+
 If a company tried agile and had poor results, people will be suspicious of trying it again, citing examples of why it didn’t work. They might even actively campaign against it. 
 Does it tolerate poor quality? Does it take customers’ quality requirements into account, or is it just concerned with getting the product into the customers’ hands as fast as it can? 
 A team that tries to use agile development in such an environment faces an uphill battle. 

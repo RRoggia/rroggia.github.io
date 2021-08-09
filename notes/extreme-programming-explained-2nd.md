@@ -1,5 +1,5 @@
 ---
-title: 'Extreme Programming Explained 2nd'
+=title: 'Extreme Programming Explained 2nd'
 language: 'en-US'
 status: 'Reading'
 coverPath: 'extreme-programming-explained-2nd'
@@ -16,11 +16,11 @@ date: '2021-06-20'
 
 > (XP) is a discipline of the business of software development that focuses the whole team on common, reachable goals.
 
-> XP practices are chosen for their encouragement f human creativity and their acceptance of human frailty.
+> XP practices are chosen for their encouragement of human creativity and their acceptance of human frailty.
 
 > XP teams produce quality software at a sustainable pace.
 
-> XP aims to achieve these goals by celebrating and serving the human needs of everyone touched by software development sponsors, managers, testers, users, and programmers.
+> XP aims to achieve these goals (accountability, transparency and outstanding results) by celebrating and serving the human needs of everyone touched by software development sponsors, managers, testers, users, and programmers.
 
 # Foreword to the First Edition
 
@@ -85,7 +85,7 @@ date: '2021-06-20'
 
 > How does XP address the risks in the development process?
 >
-> - Schedule slips XP calls for short release cycles, a few months at most, so the scope of any slip is limited. Within a release, XP uses one-week iterations of customer-requested features to create fine-grained feedback about progress. Within an iteration, XP plans with short tasks, so the team can solve problems during the cycle. Finally, XP calls for implementing the highest priority features first, so any features that slip past the release will be of lower value.
+> - Schedule slips -  XP calls for short release cycles, a few months at most, so the scope of any slip is limited. Within a release, XP uses one-week iterations of customer-requested features to create fine-grained feedback about progress. Within an iteration, XP plans with short tasks, so the team can solve problems during the cycle. Finally, XP calls for implementing the highest priority features first, so any features that slip past the release will be of lower value.
 > - XP always keeps the system in deployable condition.
 > - Defect Rate XP tests from the perspective of both programmers writing tests function-by-function and customers writing tests program-feature-by-program-feature.
 > - XP calls for business-oriented people to be first-class members of the team.
@@ -129,7 +129,7 @@ XP assumes that you believe at teamwork, that changes shouldn't be expensive, th
 
 # Section 1: Exploring XP
 
-# Chapter 2. Learning to Drive
+# Chapter 2. nos livros da lista, mas achei os títulos com Learning to Drive
 
 > "...Driving is about constantly paying attention, making a little correction this way, a little correction that way".
 
@@ -269,6 +269,287 @@ Courage can be either acting in the face of fear, or taking action to wait for a
 Respect lies below the surface of the other values. Without respect there isn't a team.
 
 # Chapter 5. Principles
+
+## Humanity
+
+> This isn't good for business either, with the costs and disruption of high turnover and missed opportunities for creative action.
+
+> *Belonging* the ability to identify with a group from which they receive validation and accountability and contribute to its shared goals.
+
+> *Growth* the opportunity to expand their skills and perspective
+
+> Limiting work hours allows time for these other human needs and enhances each person's contribution while he is with the team.
+
+> Part of the challenge of team software development is balancing the needs of the individuals with the needs of the team.
+
+> The magic of great teams is that after the team members develop trust they find that they are free to be *more* themselves as a result of their work together.
+
+## Economics
+
+> Make sure what you are doing has business value, meets business goals and serves business needs.
+
+> The time value of money says that a dollar today is worth more than a dollar tomorrow.
+
+> Incremental design explicitly defers design investment until the last responsible moment in an effort to spend money later. Pay-per-use provides a way of realizing revenue from features as soon as they are deployed.
+
+> Another source of economic value in software development is its value as options for the future.
+
+## Mutual Benefits
+
+> Mutual benefit is the most important XP principle and the most difficult to adhere to.
+
+> There are always solutions to any problem that cost one person while benefiting another.
+
+> Mutual benefit in XP is searching for practices that benefit me now, me later, and my customer as well.
+
+## Self-Similarity
+
+> Try coping the structure of one solution into a new context, even at different scales.
+
+> Just because you copy a structure that works in one context doesn't mean it will work in another. It is good place to start, though. Likewise, just because a solution is unique doesn't mean it's bad.
+
+## Improvement
+
+> In software development, "perfect" is verb, not an adjective. There is no perfect process. There is no perfect design. There are no perfect stories. You can, however, prefect your process, your design, and our stories.
+
+> "Best is the enemy of good enough" suggests that mediocrity is preferable to waiting.
+
+> The cycle is to do the best you can today, striving for the awareness and understanding necessary to do better tomorrow.
+
+> The history of software development technology shows us gradually eliminating wasted effort.
+
+> Find a starting place, get started, and improve from there.
+
+## Diversity
+
+> Teams need to bring together a variety of skills, attitudes, and perspectives to see problems and pitfalls, to think of multiple ways to solve problems, and to implement the solutions. Teams need diversity.
+
+> Conflict is the inevitable companion of diversity.
+
+> Two ideas about a design present an opportunity, not a problem.
+
+> Every team has conflict. The question is whether they resolve it productively. Respecting others and maintaining myself smooths communication in time of stress.
+
+> Diversity is expressed in the practice of Whole Team, where you bring together on the team people with a variety of skills and perspectives.
+
+## Reflection
+
+> Good teams don't just do their work, they think about *how* they are working and *why* they are working.
+
+> Reflection comes after action. Learning is action reflected. To maximize feedback, reflection in XP teams is mixed with doing.
+
+## Flow
+
+> Flow in software development is delivering a steady flow of valuable software by engaging in all the activities of development simultaneously.
+
+## Opportunity
+
+> To reach excellence, problems need to turn into opportunities for learning and improvement, not just survival.
+
+> Part of being extreme is consciously choosing to transform each problem into an opportunity: an opportunity for personal growth, deepening relationships, and improved software.
+
+## Redundancy
+
+> The cost of the redundancy is more than paid for by the savings from not having the disaster.
+
+> While redundancy can be wasteful, be careful not to remove redundancy that servers a valid purpose.
+
+## Failure
+
+> If you're having trouble succeeding, fail.
+
+> (about waste) No, not if it imparts knowledge. Knowledge is valuable and sometimes hard to come by. Failure may not be avoidable waste.
+
+> (About the team the thought too much) They only used the time a couple of time, but they kept it around as a reminder to fail instead of talk.
+
+> When you don't know what to do though, risking failure can be the shortest, surest road to success.
+
+## Quality
+
+> Sacrificing quality is not effective as a means of control. Quality is not a control variable. Projects don't go faster bu accepting lower quality. They don't go slower by demanding high quality. Pushing quality higher often results in faster delivery; while lowering quality standards often results in later, less predictable delivery.
+
+> Time and cost are most often fixed. XP chooses scope as the primary means of planning, tracking, and steering projects. Since scope is never known precisely in advance, it makes a good lever.
+
+> If you don't know a clean way to do a job that has to be done, do it the best way you can. If you know a clean way but it wold take too long, do the job as well as you have time for now.
+
+> This often occurs during architectural evolution, where you have to live with two architecture solving the same problem while you transition from one to the other.
+
+## Baby Steps
+
+> Under the right conditions, people and teams can take many small steps so rapidly that they appear to be leaping.
+
+## Accepted Responsibility
+
+> Responsibility cannot be assigned; it can only be accepted
+
+> Similarly, the person responsible for implementing a story ultimately responsible for the design, implementation, and testing of the story.
+
+
+
+> You will create new practices occasionally to fill you specific need.
+
+## My Summary
+
+Humanity, contemporaneously might be called as Developer Experience. The companies or teams that don't have humanity will have a high turnover and it will impact business. A developer needs belonging and growth to be a improve as developer. The developer shouldn't sacrifice its career for the company or the team. It should be a balance.
+
+Economics, is about knowing that your company has bills to pay. You should spend their money wisely and focus on the highest business value as soon as possible. Incremental design, deferring technical decision until the last moment in a effort to spend money latter and Pay-per-use realizing revenue as early as possible.
+
+Mutual Benefits, seeks to find win win situations, where both the XP team and its customer will gain. Mutual benefits seeks for you and your customers benefits now and later.
+
+Self-Similarity, is about applying patterns that you found in a context in similar problems at different scales. It's not because a solution is rare that is bad, neither because it's widely used that is good (though is a good starting place).
+
+Improvement, is about doing the best you can everyday, and bringing improvements over time. There's always place to improve, perfect is a verb not a noun. Good enough is preferable instead of waiting.
+
+Diversity, the more different attitudes, perspectives the easier to see pitfalls. Diversity also brings conflicts which is an opportunity to improvement.
+
+Reflection, XP teams consider the *how* and the *why* they work that way. Reflection comes after action. The best way to learn is to start doing something.
+
+Flow, is about a continuous delivering value to customers, we do that by starting all the activities to deliver software together. The more frequent or delivers more feedback, more improvements and better the flow. We must avoid doing something that is problematic only because it has a problem, it's actually the opposite, we need to fix the problem.
+
+*TO DO*
+
+Opportunity,
+
+Redundancy,
+
+Failure,
+
+Quality,
+
+Baby Steps,
+
+Accepted Responsibility,
+
+# Chapter 6. Practices
+
+> Unless given purpose by values, they become rote.
+
+> The practices are a vector from where you are to where you can be with XP.
+
+> I have divided the practices into two chapters: "Primary Practices," Chapter 7, and "Corollary Practices," Chapter 9. The primary practices are useful independent of what else you are doing. They each can give you immediate improvement. You can start safely with any of them. The corollary practices are likely to be difficult without first mastering the primary practices.
+
+## My Summary
+
+*TO DO*
+
+# Chapter 7. Primary Practices
+
+## Sit Together
+
+> Develop in an open space big enough for the whole team. Meet the need for privacy and "owned" space by having small private spaces nearby or by limiting work hours so team members can get their privacy needs met elsewhere.
+
+> "Sit together" predicts that the more face time you have, the more humane and productive the project.
+
+## Whole Team
+
+> Include on the team people with all the skills and perspectives necessary for the project to succeed. This is really nothing more than the old idea of cross-functional team.
+
+> An issue that often arises is ideal team size. *The Tipping Point* by Malcolm Gladwell describes two discontinuities in team size: 12 and 150.
+
+> Some organizations try to have teams with fractional people: "You'll spend 40% of your time working for these customers and 6% work for those customers". In this case, so much time is wasted on task-switching that you can see immediate improvement by grouping the programmers into teams. The team responds to the customers' needs.
+
+## Informative Workspace
+
+> Make your workspace about your work. An interested observer should be able to walk into the team space and get a general idea of how the project is going in fifteen seconds.
+
+> Use your space for important, active information.
+
+## Energized Work
+
+> Work only as many hour as you can be productive and only as many hours you can sustain. Burning yourself out unproductively today and spoiling the next two days' work isn't good for you or the team.
+
+> Software development is a game of insight, and insight comes to the prepared, rested, relaxed mind.
+
+## Pair Programming
+
+> Write all production programs with two people sitting at one machine. Set up the machine so the partners can sit comfortably side-by-side. Move the keyboard and mouse back and forth so you are comfortable.
+
+> Pair programming is a dialog between two people simultaneously programming (and analyzing and designing and testing) and trying to program better.
+
+> If you need to work on an idea alone, go do it. Then come back and check with your team.
+
+## Stories
+
+> Plan using units of customer-visible functionality. "Handle five times the traffic with the same response time.", "Provide a two-click way for user to dial frequently used numbers.". As soon as a story is written, try to estimate the development effort necessary to implement it.
+
+> Early estimation is a key difference between stories an other requirements practices. Estimation gives the business and technical perspectives a chance to interact, which creates value early, when an idea has the most potential.
+
+> One feature of XP style planning is that stories are estimated very early in their life. This gets everyone thinking about how to get the greatest return from the smallest investment.
+
+## Weekly Cycle
+
+> Plan work a week at a time. Have a meeting at the beginning of every week.
+
+> Planning is a form of necessary waste. It doesn't create much value all by itself.
+
+## Quarterly Cycle
+
+> Plan work a quarter at a time. Once a quarter reflect on the team, the project, its progress, and its alignment with larger goals.
+
+## Slack
+
+> In any plan, include some minor tasks that can be dropped if you get behind. You can always add more stories later and deliver more than you promised. It's important in an atmosphere of distrust and broken promises to meet your commitments.
+
+> I suggested to the middle manager that he encourage his teams to only sign up for what they were confident they could actually do.
+
+> You can structure slack in many ways. One week in eight could be "Geek Week". Twenty percent of the weekly budget could go to programmer-chosen tasks.
+
+## Ten-Minute Build
+
+> A shorter build doesn't give you time to drink coffee.
+
+## Continuous Integration
+
+> Integrate and test changes after no more than a couple of hours.
+
+> Integrate and build a complete product.
+
+## Test-First Programming
+
+> Test-first programming addresses many problems at once:
+>
+> - Scope-creep: It's easy to get carried away programming and put in code "just in case". By stating explicitly and objectively what the program is supposed to do, you give yourself a focus for your coding.
+> - Coupling and Cohesion: If it's hard to write a test, it's a signal that you have a design problem, not a testing problem. Loosely coupled, higly cohesive code is easy to test.
+> - Trust: It's hard to trust the author of code that doesn't work.
+> - Rhythm: It's easy to get lost for hours when you are coding. When programming test-first, it's clearer what to do next: either write another test or make the broken test work.
+
+## Incremental Design
+
+> When your understanding of the best possible design leaps forward, work gradually but persistently to bring the design back into alignment with your understanding.
+
+> XP teams work hard to create conditions under which the cost of changing the software doesn't rise catastrophically. The automated tests, the continual practice of improving the design , and the explicit social process all contribute to keep the cost of changes low.
+
+> They piled story on story as quickly as possible with the least possible investment in design. Without daily attention to design , the cost of changes does skyrocket. The result is poorly designed, brittle, hard-to-change systems.
+
+> As a direction for improvement, incremental design doesn't say that designing in advance of experience is horrible. It says that design done close to when it is used is more efficient.
+
+## My Summary
+
+# Chapter 8. Getting Started
+
+> XP works best when it is done all together, but you need a starting place.
+
+> How do you decide what to change first? Look at what you are doing and what you want to achieve. Choose the first practice on that path.
+
+> Change begins with awareness. Awareness of the need for change comes from feelings, instincts, facts or feedback from outsiders. Feelings, while valuable, need to be cross-checked with facts or trusted opinions.
+
+> Metrics can lead to awareness. Trends in metrics can point to the need for change for change before the consequence of the trend becomes painful.
+
+> Change always starts at home. The only person you can actually change is yourself. No matter how functional or dysfunctional your organization, you can begin applying XP for yourself.
+
+> If there is one message I would like to communicate, whatever your job title and however your work is touched by software development it is this: software development is capable of much, much more than it is currently delivering.
+
+## My Summary
+
+# Chapter 9. Corollary Practices
+
+
+
+
+
+
+
+
 
 
 

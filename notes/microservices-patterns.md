@@ -747,7 +747,40 @@ Two main patterns for organizing business logic:
   - Classes that store state are not the same that implement behavior
 - Object oriented domain model pattern
 
+# Chapter 6 - Developing business logic with event sourcing
 
+> event sourcing, an event-centric way of writing business logic and persisting domain objects.
+
+## Developing business logic using event sourcing
+
+> It persists an aggregate as a sequence of events. Each event represents a state change of the aggregate. An application recreates the current state of an aggregate by replaying the events.
+
+### The trouble with traditional persistence
+
+> The traditional approach to persistence maps classes to database tables, fields of those classes to table columns, and instances of those classes to rows in those tables.
+
+> - Object-Relational impedance mismatch.
+> - Lack of aggregate history.
+> - Implementing audit logging is tedious and error prone.
+> - Event publishing is bolted on to the business logic.
+
+> There’s a fundamental conceptual mismatch between the tabular relational schema and the graph structure of a rich domain model with its complex relationships.
+
+> Another limitation of traditional persistence is that it only stores the current state of an aggregate.
+
+> rather than store each Order as a row in an ORDER table, event sourcing persists each Order aggregate as one or more rows in an EVENTS table.
+
+### Overview of event sourcing
+
+> Every state change of an aggregate, including its creation, is represented by a domain event.
+
+> What’s more, an event must contain the data that the aggregate needs to perform the state transition.
+
+> The business logic handles a request to update an aggregate by calling a command method on the aggregate root.
+
+> The first method takes a command object parameter, which represents the request, and determines what state changes need to be performed. It validates its arguments, and without changing the state of the aggregate, returns a list of events representing the state changes. This method typically throws an exception if the command cannot be performed.
+>
+> The other methods each take a particular event type as a parameter and update the aggregate. There’s one of these methods for each event. It’s important to note that these methods can’t fail, because an event represents a state change that has happened. Each method updates the aggregate based on the event.
 
 
 
