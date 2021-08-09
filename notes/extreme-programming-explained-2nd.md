@@ -1,5 +1,5 @@
 ---
-=title: 'Extreme Programming Explained 2nd'
+title: 'Extreme Programming Explained 2nd'
 language: 'en-US'
 status: 'Reading'
 coverPath: 'extreme-programming-explained-2nd'
