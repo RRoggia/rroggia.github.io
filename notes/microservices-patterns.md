@@ -782,6 +782,91 @@ Two main patterns for organizing business logic:
 >
 > The other methods each take a particular event type as a parameter and update the aggregate. There’s one of these methods for each event. It’s important to note that these methods can’t fail, because an event represents a state change that has happened. Each method updates the aggregate based on the event.
 
+# Chapter 7 - Implementing queries in a microservice architecture
+
+# Chapter 8 - External API patterns
+
+# Chapter 9 - Testing microservices: Part 1
+
+# Chapter 10 - Testing microservices: Part 2
+
+## Chapter 10.1 Writing integration tests
+
+> One approach is to launch all the services and test them through their APIs. This, however, is what’s known as end-to-end testing, which is slow, brittle, and costly.
+
+> A contract is a concrete example of an interaction between a pair of services.
+
+> A contract consists of either one message, in the case of publish/subscribe style interactions, or two messages, in the case of request/response and asynchronous request/response style interactions.
+
+> The contracts are used to test both the consumer and the provider, which ensures that they agree on the API.
+
+### Persistence integration tests
+
+> Each phase of a persistence integration test behaves as follows:
+>
+> - Setup - Set up the database by creating the database schema and initializing it to a known state. It might also begin a database transaction.
+> - Execute - Perform a database operation.
+> - Verify - Make assertions about the state of the database and objects retrieved from the database.
+> - Teardown - An optional phase that might undo the changes made to the database by, for example, rolling back the transaction that was started by the setup phase.
+
+> Apart from relying on JPA to create the database schema, the persistence integration tests don’t make any assumption about the state of the database.
+
+### Integration testing REST-based request/response style interactions
+
+> The client must send an HTTP request to the correct endpoint, and the service must send back the response that the client expects.
+
+### Integration testing publish/subscribe-style interactions
+
+> Services often publish domain events that are consumed by one or more other services. Integration testing must verify that the publisher and its consumers agree on the message channel and the structure of the domain events.
+
+### Integration contract tests for asynchronous request/response interactions
+
+> They must agree on the name of command message channel and the structure of the command and reply messages.
+
+> Integration tests and unit tests verify the behavior of individual parts of a service.
+
+> The integration tests verify that services can communicate with their clients and dependencies.
+
+>  The unit tests verify that a service’s logic is correct
+
+## Developing component tests
+
+> Component testing verifies the behavior of a service in isolation. It replaces a service’s dependencies with stubs that simulate their behavior. It might even use in-memory versions of infrastructure services such as databases
+
+> Each scenario defines an acceptance test. The givens correspond to the test’s setup phase, the when maps to the execute phase, and the then and the and to the verification phase.
+
+### Writing acceptance tests using Gherkin
+
+> When using Gherkin, you define your acceptance tests using English-like scenarios, such as the one shown earlier.
+
+> The givens are the preconditions, the when is the action or event that occurs, and the then/and are the expected outcome.
+
+### Desigining component tests
+
+> You need to test Order Service in isolation, so the component test must configure stubs for several services, including Kitchen Service.
+
+> An in-process component test runs the service with in-memory stubs and mocks for its dependencies.
+
+> In-process tests are simpler to write and faster, but have the downside of not testing the deployable service.
+
+> A more realistic approach is to package the service in a production-ready format and run it as a separate process.
+
+> key benefit of out-of-process component testing is that it improves test coverage, because what’s being tested is much closer to what’s being deployed
+
+## Writing end-to-end tests
+
+> End-to-end tests have a large number of moving parts. You must deploy multiple services and their supporting infrastructure services.
+
+### Designing end-to-end tests
+
+> A good strategy is to write user journey tests. A user journey test corresponds to a user’s journey through the system.
+
+### Running end-to-end tests
+
+> End-to-end tests must run the entire application, including any required infrastructure services
+
+## My Summary
+
 
 
 # TODO

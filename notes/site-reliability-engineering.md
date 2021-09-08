@@ -378,7 +378,91 @@ Typical tension:
 - *Storage systems*: *latency*, *availability*, and *durability*.
 - *Big data systems*: *Throughput* and *end-to-end latency*
 
+## Chapter 5 - Eliminating Toil
+
+> In SRE, we want to spend time on long-term engineering project work instead of operational work.
+
+### Toil Defined
+
+> Toil is the kind of work tied to running a production service that tends to be manual, repetitive, automatable, tactical, devoid of enduring value, and that scales linearly as a service grows.
+
+>  If you’re solving a novel problem or inventing a new solution, this work is not toil.
+
+> Toil is interrupt-driven and reactive, rather than strategy-driven and proactive.
+
+### Why Less Toil Is Better
+
+> At least 50% of each SRE’s time should be spent on engineering project work that will either reduce future toil or add service features.
+
+> The work of reducing toil and scaling up services is the "Engineering" in Site Reliability Engineering.
+
+### What Qualifies as Engineering?
+
+> It produces a permanent improvement in your service, and is guided by a strategy. It is frequently creative and innovative, taking a design-driven approach to solving a problem—the more generalized, the better.
+
+### Is Toil Always Bad?
+
+> Toil doesn’t make everyone unhappy all the time, especially in small amounts.
+
+> Toil becomes toxic when experienced in large quantities.
+
+### My Summary
+
+- Overhead:  Administrative tasks such team meetings, setting and grading goals, HR paperwork
+- Grungy work: An example is cleaning the entire alert configuration ( manual, and most likely boring ), yet, it adds value.
+- Toil: Work tied to a running a production service that is manual, repetitive, automatable, tactical, devoid of enduring value, and scales linearly as service grows.
+  - Manual: Running scripts manually.
+  - Repetitive: Work you do over and over. If you’re solving a novel problem or inventing a new solution, this work is not toil.
+  - Automatable: Either a machine could execute or a better design solves the problem.
+  - Tactical:  Toil is interrupt-driven and reactive, rather than strategy-driven and proactive.
+  - No enduring value: If your service remains in the same state after you have finished a task
+  - O(n) with service growth: If work scales up linearly with service size, traffic volume, or user count, that task is probably toil.
+
+Engineering:
+
+- Software: Code, tests and its documentation. Automation scripts, tools or frameworks, scalability and reliability, changing infrastructure.
+- System: Configuring production system, improvements for an one-time effort.
+- Toil: Work to a specific service, manual and repetitive.
+- Overhead: other meetings
+
+Toil leads to career stagnation and low morale. In addition to less productivity, precedents, attrition 
+
+## Chapter 6 - Monitoring Distributed Systems
+
+### Why Monitor?
+
+> When pages occur too frequently, employees second-guess, skim, or even ignore incoming alerts, sometimes even ignoring a "real" page that’s masked by the noise.
+
+### Setting Reasonable Expectations for Monitoring
+
+> a Google SRE team with 10–12 members typically has one or sometimes two members whose primary assignment is to build and maintain monitoring systems for their service.
+
+### Symptoms Versus Causes
+
+> Your monitoring system should address two questions: what’s broken, and why?
+
+> The "what’s broken" indicates the symptom; the "why" indicates a (possibly intermediate) cause.
+
+### Black-Box Versus White-Box
+
+> We combine heavy use of white-box monitoring with modest but critical uses of black-box monitoring.
+
+> Note that in a multilayered system, one person’s symptom is another person’s cause.
 
 
 
+
+
+### My Summary
+
+- Monitoring
+  - Whitebox: Internally, JVM or http handler
+  - Blackbox: externally
+
+Why?
+
+- Long term trend
+- Comparing over time or results experiments
+- Alerting
+- Debugging
 

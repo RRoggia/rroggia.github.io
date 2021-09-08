@@ -1,7 +1,7 @@
 ---
 title: 'Accelerate'
 language: 'en-US'
-status: 'Reading'
+status: 'Notes'
 coverPath: 'accelerate'
 date: '2021-03-25'
 ---
@@ -714,4 +714,116 @@ Diversity also plays a role in better performance. Other research shows that tea
 Not only there are few women and underrepresented groups, but they also suffer from harassment, microaggressions and unequal pay.
 
 ## Chapter 11 - Leaders and Managers
+
+### Transformational Leadership
+
+> A good leadership affects a team's ability to deliver code, architect good systems, and apply Lean principles to how the team manages its work and develops products.
+
+> ...transformational leadership is essential for:
+>
+> - Establishing and supporting generative and high-trust cultural norms.
+> - Creating technologies that enable developer productivity, reducing code deployment lead times and supporting more reliable infrastructures
+> - Supporting team experimentation and innovation, and creating and implementing better products faster.
+> - Working across organizational silos to achieve strategic alignment
+
+> Leaders are those who set the tone of the organization and reinforce the desired cultural norms.
+
+> ...the five characteristics of a transformational leader are:
+>
+> - Vision. Has a clear understanding of where the organization is going and where it should be in five years.
+> - Inspirational communication. Communicates in a way that inspires and motivates, even in an uncertain or changing environment.
+> - Intellectual stimulation. Challenges followers to think about problems in new ways.
+> - Supportive leadership. Demonstrates care and consideration of followers' personal need and feelings.
+> - Personal recognition. Praises and acknowledges achievement of goals and improvements in work quality; personally compliments others when they do outstanding work.
+
+> High-performing teams reported having leaders with the strongest behaviors across all dimensions: vision, inspirational communication, intellectual stimulation, supportive leadership and Personal recognition.
+
+> Though we often hear stories of DevOps and technology transformation success coming from the grassroots, it is far easier to achieve success when you have leadership support.
+
+> This makes sense, because *leaders cannot achieve goals on their own* .
+
+### The Role of Managers
+
+> Managers, in particular, play a critical role in connecting the strategic objectives of the business to the work their teams do.
+
+### Tips to improve culture and support your teams
+
+> As the real value of a leader or manager is manifest how they amplify the work of their teams, perhaps the most valuable work they can do is growing and supporting a strong organizational culture among those they serve: their teams.
+
+### My Summary
+
+A good leadership eases the technological transformation of a company. It's possible to achieve it, without a good leadership, but the research found that is far easier when you have a leadership that sets a clear the vision with a inspirational communication. The leadership and it's vision challenges the intellectual of the organization's staff, but also supports and recognize their needs and contributions.
+
+The leaders cannot achieve by their own the results, they have to amplify their team's results in order tho achieve the transformation.
+
+**Investing in your team :**
+
+- Existing resource made available and accessible to everyone.
+- Dedicated training budget
+- Foster participation in tech conferences
+- Internal hack-days
+- "Yak days" - slack time.
+- Regular DevOps mini conference
+- Dedicated time to experiment new tools and technologies - PDI.
+
+# Part Two - The Research
+
+## Chapter 12 - The Science Behind This Book
+
+> Secondary research reports can be valuable, particularly if the existing data is difficult to find, the summary is particularly insightful or the reports are delivered at regular intervals.
+
+> In contrast, primary research involves collecting new data by the research team.
+
+> Qualitative research is any kind of research whose data isn't in numerical form.
+
+> Quantitative research is any kind of research with data that includes numbers.
+
+> descriptive findings are only as good as the underlying research design and data collection methods.
+
+> Many people have heard the phrase "correlation doesn't imply causation" but what does that mean? The analyses done in the exploratory stage include correlation but not causation. Correlation looks at how closely two variables move together - or don't - but it doesn't tell us if one variable's movement predicts or causes the movement in another variable.
+
+> (Causal analysis) This type of analysis generally requires randomized studies. A common type of causal analysis done in business is A/B testing in prototyping or websites, when randomized data can be collected and analyzed.
+
+## Chapter 13 - Introduction to Psychometrics
+
+> (About surveys) Common weaknesses are:
+>
+> - Leading questions. Survey questions should let the respondent answer without biasing them in a direction. For example, "How would you describe Napoleon's height?" is better than "Was Napoleon short?"
+> - Loaded questions. Questions should not force respondents into an answer that isn't true for them. For example, "Where did you take your certification exam?" doesn't allow for the possibility that they didn't take a certification exam.
+> - Multiple questions in one. Questions should only ask one thing. For example, "Are you notified of failures by your customers and the NOC?" doesn't tell you which part of the quest your respondent was answering for. Customers? the NOC? Both? Or if no, neither?
+> - Unclear language. Survey questions should use language that your respondents are familiar with, and should clarify and provide examples when necessary.
+
+> A good example of something that can't be measured directly is organizational culture. We can't take a team's or an organization's organizational culture "temperature" - we need to measure culture by measuring its component parts (called manifest variables), and we measure these component parts through survey questions.
+
+> 1. Latent constructs help us think carefully about what we want to measure and how we define our constructs.
+> 2. They give us several views into the behavior and performance of the system we are observing, helping us eliminate rogue data.
+> 3. They make it more difficult or a single bad data source(whether through misunderstanding or a bad actor) t skew our results.
+
+> Take a step back and think about *what* it is you are truing to measure and how you will measure.
+
+## Chapter 14 - Why Use a Survey
+
+> But if you want to know how they *feel* about the work environment and how supportive it is to their work and their goals - if you want to know *why* they're behaving in the way you observe - you have to ask them.
+
+## Chapter 15 - The Data for the Project
+
+> Similarly, having an organizational culture that values transparency, trust and innovation is likely to have positive impacts in technology organizations regardless f software development paradigm
+
+# Part Three - Transformation
+
+## Chapter 16 - High-Performance Leadership and Management
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
