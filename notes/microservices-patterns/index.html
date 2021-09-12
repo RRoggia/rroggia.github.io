@@ -175,6 +175,38 @@ data-styled.g27[id="Note__NoteContainer-i7okha-1"]{content:"ZkJVA,"}/*!sc*/
 </li>
 </ul>
 </li>
+<li><a href="#chapter-7---implementing-queries-in-a-microservice-architecture">Chapter 7 - Implementing queries in a microservice architecture</a></li>
+<li><a href="#chapter-8---external-api-patterns">Chapter 8 - External API patterns</a></li>
+<li><a href="#chapter-9---testing-microservices-part-1">Chapter 9 - Testing microservices: Part 1</a></li>
+<li>
+<p><a href="#chapter-10---testing-microservices-part-2">Chapter 10 - Testing microservices: Part 2</a></p>
+<ul>
+<li>
+<p><a href="#chapter-101-writing-integration-tests">Chapter 10.1 Writing integration tests</a></p>
+<ul>
+<li><a href="#persistence-integration-tests">Persistence integration tests</a></li>
+<li><a href="#integration-testing-rest-based-requestresponse-style-interactions">Integration testing REST-based request/response style interactions</a></li>
+<li><a href="#integration-testing-publishsubscribe-style-interactions">Integration testing publish/subscribe-style interactions</a></li>
+<li><a href="#integration-contract-tests-for-asynchronous-requestresponse-interactions">Integration contract tests for asynchronous request/response interactions</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#developing-component-tests">Developing component tests</a></p>
+<ul>
+<li><a href="#writing-acceptance-tests-using-gherkin">Writing acceptance tests using Gherkin</a></li>
+<li><a href="#desigining-component-tests">Desigining component tests</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#writing-end-to-end-tests">Writing end-to-end tests</a></p>
+<ul>
+<li><a href="#designing-end-to-end-tests">Designing end-to-end tests</a></li>
+<li><a href="#running-end-to-end-tests">Running end-to-end tests</a></li>
+</ul>
+</li>
+<li><a href="#my-summary-5">My Summary</a></li>
+</ul>
+</li>
 <li><a href="#todo">TODO</a></li>
 </ul></div><h2>The notes</h2><div class="Note__NoteContainer-i7okha-1 ZkJVA"><h1>Chapter 1 - Escaping monolithic hell</h1>
 <blockquote>
@@ -1091,6 +1123,100 @@ consistency.</p>
 <p>The first method takes a command object parameter, which represents the request, and determines what state changes need to be performed. It validates its arguments, and without changing the state of the aggregate, returns a list of events representing the state changes. This method typically throws an exception if the command cannot be performed.</p>
 <p>The other methods each take a particular event type as a parameter and update the aggregate. There’s one of these methods for each event. It’s important to note that these methods can’t fail, because an event represents a state change that has happened. Each method updates the aggregate based on the event.</p>
 </blockquote>
+<h1>Chapter 7 - Implementing queries in a microservice architecture</h1>
+<h1>Chapter 8 - External API patterns</h1>
+<h1>Chapter 9 - Testing microservices: Part 1</h1>
+<h1>Chapter 10 - Testing microservices: Part 2</h1>
+<h2>Chapter 10.1 Writing integration tests</h2>
+<blockquote>
+<p>One approach is to launch all the services and test them through their APIs. This, however, is what’s known as end-to-end testing, which is slow, brittle, and costly.</p>
+</blockquote>
+<blockquote>
+<p>A contract is a concrete example of an interaction between a pair of services.</p>
+</blockquote>
+<blockquote>
+<p>A contract consists of either one message, in the case of publish/subscribe style interactions, or two messages, in the case of request/response and asynchronous request/response style interactions.</p>
+</blockquote>
+<blockquote>
+<p>The contracts are used to test both the consumer and the provider, which ensures that they agree on the API.</p>
+</blockquote>
+<h3>Persistence integration tests</h3>
+<blockquote>
+<p>Each phase of a persistence integration test behaves as follows:</p>
+<ul>
+<li>Setup - Set up the database by creating the database schema and initializing it to a known state. It might also begin a database transaction.</li>
+<li>Execute - Perform a database operation.</li>
+<li>Verify - Make assertions about the state of the database and objects retrieved from the database.</li>
+<li>Teardown - An optional phase that might undo the changes made to the database by, for example, rolling back the transaction that was started by the setup phase.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Apart from relying on JPA to create the database schema, the persistence integration tests don’t make any assumption about the state of the database.</p>
+</blockquote>
+<h3>Integration testing REST-based request/response style interactions</h3>
+<blockquote>
+<p>The client must send an HTTP request to the correct endpoint, and the service must send back the response that the client expects.</p>
+</blockquote>
+<h3>Integration testing publish/subscribe-style interactions</h3>
+<blockquote>
+<p>Services often publish domain events that are consumed by one or more other services. Integration testing must verify that the publisher and its consumers agree on the message channel and the structure of the domain events.</p>
+</blockquote>
+<h3>Integration contract tests for asynchronous request/response interactions</h3>
+<blockquote>
+<p>They must agree on the name of command message channel and the structure of the command and reply messages.</p>
+</blockquote>
+<blockquote>
+<p>Integration tests and unit tests verify the behavior of individual parts of a service.</p>
+</blockquote>
+<blockquote>
+<p>The integration tests verify that services can communicate with their clients and dependencies.</p>
+</blockquote>
+<blockquote>
+<p> The unit tests verify that a service’s logic is correct</p>
+</blockquote>
+<h2>Developing component tests</h2>
+<blockquote>
+<p>Component testing verifies the behavior of a service in isolation. It replaces a service’s dependencies with stubs that simulate their behavior. It might even use in-memory versions of infrastructure services such as databases</p>
+</blockquote>
+<blockquote>
+<p>Each scenario defines an acceptance test. The givens correspond to the test’s setup phase, the when maps to the execute phase, and the then and the and to the verification phase.</p>
+</blockquote>
+<h3>Writing acceptance tests using Gherkin</h3>
+<blockquote>
+<p>When using Gherkin, you define your acceptance tests using English-like scenarios, such as the one shown earlier.</p>
+</blockquote>
+<blockquote>
+<p>The givens are the preconditions, the when is the action or event that occurs, and the then/and are the expected outcome.</p>
+</blockquote>
+<h3>Desigining component tests</h3>
+<blockquote>
+<p>You need to test Order Service in isolation, so the component test must configure stubs for several services, including Kitchen Service.</p>
+</blockquote>
+<blockquote>
+<p>An in-process component test runs the service with in-memory stubs and mocks for its dependencies.</p>
+</blockquote>
+<blockquote>
+<p>In-process tests are simpler to write and faster, but have the downside of not testing the deployable service.</p>
+</blockquote>
+<blockquote>
+<p>A more realistic approach is to package the service in a production-ready format and run it as a separate process.</p>
+</blockquote>
+<blockquote>
+<p>key benefit of out-of-process component testing is that it improves test coverage, because what’s being tested is much closer to what’s being deployed</p>
+</blockquote>
+<h2>Writing end-to-end tests</h2>
+<blockquote>
+<p>End-to-end tests have a large number of moving parts. You must deploy multiple services and their supporting infrastructure services.</p>
+</blockquote>
+<h3>Designing end-to-end tests</h3>
+<blockquote>
+<p>A good strategy is to write user journey tests. A user journey test corresponds to a user’s journey through the system.</p>
+</blockquote>
+<h3>Running end-to-end tests</h3>
+<blockquote>
+<p>End-to-end tests must run the entire application, including any required infrastructure services</p>
+</blockquote>
+<h2>My Summary</h2>
 <h1>TODO</h1>
 <ul>
 <li>CAP Theorem</li>
