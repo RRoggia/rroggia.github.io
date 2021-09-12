@@ -19,7 +19,7 @@ jobs:
 
       - name: Deploy to production
         run: |
-          git config --local user.email "renanzr@gmail.com"
-          git config --local user.name "RRoggia"
-          git remote set-url origin https://RRoggia:${{ secrets.AUTH_PASS }}@github.com/RRoggia/rroggia.github.io.git
-          npm run deploy
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
+          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
