@@ -227,52 +227,135 @@ An Agile tester is defined as a professional tester who embraces changes ( which
 
 An agile team is looking to continually achieve the best they can do.
 
-
+Then the chapter talks about each of the 10 values of agile testers. See the bullet list above.
 
 # Part II Organizational Challenges
 
+## Chapter 3 Cultural Challenges
+
+### Organizational Culture
+
+> If a company tried agile and had poor results, people will be suspicious of trying it again, citing examples of why it didn’t work. They might even actively campaign against it. 
+
+#### Quality Philosophy
+
+> Does it tolerate poor quality? Does it take customers’ quality requirements into account, or is it just concerned with getting the product into the customers’ hands as fast as it can? 
+
+> A team that tries to use agile development in such an environment faces an uphill battle. 
+
+> what about testers who are used to building test scripts according to a requirements document? Can they learn to ask the questions as the codeis being built? Testers who don’t change their approach to testing have a hard time working closely with the rest of the development team. 
+
+> Most quality assurance professionals are eager to take what they’ve learned and make it better. These people are adaptable enough to not only survive, but to thrive in an agile project. 
+
+#### Sustainable pace
+
+> Teams might need to work for short bursts of unsustainable pace now and then, but it should be the exception, not the norm. 
+
+> If overtime is required for short periods, the whole team should be working extra hours. 
+
+#### Customer relationships
+
+> An open relationship is critical to the success of an agile project, where the relationship between the customer team and the development team is more like a partnership than a vendor-supplier relationship. 
+
+> Customers are critical to the success of your agile project. They prioritize what will be built and have the final say in the quality of the product. 
+
+> define acceptance tests that will prove that conditions of satisfaction are met. 
+
+#### Organization Size
+
+> Act Now, Apologize Later
+
+> large organization, the bureaucratic wheels turn so slowly that your team might have to figure out and implement its own solutions. 
+
+### Barriers to Successful Agile Adoption by Test/QA Teams
+
+#### Additional Roles
+
+> It’s critical that you take the time to analyze what roles your product needs to be successful, and if you need to fill them from outside the team, do it. 
+
+#### Not Understanding Agile Concepts
+
+> Plenty of teams simply adopt practices that work for them regardless of the original source, or they invent their own. 
+
+> For example, if you’re a tester who is pushing for the team to implement continuous integration, but the programmers simply refuse to try,you’re in a bad spot. If you’re a programmer who is unsuccessful at getting involved in some practices, such as driving development withbusiness-facing tests, you’re also in for conflict.
+
+> Many of the agile development practices are synergistic, so if they are used in isolation, they might not provide the benefits that teams are looking for. 
+
+> Diverse viewpoints are good for a team, but everyone needs to be headed in the same direction. 
+
+> “mini-waterfall” phenomenon that often occurs when a traditional software development organization implements an agile development process. 
+
+#### Past Experience/Attitude
+
+> Ask everyone to be part of the solution, and work together to find out what processes and practices work best for their particular situations. 
+
+#### Cultural Differences among Roles
+
+> Customers need some way to know how development is progressing and whether their conditions of satisfaction are being met. 
+
+### Introducing Change
+
+#### Talk about Fears
+
+> Fear is a common response to change. Forcing people to do something they don’t want is detrimental to positive change. 
+
+> - You have the right to the tools you need to perform testing tasks in a timely manner. 
+> - You have the right to expect your entire team, not just yourself, to be responsible for quality and testing. 
+
+#### Give Team Ownership
+
+> He made sure that the business understood that quality was more important than quantity or speed. 
+
+#### Celebrate Success
+
+> My better understanding of the application’s workings made me understand that the risk and cost of fixing it was potentially much more risky than the benefit. I believe that thinking like this isn’t a bad thing as long as we are always mindful of the end customer impact, not just the internal cost. 
+
+### Management Expectations
+
+#### Cultural Changes for Managers
+
+> It is the team (which includes the customer) that defines the level of quality necessary to deliver a successful application. 
+
+> He said that in a traditional waterfall type project, the reports all showed that everything was going according to plan until the very end,and then everything was in a panic state and “nothing worked.” 
+
+> In the agile project, there were problems every day that needed to be addressed. Agile projects were more work on a consistent basis, but at least he was getting realistic reports. There were no surprises at the end of the project. 
+
+> testing is no longer a separate activity that occurs after development but that testing and coding are integrated activities. 
+
+#### Speaking the Manager's Language
+
+> If you need time and funds to learn and implement an automated test tool, explain to management that over time, automated regression tests will let your team go faster and deliver more functionality in each iteration. 
+
+### Change Doesn't Come Easy
+
+#### Let Them Feel Pain
+
+> Sometimes you just have to watch the train wreck. If your suggestions for improvement were rebuffed, and the team fails, bring your suggestion up again and ask the team to consider trying it for a few iterations. People are most willing to change in the areas where they feel the most pain. 
+
+#### Beware the Quality Police Mentality
+
+> Be a collaborator, not an enforcer.
+
+#### Vote with Your Feet
+
+> Nobody cares about quality, and you feel invisible despite your best efforts. It might be time to look for a better team. Some teams are happy the way they are and simply don’t feel enough pain to want to change. 
+
+### My Summary
+
+It's essential that testers evolve their skills and adapt to a new testing philosophy - even though it's hard on the testers and it will required courage, without it they are faded to fail in an agile environment.
+
+## Chapter 4 Team Logistics
+
+### My Summary
 
 
 
 
 
-If a company tried agile and had poor results, people will be suspicious of trying it again, citing examples of why it didn’t work. They might even actively campaign against it. 
-Does it tolerate poor quality? Does it take customers’ quality requirements into account, or is it just concerned with getting the product into the customers’ hands as fast as it can? 
-A team that tries to use agile development in such an environment faces an uphill battle. 
-what about testers who are used to building test scripts according to a requirements document? Can they learn to ask the questions as the codeis being built? Testers who don’t change their approach to testing have a hard time working closely with the rest of the development team. 
-Most quality assurance professionals are eager to take what they’ve learned and make it better. These people are adaptable enough to not only survive, but to thrive in an agile project. 
-Teams might need to work for short bursts of unsustainable pace now and then, but it should be the exception, not the norm. 
-If overtime is required for short periods, the whole team should be working extra hours. 
-An open relationship is critical to the success of an agile project, where the relationship between the customer team and the development teamis more like a partnership than a vendor-supplier relationship. 
-Customers are critical to the success of your agile project. They prioritize what will be built and have the final say in the quality of the product. 
-define acceptance tests that will prove that conditions of satisfaction are met. 
-Act Now, Apologize Later                                     
-large organization, the bureaucratic wheels turn so slowly that your team might have to figure out and implement its own solutions. 
-It’s critical that you take the time to analyze what roles your product needs to be successful, and if you need to fill them from outside the team, do it. 
-Plenty of teams simply adopt practices that work for them regardless of the original source, or they invent their own. 
-For example, if you’re a tester who is pushing for the team to implement continuous integration, but the programmers simply refuse to try,you’re in a bad spot. If you’re a programmer who is unsuccessful at getting involved in some practices, such as driving development withbusiness-facing tests, you’re also in for conflict. 
-ou situation                                                 
-Many of the agile development practices are synergistic, so if they are used in isolation, they might not provide the benefits that teams are looking for. 
-Diverse viewpoints are good for a team, but everyone needs to be headed in the same direction. 
-“mini-waterfall” phenomenon that often occurs when a traditional software development organization implements an agile development process. 
-Ask everyone to be part of the solution, and work together to find out what processes and practices work best for their particular situations. 
-Customers need some way to know how development is progressing and whether their conditions of satisfaction are being met. 
-Fear is a common response to change. Forcing people to do something they don’t want is detrimental to positive change. 
-You have the right to the tools you need to perform testing tasks in a timely manner. 
-You have the right to expect your entire team, not just yourself, to be responsible for quality and testing. 
-He made sure that the business understood that quality was more important than quantity or speed. 
-My better understanding of the application’s workings made me understand that the risk and cost of fixing it was potentially much more riskythan the benefit. I believe that thinking like this isn’t a bad thing as long as we are always mindful of the end customer impact, not just the internal cost. 
-It is the team (which includes the customer) that defines the level of quality necessary to deliver a successful application. 
-He said that in a traditional waterfall type project, the reports all showed that everything was going according to plan until the very end,and then everything was in a panic state and “nothing worked.” 
-In the agile project, there were problems every day that needed to be addressed. Agile projects were more work on a consistent basis, but at least he was getting realistic reports. There were no surprises at the end of the project. 
-testing is no longer a separate activity that occurs after development but that testing and coding are integrated activities. 
-If you need time and funds to learn and implement an automated test tool, explain to management that over time, automated regression tests will let your team go faster and deliver more functionality in each iteration. 
-Story                                                        
-show to toriello                                             
-Sometimes you just have to watch the train wreck. If your suggestions for improvement were rebuffed, and the team fails, bring your suggestionup again and ask the team to consider trying it for a few iterations. People are most willing to change in the areas where they feel the mostpain. 
-Be a collaborator, not an enforcer.                          
-Nobody cares about quality, and you feel invisible despite your best efforts. It might be time to look for a better team. Some teams are happy the way they are and simply don’t feel enough pain to want to change. 
+​                                         
+
 Developers get training on pair programming, test-driven development, and other agile practices, while testers often seem to get no training at all. 
+
 The pairing of programmers and testers can only improve communication about the quality of the product. 
 One major advantage of an integrated project team is that there’s only one budget and one schedule. There is no “testing” time to cut if all of the functionality is not finished. If there is no time to test a new feature, then there is no time to develop it in the first place. 
 To support agile values and principles, teams work better when they have ready access to all team members, easy visibility of all project progress charts, and an environment that fosters communication. 
