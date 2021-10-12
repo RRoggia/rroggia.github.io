@@ -919,7 +919,72 @@ There are financial measures that can be used to prioritize the theme:
 
 ## Chapter 11 - Prioritizing Desirability
 
+### Kano Model of Customer Satisfaction
+
+> The process of doing so was originated by Noriaki Kano, whose approach gives us a way to separate feature into three categories:
+>
+> - Threshold, or must-have, features
+> - Linear features
+> - Exciters and delighter
+
+> In fact, exciters ad delighters are often called unknown needs because customers or users do not know they need these features until they see them.
+
+> ... once some amount of a must-have feature has been implemented, customer satisfaction cannot be increased by adding more of that feature. Also, no matter how much of a must-have feature is added, customer satisfaction never rises above the midpoint.
+
+> customer satisfaction rises drastically based on even a partial implementation of an exciter or delighter feature.
+
+> direct relationship between the inclusion of linear features and customer satisfaction.
+
+> emphasis should be placed on prioritizing the development of all threshold features.
+
+> A product's must-have features do not need to be developed in the first iterations of a release. However, because users consider these features to be mandatory, they need to be available before the product is released.
+
+> Secondary emphasis should be placed on completing as many linear features as possible. Because, each of these features leads directly to greater customer satisfaction, the more of these features that can be included the better (excluding, of course, such situations as a product that is already bloated with too man features).
+
+> Keep in mind that features tend to migrate down the Kano diagram over time.
+
+> determining the category of a feature by asking two questions: one question regarding how the user would feel if the feature were present in the product and one question about how the user would feel if it were absent.
+
+> (about features with high values for two responses) This indicates that different types of customers and users have a different expectations.
+
+### Relative Weighting: Another Approach
+
+> Rather than use questionnaires, this approach relies on expert judgment.
+
+> estimates of benefits and penalties are relative.
+
 ### My Summary
+
+Proposes two methods for prioritizing considering user's desiribility:
+
+- Kano Model
+  - Three categories
+    - Must-have: Its absence causes low customer satisfaction. Its presence guarantees at maximum a neutral customer. 
+    - Linear features: Its absence causes low customer satisfaction. Its presence guarantees customer satisfaction. The amount of features is linear to the customer satisfaction.
+    - Exciters / delighter: Its absence do not causes low customer satisfaction. Its presence guarantees customer satisfaction. This kind of feature has a exponential impact in the customer satisfaction.
+  - Priorization must follow must-have, then linear features and at last exciters / delighter.
+  - Use a questionnary with users to access the Kano Model. You should ask two questions:
+    - How do you feel with the feature present?
+    - How do you feel with the feature absent?
+  - Use the following scale for the answers:
+    - I like it
+    - I expect it to be that way
+    - I am neutral
+    - I can live with it that way
+    - I dislike it that way
+
+- Relative Weighting
+  - Relies on experts
+  - For each theme estimate benefits and penalties.
+  - Sum the Relative benefits and penalties to reach the feature Total Value.
+  - Divide each item by the total value to reach the % Value of each theme.
+  - Add an estimate for each theme. And sum the estimate.
+  - Divide the each estimate by the Sum of estimate to understand the % Cost of each theme.
+  - At last, divide the % Value by the % Cost and you'll reach to a Priority for each theme.
+
+## Chapter 12 - Splitting User Stories
+
+
 
 
 
