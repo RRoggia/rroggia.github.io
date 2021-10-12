@@ -860,7 +860,66 @@ You can start considering the value it will deliver and the cost it will have. A
 
 ## Chapter 10 - Financial Prioritization
 
+> *"As a general rule of thumb when benefits are not quantified at all assume there aren't any." - Tom DeMarco and Timothy Lister*
 
+> At a minimum , whoever requested the theme should be able to quantify the reasons for developing it.
+
+> (About the Theme-Return Worksheet) We cannot compare projects and make priorization decisions simply by summing the total row of a worksheet like Table 10.2 for each theme.
+
+### Sources of Return
+
+> The return on a project can come from a variety of sources. For convenience, we can categorize these as new revenue, incremental revenue, retained revenue and operational efficiencies.
+
+> (Incremental revenue) incremental revenue from existing customers.
+
+> Retained revenue refers to the revenue an organization will lose if the project or theme is not developed.
+
+> No organization is ever as efficient as it could be. There's always some task that could be streamlined or eliminated.
+
+> Often, the drive to improve operational efficiencies comes from anticipated growth. An inefficiency that may not be a problem today rapidly becomes a problem when the company becomes much larger.
+
+> - Anything that takes a long time or that would take a long time if the company grew.
+> - Better integration or communication between departments
+> - Reduced employee turnover
+> - Shorter training time for new employees
+> - Any time-sensitive process
+> - Combining multiple processes
+> - Anything that improves accuracy and reduces rework
+
+> (unless we can find a way to deliver partial solution, which should always be a goal)
+
+### Financial Measures
+
+> The amount I have to invest today to have a known amount in the future is called the *present value*.
+
+> The process of moving future amounts back into their present value is known as *discounting*.
+
+> The rate at which organization discount future money is known as their *opportunity cost* and reflects the percentage return that is passed up to make this investment.
+
+### My Summary
+
+You should at minimum be able to quantify the benefits of developing something, otherwise you cannot prioritize based on facts.
+
+You can held a meeting with your team members for each theme to categorize the types of return you are getting from a theme. There are several types of return, but the book presents four:
+
+- New revenue: Revenue from new customers.
+- Incremental revenue: Revenue from existing customers.
+- Retained revenue: Revenue that is not lost because of the project.
+- Operational efficiency: Revenue from improving the system or the process. For example:
+  - Long, manual, tedious and error prone tasks that don't scale
+  - Improve of accuracy and reduces rework
+  - ...
+
+There are financial measures that can be used to prioritize the theme:
+
+- Net Present Value 
+- Internal Rate of Return ( IRR or ROI )
+- Payback period
+- Discounted Payback period
+
+## Chapter 11 - Prioritizing Desirability
+
+### My Summary
 
 
 

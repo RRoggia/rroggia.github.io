@@ -790,7 +790,7 @@ Two main patterns for organizing business logic:
 
 # Chapter 10 - Testing microservices: Part 2
 
-## Chapter 10.1 Writing integration tests
+## Writing integration tests
 
 > One approach is to launch all the services and test them through their APIs. This, however, is what’s known as end-to-end testing, which is slow, brittle, and costly.
 
@@ -867,8 +867,104 @@ Two main patterns for organizing business logic:
 
 ## My Summary
 
+# Chapter 11 - Developing production-ready services
 
+# Chapter 12 - Deploying microservices
 
+# Chapter 13 - Refactoring to microservices
+
+> A strangler application is a new application consisting of microservices that you develop by implementing new functionality as services and extracting services from the monolith.
+
+## Overview of refactoring to microservices
+
+### Why refactor a monolith?
+
+> it’s likely that the business will only support the adoption of microservices if it solves a significant business problem.
+
+> - Slow delivery—The application is difficult to understand, maintain, and test, so developer productivity is low. As a result, the organization is unable to compete effectively and risks being overtaken by competitors.
+> - Buggy software releases—The lack of testability means that software releases are often buggy. This makes customers unhappy, which results in losing customers and reduced revenue.
+> - Poor scalability—Scaling a monolithic application is difficult because it combines modules with very different resource requirements into one executable component. The lack of scalability means that it’s either impossible or prohibitively expensive to scale the application beyond a certain point. As a result, the application can’t support the current or predicted needs of the business.
+
+### Strangling the monolith
+
+> Application modernization is the process of converting a legacy application to one having a modern architecture and technology stack.
+
+> The most important lesson learned over the years is to not do a big bang rewrite.
+
+> You could, for example, get to a point where you have tasks that are more important than breaking up the monolith, such as implementing revenue-generating features. If the monolith isn’t an obstacle to ongoing development, you may as well leave it alone.
+
+> Some organizations have difficulty eliminating technical debt because past attempts were too ambitious and didn’t provide much benefit. As a result, the business becomes reluctant to invest in further cleanup efforts.
+
+> The only thing you can’t live without is a deployment pipeline that performs automating testing.
+
+## Strategies for refactoring a monolith to microservices
+
+> 1. Implement new features as services.
+> 2. Separate the presentation tier and backend.
+> 3. Break up the monolith by extracting functionality into services.
+
+### Implement new features as services
+
+> The Law of Holes states that “if you find yourself in a hole, stop digging”
+
+> If you attempted to implement this kind of feature as a service you would typically find that performance would suffer because of excessive interprocess communication. You might also have problems maintaining data consistency.
+
+### Separate presentation tier from the backend
+
+> - Presentation logic—This consists of modules that handle HTTP requests and generate HTML pages that implement a web UI. In an application that has a sophisticated user interface, the presentation tier is often a substantial body of code.
+> - Business logic—This consists of modules that implement the business rules, which can be complex in an enterprise application.
+> - Data access logic—This consists of modules that access infrastructure services such as databases and message brokers.
+
+> In particular, it allows the presentation layer developers to rapidly iterate on the user interface and easily perform A/B testing, for example, without having to deploy the backend.
+
+### Extract business capabilities into services
+
+> If you want to significantly improve your application’s architecture and increase your development velocity, you need to break apart the monolith by incrementally migrating business capabilities from the monolith to services.
+
+> Extracting a service is often time consuming, especially because the monolith’s code base is likely to be messy. Consequently, you need to carefully think about which services to extract.
+
+> - Splitting the domain model
+> - Refactoring the database
+
+> In order to extract a service, you need to extract its domain model out of the monolith’s domain model. You’ll need to perform major surgery to split the domain models.
+
+> Aggregates reference each other using primary keys rather than object references.
+
+> An even greater challenge with splitting a domain model is extracting functionality that’s embedded in a class that has other responsibilities.
+
+> Many classes in a domain model are persistent. Their fields are mapped to a database schema. Consequently, when you extract a service from the monolith, you’re also moving data. You need to move tables from the monolith’s database to the service’s database.
+
+> One such technique is the idea of replicating data in order to allow you to incrementally update clients of the database to use the new schema.
+
+> A great way to delay and possibly avoid making these kinds of expensive changes is to use an approach that’s similar to the one described in Refactoring Databases. A major obstacle to refactoring a database is changing all the clients of that database to use the new schema. The solution proposed in the book is to preserve the original schema for a transition period and use triggers to synchronize the original and new schemas. You then migrate clients from the old schema to the new schema over time.
+
+> A good way to start the migration to microservices is with a time-boxed architecture definition effort. You should spend a short amount of time, such as a couple of weeks, brainstorming your ideal architecture and defining a set of services. This gives you a destination to aim for.
+
+> Instead of implementing features or fixing bugs in the monolith, you extract the necessary service or service(s) and change those. One benefit of this approach is that it forces you to break up the monolith.
+
+> - Accelerates development—If your application’s roadmap suggests that a particular part of your application will undergo a lot of development over the next year, then converting it to a service accelerates development.
+> - Solves a performance, scaling, or reliability problem—If a particular part of your application has a performance or scalability problem or is unreliable, then it’s valuable to convert it to a service.
+> - Enables the extraction of some other services—Sometimes extracting one service simplifies the extraction of another service, due to dependencies between modules.
+
+## Designing how the service and the monolith collaborate
+
+### Designing the integration glue
+
+> One important concern is maintaining data consistency between the service and monolith. In particular, when you extract a service from the monolith, you invariably split what were originally ACID transactions. You must be careful to ensure that data consistency is still maintained.
+
+> Because the two domain models are different, you must implement what DDD calls an anti-corruption layer (ACL) in order for the service to communicate with the monolith.
+
+> The goal of an ACL is to prevent a legacy monolith’s domain model from polluting a service’s domain model
+
+### Maintaining data consistency across a service and a monolith
+
+> When you develop a service, you might find it challenging to maintain data consistency across the service and the monolith. A service operation might need to update data in the monolith, or a monolith operation might need to update data in the service.
+
+### Handling authentication and authorization
+
+> Another design issue you need to tackle when refactoring a monolithic application to a microservice architecture is adapting the monolith’s security mechanism to support the services
+
+## Implementing a new feature as a service: handling misdelivered orders
 # TODO
 
 - CAP Theorem
