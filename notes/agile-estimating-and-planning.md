@@ -575,7 +575,7 @@ When we estimate with ideal time, we don't consider the company's bureaucracy. T
 
 We should give one estimate for the whole team, to avoid not follow the "we're all in this together" mentality.
 
-# Chapter 6 - Techniques for Estimating
+## Chapter 6 - Techniques for Estimating
 
 > We want to remain aware, too, of the diminishing return on time spent estimating. We can often spend a little time thinking about an estimate and come up with  a number that is nearly as good as if we had spent a lot of time thinking about it.
 
@@ -750,7 +750,7 @@ In the third scenario the team learned with the Chart A user story and applied t
 
 Usually, if the team didn't complete the whole user story they do not add its size to the velocity calculation. An exception would occur if the team completes half of a user story, and during the next iteration they will not work on the other half. In this case, you could split the user stories in two, and add the story points to from the completed part to the velocity.
 
-# Chapter 8 - Choosing between Story Points and Ideal Days
+## Chapter 8 - Choosing between Story Points and Ideal Days
 
 ### Story Points Help Drive Cross-functional Behavior
 
@@ -983,6 +983,208 @@ Proposes two methods for prioritizing considering user's desiribility:
   - At last, divide the % Value by the % Cost and you'll reach to a Priority for each theme.
 
 ## Chapter 12 - Splitting User Stories
+
+### When to Split a User Story
+
+> First, a user story should be split when it is too large to fit within a single iteration.
+
+> Second, it can be useful to split a large user story (an epic) if a more accurate estimate is necessary.
+
+### Splitting across Data Boundaries
+
+> Split large stories along the boundaries of the data supported by the story.
+
+> In some cases a large story can be made much smaller by removing the handling of exceptional or error conditions from the main story.
+
+### Splitting on Operational Boundaries
+
+> Split large stories based on the operations that are performed within the story.
+
+> A common approach to doing this is to split a story along the boundaries of the common CRUD operations - Create, Read, Update and Delete.
+
+### Removing Cross-Cutting Concerns
+
+> Consider removing cross-cutting concerns (such as security, logging, error handling and so on) and creating two versions of the story one with an one without support for the cross cutting concern.
+
+### Don't Meet Performance Constraints
+
+> Consider splitting a large story by separating the functional and nonfunctional aspects into separate stories.
+
+### Split Stories of Mixed Priority
+
+> Split a large story into smaller stories if the smaller stories have different priorities.
+
+### Don't Split a Story into Tasks
+
+> Delivering a cohesive subset of all layers of a feature is almost always better than delivering all of one layer.
+
+> Don't split a large story into tasks. Instead, try to find a way to fire a tracer bullet through the story.
+
+### Avoid the Temptation of Related Changes
+
+> Avoid making things worse by adding related changes to an appropriately sized feature unless the related changes are of equivalent priority.
+
+### Combining Stories
+
+> Just as we may need to split large stories, we may need to combine multiple tiny stories.
+
+### My Summary
+
+You should split a story when won't fit in the iteration. Either because it's too big or because you won't be able to finish it. You should split it based on:
+
+- The data
+- The operations
+- Cross-Cutting concerns (security, logging, error handling, ...)
+- Non-functional requirements
+- Different priorities within the story
+
+You shouldn't:
+
+- Split a story into tasks. It's better to do the tracer bullet.
+- Split and than add more work to the User story
+
+You may as well combine tiny user stories into a larger user story. This approach is commonly used for bugs.
+
+## Chapter 13 - Release Planning Essentials
+
+> Release planning is the process of creating a very high-level plan that covers a period longer than an iteration.
+
+> The sooner the product can be released( and the better it is when it's released), the sooner the organization will begin earning a return on its investment in the project.
+
+> Second, a release plan conveys expectations about what is likely to be developed and in what timeframe.
+
+> Third, a release plan serves as a guidepost toward which the project team can progress.
+
+### The Release Plan
+
+> Multiplying the planned number of iterations by either the expected or known velocity of the team gives us the total amount of work  that can be performed.
+
+> 1. Determine conditions of satisfaction
+> 2. Estimate the user stories
+> 3. Do in any sequence
+>    1. Select an iteration length
+>    2. Estimate velocity
+>    3. Prioritize user stories
+> 4. Select stories and a release date
+
+### Determine the Conditions of Satisfaction
+
+> it is important to know the criteria by which the project will be evaluated as a success or a failure
+
+> Projects are typically either *date-driven* or *feature-driven*. A *date-driven* project is one that must be released by a certain date but for which the feature set is negotiable. A *feature-driven* project is one that we would probably like to release as son as possible but for which we consider the completion of a set of features to be more important.
+
+### Estimate the User Stories
+
+> an estimate represents the cost of developing a user story.
+
+### Prioritize User Stories
+
+> A good product owner will accept ultimate responsibility for prioritizing but will listen to advice from the development team, especially about the sequencing.
+
+### My Summary
+
+A release plan is a high-level plan bigger than a iteration and serves as a guidance for a set of iterations. The release plan conveys the expectations for a timeframe. The earlier the release goes to production earlier you have return from it. 
+
+A project must have a set of conditions that determine whether it will fail or succeed, usually there are three: schedule, scope, resources.
+
+You can have either date-driven or feature-driven projects:
+
+- Date-driven: The date is fixed, but the scope is negotiable. Calculate the number of iterations until the end date. Multiply the velocity by the number of iterations to achieve the amount of effort you can deliver.
+- Feature-driven: The scope is fixed, but the date is negotiable. Sum the amount of effort for each user story. Divide the total effort by the velocity, and you'll get the total number of iterations.
+
+Once you have the release plan, you must update it as the project proceeds. A release plan must not be static.
+
+## Chapter 14 - Iteration Planning
+
+> With an iteration plan, a team takes a more focused, detailed look at what will be necessary to implement completely only those user stories selected for the new iteration.
+
+> ( about the iteration planning meeting) Anyone involved in taking a raw idea an turning it into a functioning product should be present.
+
+> One of the most significant advantages to using note cards during iteration planning is that it allows everyone to participate in the process.
+
+### Tasks Are Not Allocated During Iteration Planning
+
+> Individuals do not sign up for tasks until the iteration begins and generally sign up for only one or two related tasks at a time. New tasks are not begun until previously selected ones are completed.
+
+> The primary purpose of iteration planning is to refine suppositions made in the ore coarse-grained release-plan.
+
+> agile planning becomes a two-stage process. The first stage is the release plan, with its rough edges and general uncertainties. The second stage is the iteration plan. An iteration plan still has some rough edges and continues to be uncertain. However, because it is created concurrent with the start of a new iteration, an iteration plan is more detailed than a release plan.
+
+### Velocity-Driven Iteration Planning
+
+> 1. Do in any sequence
+>    1. Adjust priorities
+>    2. Determine target velocity
+> 2. Identify an iteration goal
+> 3. Select user stories
+> 4. Split user stories into tasks
+> 5. Estimate tasks
+
+> The default assumption by most teams is that their velocity in the next iteration will equal the velocity of the most recent iteration. Beck and Fowler(2000) call this yesterday's weather.
+
+> Other teams prefer to use a moving average over perhaps the last three iterations.
+
+> The goal succinctly describes what they would like to accomplish during that period.
+
+> Next, the product owner and team select stories that combine to meet the iteration goal.
+
+> A common question around iteration planning is what should be included. All tasks necessary to go from a user story to a functioning, finished product should be identified.
+
+> An agile teams has the goal of fixing all bugs in the iteration in which they are discovered.
+
+> A spike is a task included in an iteration plan that is being undertaken specifically to gain knowledge or answer a question.
+
+> The tasks you create should be of an approximate size so that each developer is able to finish an average of one per day.
+
+> larger tasks should be generally understood to be placeholders for one or more additional tasks that will be added as soon as they are understood.
+
+### Commitment-Driven Iteration Planning
+
+> 1. Adjust priorities
+> 2. Identify an iteration goal
+> 3. Repeatedly while commitment is not full
+>    1. Select a story to add
+>    2. Expand the story into tasks
+>    3. Estimate tasks
+>    4. Team commits to story
+> 4. Iteration planning is done
+
+> summing the estimates still gives some indication of the overall size of the work
+
+> The key is that everyone on the team is accountable for contributing whatever is within their capabilities, regardless of whether it is their specialty.
+
+### My Summary
+
+Iteration plan describes the work expected for one iteration of the release plan. This is a more detail and focused plan. 
+
+The iteration plan is created during a iteration planning meeting, There are some steps expected in this meetings that vary depending on the type of plan you are doing. There are two types:
+
+- Velocity-driven: You plan based on your team's last velocity. 
+- Commitment-driven: You plan based on the team's commitment.
+
+The first step for either type of plan requires that the team prioritize the work to come. The team can use the iteration review meeting to do so.
+
+During the Iteration review meeting everyone interested in the project will be see the progress of that iteration, and they can provide valuable feedback.  This feedback might change the priority for the next iteration. Because a iteration review plus a iteration planning can be very tiring, you may choose to have a priorization meeting few days before the end of the iteration. This way you have a close enough knowledge whether the team will complete their iteration goal, and you are fresh to discuss the priorization for the next iteration.
+
+The second step is to identify a goal for your iteration. The work you will select in the next steps should represent what the teams need to do to accomplish the goal.
+
+The third step depends on the type of plan:
+
+For velocity-driven, select a user story with the highest priority, expand its task and estimate it. Repeat until you have reached the team's velocity from previous iterations.
+
+For commitment-drive, select a user story with the highest priority, expand its task and estimate it. Then, the teams decides whether it can commit to that user story for this iteration. Repeat until the team cannot commit to more user stories.
+
+When expanding the tasks, you should consider all work necessary to put the user story to production.
+
+## Chapter 15 - Selecting an Iteration Length
+
+
+
+
+
+
+
+
 
 
 
