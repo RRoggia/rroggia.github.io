@@ -1178,6 +1178,40 @@ When expanding the tasks, you should consider all work necessary to put the user
 
 ## Chapter 15 - Selecting an Iteration Length
 
+### Factors in Selecting an Iteration Length
+
+> - The length of the release being worked on
+> - The amount of uncertainty
+> - The ease of getting feedback
+> - How long priorities can remain unchanged
+> - Willingness to go without outside feedback
+> - The overhead of iterating
+> - How soon a feeling of urgency is established
+
+> Iteration length should be chosen to maximize the amount, frequency, and timeliness of feedback to the whole team.
+
+> Naturally, one of the goals of a successful agile team is to reduce(or nearly eliminate) the overhead associated with each iteration.
+
+### Making a decision
+
+> One of the main goals in selecting an iteration length is finding one that encourages everyone to work at a consistent pace throughout the iteration. If the duration is too long, there is a natural tendency to relax a bit at the start of the iteration, which leads to panic and longer hours at the end of the iteration.
+
+> My favorite technique to help reduce this strain is follow a macro-cycle of six two-week iterations followed by a one-week iteration. I refer to this cycle as "6 x 2 + 1". During the two-week iterations, the team works on items prioritized by the product owner. During the one-week iteration, however, the team chooses its own work.
+
+### My Summary
+
+There are several reasons to why you should change the length of an iteration (see the bullets above). The length of the iteration will vary accordingly to your context. A project with a lot of uncertainty you might want shorter iterations. A project where you can only access your customer or users monthly you might choose a longer iteration.
+
+At the end of the iteration, you don't want to add overhead work (like manual tests and so on) to your next iteration. Focus on reducing it or eliminate.
+
+When making a decision focus on finding a consistent pace. A pace where the team can follow indefinitely and sustainably. You may also apply a "6 x 2 + 1" technique. After every 6 iterations of two week, the team has 1 iteration free to focus on work they can prioritize. This helps to reduce technical debt, and continuously improve the system.
+
+## Chapter 16 - Estimating Velocity
+
+
+
+
+
 
 
 
