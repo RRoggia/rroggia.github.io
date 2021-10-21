@@ -1208,31 +1208,51 @@ When making a decision focus on finding a consistent pace. A pace where the team
 
 ## Chapter 16 - Estimating Velocity
 
+> - Use historical value
+> - Run an iteration
+> - Make a forecast
 
+> if you need to estimate velocity you should consider expressing the estimate as a range.
 
+### Use Historical Values
 
+> Any personnel or significant technology change will reduce the usefulness of historical measures of velocity.
 
+> start by calculating the team's average velocity over the course of the preceding release.
 
+### Run an iteration
 
+> An ideal way to forecast velocity is to run an iteration( or two or three) an then estimate velocity from the *observed velocity* during one to three iterations.
 
+> Some organizations will resist starting a project without having a more specific idea how long it will take. In such cases, stress that the need to run a few iterations first stems not from a desire to avoid making an estimate, but to avoid giving an estimate without adequate foundation.
 
+### Make a Forecast
 
+> 1. Estimate the number of hours that each person will be available to work on the project each day
+> 2. Determine the total number of hours that will be spent on the project during the iteration
+> 3. Arbitrarily and somewhat randomly select stories, and expand them into their constituent tasks. Repeat until you have identified enough tasks to fill the number of hours in the iteration.
+> 4. Convert the velocity determined in the preceding step into a range.
 
+### My Summary
 
+Always use velocity as a range.
 
+- Historical velocity: team's historical velocity (other projects). 
 
+  - Best and worst velocities
+  - Subtract and add to the average velocity
+  - Multiply by the uncertainty cone
 
+- Run an iteration: Should be the default. *Observed velocity.*
 
+- Make a Forecast: Last option.
 
+  - Define the project scope using user stories
+  - Create a "plan an iteration" with stories from the scope
+  - Determine based on the velocity of this fake iteration the total number of iteration to delivery all the scope.
 
+  
 
+  
 
-
-
-
-
-
-
-
-
-
+  
