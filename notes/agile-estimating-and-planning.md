@@ -3,7 +3,7 @@ title: 'Agile estimating and planning'
 language: 'en-US'
 status: 'Reading'
 coverPath: 'agile-estimating-and-planning'
-date: '2021-01-01'
+date: '2020-03-01'
 ---
 
 # Foreword - Jim Highsmith
@@ -1242,17 +1242,208 @@ Always use velocity as a range.
   - Best and worst velocities
   - Subtract and add to the average velocity
   - Multiply by the uncertainty cone
-
 - Run an iteration: Should be the default. *Observed velocity.*
-
 - Make a Forecast: Last option.
 
   - Define the project scope using user stories
   - Create a "plan an iteration" with stories from the scope
   - Determine based on the velocity of this fake iteration the total number of iteration to delivery all the scope.
 
-  
+## Chapter 17 - Buffering Plans for Uncertainty
 
-  
+> A buffer is a margin for error around an estimate. In cases where there is significant uncertainty or the cost of being wrong is significant ,including a buffer is wise. The buffer help protect the project against the impact of the uncertainty. In this way, buffering a project schedule becomes an appropriate risk management strategy. 
 
-  
+### Feature Buffers
+
+> First the customer selects all of the absolutely mandatory work. The estimates for that work are summed. This represents the minimum that can be released. The customer then selects another 25% to 40% more work , selecting toward the higher end of the range for projects with more uncertainty or less tolerance for schedule risk. The estimates fort this work are added to the original estimate, resulting in a total estimate for the project. The project is then planed as normal for delivery of the entire set of functionality; however some amount of the work is optional and will be included only if time permits.
+
+> On DSDM (Dynamic Systems Development Method) projects, requirements are sorted int four categories: Must Have, Should have, Could Have and Won't have. DSDM refers to this sorting as the MoSCoW rules. No more than 70% of the planned effort for a prospect can be target at must have requirements. 
+
+### Schedule Buffers
+
+> the departure time is fixed, just like deadlines are on many software development projects. In this case, a schedule buffer protects against uncertainty that can affect the on-time completion of the project.
+
+### Reflecting Uncertainty in Estimates
+
+> The curve takes on this general shape because there normally is not much that can be done to accelerate the completion of a task, but there are an indefinite number of thins that can go wrong and delay the completion of a task.
+
+> The additional time between the 50% an the 90% estimate is called *local safety*.
+
+> We often add local safety to an estimate we want to be more confident of meeting.
+
+### Combining Buffers
+
+> When creating a release plan, our goal is to use buffers so that the team can make these types of commitments.
+
+### A Schedule Buffer Is Not Padding
+
+> I pad an estimate when I think it will take three days but I decide to tell you five, just in case.
+
+> A schedule buffer is a necessary margin of safety added to the sum of estimates from which local safety has been removed.
+
+### Some Caveats
+
+> You should not hide their existence or how they are used.
+
+### My Summary
+
+Feature: Shopping list where you don't buy all the items
+
+Schedule: To arrive before your flight departs you plan yours steps until your arrival, and then adds a buffer to ensure if anything goes wrong you can still make it.
+
+Budget: Suppose you have thirty developers assigned to a project, but you have budget to allow up to thirty three developers.
+
+The buffer should not be added at each task, it should be added to the overall project deadline. Adding the buffer to the overall project deadline, we will avoid the Parkinson's law ( work that expands to its maximum length).
+
+Add buffers whenever you have a significant uncertainty or if the cost of being wrong is high. The buffers need to be communicated, and should not be hidden. If you are hiding buffers, most likely it's not a buffer and rather a padding.
+
+## Chapter 18 - Planning the Multiple-Team Project
+
+### Establishing a Common Basis for Estimates
+
+> At the start of a project, the teams should meet and choose between story points and ideal days. They should then establish a common baseline for their estimates so that an estimate by one team will be similar to that of another team if the other team had estimated the work instead.
+
+> The only time separate teams should consider estimating in different unit without a common baseline is when the products being built are truly separate and there is absolutely no opportunity for developer from one team to move onto another.
+
+### Adding Detail to User Stories Sooner
+
+> Ideally, an agile team begins an iteration with vaguely defined requirements and turns those vague requirements into functioning, tested software by the end of the iteration.
+
+> On a multiple team project, is often appropriate and necessary to put more thought into the user stories before the start of the iteration. The additional detail allows multiple teams to coordinate work.
+
+> What I've found to be the most useful outcome of work done in advance of the iteration is the identification of the product owner's conditions of satisfaction for the user stories that are likely to be developed during the iteration.
+
+### Lookahead Planning
+
+> When multiple teams need to coordinate work, the release plan should be updated to show and coordinate the work of the next two or three iterations.
+
+> The release plan then becomes a rolling lookahead plan that always outlines expectations about the new few iterations.
+
+> This is safer than planning on a handoff occurring during an iteration.
+
+> However, to the extent possible, they should limit commitments to work completed before the start of the iteration.
+
+### Incorporating Feeding Buffers into the Plan
+
+> consider including a *feeding buffer*, like the schedule buffer of the previous chapter.
+
+> This is, add a feeding buffer only if a team will be unable to do planned, high-priority work without the deliverables of another team.
+
+> A feeding buffer that is longer than an iteration is usually the result of planning to pass a large chunk of functionality on to another team.
+
+### My Summary
+
+These might be requirements for bigger projects
+
+- Establishing a common basis for estimates
+  - (Worked together on a past project) Select user stories to represent the baseline
+  - Collaboratively estimate user stories 
+- Adding detail to their user stories sooner
+  - Find at least the satisfaction condition for most user stories
+
+- Performing lookahead planning
+  - Avoid handoff during iterations. Before the planning, try to identify dependencies between teams, and create a plan that accommodates all the user stories without handoffs during sprints. So if Team A is developing User Story 1 and Team B has the User Story 2 which depends on User Story 1. Create a plan where, Team B starts developing the User Story 2 the iteration after the Team A concludes User Story 1.
+- Incorporating feeding buffers into the plan
+  - When you cannot avoid handoffs, you can add a feeding buffer to make sure the commitments are going to be fulfilled. Make sure you only use as last option, since it adds duration for the project schedule.
+
+# Part V - Tracking and Communicating
+
+## Chapter 19 - Monitoring the Release Plan
+
+### Tracking the Release
+
+> First, and ideally most significant, is the amount of progress made by the team.
+
+> Second, however, is any change in the scope of the project.
+
+> ... the developers may have learned things during the iteration that make them want to revise the story-point estimates assigned to some of the work coming later in the release plan.
+
+### Velocity
+
+> Velocity is expressed as the number of story points (or ideal days) completed per iteration.
+
+> The most important rule is that a team counts points towards velocity only for stories or features that are complete at the end of the iteration.
+
+> Complete means code that is well written, well factored, checked-in, and clean; complies with coding standards; and passes all tests.
+
+> (when US will not be completed during iteration) Usually, this means the story will be moved out of the iteration or split and parts of it moved out.
+
+> They wouldn't go so far as to accept a buggy untested version of the story, but they may reduce performance requirements, handling of special cases and so on.
+
+> The more work in process a team allows to build up, the longer it will take new features to be transformed from raw ideas into functioning software.
+
+### Release Burndown Charts
+
+> This becomes a powerful visual indicator of how quickly a team is moving toward its goal.
+
+### A Release Burndown Bar Chart
+
+> it's useful to draw the release burndown chart so that you can easily see the team's velocity and the scope changes separately.
+
+> - Any time work is completed, the top is lowered.
+> - When work is re-estimated, the top moves up or down.
+> - When new work is added, the bottom is lowered.
+> - When work is removed, the bottom is raised.
+
+### A Parking-Lot Chart
+
+> A *parking-lot chart* contains a large rectangular box for each theme (or grouping of user stories) in a release. Each box is annotated with the name of them, the number of stories in that theme, the number of story points or ideal days for those stories, and the percentage of the story points that are complete.
+
+> A parking-lot chart is a powerful method for compressing a great deal of information into a small space.
+
+### My Summary
+
+Tracking the release of a project is important, because the project will change during its execution. Either because you had changes in scope, because you want to know where you are or because you learned and had to re-estimate your user stories.
+
+Velocity is the rate of progress for agile teams. It measures the completed user stories from each iteration.
+
+Why not consider unfinished work:
+
+1. It's hard to measure unfinished or incomplete work.
+2. Incomplete stories break down the trust between the developer team and the customer team on the project.
+3. Unfinished work leads to a buildup of work in process in the development process. (Too much W.I.P).
+
+Three types of charts:
+
+1. Burndown chart: Simple. It does not differentiate changes in scope from velocity.
+2. Burndown bar chart: Harder to understand. Differentiates velocity from changes in scope.
+3. Parking-lot chart: Compresses a great deal of information.
+
+## Chapter 20 - Monitoring the Iteration Plan
+
+### The Task Board
+
+> A task board serves the dual purpose of giving a team a convenient mechanism for organizing their work and a way of seeing at a glance how much work is left.
+
+> (Working on one task) This helps maintain a consistent flow of work through the process and reduces the cost of context switching among multiple tasks.
+
+### Tracking Effort Expended
+
+> On a project, it is far more useful to know how much remains to be done rather than how much has been done.
+
+> tracking effort expended and comparing it with estimated effort can lead to "evaluation apprehension" (Sanders 1984).
+
+### Individual Velocity
+
+> Do not track individual velocity.
+
+> Individuals should be given every incentive possible to work as a team.
+
+### My Summary
+
+- Task Board: 
+  - Organizes work
+  - Visual
+
+- Iteration Burndown Charts: 
+  - Same as release burndown chart
+  - For iteration longer than one week.
+
+Do not track expended effort, focus on how much remains to be done.
+
+Do not track individuals velocity. It goes against a team spirit.
+
+## Chapter 21 - Communicating about Plans
+
+
+
