@@ -1445,5 +1445,37 @@ Do not track individuals velocity. It goes against a team spirit.
 
 ## Chapter 21 - Communicating about Plans
 
+> We want all communication, but especially communication about estimates and plans, to be frequent, honest and two-way.
+
+> Plans are updated throughout the project, and these updates need to be comunicated.
+
+> If a developer knows that a given task will take much longer than currently expected, she needs to feel safe sharing that knowledge with the rest of the team, including her manager.
+
+> It is important that communication about estimating and planning be two-way, because we want to encourage dialogue and discussion about the plan so that we make sure we always have the best possible plan (given the current knowledge) for delivering value to the organization.
+
+### Communicating the Plan
+
+> When possible, include with your communication of a target date either your degree of confidence in the estimate, a range of possible dates, or both.
+
+### My Summary
+
+Communication must be:
+
+- Frequent
+- Honest
+- Two-way
+
+For communicating dates use either a degree of confidence, a range of possible dates or both.
+
+For communicating progress, because velocity fluctuates, consider:
+
+- Last iteration's velocity
+- Average velocity
+- Average worst velocity ( slowest iterations)
+
+You may use a end-of-iteration summary to sum up the communication. But, don't spend too much time on it.
+
+# Part VI - Why Agile Planning Works
+
 
 
