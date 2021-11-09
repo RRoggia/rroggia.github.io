@@ -242,6 +242,54 @@ data-styled.g27[id="Note__NoteContainer-i7okha-1"]{content:"ZkJVA,"}/*!sc*/
 <li><a href="#my-summary-17">My Summary</a></li>
 </ul>
 </li>
+<li>
+<p><a href="#chapter-17---buffering-plans-for-uncertainty">Chapter 17 - Buffering Plans for Uncertainty</a></p>
+<ul>
+<li><a href="#feature-buffers">Feature Buffers</a></li>
+<li><a href="#schedule-buffers">Schedule Buffers</a></li>
+<li><a href="#reflecting-uncertainty-in-estimates">Reflecting Uncertainty in Estimates</a></li>
+<li><a href="#combining-buffers">Combining Buffers</a></li>
+<li><a href="#a-schedule-buffer-is-not-padding">A Schedule Buffer Is Not Padding</a></li>
+<li><a href="#some-caveats">Some Caveats</a></li>
+<li><a href="#my-summary-18">My Summary</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#chapter-18---planning-the-multiple-team-project">Chapter 18 - Planning the Multiple-Team Project</a></p>
+<ul>
+<li><a href="#establishing-a-common-basis-for-estimates">Establishing a Common Basis for Estimates</a></li>
+<li><a href="#adding-detail-to-user-stories-sooner">Adding Detail to User Stories Sooner</a></li>
+<li><a href="#lookahead-planning">Lookahead Planning</a></li>
+<li><a href="#incorporating-feeding-buffers-into-the-plan">Incorporating Feeding Buffers into the Plan</a></li>
+<li><a href="#my-summary-19">My Summary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#part-v---tracking-and-communicating">Part V - Tracking and Communicating</a></p>
+<ul>
+<li>
+<p><a href="#chapter-19---monitoring-the-release-plan">Chapter 19 - Monitoring the Release Plan</a></p>
+<ul>
+<li><a href="#tracking-the-release">Tracking the Release</a></li>
+<li><a href="#velocity-1">Velocity</a></li>
+<li><a href="#release-burndown-charts">Release Burndown Charts</a></li>
+<li><a href="#a-release-burndown-bar-chart">A Release Burndown Bar Chart</a></li>
+<li><a href="#a-parking-lot-chart">A Parking-Lot Chart</a></li>
+<li><a href="#my-summary-20">My Summary</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#chapter-20---monitoring-the-iteration-plan">Chapter 20 - Monitoring the Iteration Plan</a></p>
+<ul>
+<li><a href="#the-task-board">The Task Board</a></li>
+<li><a href="#tracking-effort-expended">Tracking Effort Expended</a></li>
+<li><a href="#individual-velocity">Individual Velocity</a></li>
+<li><a href="#my-summary-21">My Summary</a></li>
+</ul>
+</li>
+<li><a href="#chapter-21---communicating-about-plans">Chapter 21 - Communicating about Plans</a></li>
 </ul>
 </li>
 </ul></div><h2>The notes</h2><div class="Note__NoteContainer-i7okha-1 ZkJVA"><h1>Foreword - Jim Highsmith</h1>
@@ -1614,7 +1662,234 @@ Work expands so as to fill the time available for its completion.</p>
 <li>Determine based on the velocity of this fake iteration the total number of iteration to delivery all the scope.</li>
 </ul>
 </li>
-</ul></div><div class="Footer__FooterWrapper-sc-1j1fu1i-0 hMUEgu"><div class="ContactMe__ContactWrapper-azhkgc-0 cAtMQC"><p>Did you like my work? Contact me at:</p><a href="mailto:renanzr@gmail.com"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0xMC42ODgsOTUuMTU2QzgwLjk1OCwxNTQuNjY3LDIwNC4yNiwyNTkuMzY1LDI0MC41LDI5Mi4wMWM0Ljg2NSw0LjQwNiwxMC4wODMsNi42NDYsMTUuNSw2LjY0Ng0KCQkJCWM1LjQwNiwwLDEwLjYxNS0yLjIxOSwxNS40NjktNi42MDRjMzYuMjcxLTMyLjY3NywxNTkuNTczLTEzNy4zODUsMjI5Ljg0NC0xOTYuODk2YzQuMzc1LTMuNjk4LDUuMDQyLTEwLjE5OCwxLjUtMTQuNzE5DQoJCQkJQzQ5NC42MjUsNjkuOTksNDgyLjQxNyw2NCw0NjkuMzMzLDY0SDQyLjY2N2MtMTMuMDgzLDAtMjUuMjkyLDUuOTktMzMuNDc5LDE2LjQzOEM1LjY0Niw4NC45NTgsNi4zMTMsOTEuNDU4LDEwLjY4OCw5NS4xNTZ6Ii8+DQoJCQk8cGF0aCBkPSJNNTA1LjgxMywxMjcuNDA2Yy0zLjc4MS0xLjc2LTguMjI5LTEuMTQ2LTExLjM3NSwxLjU0MkM0MTYuNTEsMTk1LjAxLDMxNy4wNTIsMjc5LjY4OCwyODUuNzYsMzA3Ljg4NQ0KCQkJCWMtMTcuNTYzLDE1Ljg1NC00MS45MzgsMTUuODU0LTU5LjU0Mi0wLjAyMWMtMzMuMzU0LTMwLjA1Mi0xNDUuMDQyLTEyNS0yMDguNjU2LTE3OC45MTdjLTMuMTY3LTIuNjg4LTcuNjI1LTMuMjgxLTExLjM3NS0xLjU0Mg0KCQkJCUMyLjQxNywxMjkuMTU2LDAsMTMyLjkyNywwLDEzNy4wODN2MjY4LjI1QzAsNDI4Ljg2NSwxOS4xMzUsNDQ4LDQyLjY2Nyw0NDhoNDI2LjY2N0M0OTIuODY1LDQ0OCw1MTIsNDI4Ljg2NSw1MTIsNDA1LjMzMw0KCQkJCXYtMjY4LjI1QzUxMiwxMzIuOTI3LDUwOS41ODMsMTI5LjE0Niw1MDUuODEzLDEyNy40MDZ6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="email" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://www.linkedin.com/in/renanroggia/" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM4MiAzODIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4MiAzODI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiMwMDc3Qjc7IiBkPSJNMzQ3LjQ0NSwwSDM0LjU1NUMxNS40NzEsMCwwLDE1LjQ3MSwwLDM0LjU1NXYzMTIuODg5QzAsMzY2LjUyOSwxNS40NzEsMzgyLDM0LjU1NSwzODJoMzEyLjg4OQ0KCUMzNjYuNTI5LDM4MiwzODIsMzY2LjUyOSwzODIsMzQ3LjQ0NFYzNC41NTVDMzgyLDE1LjQ3MSwzNjYuNTI5LDAsMzQ3LjQ0NSwweiBNMTE4LjIwNywzMjkuODQ0YzAsNS41NTQtNC41MDIsMTAuMDU2LTEwLjA1NiwxMC4wNTYNCglINjUuMzQ1Yy01LjU1NCwwLTEwLjA1Ni00LjUwMi0xMC4wNTYtMTAuMDU2VjE1MC40MDNjMC01LjU1NCw0LjUwMi0xMC4wNTYsMTAuMDU2LTEwLjA1Nmg0Mi44MDYNCgljNS41NTQsMCwxMC4wNTYsNC41MDIsMTAuMDU2LDEwLjA1NlYzMjkuODQ0eiBNODYuNzQ4LDEyMy40MzJjLTIyLjQ1OSwwLTQwLjY2Ni0xOC4yMDctNDAuNjY2LTQwLjY2NlM2NC4yODksNDIuMSw4Ni43NDgsNDIuMQ0KCXM0MC42NjYsMTguMjA3LDQwLjY2Niw0MC42NjZTMTA5LjIwOCwxMjMuNDMyLDg2Ljc0OCwxMjMuNDMyeiBNMzQxLjkxLDMzMC42NTRjMCw1LjEwNi00LjE0LDkuMjQ2LTkuMjQ2LDkuMjQ2SDI4Ni43Mw0KCWMtNS4xMDYsMC05LjI0Ni00LjE0LTkuMjQ2LTkuMjQ2di04NC4xNjhjMC0xMi41NTYsMy42ODMtNTUuMDIxLTMyLjgxMy01NS4wMjFjLTI4LjMwOSwwLTM0LjA1MSwyOS4wNjYtMzUuMjA0LDQyLjExdjk3LjA3OQ0KCWMwLDUuMTA2LTQuMTM5LDkuMjQ2LTkuMjQ2LDkuMjQ2aC00NC40MjZjLTUuMTA2LDAtOS4yNDYtNC4xNC05LjI0Ni05LjI0NlYxNDkuNTkzYzAtNS4xMDYsNC4xNC05LjI0Niw5LjI0Ni05LjI0Nmg0NC40MjYNCgljNS4xMDYsMCw5LjI0Niw0LjE0LDkuMjQ2LDkuMjQ2djE1LjY1NWMxMC40OTctMTUuNzUzLDI2LjA5Ny0yNy45MTIsNTkuMzEyLTI3LjkxMmM3My41NTIsMCw3My4xMzEsNjguNzE2LDczLjEzMSwxMDYuNDcyDQoJTDM0MS45MSwzMzAuNjU0TDM0MS45MSwzMzAuNjU0eiIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" alt="linkedin" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://github.com/rroggia" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQzOC41MzZweCIgaGVpZ2h0PSI0MzguNTM2cHgiIHZpZXdCb3g9IjAgMCA0MzguNTM2IDQzOC41MzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQzOC41MzYgNDM4LjUzNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xNTguMTczLDM1Mi41OTljLTMuMDQ5LDAuNTY4LTQuMzgxLDEuOTk5LTMuOTk5LDQuMjgxYzAuMzgsMi4yODMsMi4wOTMsMy4wNDYsNS4xMzgsMi4yODMNCgkJCWMzLjA0OS0wLjc2LDQuMzgtMi4wOTUsMy45OTctMy45OTdDMTYyLjkzMSwzNTMuMDc0LDE2MS4yMTgsMzUyLjIxNiwxNTguMTczLDM1Mi41OTl6Ii8+DQoJCTxwYXRoIGQ9Ik0xNDEuODk4LDM1NC44ODVjLTMuMDQ2LDAtNC41NjgsMS4wNDEtNC41NjgsMy4xMzljMCwyLjQ3NCwxLjYxOSwzLjUxOCw0Ljg1MywzLjEzOGMzLjA0NiwwLDQuNTctMS4wNDcsNC41Ny0zLjEzOA0KCQkJQzE0Ni43NTMsMzU1LjU1MywxNDUuMTM0LDM1NC41MDIsMTQxLjg5OCwzNTQuODg1eiIvPg0KCQk8cGF0aCBkPSJNMTE5LjYyOSwzNTQuMDIyYy0wLjc2LDIuMDk1LDAuNDc4LDMuNTE5LDMuNzExLDQuMjg0YzIuODU1LDEuMTM3LDQuNjY0LDAuNTY4LDUuNDI0LTEuNzE0DQoJCQljMC41NzItMi4wOTEtMC42NjYtMy42MS0zLjcxMS00LjU2OEMxMjIuMTk3LDM1MS4yNjUsMTIwLjM5LDM1MS45MjIsMTE5LjYyOSwzNTQuMDIyeiIvPg0KCQk8cGF0aCBkPSJNNDE0LjQxLDI0LjEyM0MzOTguMzI2LDguMDQyLDM3OC45NjQsMCwzNTYuMzA5LDBIODIuMjI1QzU5LjU3NywwLDQwLjIwOCw4LjA0MiwyNC4xMjMsMjQuMTIzDQoJCQlDOC4wNDIsNDAuMjA3LDAsNTkuNTc2LDAsODIuMjI1djI3NC4wODhjMCwyMi42NSw4LjA0Miw0Mi4wMTcsMjQuMTIzLDU4LjA5OGMxNi4wODQsMTYuMDg0LDM1LjQ1NCwyNC4xMjYsNTguMTAyLDI0LjEyNmg2My45NTMNCgkJCWM0LjE4NCwwLDcuMzI3LTAuMTQ0LDkuNDItMC40MjRjMi4wOTItMC4yODgsNC4xODQtMS41MjYsNi4yNzktMy43MTdjMi4wOTYtMi4xODcsMy4xNC01LjM3NiwzLjE0LTkuNTYyDQoJCQljMC0wLjU2OC0wLjA1LTcuMDQ2LTAuMTQ0LTE5LjQxN2MtMC4wOTctMTIuMzc1LTAuMTQ0LTIyLjE3Ni0wLjE0NC0yOS40MWwtNi41NjcsMS4xNDNjLTQuMTg3LDAuNzYtOS40NjksMS4wOTUtMTUuODQ2LDAuOTk5DQoJCQljLTYuMzc0LTAuMDk2LTEyLjk5LTAuNzYtMTkuODQxLTEuOTk4Yy02Ljg1NS0xLjIzOS0xMy4yMjktNC4wOTMtMTkuMTMtOC41NjJjLTUuODk4LTQuNDc3LTEwLjA4NS0xMC4zMjgtMTIuNTYtMTcuNTU5DQoJCQlsLTIuODU2LTYuNTcxYy0xLjkwMy00LjM3My00Ljg5OS05LjIyOS04Ljk5Mi0xNC41NTRjLTQuMDkzLTUuMzMyLTguMjMyLTguOTQ5LTEyLjQxOS0xMC44NTJsLTEuOTk5LTEuNDI4DQoJCQljLTEuMzMxLTAuOTUxLTIuNTY4LTIuMDk4LTMuNzExLTMuNDI5Yy0xLjE0MS0xLjMzNS0xLjk5Ny0yLjY2OS0yLjU2OC0zLjk5N2MtMC41NzEtMS4zMzUtMC4wOTctMi40MywxLjQyNy0zLjI4OQ0KCQkJYzEuNTI0LTAuODU1LDQuMjgxLTEuMjc5LDguMjgtMS4yNzlsNS43MDgsMC44NTVjMy44MDgsMC43Niw4LjUxNiwzLjA0MiwxNC4xMzQsNi44NTFjNS42MTQsMy44MDYsMTAuMjI5LDguNzU0LDEzLjg0NiwxNC44NDMNCgkJCWM0LjM4LDcuODA2LDkuNjU3LDEzLjc1LDE1Ljg0NiwxNy44NDNjNi4xODQsNC4wOTcsMTIuNDE5LDYuMTQzLDE4LjY5OSw2LjE0M3MxMS43MDQtMC40NzYsMTYuMjc0LTEuNDI0DQoJCQljNC41NjUtMC45NTQsOC44NDgtMi4zODUsMTIuODQ3LTQuMjg4YzEuNzEzLTEyLjc1MSw2LjM3Ny0yMi41NTksMTMuOTg4LTI5LjQxYy0xMC44NDgtMS4xNDMtMjAuNjAyLTIuODU0LTI5LjI2NS01LjE0DQoJCQljLTguNjU4LTIuMjg2LTE3LjYwNS01Ljk5NS0yNi44MzUtMTEuMTM2Yy05LjIzNC01LjE0LTE2Ljg5NC0xMS41MTItMjIuOTg1LTE5LjEzYy02LjA5LTcuNjE4LTExLjA4OC0xNy42MS0xNC45ODctMjkuOTc4DQoJCQljLTMuOTAxLTEyLjM3NS01Ljg1Mi0yNi42NTItNS44NTItNDIuODI5YzAtMjMuMDI5LDcuNTIxLTQyLjYzNywyMi41NTctNTguODE0Yy03LjA0NC0xNy4zMi02LjM3OS0zNi43MzIsMS45OTctNTguMjQyDQoJCQljNS41Mi0xLjcxNCwxMy43MDYtMC40MjgsMjQuNTU0LDMuODU1YzEwLjg1LDQuMjg2LDE4Ljc5NCw3Ljk1MSwyMy44NCwxMC45OTJjNS4wNDYsMy4wNDIsOS4wODksNS42MTQsMTIuMTM1LDcuNzENCgkJCWMxNy43MDUtNC45NDksMzUuOTc2LTcuNDIzLDU0LjgxOC03LjQyM2MxOC44NDEsMCwzNy4xMTUsMi40NzQsNTQuODIxLDcuNDIzbDEwLjg0OS02Ljg1MmM3LjQyNi00LjU3LDE2LjE4LTguNzU3LDI2LjI2OS0xMi41NjINCgkJCWMxMC4wODgtMy44MDYsMTcuNzk1LTQuODU0LDIzLjEyNy0zLjE0YzguNTYyLDIxLjUxLDkuMzI4LDQwLjkyMiwyLjI3OSw1OC4yNDFjMTUuMDM2LDE2LjE3OSwyMi41NTksMzUuNzg2LDIyLjU1OSw1OC44MTUNCgkJCWMwLDE2LjE4LTEuOTUxLDMwLjUwNS01Ljg1Miw0Mi45NjljLTMuODk4LDEyLjQ2Ny04LjkzOSwyMi40NjMtMTUuMTMsMjkuOTgxYy02LjE4NCw3LjUxOS0xMy44OTQsMTMuODQzLTIzLjEyNCwxOC45ODYNCgkJCWMtOS4yMzIsNS4xMzctMTguMTc4LDguODUzLTI2Ljg0LDExLjEzMmMtOC42NjEsMi4yODYtMTguNDE0LDQuMDA0LTI5LjI2Myw1LjE0N2M5Ljg5MSw4LjU2MiwxNC44MzksMjIuMDcyLDE0LjgzOSw0MC41Mzh2NjguMjM4DQoJCQljMCwzLjIzNywwLjQ3Miw1Ljg1MiwxLjQyNCw3Ljg1MWMwLjk1OCwxLjk5OCwyLjQ3OCwzLjM3NCw0LjU3MSw0LjE0MWMyLjEwMiwwLjc2LDMuOTQ5LDEuMjM1LDUuNTcxLDEuNDI0DQoJCQljMS42MjIsMC4xOTEsMy45NDksMC4yODcsNi45OTUsMC4yODdoNjMuOTUzYzIyLjY0OCwwLDQyLjAxOC04LjA0Miw1OC4wOTUtMjQuMTI2YzE2LjA4NC0xNi4wODQsMjQuMTI2LTM1LjQ1NCwyNC4xMjYtNTguMTAyDQoJCQlWODIuMjI1QzQzOC41MzMsNTkuNTc2LDQzMC40OTEsNDAuMjA0LDQxNC40MSwyNC4xMjN6Ii8+DQoJCTxwYXRoIGQ9Ik04Ni43OTMsMzE5LjE5NWMtMS4zMzEsMC45NDgtMS4xNDEsMi40NzEsMC41NzIsNC41NjVjMS45MDYsMS45MDIsMy40MjcsMi4xODksNC41NywwLjg1NQ0KCQkJYzEuMzMxLTAuOTQ4LDEuMTQxLTIuNDcxLTAuNTc1LTQuNTY5Qzg5LjQ1OCwzMTguMzM2LDg3LjkzNiwzMTguMDQ5LDg2Ljc5MywzMTkuMTk1eiIvPg0KCQk8cGF0aCBkPSJNNzcuMzc0LDMxMi4wNTdjLTAuNTcsMS4zMzUsMC4wOTYsMi40NzgsMS45OTksMy40MjZjMS41MjEsMC45NTUsMi43NjIsMC43NjcsMy43MTEtMC41NjgNCgkJCWMwLjU3LTEuMzM1LTAuMDk2LTIuNDc4LTEuOTk5LTMuNDMzQzc5LjE4MiwzMTAuOTEsNzcuOTQ1LDMxMS4xMDIsNzcuMzc0LDMxMi4wNTd6Ii8+DQoJCTxwYXRoIGQ9Ik05NS42NDYsMzMwLjMzMWMtMS43MTUsMC45NDgtMS43MTUsMi42NjYsMCw1LjEzN2MxLjcxMywyLjQ3OCwzLjMyOCwzLjE0Miw0Ljg1MywxLjk5OGMxLjcxNC0xLjMzNCwxLjcxNC0zLjE0MiwwLTUuNDI3DQoJCQlDOTguOTc4LDMyOS41NzEsOTcuMzU5LDMyOC45OTMsOTUuNjQ2LDMzMC4zMzF6Ii8+DQoJCTxwYXRoIGQ9Ik0xMDUuNjQxLDM0My4xNzRjLTEuNzE0LDEuNTI2LTEuMzM2LDMuMzI3LDEuMTQyLDUuNDI4YzIuMjgxLDIuMjc5LDQuMTg1LDIuNTY2LDUuNzA4LDAuODQ5DQoJCQljMS41MjQtMS41MTksMS4xNDMtMy4zMjYtMS4xNDItNS40MkMxMDkuMDY4LDM0MS43NTEsMTA3LjE2NCwzNDEuNDYzLDEwNS42NDEsMzQzLjE3NHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="github" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a></div><div></div><div class="AdditionalInformation__AdditionalInfoWrapper-itnhco-0 gMVlmL"><p>This blog was created by Renan Roggia using gatsby.</p><p>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+</ul>
+<h2>Chapter 17 - Buffering Plans for Uncertainty</h2>
+<blockquote>
+<p>A buffer is a margin for error around an estimate. In cases where there is significant uncertainty or the cost of being wrong is significant ,including a buffer is wise. The buffer help protect the project against the impact of the uncertainty. In this way, buffering a project schedule becomes an appropriate risk management strategy. </p>
+</blockquote>
+<h3>Feature Buffers</h3>
+<blockquote>
+<p>First the customer selects all of the absolutely mandatory work. The estimates for that work are summed. This represents the minimum that can be released. The customer then selects another 25% to 40% more work , selecting toward the higher end of the range for projects with more uncertainty or less tolerance for schedule risk. The estimates fort this work are added to the original estimate, resulting in a total estimate for the project. The project is then planed as normal for delivery of the entire set of functionality; however some amount of the work is optional and will be included only if time permits.</p>
+</blockquote>
+<blockquote>
+<p>On DSDM (Dynamic Systems Development Method) projects, requirements are sorted int four categories: Must Have, Should have, Could Have and Won't have. DSDM refers to this sorting as the MoSCoW rules. No more than 70% of the planned effort for a prospect can be target at must have requirements. </p>
+</blockquote>
+<h3>Schedule Buffers</h3>
+<blockquote>
+<p>the departure time is fixed, just like deadlines are on many software development projects. In this case, a schedule buffer protects against uncertainty that can affect the on-time completion of the project.</p>
+</blockquote>
+<h3>Reflecting Uncertainty in Estimates</h3>
+<blockquote>
+<p>The curve takes on this general shape because there normally is not much that can be done to accelerate the completion of a task, but there are an indefinite number of thins that can go wrong and delay the completion of a task.</p>
+</blockquote>
+<blockquote>
+<p>The additional time between the 50% an the 90% estimate is called <em>local safety</em>.</p>
+</blockquote>
+<blockquote>
+<p>We often add local safety to an estimate we want to be more confident of meeting.</p>
+</blockquote>
+<h3>Combining Buffers</h3>
+<blockquote>
+<p>When creating a release plan, our goal is to use buffers so that the team can make these types of commitments.</p>
+</blockquote>
+<h3>A Schedule Buffer Is Not Padding</h3>
+<blockquote>
+<p>I pad an estimate when I think it will take three days but I decide to tell you five, just in case.</p>
+</blockquote>
+<blockquote>
+<p>A schedule buffer is a necessary margin of safety added to the sum of estimates from which local safety has been removed.</p>
+</blockquote>
+<h3>Some Caveats</h3>
+<blockquote>
+<p>You should not hide their existence or how they are used.</p>
+</blockquote>
+<h3>My Summary</h3>
+<p>Feature: Shopping list where you don't buy all the items</p>
+<p>Schedule: To arrive before your flight departs you plan yours steps until your arrival, and then adds a buffer to ensure if anything goes wrong you can still make it.</p>
+<p>Budget: Suppose you have thirty developers assigned to a project, but you have budget to allow up to thirty three developers.</p>
+<p>The buffer should not be added at each task, it should be added to the overall project deadline. Adding the buffer to the overall project deadline, we will avoid the Parkinson's law ( work that expands to its maximum length).</p>
+<p>Add buffers whenever you have a significant uncertainty or if the cost of being wrong is high. The buffers need to be communicated, and should not be hidden. If you are hiding buffers, most likely it's not a buffer and rather a padding.</p>
+<h2>Chapter 18 - Planning the Multiple-Team Project</h2>
+<h3>Establishing a Common Basis for Estimates</h3>
+<blockquote>
+<p>At the start of a project, the teams should meet and choose between story points and ideal days. They should then establish a common baseline for their estimates so that an estimate by one team will be similar to that of another team if the other team had estimated the work instead.</p>
+</blockquote>
+<blockquote>
+<p>The only time separate teams should consider estimating in different unit without a common baseline is when the products being built are truly separate and there is absolutely no opportunity for developer from one team to move onto another.</p>
+</blockquote>
+<h3>Adding Detail to User Stories Sooner</h3>
+<blockquote>
+<p>Ideally, an agile team begins an iteration with vaguely defined requirements and turns those vague requirements into functioning, tested software by the end of the iteration.</p>
+</blockquote>
+<blockquote>
+<p>On a multiple team project, is often appropriate and necessary to put more thought into the user stories before the start of the iteration. The additional detail allows multiple teams to coordinate work.</p>
+</blockquote>
+<blockquote>
+<p>What I've found to be the most useful outcome of work done in advance of the iteration is the identification of the product owner's conditions of satisfaction for the user stories that are likely to be developed during the iteration.</p>
+</blockquote>
+<h3>Lookahead Planning</h3>
+<blockquote>
+<p>When multiple teams need to coordinate work, the release plan should be updated to show and coordinate the work of the next two or three iterations.</p>
+</blockquote>
+<blockquote>
+<p>The release plan then becomes a rolling lookahead plan that always outlines expectations about the new few iterations.</p>
+</blockquote>
+<blockquote>
+<p>This is safer than planning on a handoff occurring during an iteration.</p>
+</blockquote>
+<blockquote>
+<p>However, to the extent possible, they should limit commitments to work completed before the start of the iteration.</p>
+</blockquote>
+<h3>Incorporating Feeding Buffers into the Plan</h3>
+<blockquote>
+<p>consider including a <em>feeding buffer</em>, like the schedule buffer of the previous chapter.</p>
+</blockquote>
+<blockquote>
+<p>This is, add a feeding buffer only if a team will be unable to do planned, high-priority work without the deliverables of another team.</p>
+</blockquote>
+<blockquote>
+<p>A feeding buffer that is longer than an iteration is usually the result of planning to pass a large chunk of functionality on to another team.</p>
+</blockquote>
+<h3>My Summary</h3>
+<p>These might be requirements for bigger projects</p>
+<ul>
+<li>
+<p>Establishing a common basis for estimates</p>
+<ul>
+<li>(Worked together on a past project) Select user stories to represent the baseline</li>
+<li>Collaboratively estimate user stories </li>
+</ul>
+</li>
+<li>
+<p>Adding detail to their user stories sooner</p>
+<ul>
+<li>Find at least the satisfaction condition for most user stories</li>
+</ul>
+</li>
+<li>
+<p>Performing lookahead planning</p>
+<ul>
+<li>Avoid handoff during iterations. Before the planning, try to identify dependencies between teams, and create a plan that accommodates all the user stories without handoffs during sprints. So if Team A is developing User Story 1 and Team B has the User Story 2 which depends on User Story 1. Create a plan where, Team B starts developing the User Story 2 the iteration after the Team A concludes User Story 1.</li>
+</ul>
+</li>
+<li>
+<p>Incorporating feeding buffers into the plan</p>
+<ul>
+<li>When you cannot avoid handoffs, you can add a feeding buffer to make sure the commitments are going to be fulfilled. Make sure you only use as last option, since it adds duration for the project schedule.</li>
+</ul>
+</li>
+</ul>
+<h1>Part V - Tracking and Communicating</h1>
+<h2>Chapter 19 - Monitoring the Release Plan</h2>
+<h3>Tracking the Release</h3>
+<blockquote>
+<p>First, and ideally most significant, is the amount of progress made by the team.</p>
+</blockquote>
+<blockquote>
+<p>Second, however, is any change in the scope of the project.</p>
+</blockquote>
+<blockquote>
+<p>... the developers may have learned things during the iteration that make them want to revise the story-point estimates assigned to some of the work coming later in the release plan.</p>
+</blockquote>
+<h3>Velocity</h3>
+<blockquote>
+<p>Velocity is expressed as the number of story points (or ideal days) completed per iteration.</p>
+</blockquote>
+<blockquote>
+<p>The most important rule is that a team counts points towards velocity only for stories or features that are complete at the end of the iteration.</p>
+</blockquote>
+<blockquote>
+<p>Complete means code that is well written, well factored, checked-in, and clean; complies with coding standards; and passes all tests.</p>
+</blockquote>
+<blockquote>
+<p>(when US will not be completed during iteration) Usually, this means the story will be moved out of the iteration or split and parts of it moved out.</p>
+</blockquote>
+<blockquote>
+<p>They wouldn't go so far as to accept a buggy untested version of the story, but they may reduce performance requirements, handling of special cases and so on.</p>
+</blockquote>
+<blockquote>
+<p>The more work in process a team allows to build up, the longer it will take new features to be transformed from raw ideas into functioning software.</p>
+</blockquote>
+<h3>Release Burndown Charts</h3>
+<blockquote>
+<p>This becomes a powerful visual indicator of how quickly a team is moving toward its goal.</p>
+</blockquote>
+<h3>A Release Burndown Bar Chart</h3>
+<blockquote>
+<p>it's useful to draw the release burndown chart so that you can easily see the team's velocity and the scope changes separately.</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>Any time work is completed, the top is lowered.</li>
+<li>When work is re-estimated, the top moves up or down.</li>
+<li>When new work is added, the bottom is lowered.</li>
+<li>When work is removed, the bottom is raised.</li>
+</ul>
+</blockquote>
+<h3>A Parking-Lot Chart</h3>
+<blockquote>
+<p>A <em>parking-lot chart</em> contains a large rectangular box for each theme (or grouping of user stories) in a release. Each box is annotated with the name of them, the number of stories in that theme, the number of story points or ideal days for those stories, and the percentage of the story points that are complete.</p>
+</blockquote>
+<blockquote>
+<p>A parking-lot chart is a powerful method for compressing a great deal of information into a small space.</p>
+</blockquote>
+<h3>My Summary</h3>
+<p>Tracking the release of a project is important, because the project will change during its execution. Either because you had changes in scope, because you want to know where you are or because you learned and had to re-estimate your user stories.</p>
+<p>Velocity is the rate of progress for agile teams. It measures the completed user stories from each iteration.</p>
+<p>Why not consider unfinished work:</p>
+<ol>
+<li>It's hard to measure unfinished or incomplete work.</li>
+<li>Incomplete stories break down the trust between the developer team and the customer team on the project.</li>
+<li>Unfinished work leads to a buildup of work in process in the development process. (Too much W.I.P).</li>
+</ol>
+<p>Three types of charts:</p>
+<ol>
+<li>Burndown chart: Simple. It does not differentiate changes in scope from velocity.</li>
+<li>Burndown bar chart: Harder to understand. Differentiates velocity from changes in scope.</li>
+<li>Parking-lot chart: Compresses a great deal of information.</li>
+</ol>
+<h2>Chapter 20 - Monitoring the Iteration Plan</h2>
+<h3>The Task Board</h3>
+<blockquote>
+<p>A task board serves the dual purpose of giving a team a convenient mechanism for organizing their work and a way of seeing at a glance how much work is left.</p>
+</blockquote>
+<blockquote>
+<p>(Working on one task) This helps maintain a consistent flow of work through the process and reduces the cost of context switching among multiple tasks.</p>
+</blockquote>
+<h3>Tracking Effort Expended</h3>
+<blockquote>
+<p>On a project, it is far more useful to know how much remains to be done rather than how much has been done.</p>
+</blockquote>
+<blockquote>
+<p>tracking effort expended and comparing it with estimated effort can lead to "evaluation apprehension" (Sanders 1984).</p>
+</blockquote>
+<h3>Individual Velocity</h3>
+<blockquote>
+<p>Do not track individual velocity.</p>
+</blockquote>
+<blockquote>
+<p>Individuals should be given every incentive possible to work as a team.</p>
+</blockquote>
+<h3>My Summary</h3>
+<ul>
+<li>
+<p>Task Board: </p>
+<ul>
+<li>Organizes work</li>
+<li>Visual</li>
+</ul>
+</li>
+<li>
+<p>Iteration Burndown Charts: </p>
+<ul>
+<li>Same as release burndown chart</li>
+<li>For iteration longer than one week.</li>
+</ul>
+</li>
+</ul>
+<p>Do not track expended effort, focus on how much remains to be done.</p>
+<p>Do not track individuals velocity. It goes against a team spirit.</p>
+<h2>Chapter 21 - Communicating about Plans</h2></div><div class="Footer__FooterWrapper-sc-1j1fu1i-0 hMUEgu"><div class="ContactMe__ContactWrapper-azhkgc-0 cAtMQC"><p>Did you like my work? Contact me at:</p><a href="mailto:renanzr@gmail.com"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0xMC42ODgsOTUuMTU2QzgwLjk1OCwxNTQuNjY3LDIwNC4yNiwyNTkuMzY1LDI0MC41LDI5Mi4wMWM0Ljg2NSw0LjQwNiwxMC4wODMsNi42NDYsMTUuNSw2LjY0Ng0KCQkJCWM1LjQwNiwwLDEwLjYxNS0yLjIxOSwxNS40NjktNi42MDRjMzYuMjcxLTMyLjY3NywxNTkuNTczLTEzNy4zODUsMjI5Ljg0NC0xOTYuODk2YzQuMzc1LTMuNjk4LDUuMDQyLTEwLjE5OCwxLjUtMTQuNzE5DQoJCQkJQzQ5NC42MjUsNjkuOTksNDgyLjQxNyw2NCw0NjkuMzMzLDY0SDQyLjY2N2MtMTMuMDgzLDAtMjUuMjkyLDUuOTktMzMuNDc5LDE2LjQzOEM1LjY0Niw4NC45NTgsNi4zMTMsOTEuNDU4LDEwLjY4OCw5NS4xNTZ6Ii8+DQoJCQk8cGF0aCBkPSJNNTA1LjgxMywxMjcuNDA2Yy0zLjc4MS0xLjc2LTguMjI5LTEuMTQ2LTExLjM3NSwxLjU0MkM0MTYuNTEsMTk1LjAxLDMxNy4wNTIsMjc5LjY4OCwyODUuNzYsMzA3Ljg4NQ0KCQkJCWMtMTcuNTYzLDE1Ljg1NC00MS45MzgsMTUuODU0LTU5LjU0Mi0wLjAyMWMtMzMuMzU0LTMwLjA1Mi0xNDUuMDQyLTEyNS0yMDguNjU2LTE3OC45MTdjLTMuMTY3LTIuNjg4LTcuNjI1LTMuMjgxLTExLjM3NS0xLjU0Mg0KCQkJCUMyLjQxNywxMjkuMTU2LDAsMTMyLjkyNywwLDEzNy4wODN2MjY4LjI1QzAsNDI4Ljg2NSwxOS4xMzUsNDQ4LDQyLjY2Nyw0NDhoNDI2LjY2N0M0OTIuODY1LDQ0OCw1MTIsNDI4Ljg2NSw1MTIsNDA1LjMzMw0KCQkJCXYtMjY4LjI1QzUxMiwxMzIuOTI3LDUwOS41ODMsMTI5LjE0Niw1MDUuODEzLDEyNy40MDZ6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="email" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://www.linkedin.com/in/renanroggia/" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM4MiAzODIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4MiAzODI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiMwMDc3Qjc7IiBkPSJNMzQ3LjQ0NSwwSDM0LjU1NUMxNS40NzEsMCwwLDE1LjQ3MSwwLDM0LjU1NXYzMTIuODg5QzAsMzY2LjUyOSwxNS40NzEsMzgyLDM0LjU1NSwzODJoMzEyLjg4OQ0KCUMzNjYuNTI5LDM4MiwzODIsMzY2LjUyOSwzODIsMzQ3LjQ0NFYzNC41NTVDMzgyLDE1LjQ3MSwzNjYuNTI5LDAsMzQ3LjQ0NSwweiBNMTE4LjIwNywzMjkuODQ0YzAsNS41NTQtNC41MDIsMTAuMDU2LTEwLjA1NiwxMC4wNTYNCglINjUuMzQ1Yy01LjU1NCwwLTEwLjA1Ni00LjUwMi0xMC4wNTYtMTAuMDU2VjE1MC40MDNjMC01LjU1NCw0LjUwMi0xMC4wNTYsMTAuMDU2LTEwLjA1Nmg0Mi44MDYNCgljNS41NTQsMCwxMC4wNTYsNC41MDIsMTAuMDU2LDEwLjA1NlYzMjkuODQ0eiBNODYuNzQ4LDEyMy40MzJjLTIyLjQ1OSwwLTQwLjY2Ni0xOC4yMDctNDAuNjY2LTQwLjY2NlM2NC4yODksNDIuMSw4Ni43NDgsNDIuMQ0KCXM0MC42NjYsMTguMjA3LDQwLjY2Niw0MC42NjZTMTA5LjIwOCwxMjMuNDMyLDg2Ljc0OCwxMjMuNDMyeiBNMzQxLjkxLDMzMC42NTRjMCw1LjEwNi00LjE0LDkuMjQ2LTkuMjQ2LDkuMjQ2SDI4Ni43Mw0KCWMtNS4xMDYsMC05LjI0Ni00LjE0LTkuMjQ2LTkuMjQ2di04NC4xNjhjMC0xMi41NTYsMy42ODMtNTUuMDIxLTMyLjgxMy01NS4wMjFjLTI4LjMwOSwwLTM0LjA1MSwyOS4wNjYtMzUuMjA0LDQyLjExdjk3LjA3OQ0KCWMwLDUuMTA2LTQuMTM5LDkuMjQ2LTkuMjQ2LDkuMjQ2aC00NC40MjZjLTUuMTA2LDAtOS4yNDYtNC4xNC05LjI0Ni05LjI0NlYxNDkuNTkzYzAtNS4xMDYsNC4xNC05LjI0Niw5LjI0Ni05LjI0Nmg0NC40MjYNCgljNS4xMDYsMCw5LjI0Niw0LjE0LDkuMjQ2LDkuMjQ2djE1LjY1NWMxMC40OTctMTUuNzUzLDI2LjA5Ny0yNy45MTIsNTkuMzEyLTI3LjkxMmM3My41NTIsMCw3My4xMzEsNjguNzE2LDczLjEzMSwxMDYuNDcyDQoJTDM0MS45MSwzMzAuNjU0TDM0MS45MSwzMzAuNjU0eiIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" alt="linkedin" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://github.com/rroggia" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQzOC41MzZweCIgaGVpZ2h0PSI0MzguNTM2cHgiIHZpZXdCb3g9IjAgMCA0MzguNTM2IDQzOC41MzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQzOC41MzYgNDM4LjUzNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xNTguMTczLDM1Mi41OTljLTMuMDQ5LDAuNTY4LTQuMzgxLDEuOTk5LTMuOTk5LDQuMjgxYzAuMzgsMi4yODMsMi4wOTMsMy4wNDYsNS4xMzgsMi4yODMNCgkJCWMzLjA0OS0wLjc2LDQuMzgtMi4wOTUsMy45OTctMy45OTdDMTYyLjkzMSwzNTMuMDc0LDE2MS4yMTgsMzUyLjIxNiwxNTguMTczLDM1Mi41OTl6Ii8+DQoJCTxwYXRoIGQ9Ik0xNDEuODk4LDM1NC44ODVjLTMuMDQ2LDAtNC41NjgsMS4wNDEtNC41NjgsMy4xMzljMCwyLjQ3NCwxLjYxOSwzLjUxOCw0Ljg1MywzLjEzOGMzLjA0NiwwLDQuNTctMS4wNDcsNC41Ny0zLjEzOA0KCQkJQzE0Ni43NTMsMzU1LjU1MywxNDUuMTM0LDM1NC41MDIsMTQxLjg5OCwzNTQuODg1eiIvPg0KCQk8cGF0aCBkPSJNMTE5LjYyOSwzNTQuMDIyYy0wLjc2LDIuMDk1LDAuNDc4LDMuNTE5LDMuNzExLDQuMjg0YzIuODU1LDEuMTM3LDQuNjY0LDAuNTY4LDUuNDI0LTEuNzE0DQoJCQljMC41NzItMi4wOTEtMC42NjYtMy42MS0zLjcxMS00LjU2OEMxMjIuMTk3LDM1MS4yNjUsMTIwLjM5LDM1MS45MjIsMTE5LjYyOSwzNTQuMDIyeiIvPg0KCQk8cGF0aCBkPSJNNDE0LjQxLDI0LjEyM0MzOTguMzI2LDguMDQyLDM3OC45NjQsMCwzNTYuMzA5LDBIODIuMjI1QzU5LjU3NywwLDQwLjIwOCw4LjA0MiwyNC4xMjMsMjQuMTIzDQoJCQlDOC4wNDIsNDAuMjA3LDAsNTkuNTc2LDAsODIuMjI1djI3NC4wODhjMCwyMi42NSw4LjA0Miw0Mi4wMTcsMjQuMTIzLDU4LjA5OGMxNi4wODQsMTYuMDg0LDM1LjQ1NCwyNC4xMjYsNTguMTAyLDI0LjEyNmg2My45NTMNCgkJCWM0LjE4NCwwLDcuMzI3LTAuMTQ0LDkuNDItMC40MjRjMi4wOTItMC4yODgsNC4xODQtMS41MjYsNi4yNzktMy43MTdjMi4wOTYtMi4xODcsMy4xNC01LjM3NiwzLjE0LTkuNTYyDQoJCQljMC0wLjU2OC0wLjA1LTcuMDQ2LTAuMTQ0LTE5LjQxN2MtMC4wOTctMTIuMzc1LTAuMTQ0LTIyLjE3Ni0wLjE0NC0yOS40MWwtNi41NjcsMS4xNDNjLTQuMTg3LDAuNzYtOS40NjksMS4wOTUtMTUuODQ2LDAuOTk5DQoJCQljLTYuMzc0LTAuMDk2LTEyLjk5LTAuNzYtMTkuODQxLTEuOTk4Yy02Ljg1NS0xLjIzOS0xMy4yMjktNC4wOTMtMTkuMTMtOC41NjJjLTUuODk4LTQuNDc3LTEwLjA4NS0xMC4zMjgtMTIuNTYtMTcuNTU5DQoJCQlsLTIuODU2LTYuNTcxYy0xLjkwMy00LjM3My00Ljg5OS05LjIyOS04Ljk5Mi0xNC41NTRjLTQuMDkzLTUuMzMyLTguMjMyLTguOTQ5LTEyLjQxOS0xMC44NTJsLTEuOTk5LTEuNDI4DQoJCQljLTEuMzMxLTAuOTUxLTIuNTY4LTIuMDk4LTMuNzExLTMuNDI5Yy0xLjE0MS0xLjMzNS0xLjk5Ny0yLjY2OS0yLjU2OC0zLjk5N2MtMC41NzEtMS4zMzUtMC4wOTctMi40MywxLjQyNy0zLjI4OQ0KCQkJYzEuNTI0LTAuODU1LDQuMjgxLTEuMjc5LDguMjgtMS4yNzlsNS43MDgsMC44NTVjMy44MDgsMC43Niw4LjUxNiwzLjA0MiwxNC4xMzQsNi44NTFjNS42MTQsMy44MDYsMTAuMjI5LDguNzU0LDEzLjg0NiwxNC44NDMNCgkJCWM0LjM4LDcuODA2LDkuNjU3LDEzLjc1LDE1Ljg0NiwxNy44NDNjNi4xODQsNC4wOTcsMTIuNDE5LDYuMTQzLDE4LjY5OSw2LjE0M3MxMS43MDQtMC40NzYsMTYuMjc0LTEuNDI0DQoJCQljNC41NjUtMC45NTQsOC44NDgtMi4zODUsMTIuODQ3LTQuMjg4YzEuNzEzLTEyLjc1MSw2LjM3Ny0yMi41NTksMTMuOTg4LTI5LjQxYy0xMC44NDgtMS4xNDMtMjAuNjAyLTIuODU0LTI5LjI2NS01LjE0DQoJCQljLTguNjU4LTIuMjg2LTE3LjYwNS01Ljk5NS0yNi44MzUtMTEuMTM2Yy05LjIzNC01LjE0LTE2Ljg5NC0xMS41MTItMjIuOTg1LTE5LjEzYy02LjA5LTcuNjE4LTExLjA4OC0xNy42MS0xNC45ODctMjkuOTc4DQoJCQljLTMuOTAxLTEyLjM3NS01Ljg1Mi0yNi42NTItNS44NTItNDIuODI5YzAtMjMuMDI5LDcuNTIxLTQyLjYzNywyMi41NTctNTguODE0Yy03LjA0NC0xNy4zMi02LjM3OS0zNi43MzIsMS45OTctNTguMjQyDQoJCQljNS41Mi0xLjcxNCwxMy43MDYtMC40MjgsMjQuNTU0LDMuODU1YzEwLjg1LDQuMjg2LDE4Ljc5NCw3Ljk1MSwyMy44NCwxMC45OTJjNS4wNDYsMy4wNDIsOS4wODksNS42MTQsMTIuMTM1LDcuNzENCgkJCWMxNy43MDUtNC45NDksMzUuOTc2LTcuNDIzLDU0LjgxOC03LjQyM2MxOC44NDEsMCwzNy4xMTUsMi40NzQsNTQuODIxLDcuNDIzbDEwLjg0OS02Ljg1MmM3LjQyNi00LjU3LDE2LjE4LTguNzU3LDI2LjI2OS0xMi41NjINCgkJCWMxMC4wODgtMy44MDYsMTcuNzk1LTQuODU0LDIzLjEyNy0zLjE0YzguNTYyLDIxLjUxLDkuMzI4LDQwLjkyMiwyLjI3OSw1OC4yNDFjMTUuMDM2LDE2LjE3OSwyMi41NTksMzUuNzg2LDIyLjU1OSw1OC44MTUNCgkJCWMwLDE2LjE4LTEuOTUxLDMwLjUwNS01Ljg1Miw0Mi45NjljLTMuODk4LDEyLjQ2Ny04LjkzOSwyMi40NjMtMTUuMTMsMjkuOTgxYy02LjE4NCw3LjUxOS0xMy44OTQsMTMuODQzLTIzLjEyNCwxOC45ODYNCgkJCWMtOS4yMzIsNS4xMzctMTguMTc4LDguODUzLTI2Ljg0LDExLjEzMmMtOC42NjEsMi4yODYtMTguNDE0LDQuMDA0LTI5LjI2Myw1LjE0N2M5Ljg5MSw4LjU2MiwxNC44MzksMjIuMDcyLDE0LjgzOSw0MC41Mzh2NjguMjM4DQoJCQljMCwzLjIzNywwLjQ3Miw1Ljg1MiwxLjQyNCw3Ljg1MWMwLjk1OCwxLjk5OCwyLjQ3OCwzLjM3NCw0LjU3MSw0LjE0MWMyLjEwMiwwLjc2LDMuOTQ5LDEuMjM1LDUuNTcxLDEuNDI0DQoJCQljMS42MjIsMC4xOTEsMy45NDksMC4yODcsNi45OTUsMC4yODdoNjMuOTUzYzIyLjY0OCwwLDQyLjAxOC04LjA0Miw1OC4wOTUtMjQuMTI2YzE2LjA4NC0xNi4wODQsMjQuMTI2LTM1LjQ1NCwyNC4xMjYtNTguMTAyDQoJCQlWODIuMjI1QzQzOC41MzMsNTkuNTc2LDQzMC40OTEsNDAuMjA0LDQxNC40MSwyNC4xMjN6Ii8+DQoJCTxwYXRoIGQ9Ik04Ni43OTMsMzE5LjE5NWMtMS4zMzEsMC45NDgtMS4xNDEsMi40NzEsMC41NzIsNC41NjVjMS45MDYsMS45MDIsMy40MjcsMi4xODksNC41NywwLjg1NQ0KCQkJYzEuMzMxLTAuOTQ4LDEuMTQxLTIuNDcxLTAuNTc1LTQuNTY5Qzg5LjQ1OCwzMTguMzM2LDg3LjkzNiwzMTguMDQ5LDg2Ljc5MywzMTkuMTk1eiIvPg0KCQk8cGF0aCBkPSJNNzcuMzc0LDMxMi4wNTdjLTAuNTcsMS4zMzUsMC4wOTYsMi40NzgsMS45OTksMy40MjZjMS41MjEsMC45NTUsMi43NjIsMC43NjcsMy43MTEtMC41NjgNCgkJCWMwLjU3LTEuMzM1LTAuMDk2LTIuNDc4LTEuOTk5LTMuNDMzQzc5LjE4MiwzMTAuOTEsNzcuOTQ1LDMxMS4xMDIsNzcuMzc0LDMxMi4wNTd6Ii8+DQoJCTxwYXRoIGQ9Ik05NS42NDYsMzMwLjMzMWMtMS43MTUsMC45NDgtMS43MTUsMi42NjYsMCw1LjEzN2MxLjcxMywyLjQ3OCwzLjMyOCwzLjE0Miw0Ljg1MywxLjk5OGMxLjcxNC0xLjMzNCwxLjcxNC0zLjE0MiwwLTUuNDI3DQoJCQlDOTguOTc4LDMyOS41NzEsOTcuMzU5LDMyOC45OTMsOTUuNjQ2LDMzMC4zMzF6Ii8+DQoJCTxwYXRoIGQ9Ik0xMDUuNjQxLDM0My4xNzRjLTEuNzE0LDEuNTI2LTEuMzM2LDMuMzI3LDEuMTQyLDUuNDI4YzIuMjgxLDIuMjc5LDQuMTg1LDIuNTY2LDUuNzA4LDAuODQ5DQoJCQljMS41MjQtMS41MTksMS4xNDMtMy4zMjYtMS4xNDItNS40MkMxMDkuMDY4LDM0MS43NTEsMTA3LjE2NCwzNDEuNDYzLDEwNS42NDEsMzQzLjE3NHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="github" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a></div><div></div><div class="AdditionalInformation__AdditionalInfoWrapper-itnhco-0 gMVlmL"><p>This blog was created by Renan Roggia using gatsby.</p><p>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   
   
   if(true) {
