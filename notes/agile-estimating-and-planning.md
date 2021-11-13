@@ -1,7 +1,7 @@
 ---
 title: 'Agile estimating and planning'
 language: 'en-US'
-status: 'Reading'
+status: 'Read'
 coverPath: 'agile-estimating-and-planning'
 date: '2020-03-01'
 ---
@@ -1477,5 +1477,114 @@ You may use a end-of-iteration summary to sum up the communication. But, don't s
 
 # Part VI - Why Agile Planning Works
 
+## Chapter 22 - Why Agile Planning Works
 
+> Planning is an attempt to find an optimal solution to the overall product development question: features, resources, and schedule.
+
+> While planning, we are exploring the entire spectrum of possible solutions of how to mix these three parameters such that we create the best product possible.
+
+### Re-planning Occurs Frequently
+
+> The release plan is updated either after each iteration or, at worst, after every few iterations. Acknowledging the impossibility of creating a perfect plan goes a long way toward reducing the anxiety that accompanies such a goal
+
+> Knowing that a plan can be revised at the start of the next iteration shifts a team’s focus from creating a perfect plan (an impossible goal) to creating a plan that is useful right now. 
+
+> For a plan to be useful it must be accurate, but we accept that early plans will be imprecise
+
+> An agile estimating and planning process recognizes that our knowledge is always incomplete and requires that plans be revised as we learn.
+
+### Estimates Of Size and Duration Are Separated
+
+> A common planning flaw (on traditional as well as many agile teams) is confusing estimates of size and duration. 
+
+> To see the difference between estimates of size and duration, suppose I show you a book and ask you how long it will take you to read it. You can tell from its title that it’s a novel but I won’t let you look inside the book to see how many pages are in it, how wide the margins are, or how small the type is. To answer my question of how long it will take you to read this book, you first estimate the number of pages. Let’s assume you say 600. Then you estimate your rate of progress at one page per minute. You tell me it will take you 600 minutes or ten hours. In arriving at this estimate of duration (10 hours) you first estimated the size of the job (600 pages). 
+
+### Plans Are Made At Different Levels
+
+> A team that works iteration to iteration without awareness of a more distant goal runs the risk of continually pursuing short-term goals while missing out on targeting a truly lucrative longer-term goal.
+
+### Plans Are Based On Features, Not Tasks
+
+> A traditional plan in the form of a Gantt chart, PERT chart, or work breakdown structure focuses on the tasks needed to create a product. An agile plan focuses instead on the features that will be needed in the product
+
+> When planning by feature, the team has a much better understanding of the product
+
+### Small Stories Keep Work Flowing
+
+> On a software project, cycle time is the time from when the team begins work on a feature until it delivers value to users. The shorter the cycle time the better. 
+
+> One of the best ways to reduce variability is to work with reasonably small and similarly-sized units of work
+
+### Work In Process Is Eliminated Every Iteration
+
+> One of the reasons why agile planning succeeds is that all work in process is eliminated at the end of each iteration. Because work is not automatically rolled forward from one iteration to the next, each iteration is planned afresh.
+
+> This means a shorter feedback loop from users to the project team, which leads to faster learning a well as more timely risk mitigation and control.
+
+### Uncertainty Is Acknowledged And Planned For
+
+> When we create a plan early in a project and do not update the plan as we acquire new knowledge, we lose the opportunity to synchronize the plan with reality
+
+### A Dozen Guidelines for Agile Estimating and Planning
+
+> the whole team needs to be involved and committed to the pursuit of the highest-value project possible.
+
+>  The best way to maintain a clear distinction between an estimate of size and one of duration is to use separate units that cannot be confused.
+
+> Be sure to include an expression of uncertainty in any release plan you produce.
+
+> If the amount of new functionality is fixed, state your uncertainty as a date range (“We’ll finish in the third quarter” or “we’ll finish in between 7 and 10 iterations”). If the date if fixed instead, express uncertainty about the exact functionality to be delivered (“We’ll be done on December 31 and the product will include at least these new features but probably no more than those other new features.”).
+
+> Use re-planning opportunities to ensure that the project is always targeted at delivering the greatest value to the organization.
+
+> Keep them informed by regularly publishing simple, very understandable indicators of the team’s progress.
+
+> As we learn more about our customers’ needs, new features are added to the project. As we learn more about the technologies we are using or about how well we are working as a team, we adjust expectations about our rate of progress and our desired approach
+
+> In addition to the value and cost of features when prioritizing consider also the learning that will occur and the risk that will be reduced by developing the feature.
+
+### My Summary
+
+- Re-planning occurs frequently
+- Estimate of size and duration are separated
+- Plans are made at different levels
+  - Conveys the reality needed for each level. Daily is precise, Iteration less precise, Release is the least precise.
+  - Focus on short and long term
+- Plans Are Based On Features, Not Tasks
+- Small Stories Keep Work Flowing
+- Work In Process Is Eliminated Every Iteration
+- Tracking Is At The Team Level
+  - Do not track Individual performance
+- Uncertainty Is Acknowledged And Planned For
+- A Dozen Guidelines for Agile Estimating and Planning
+  - Involve the whole team
+  - Plan at different levels
+  - Keep estimates of size and duration separate by using different units
+  - Express uncertainty in either the functionality or the date
+  - Replan often
+  - Track and communicate progress
+  - Acknowledge the importance of learning
+  - Plan features of the right size
+  - Prioritize features
+  - Base estimates and plans on facts
+  - Leave some slack
+  - Coordinate teams through lookahead planning
+
+# Part V - A Case Study
+
+## Chapter 23 - A case Study: Bomb Shelter Study
+
+> A big part of the benefit we’re after from trying an agile process requires everyone to participate
+
+> “The first form of the question is called the functional form, the second is the dysfunctional form. Asking it these two ways gives us a better answer than just asking ‘how much you want this feature.’ It tells us how the user will feel if the feature is there and how he’ll feel if it isn’t.
+
+> “I want to separate our features into three categories. First are features we must have. These are cost-of-entry features like saving and restoring games. The second category is features that the more we have of them, the better. I suspect things like playing levels will be in this category. The more playing levels, like strong, medium, and weak, the better. The third category are the exciters. These are features that most users don’t expect but once they see them, they want them. The right mix of features from the latter two categories plus all the necessary must-have features can add up to a compelling product"
+
+> Everyone agreed that the level of effort was just right—not too hard, not too soft, just right. Everyone committed that as a team they would deliver those three stories in two weeks.
+
+> “I’d prefer to give the estimate as a range. If we’re looking at enough work to go into an eighth iteration, we should probably say the project will take 6–10 iterations
+
+### My Summary
+
+Shows in practice how the flow would work.
 
