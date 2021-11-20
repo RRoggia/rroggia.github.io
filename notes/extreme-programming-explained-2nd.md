@@ -384,8 +384,6 @@ Respect lies below the surface of the other values. Without respect there isn't 
 
 > Similarly, the person responsible for implementing a story ultimately responsible for the design, implementation, and testing of the story.
 
-
-
 > You will create new practices occasionally to fill you specific need.
 
 ## My Summary
@@ -406,19 +404,17 @@ Reflection, XP teams consider the *how* and the *why* they work that way. Reflec
 
 Flow, is about a continuous delivering value to customers, we do that by starting all the activities to deliver software together. The more frequent or delivers more feedback, more improvements and better the flow. We must avoid doing something that is problematic only because it has a problem, it's actually the opposite, we need to fix the problem.
 
-*TO DO*
+Opportunity, is about turning problems into learning and improvement. It's about the attitude you face your challenges.
 
-Opportunity,
+Redundancy, is important to prevent disaster when the first solution fails. The cost of redundancy pays off from not having the disaster.
 
-Redundancy,
+Failure, it's best to try and fail than stagnation. If failure imparts knowledge, then it is valuable. Avoid over thinking when you can try and get real feedback. Accept failure.
 
-Failure,
+Quality, projects don't go faster when sacrificing quality. When projects have time and cost fixed, use scope as a control mechanism.
 
-Quality,
+Baby Steps, smalls steps are less wasteful. Test-first, continuous integration, constantly going to production are examples of XP baby steps.
 
-Baby Steps,
-
-Accepted Responsibility,
+Accepted Responsibility, responsibility cannot be assigned only accepted. It's about building ownership.
 
 # Chapter 6. Practices
 
@@ -430,7 +426,11 @@ Accepted Responsibility,
 
 ## My Summary
 
-*TO DO*
+Practices need to be together with values otherwise they are empty. Only applying the practices without the values is going to be meaningless.
+
+Practices are the XP vector that display where you are.
+
+There are two types of practices: Primary and Corollary. Both of them are important, but you should start with the primary, since they are more independent and can provide a immediate improvement boost.
 
 # Chapter 7. Primary Practices
 
@@ -524,6 +524,32 @@ Accepted Responsibility,
 > As a direction for improvement, incremental design doesn't say that designing in advance of experience is horrible. It says that design done close to when it is used is more efficient.
 
 ## My Summary
+
+Sit Together,
+
+Whole Team,
+
+Informative Workspace,
+
+Energized Work,
+
+Pair Programming,
+
+Stories,
+
+Weekly Cycle,
+
+Quarterly Cycle,
+
+Slack,
+
+Ten-Minute Build,
+
+Continuous Integration,
+
+Test-First Programming,
+
+Incremental Design,
 
 # Chapter 8. Getting Started
 
