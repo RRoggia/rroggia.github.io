@@ -346,25 +346,77 @@ It's essential that testers evolve their skills and adapt to a new testing philo
 
 ## Chapter 4 Team Logistics
 
+### Team Structure
+
+#### Independent QA Teams
+
+> Rather than keeping the testers separate as an independent team to test the application after coding, think about the team as a community of testers. Provide a learning organization to help your testers with career development and a place to share ideas and help each other.
+
+#### Integration of Testers into an Agile Project
+
+> Developers get training on pair programming, test-driven development, and other agile practices, while testers often seem to get no training at all. 
+
+> The pairing of programmers and testers can only improve communication about the quality of the product. 
+
+> One major advantage of an integrated project team is that there’s only one budget and one schedule. There is no “testing” time to cut if all of the functionality is not finished. If there is no time to test a new feature, then there is no time to develop it in the first place. 
+
+### Physical Logistics
+
+> To support agile values and principles, teams work better when they have ready access to all team members, easy visibility of all project progress charts, and an environment that fosters communication. 
+
+> The number of testers needed will vary and depends upon the complexity of the application, the skill set of the testers, and the tools used.
+
+### Resources
+
+#### Tester-Developer Ratio
+
+> One or two programmers wore a “tester hat” for each iteration, writing customer-facing tests ahead of coding and performing manual tests.
+
+> The web-based financial application we produce has highly complex business logic, is high risk, and test intensive. Testing tasks often add up to the same amount of time as programming tasks. Even with a relatively high tester–programmer ratio, programmers do much of the functional test automation and sometimes pick up manual testing tasks. 
+
+### Building a Team
+
+#### Self-Organizing Team
+
+> and there are times a coach needs to provide strong encouragement and lead the team when it needs leadership. 
+
+#### Every Team Member Has Equal Value
+
+> Every team member has equal value to the team.
+
+> If you’re a tester stuck on an automation problem, have the courage to ask a team member for help.
+
+#### What Can You Do?
+
+> Courage is especially important. Get up and go talk to people; ask how you can help. Reach out to team members and other teams with direct communication. Notice impediments and ask the team to help remove them. 
+
 ### My Summary
 
+QA teams work better when they are part of the project's team instead of a independent QA team. Focus on the "whole-team approach".
 
+When working physically together you should avoid testes and the rest of the project must work closely to achieve the best result.
+
+When building a team, most of the times self-organizing teams will achieve the best results. However, eventually a leader will have to step into to lead the team.
+
+Remember the in the whole team everyone has equal value. There is no space for the me vs you, is all us. Also, there is no unique tester developer ratio, each project, each team, each system will have to determine their own ratio.
+
+QA members will have to receive training similarly to the developers.
+
+## Chapter 5 Transitioning Typical Processes
+
+### My Summary
 
 
 
 ​                                         
 
-Developers get training on pair programming, test-driven development, and other agile practices, while testers often seem to get no training at all. 
 
-The pairing of programmers and testers can only improve communication about the quality of the product. 
-One major advantage of an integrated project team is that there’s only one budget and one schedule. There is no “testing” time to cut if all of the functionality is not finished. If there is no time to test a new feature, then there is no time to develop it in the first place. 
-To support agile values and principles, teams work better when they have ready access to all team members, easy visibility of all project progress charts, and an environment that fosters communication. 
-One or two programmers wore a “tester hat” for each iteration, writing customer-facing tests ahead of coding and performing manual tests. 
-The web-based financial application we produce has highly complex business logic, is high risk, and test intensive. Testing tasks often add upto the same amount of time as programming tasks. Even with a relatively high tester–programmer ratio, programmers do much of the functionaltest automation and sometimes pick up manual testing tasks. 
-and there are times a coach needs to provide strong encouragement and lead the team when it needs leadership. 
-Every team member has equal value to the team.               
-If you’re a tester stuck on an automation problem, have the courage to ask a team member for help. 
-Courage is especially important. Get up and go talk to people; ask how you can help. Reach out to team members and other teams with direct communication. Notice impediments and ask the team to help remove them. 
+
+
+
+
+
+
 on an agile project, but we still need ways to measure progress, track defects, and plan testing. 
 a fundamental lean measurement is the time it takes to go “from concept to cash,” from a customer’s feature request to delivered software. They call this measurement “cycle time.” 
 Measurements such as cycle time that involve the whole team are more likely to drive you toward success than are measures confined to isolated roles or groups. 
