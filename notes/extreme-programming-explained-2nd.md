@@ -525,31 +525,31 @@ There are two types of practices: Primary and Corollary. Both of them are import
 
 ## My Summary
 
-Sit Together,
+Sit Together, the whole team should sit together. The longer the team stays together more productive it will become.
 
-Whole Team,
+Whole Team, same as cross functional teams. Teams are composed by a set of different skills from different people.
 
-Informative Workspace,
+Informative Workspace, use space to conveys information about the project.
 
-Energized Work,
+Energized Work, work must be sustainable. Work too many hours don't improve productivity. Software development is an insight game, the more tired you are less insight you have.
 
-Pair Programming,
+Pair Programming, is a dialogue. Programming, testing and designing between two persons. You can for sure spend some alone, and then regroup with your pair.
 
-Stories,
+Stories, instead of planning each layer of development, focus on the functionality for the customer. Stories are short and convey the customer need. Estimate it after you understand the scope.
 
-Weekly Cycle,
+Weekly Cycle, at beginning of the week you plan the whole week. Focus on what delivers more value to customers.
 
-Quarterly Cycle,
+Quarterly Cycle, similar to the weekly cycle, but quarterly. It's important to have a more high level understanding where you are going. Otherwise, you could a tunnel vision of the week by week delivers.
 
-Slack,
+Slack, tasks that you can drop to avoid breaking not delivering what you promised. Could also be time for the developers to choose their highest problem and fix it.
 
-Ten-Minute Build,
+Ten-Minute Build, building your software must be fast enough so you don't have time to get a coffee. The faster the build, the faster the developer feedback loop.
 
-Continuous Integration,
+Continuous Integration, integrate your code frequently with the main. Avoid big chunks of code.
 
-Test-First Programming,
+Test-First Programming, addresses scope creep, coupling and cohesion, trust, rhythm. Start to develop the your stories by creating the test. Then develop it's functionality.
 
-Incremental Design,
+Incremental Design, try to do the design as close as you need it, so you have the most knowledge about the solution. You should pay constant attention to the costs of change. Tests helps to maintain it under control.
 
 # Chapter 8. Getting Started
 
@@ -566,6 +566,10 @@ Incremental Design,
 > If there is one message I would like to communicate, whatever your job title and however your work is touched by software development it is this: software development is capable of much, much more than it is currently delivering.
 
 ## My Summary
+
+The change always start with yourself, the developer. Once you want to change, try one practice at time. Try, fail, improve until you have master it. Then, go to next practice.
+
+To start to change you have to be aware. Metrics can help with that. Either way be conscious about your choices.
 
 # Chapter 9. Corollary Practices
 
