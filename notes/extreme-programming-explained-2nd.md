@@ -573,6 +573,84 @@ To start to change you have to be aware. Metrics can help with that. Either way 
 
 # Chapter 9. Corollary Practices
 
+> The practices in this chapter seem to me to be difficult or dangerous to implement before completing the preliminary work of the primary practices.
+
+## Real Customer Involvement
+
+> Make people whose lives and business are affected by your system part of the team.
+
+> The point of customer involvement is to reduce wasted effort by putting the people with the needs in direct contact with the people who can fill those needs.
+
+> Generally, the closer customer needs and development capabilities are, the more valuable development becomes.
+
+> When you act trustworthy and have nothing to hide, you are more productive.
+
+## Incremental Deployment
+
+> When replacing a legacy system, gradually take over its workload beginning very early in the project.
+
+## Team Continuity
+
+> Value in software is create not just by what people know and do but also by their relationship and what they accomplish together.
+
+## Shrinking Teams
+
+> As a team grows in capability, keep its workload constant but gradually reduce its size. This frees people to form more teams. When the team has too few members, merge it with another too-small team.
+
+## Root-Cause Analysis
+
+> Every time a defect is found after development, eliminate the defect and its cause. The goal is not just that this one defect won't ever recur, but that the team will ever make the same kind of mistake again.
+
+## Shared Code
+
+> Anyone on the team can improve any part of the system at any time. If something is wrong with the system and fixing it is not out of scope for what I'm doing right now, I should go ahead and fix it.
+
+> There are other models of teamwork besides "every man for himself". The team members can collectively assume responsibility not just for the quality of what they deliver to users but also for the pride they take in their work along the way.
+
+## Code and Tests
+
+> Customer pay for the what the system does today and what the team can make the system to tomorrow.
+
+> What are we going to do? What aren't we going to do? and How are we going to do what we do ? Bringing those decisions together so they can feed each other smooths the flow of value.
+
+## Single Code Base
+
+> There is only one code stream. You can develop in a temporary branch, but never let it live longer than a few hours.
+
+## Daily Deployment
+
+> Put new software into production every night. Any gap between what is on a programmer's desk and what is in production is a risk.
+
+>As long as you don't change the user's experience of the system, you can deploy all the rest of that work. On the last day you put the "keystone", the change to the user interface, in place.
+
+## Negotiated Scope Contract
+
+> Write contracts for software development that fix time, costs and quality but call for an ongoing negotiation of the precise scope of the system. Reduce risk by signing a sequence of short contracts instead of one long one.
+
+## Pay-Per-Use
+
+> Connecting money flow directly to software development provides accurate, timely information with which to drive improvement.
+
+## Conclusion
+
+> They are, however, what my observations lead me to believe are the core of excellence for software development teams.
+
+## My Summary
+
+# Chapter 10. The Whole XP Team
+
+## My Summary
+
+
+
+
+
+
+
+
+
+
+
 
 
 
