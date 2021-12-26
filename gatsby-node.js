@@ -20,9 +20,10 @@ exports.createPages = async( { actions, graphql, reporter } ) => {
           }
         }
       }
-      notes: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/notes/**"}}, sort: { order: DESC, fields: [frontmatter___date] } ) {
+      notes: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: { order: DESC, fields: [frontmatter___date] } ) {
         edges {
           node {
+            html
             frontmatter {
               title
             }
@@ -42,9 +43,9 @@ exports.createPages = async( { actions, graphql, reporter } ) => {
 
   function createTemplatePages( pathPrefix, template ) {
     return ( { node } ) => {
-      const { title } = node.frontmatter
+      const { 'frontmatter': { title }, html } = node
 
-      if ( !title ) {
+      if ( !title || html === '' ) {
         return
       }
 

@@ -5,7 +5,7 @@ The intent is to have **very** simplistic blog where I can centralize informatio
   - [Structure](#structure)
     - [Config](#config)
     - [Markup Folders](#markup-folders)
-      - [Notes](#notes)
+      - [Reading Folder](#reading-folder)
       - [Posts](#posts)
     - [Pages](#pages)
     - [Templates](#templates)
@@ -27,7 +27,7 @@ It also adds metadata to the blog like the Google Analytics TAG and my social ne
 ### Markup Folders
 These folders represent the content shown in the blog.
 
-#### Notes
+#### Reading Folder
 Each note will have its own path created during build time. Its path is created based on the file name.
 
 Each file must have a `frontmatter` identification. For example:
@@ -44,6 +44,7 @@ date: '2021-03-25'
 
 - The `coverPath` must match the name of a cover within `covers`. If empty, there is a default image.
 - Notes are sorted by Date. The date represents either the finish reading date or the last time I read it.
+- If a note doesn't have a `title` or `html` (markup content) the note won't be created
 
 #### Posts
 Each Post will have its own path created during build time. Its path is created based on the file name.

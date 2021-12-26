@@ -40,8 +40,8 @@ module.exports = {
     {
       'resolve': 'gatsby-source-filesystem',
       'options': {
-        'path': `${__dirname}/notes`,
-        'name': 'notes',
+        'path': `${__dirname}/reading-content`,
+        'name': 'reading-content',
       },
     },
     'gatsby-transformer-remark',

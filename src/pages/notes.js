@@ -27,7 +27,7 @@ export default NotesPage
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/notes/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
+    allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
       edges {
         node {
           frontmatter {

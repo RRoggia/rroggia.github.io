@@ -1,7 +1,7 @@
 ---
 title: 'Accelerate'
 language: 'en-US'
-status: 'Notes'
+status: 'Read'
 coverPath: 'accelerate'
 date: '2021-03-25'
 ---
@@ -812,18 +812,3 @@ The leaders cannot achieve by their own the results, they have to amplify their 
 # Part Three - Transformation
 
 ## Chapter 16 - High-Performance Leadership and Management
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
