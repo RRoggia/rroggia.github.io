@@ -637,6 +637,30 @@ To start to change you have to be aware. Metrics can help with that. Either way 
 
 ## My Summary
 
+Real customer involvement, bringing real customer closer to development eases to build the right product. It reduces the chances of building something no one will use. Be transparent with the customer. Don't push away the customer because you think your product will too specific, or because you think they won't trust you.
+
+Incremental Deployment, instead of a big bang, gradually replace a legacy system.
+
+Team Continuity, keep effective teams together. Software is created not only by what people do, but also because of their relationship and how well they know each other.
+
+Shrinking Teams, the team should focus on reduce waste so that they can reduce the team's size to create another teams. If eventually the team reduced so many waste that is too little, you can also regroup it.
+
+Root-Cause Analysis, eliminate the defects in its root. Not only the defect should happen again but the mistake that created the defect as well. Apply the 5 whys to find the root cause analysis?
+
+Shared Code, everyone is owner of the code, you be able to contribute to any part of the system. The team is collectively responsible for the quality of the system.
+
+Code and Tests, code and test are the only artifacts. Ceremonies and anything else is a form of waste.
+
+Single Code Base, use only one mainline of code. Avoid split code based on different versions simultaneously.
+
+Daily Deployment, the faster you put in production earlier you get feedback. Avoid big diffs of code, they are riskier, deploy are harder and you don't get feedback. You can deploy daily, and only in the last day you can change the switch that impacts the customer.
+
+Negotiated Scope Contract, projects have fixed time, cost and quality. you negotiate its scope. Use it to shape the project to deliver the best value.
+
+Pay-per-Use, it's a great model that benefits both user and provider. The features more used are the one that you get more out of it.
+
+These techniques are better once you have mastered primary practices.
+
 # Chapter 10. The Whole XP Team
 
 ## My Summary
