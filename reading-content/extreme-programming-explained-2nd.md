@@ -1,7 +1,7 @@
 ---
 title: 'Extreme Programming Explained 2nd'
 language: 'en-US'
-status: 'Reading'
+status: 'Read'
 coverPath: 'extreme-programming-explained-2nd'
 date: '2021-06-20'
 ---

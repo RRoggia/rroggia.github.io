@@ -1,7 +1,7 @@
 ---
 title: 'Phoenix Project'
 language: 'en-US'
-status: 'Notes'
+status: 'Read'
 coverPath: 'phoenix-project'
 date: '2020-02-01'
 ---

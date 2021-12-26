@@ -62,7 +62,7 @@ export default function ReadingContentCard( { title, status, coverPath, language
         />
       </RibbonKiller>
       <p>Language: { language }</p>
-      <p>Date: { date }</p>
+      <p>Start date: { date }</p>
     </NoteCard>
   )
 }

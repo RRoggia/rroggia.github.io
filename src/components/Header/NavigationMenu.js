@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const NavGrid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 `
 const NavigationButton = styled.a`
   padding: .3rem;
@@ -27,6 +27,7 @@ export default function NavigationMenu() {
   return (
     <NavGrid>
       <NavigationButton href="/">Posts</NavigationButton>
+      <NavigationButton href="/bookshelf">Bookshelf</NavigationButton>
       <NavigationButton href="/notes">Notes</NavigationButton>
       <NavigationButton href="/about-me">About Me</NavigationButton>
     </NavGrid>

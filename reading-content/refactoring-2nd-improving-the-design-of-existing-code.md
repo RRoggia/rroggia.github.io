@@ -1,7 +1,7 @@
 ---
 title: 'Refactoring 2nd edition - Improving the design of existing code'
 language: 'en-US'
-status: 'Notes'
+status: 'Read'
 coverPath: 'refactoring-2nd-edition-improving-the-design-of-existing-code'
 date: '2021-03-16'
 ---
