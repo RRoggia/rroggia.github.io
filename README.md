@@ -5,10 +5,12 @@ The intent is to have **very** simplistic blog where I can centralize informatio
   - [Structure](#structure)
     - [Config](#config)
     - [Markup Folders](#markup-folders)
-      - [Reading Folder](#reading-folder)
+      - [Reading Content Folder](#reading-content-folder)
       - [Posts](#posts)
     - [Pages](#pages)
     - [Templates](#templates)
+    - [Covers](#covers)
+      - [Download covers](#download-covers)
   - [Scripts](#scripts)
     - [Running locally](#running-locally)
     - [Build & check static](#build--check-static)
@@ -27,8 +29,8 @@ It also adds metadata to the blog like the Google Analytics TAG and my social ne
 ### Markup Folders
 These folders represent the content shown in the blog.
 
-#### Reading Folder
-Each note will have its own path created during build time. Its path is created based on the file name.
+#### Reading Content Folder
+Contains the data used by the `Notes` and the `Bookshelf` pages. For files that only contains the `frontmatter` will not have its path generated. Therefore, you have to add a `html` to your `.md` and it will generate a path for it during build time. Its path is created based on the file name.
 
 Each file must have a `frontmatter` identification. For example:
 
@@ -44,7 +46,7 @@ date: '2021-03-25'
 
 - The `coverPath` must match the name of a cover within `covers`. If empty, there is a default image.
 - Notes are sorted by Date. The date represents either the finish reading date or the last time I read it.
-- If a note doesn't have a `title` or `html` (markup content) the note won't be created
+- If a note doesn't have a `title` or `html` (markup content) a note won't be created, but it will appear in the bookshelf
 
 #### Posts
 Each Post will have its own path created during build time. Its path is created based on the file name.
@@ -67,6 +69,19 @@ A page might use a GraphQL query to load the content from the markup folders and
 ### Templates
 Templates are the base structure for dynamically created resources. For example, each Note and each Post follow the structure of, respectively, the `NoteTemplate` and the `PostTemplate`. Each dynamic resource is created during build time in the `gatsby-node.js` file.
 
+### Covers
+The covers folder contains, well the covers for the reading content. You should name the file with the same name as the `coverPath` or vice versa. It supports both `.jpg` and `.png`.
+
+#### Download covers
+This is a python app that searches for covers url path for you in google. It's not working very well, but can be helpful if you are dumping a lot of files.
+
+To use it run:
+
+``` python
+cd download-cover
+pip install -r requirements.txt
+python3 download_cover.py
+```
 
 ## Scripts
 Check the `package.json` to see all the scripts:
