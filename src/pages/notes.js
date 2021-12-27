@@ -14,7 +14,9 @@ function nodeToNotes( node ) {
 
 const NotesPage = ( { data } ) => {
   const { 'allMarkdownRemark': { edges } } = data
-  const notes = edges.map( nodeToNotes )
+  const notes = edges
+    .filter( edge => edge.node.html !== '' )
+    .map( nodeToNotes )
 
   return (
     <BasePage>
@@ -30,6 +32,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
       edges {
         node {
+          html
           frontmatter {
             title
             language
