@@ -663,6 +663,76 @@ These techniques are better once you have mastered primary practices.
 
 # Chapter 10. The Whole XP Team
 
+> The XP practice Whole Team suggests that a variety of people work together in interlinking ways to make a project more effective. They have to work together as a group for each to be successful.
+
+> The principle of flow suggests that more value is created in a smooth, steady stream of software than in occasional large deployments.
+
+> There was no happy ending to this story. You can't be convinced against your will.
+
+> It didn't really matter who was first . What the whole team was missing was a sense that they were roped together.
+
+## Testers
+
+> Testers on an XP team help customers choose and write automated system-level tests in advance of implementation and coach programmers on testing techniques.
+
+> The role of testers shifts to early in development, helping define and specify what will constitute acceptable functioning of the system before the functionality as been implemented.
+
+## Interaction Designers
+
+> Addressing the concerns of eventual users is a priority for the team. The tools of interaction design, such as personas and goals, help the team analyze and make sense of the world of the user, although they are no substitute for conversation with real people.
+
+## Architects
+
+> Making big architectural changes in small, safe steps is one of the challenges for an XP team.
+
+> The principle of the alignment of authority and responsibility suggests that it is a bad idea to give one person the power to make decisions that others have to follow without having to personally live with the consequences.
+
+> Another task for architects on an XP team is partitioning systems. Partitioning isn't an up-front, once-and-for-all task, though. Rather than divide and conquer , an XP team conquers and divides.
+
+## Project Managers
+
+> To remain accurate, the information changes frequently; which gives project managers the challenge of communicating changes helpfully.
+
+> Planning in XP is an activity, not a phase. Project managers are responsible for keeping plans synchronized with reality.
+
+> To facilitate communication, they introduce the right person on the team to the right person outside the team as needed, rather than act as a communication bottleneck.
+
+## Product Manager
+
+> A plan in XP is an example of what *could* happen, not a prediction of what *will* happen.
+
+> Product managers encourage communication between customers and programmers, making sure the most important customer concerns are heard and acted on by the team.
+
+## Executives
+
+> Another job for executives sponsoring or overseeing XP teams is monitoring, encouraging and facilitating improvement.
+
+> Executives should expect honesty and clear explanations of options from the team in any decision-making process.
+
+> I trust two metrics to measure the health of XP teams. The first is the number of defects found after development. An XP team should have dramatically fewer defects in its first deployment and make rapid progress from there.
+
+> The second metric I use is the time lag between the beginning of investment in an idea and when the idea first generates revenue.
+
+> Part of the executive's job is presenting the team positively to the rest of the organization.
+
+## Technical Writers
+
+> Explaining the system in prose and pictures is an important link in the chain that creates feedback for the team.
+
+> What would be the perfect documentation? It would be done exactly when the features it documents are done. It would be trivial to update when it was found in need of improvement. It would be cheap. It wouldn't add any time to the basic development cycle. It would be valuable to the users. The writing of it would be valuable to the team.
+
+> If users never look at a certain kind of documentation, stop writing it. You can find better ways to invest that time.
+
+## Human Resources
+
+> The problem with reviews is that most reviews and raises are based on individual goals and achievements, but XP focuses on team performance.
+
+> Hiring for XP teams can differ from existing hiring practices. XP teams put much more emphasis on teamwork and social skills. Given the choice between an extremely skilled loner and a competent-but-social programmer, XP teams consistently choose the more social candidate.
+
+## Roles
+
+> The goal is not for people to fill abstract roles, but for each team member to contribute all he can to the team.
+
 ## My Summary
 
 
