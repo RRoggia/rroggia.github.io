@@ -687,7 +687,7 @@ These techniques are better once you have mastered primary practices.
 
 > The principle of the alignment of authority and responsibility suggests that it is a bad idea to give one person the power to make decisions that others have to follow without having to personally live with the consequences.
 
-> Another task for architects on an XP team is partitioning systems. Partitioning isn't an up-front, once-and-for-all task, though. Rather than divide and conquer , an XP team conquers and divides.
+> Another task for architects on an XP team is partitioning systems. Partitioning isn't an up-front, once-and-for-all task, though. Rather than divide and conquer, an XP team conquers and divides.
 
 ## Project Managers
 
@@ -734,6 +734,74 @@ These techniques are better once you have mastered primary practices.
 > The goal is not for people to fill abstract roles, but for each team member to contribute all he can to the team.
 
 ## My Summary
+
+The whole team must collaborate and work together in order to achieve the better results. A whole team is composed by a set of people with different skills each.
+
+Testers, act together with the customers to identify scenarios and the expected behavior. They also help the team to achieve better quality in software.
+
+Interaction designers, identify gaps in the system and try to improve it. Applying techniques that map the customer to personas, this role acts together with customer.
+
+The role of the architect is to drive the architecture of the system. The architect must not be a wizard in the top of its white tower taking decisions. It must for sure include the team in the process of evolving the system. Having one person responsible for all the decisions is a bad idea. Also, keep with small changes rather than big changes.
+
+The project manager acts as a facilitator as well as a the responsible for communicating the progress of the project. It's important they are together with the team to synchronize the plans with the reality.
+
+The product manager encourages the team to talk to the customers. The product manager does the priorization based on what will deliver more value in the current iteration. The items to be worked are created with focus on the business, so you have since first week of development working software.
+
+Executive's job is to sponsor XP for the whole organization. The role helps in the decision making and monitors the organization through the number of defects and the time between concept to production.
+
+Technical writers are responsible for documenting the system. The documentation cannot be expensive to create and maintain, and will be available as soon as the software is out. Just enough documentation.
+
+HR focuses in hiring and the performance review. Hiring must focus on the social part and the performance review must consider the whole team, not individual performance.
+
+There are other roles, these are some few to demonstrate what are the roles in a whole team. The important part is to each team identify which role are more required to achieve better results.
+
+# Chapter 11. The Theory of Constraints
+
+> XP isn't intended to solve marketing, sales or management problems. Its not that non-software bottlenecks aren't important, it's just that XP doesn't spread that thin.
+
+> Theory of constraints says that in any system there is one constraint at a time (occasionally two). To improve the overall system throughput you have to first find the constraint; make sure it is working full speed; then find ways of either increasing the capacity of the constraint, offloading some of the work onto non-constraints, or eliminating the constraint entirely.
+
+> How do you find the constraint in a system? Work piles up in front of the constraint.
+
+> Micro-optimizations is never enough. To improve our results we must look at the whole situation before deciding what to change.
+
+> XP uses a "pull" model. Stories are specified in detail immediately before they are implemented. The tests are pulled from the specification. The programming interface is designed to match the needs of the test. The code is written to match the tests and the interface. The design is refined to match the needs of the code as written.
+
+> The theory of constraints shares with other theories of organizational change the assumption that the whole organization is focused on overall throughput, not on micro-optimizations.
+
+> If the bottleneck exists outside of software development, the answer must come from outside of software development.
+
+> Executive sponsorship and strong relationships with people outside the team are crucial to applying XP, precisely because applying XP will shift the structure of work in the rest of the organization as soon as software development gets its act together. If you don't have executive sponsorship, be prepared to do a better job yourself without recognition or protection.
+
+## My Summary
+
+# Chapter 12. Planning: Managing Scope
+
+> Planning in XP starts with putting the current goals, assumptions, and facts on the table. With current, explicit information, you can work toward agreement about what's in scope, what's out of scope, and what to do next.
+
+> Planning is complicated because the estimates of the cost and value of stories are uncertain. The information on which you base these decisions changes.
+
+> Plans are not prediction of the future. At best, they express everything you know today about what might happen tomorrow. Their uncertainty doesn't negate their value.
+
+> I learned three variables by which to manage projects: speed, quality and price. The sponsor gets to fix two of these variables and the team gets to estimate the third. If the plan is unacceptable, the negotiating starts.
+>
+> This model doesn't work well in practice. Time and costs are generally set outside the project. That leaves quality as the only variable you can manipulate. Lowering the quality of your work doesn't eliminate work, it just shifts it later so delays are not clearly your responsibility.
+
+> Planning is something we do together. It requires cooperation. Planning is an exercise in listening, speaking and aligning goals for a specific time period.
+
+> To estimate a story, imagine, given everything you know about similar stories, how many hours or days it will take a pair to complete the story. "Complete" means ready for deployment; including all the testing, implementation, refactoring, and discussions with the users.
+
+> Estimates based on experience are more accurate.
+
+> When things aren't going well is when we most need to adhere to our values and principles and modify our practices to remain as effective as possible. Inaccurate estimates are a failure of information, not of values or principles.
+
+> It is the interaction around the stories that makes them valuable. The cards are a tool.
+
+## My Summary
+
+# Chapter 13. Testing: Early, Often and Automated
+
+
 
 
 

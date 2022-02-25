@@ -114,6 +114,78 @@ Conforme o entendimento dos desenvolvedores evolui, o modelo acaba sendo refinad
 
 ## DOIS - Comunicação e uso da linguagem
 
+### LINGUAGEM ONIPRESENTE
+
+> Para criar um design flexível e rico em conhecimento é necessário ter uma linguagem versátil compartilhada pela equipe e uma experiência ativa com a linguagem que raramente acontecem em projetos de software.
+
+> Um projeto enfrenta sérios problemas quendo sua linguagem é ferida.
+>
+> Os especialistas daquele domínio utilizam seu jargão enquanto os membros da equipe técnica possuem sua própria linguagem sintonizada para discutir o domínio em termos do design.
+>
+> A terminologia das discussões do dia a dia fica desligada da tecnologia embutida no código (que, em última instância, é o produto mais importante de um projeto de software). E até mesmo um única pessoa utiliza uma linguagem diferente na fala e na escrita de forma que as expressões mais incisivas do domínio geralmente aparecem em uma forma transitória que nunca é captda no código ou até mesmo na escrita.
+>
+> A tradução enfraquece a comunicação e torna anêmica a assimilação do conhecimento
+>
+> Nenhum desses dialetos pode se tornar uma linguagem comum porque nenhum deles atende todas as necesseidades.
+
+> O vocabuláro dessa LINGUAGEM ONIPRESENTE inclui os nomes das classes e operações de destaque. A LINGUAGEM inclui termos para discutir regras que se tornaram explícitas no modelo. E é suplementada com termos provenientes de princípios de organização de alto nível impostos sobre o modelo.
+
+### Modelando em voz alta
+
+> Á medida que usamos a LINGUAGEM ONIPRESENTE do modelo do domínio as discussões - sobretudo discussões em que os desenvolvedores e os especialistas do domínio esboçam cenários e requisitos - ficamos mais fluentes na linguagem e ensinamos uns aos outros suas nuances.
+
+### Uma equipe, uma linguagem
+
+> Se especialistas de um domínio sofisticados não entenderem o modelo, há algo errado com o modelo.
+
+> Em um processo Agile, os requisitos evoluem à medida que o projeto anda, pois raramente o conhecimento existo logo no inicio para especificar adeequadamente um aplicativo.
+
+### Documentos e diagramas
+
+> Diagramas são um meio de comunicação e de explicação e facilitam a captação de ideias.
+
+> O modelo não é o diagrama.
+
+### Documentos de design escritos
+
+> Caa processo Agile tem sua própria filosofia sobre os documetnos. O Extreme Programming defende não usar absolutamente nenhum documento de dessign extra e deixar o código falar por si mesmo.
+
+> Outros documentos precisam esclarecer o significado, fazer entender as estruturas em larga escala e concetntrar a atenção nos elementos principais.
+
+> Documentos escritos devem complementar o código e a conversa.
+
+> Ao manter os documetnos encutos e contrá-los na complementação do código e das conversas, eles podem permanecer conectados ao projeto.
+
+### Base executável
+
+> É preciso ser meticuloso para escrever um código que não simplismente *faça* a coisa certa mas tambem *diga* a coisa certa.
+
+### Modelos explanatórios
+
+> O fator propulsor deste livro é que um modelo deve trazer consigo a implementação, o design e a comunicação da equipe.
+
+> Modelos explanatórios oferecem a liberdade de criar estilos muito mais comunicativos feitos de acordo com um determinado tópico.
+
+> Não há necessidade de que os modelos explanatórios sejam modelos de objetos, e geralmente é melhor que não sejam.
+
+### Meu Sumário
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
