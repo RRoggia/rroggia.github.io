@@ -1,5 +1,5 @@
 /* eslint-disable id-length */
-import React from 'react'
+import React, { useState } from 'react'
 import BasePage from '../components/Base/BasePage'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
@@ -20,6 +20,8 @@ function nodeToNotes( node ) {
 }
 
 export default function Bookshelf( { data } ) {
+  const [ readingContentNameFilter, setReadingContentNameFilter ] = useState()
+
   const {
     'allMarkdownRemark': { edges },
     'allFile': { 'edges': covers },
@@ -37,30 +39,40 @@ export default function Bookshelf( { data } ) {
 
   return (
     <BasePage>
+      <input onChange={ ( { 'target': { value } } ) => {
+        setReadingContentNameFilter( value )
+      } }
+      />
       <Grid>
         { [ 'Backlog', 'Planning', 'Reading', 'Read' ].map( status => {
           return (
             <div key={ status }>
-              <h2>{ `${status} (${!notesByStatus[ status ] ? 0 : notesByStatus[ status ].length})` }</h2>
+              <h2>
+                { `${status} (${!notesByStatus[ status ] ? 0 : notesByStatus[ status ]
+                  .filter( b => readingContentNameFilter ? b.title.toLowerCase().includes( readingContentNameFilter.toLowerCase() ) : true )
+                  .length})` }
+              </h2>
               {
                 !notesByStatus[ status ] ?
                   <p>Empty</p> :
-                  notesByStatus[ status ].map( b => {
-                    return (
-                      <div key={ b.title }>
-                        <ReadingContentCard
-                          key={ b.title }
-                          title={ b.title }
-                          status={ b.status }
-                          coverPath={ b.coverPath }
-                          language={ b.language }
-                          date={ b.date }
-                          covers={ covers }
-                          emptyCover={ emptyCover }
-                        />
-                      </div>
-                    )
-                  } )
+                  notesByStatus[ status ]
+                    .filter( b => readingContentNameFilter ? b.title.toLowerCase().includes( readingContentNameFilter.toLowerCase() ) : true )
+                    .map( b => {
+                      return (
+                        <div key={ b.title }>
+                          <ReadingContentCard
+                            key={ b.title }
+                            title={ b.title }
+                            status={ b.status }
+                            coverPath={ b.coverPath }
+                            language={ b.language }
+                            date={ b.date }
+                            covers={ covers }
+                            emptyCover={ emptyCover }
+                          />
+                        </div>
+                      )
+                    } )
               }
             </div>
           )

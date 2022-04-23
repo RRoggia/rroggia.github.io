@@ -1,4 +1,5 @@
 ---
+id: '978-8550800653'
 title: 'Domain Driven Design'
 language: 'pt-BR'
 status: 'Reading'
