@@ -49,13 +49,15 @@ const BookDependencies = ( { data } ) => {
   }
 
   const options = {
+
     'edges': {
       'color': '#000000',
-      'length': 300,
+      'length': 600,
     },
     'height': '1000px',
     'physics': {
       'barnesHut': {
+        'avoidOverlap': 1,
         'centralGravity': 0
       }
     }

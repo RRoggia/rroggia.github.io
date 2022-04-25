@@ -1,9 +1,18 @@
 ---
+id: '875-0321278654'
 title: 'Extreme Programming Explained 2nd'
 language: 'en-US'
 status: 'Read'
 coverPath: 'extreme-programming-explained-2nd'
 date: '2021-06-20'
+references:
+ - 978-0135957059
+ - 978-8550802534
+ - 978-8577807246
+ - 978-8550800653
+ - 978-0134757599
+ - 978-8573076103
+ - 978-8573071702
 ---
 
 # Praise for *Extreme Programming Explained, Second Edition*

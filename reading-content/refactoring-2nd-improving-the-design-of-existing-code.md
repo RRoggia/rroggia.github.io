@@ -1,9 +1,14 @@
 ---
+id: '978-0134757599'
 title: 'Refactoring 2nd edition - Improving the design of existing code'
 language: 'en-US'
 status: 'Read'
 coverPath: 'refactoring-2nd-edition-improving-the-design-of-existing-code'
 date: '2021-03-16'
+references:
+ - 978-8582600320
+ - 978-1942788331
+ - 978-8573076103
 ---
 
 # Foreword to the First Edition
