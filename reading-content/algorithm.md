@@ -210,3 +210,16 @@ date: '2022-05-09'
 
 > In summary, insertion sort is an excellent method for partially sorted arrays and is also a fine method for tiny arrays
 
+> **Shellsort** is a simple extension of insertion sort that gains speed by allowing exchanges of array entries that are far apart, to produce partially sorted arrays that can be efficiently sorted, eventually by insertion sort.
+
+> The idea is to rearrange the array to give it the property that taking every *h*th entry (starting anywhere) yields a sorted subsequence. Such an array is  said to be h-sorted. Put another way, an h-sorted array is h independent sorted subsequences, interleaved together.
+
+> achieving speedups that enable the solution of problems that could not otherwise be solved is one of the prime reasons to study algorithm performance and design.
+
+## 2.2 Mergesort
+
+> combining two ordered arrays to make one larger ordered array.
+
+> to sort an array, divide it into two halves, sort the two halves (recursively), and then merge the results.
+
+> most attractive properties is that it guarantees to sort any array of N items in time proportional to N log N. Its prime disadvantage is that it uses extra space proportional to N.

@@ -5,12 +5,12 @@ const Card = styled.div`
   margin-bottom: 1.5rem;
   padding: 2rem;
   border-radius: 0.3rem;
-  border: 0.5px black solid;
+  // border: 0.5px black solid;
+  box-shadow: 10px 10px  10px 5px lightgray;
   align:center;
 
   &:hover {
     transform: scale(1.005, 1.005);
-    box-shadow: 10px 10px lightgray;
   }
 
   @media (max-width: 600px) {
