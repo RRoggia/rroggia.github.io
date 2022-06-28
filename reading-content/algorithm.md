@@ -223,3 +223,143 @@ date: '2022-05-09'
 > to sort an array, divide it into two halves, sort the two halves (recursively), and then merge the results.
 
 > most attractive properties is that it guarantees to sort any array of N items in time proportional to N log N. Its prime disadvantage is that it uses extra space proportional to N.
+
+> In the merge, there are four conditions:
+>
+> - left half exhausted (take from the right),
+> - right half exhausted (take from the left),
+> - current key on right less than current key on left (take from the right),
+> - current key on right greater than or equal to current key on left (take from the left).
+
+> The tree has precisely n levels.
+
+> If space is at a premium, we need to consider another method.
+
+> When addressing a new problem, your best bet is to use the simplest implementation with which you are comfortable and then refine it if it becomes a bottleneck.
+
+## 2.3 Quicksort
+
+> The quicksort algorithm’s desirable features are that it is in-place (uses only a small auxiliary stack) and that it requires time proportional to N log N on the average to sort an array of length N.
+
+> Quicksort is complementary to mergesort: for mergesort, we break the array into two subarrays to be sorted and then combine the ordered subarrays to make the whole ordered array; for quicksort, we rearrange the array such that, when the two subarrays are sorted, the whole array is ordered.
+
+> Ultimately, the efficiency of the sort depends on how well the partitioning divides the array, which in turn depends on the value of the partitioning item’s key.
+
+> The best case for quicksort is when each partitioning stage divides the array exactly in half.
+
+> it can be extremely inefficient if the partitions are unbalanced
+
+> Quicksort is slower than insertion sort for tiny subarrays.
+
+> ( Improving quicksort) It turns out that most of the available improvement comes from choosing a sample of size 3 and then partitioning on the middle item
+
+> It was a classical programming exercise popularized by E. W. Dijkstra as the Dutch National Flag problem, because it is like sorting an array with three possible key values, which might correspond to the three colors on the flag.
+
+> A carefully tuned version of quicksort is likely to run significantly faster on most computers for most applications than will any other compare-based sorting method.
+
+## 2.4 Priority Queues
+
+> (computer running several apps) This effect is typically achieved by assigning a priority to events associated with applications, then always choosing to process next the highest-priority event.
+
+> An appropriate data type in such an environment supports two operations: remove the maximum and insert. Such a data type is called a priority queue.
+
+> Some important applications of priority queues include simulation systems, where the keys correspond to event times, to be processed in chronological order; job scheduling, where the keys correspond to priorities indicating which tasks are to be performed first; and numerical computations, where the keys represent computational errors, indicating in which order we should deal with them
+
+> We can use any priority queue as the basis for a sorting algorithm by inserting a sequence of items, then successively removing the smallest to get them out, in order.
+
+> Using **unordered sequences** is the prototypical lazy approach to this problem, where we defer doing work until necessary (to find the maximum);
+
+> Using **ordered sequences** is the prototypical eager approach to the problem, where we do as much work as we can up front (keep the list sorted on insertion) to make later operations efficient.
+
+> For stacks and queues, we were able to develop implementations of all the operations that take constant time; for priority queues, all of the elementary implementations just discussed have the property that either the insert or the remove the maximum operation takes linear time in the worst case. The heap data structure that we consider next enables implementations where both operations are guaranteed to be fast.
+
+> A binary tree is **heap-ordered** if the key in each node is larger than or equal to the keys in that node’s two children (if any).
+
+> (**Complete binary tree**) We draw such a structure by placing the root node and then proceeding down the page and from left to right,
+> drawing and connecting two nodes beneath each node on the previous level until we have drawn N nodes.
+
+> A **binary heap** is a collection of keys arranged in a complete heap-ordered binary tree, represented in level order in an array (not using the first entry).
+
+> In a heap, the parent of the node in position k is in position ⎣k /2⎦ and, conversely, the two children of the node in position k are in positions 2k and 2k + 1.
+
+> Complete binary trees represented as arrays (heaps) are rigid structures, but they have just enough flexibility to allow us to implement efficient priority-queue operations.
+
+> (Travel up or down to restore the heap order) We refer to this process as **reheapifying**, or **restoring heap order**
+
+TO DO - sink forward
+
+# Three - Searching
+
+TO DO
+
+# Four - Graphs
+
+## 4.1 Undirected Graphs
+
+> A **graph** is a set of vertices and a collection of edges that each connect a pair of vertices.
+
+> Our definition allows two simple anomalies:
+>
+> - A self-loop is an edge that connects a vertex to itself.
+> - Two edges that connect the same pair of vertices are parallel.
+
+> When there is an edge connecting two vertices, we say that the vertices are *adjacent* to one another and that the edge is *incident* to both vertices.
+
+> The **degree** of a vertex is the number of edges incident to it.
+
+> A **path** in a graph is a sequence of vertices connected by edges
+
+> A **simple path** is one with no repeated vertices.
+
+> A **cycle** is a path with at least one edge whose first and last vertices are the same.
+
+> when we want to allow repeated vertices, we refer to general paths and cycles.
+
+> A **graph is connected** if there is a path from every vertex to every other vertex in the graph. A **graph that is not connected** consists of a set of connected components, which are maximal connected subgraphs.
+
+> An **acyclic** graph is a graph with no cycles.
+
+> A **tree** is an acyclic connected graph.
+
+> A **spanning tree** of a connected graph is a subgraph that contains all of that graph’s vertices and is a single tree.
+
+> A disjoint set of trees is called a **forest**.
+
+> For example, a graph G with V vertices is a tree if and only if it satisfies any of the following five conditions:
+>
+> - G has V1 edges and no cycles.
+> - G has V1 edges and is connected.
+> - G is connected, but removing any edge disconnects it.
+> - G is acyclic, but adding any edge creates a cycle.
+> - Exactly one simple path connects each pair of vertices in G.
+
+> A **sparse** graph has relatively few of the possible edges present; a **dense** graph has relatively few of the possible edges missing.
+
+> A bipartite graph is a graph whose vertices we can divide into two sets such that all edges connect a vertex in one set with a vertex in the other set.
+
+> An adjacency matrix, where we maintain a V-by-V boolean array, with the entry in row v and column w defined to be true if there is an edge adjacent to both vertex v and vertex w in the graph, and to be false otherwise.
+
+> An array of edges, using an Edge class representations with two instance variables of type int.
+
+> An array of adjacency lists, where we maintain a vertex-indexed array of lists of the vertices adjacent to each vertex.
+
+> **Tremaux exploration**. To explore all passages in a maze:
+>
+> - Take any unmarked passage, unrolling a string behind you.
+> - Mark all intersections and passages when you first visit them.
+> - Retrace steps (using the string) when approaching a marked intersection.
+> - Retrace steps when no unvisited options remain at an intersection encountered while retracing steps.
+
+> To visit a vertex:
+>
+> - Mark it as having been visited.
+> - Visit (recursively) all the vertices that are adjacent to it and that have not yet been marked.
+>
+> This method is called **depth-first search (DFS)**
+
+> in DFS of an undirected graph, we either do a recursive drawing with both edges call when we encounter an edge v-w (if w is not marked) or skip the edge (if w is marked)
+
+> **Connectivity**. Given a graph, support queries of the form Are two given vertices connected ? and How many connected components does the graph have ?
+
+> **Single-source paths**. Given a graph and a source vertex s, support queries of the form Is there a path from s to a given target vertex v? If so, find such a path.
+
