@@ -71,6 +71,15 @@ data-styled.g28[id="Note__NoteContainer-i7okha-1"]{content:"ZkJVA,"}/*!sc*/
 <ul>
 <li><a href="#21-elementary-sorts">2.1 Elementary Sorts</a></li>
 <li><a href="#22-mergesort">2.2 Mergesort</a></li>
+<li><a href="#23-quicksort">2.3 Quicksort</a></li>
+<li><a href="#24-priority-queues">2.4 Priority Queues</a></li>
+</ul>
+</li>
+<li><a href="#three---searching">Three - Searching</a></li>
+<li>
+<p><a href="#four---graphs">Four - Graphs</a></p>
+<ul>
+<li><a href="#41-undirected-graphs">4.1 Undirected Graphs</a></li>
 </ul>
 </li>
 </ul></div><h2>The notes</h2><div class="Note__NoteContainer-i7okha-1 ZkJVA"><h1>One - Fundamentals</h1>
@@ -388,6 +397,192 @@ data-styled.g28[id="Note__NoteContainer-i7okha-1"]{content:"ZkJVA,"}/*!sc*/
 </blockquote>
 <blockquote>
 <p>most attractive properties is that it guarantees to sort any array of N items in time proportional to N log N. Its prime disadvantage is that it uses extra space proportional to N.</p>
+</blockquote>
+<blockquote>
+<p>In the merge, there are four conditions:</p>
+<ul>
+<li>left half exhausted (take from the right),</li>
+<li>right half exhausted (take from the left),</li>
+<li>current key on right less than current key on left (take from the right),</li>
+<li>current key on right greater than or equal to current key on left (take from the left).</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>The tree has precisely n levels.</p>
+</blockquote>
+<blockquote>
+<p>If space is at a premium, we need to consider another method.</p>
+</blockquote>
+<blockquote>
+<p>When addressing a new problem, your best bet is to use the simplest implementation with which you are comfortable and then refine it if it becomes a bottleneck.</p>
+</blockquote>
+<h2>2.3 Quicksort</h2>
+<blockquote>
+<p>The quicksort algorithm’s desirable features are that it is in-place (uses only a small auxiliary stack) and that it requires time proportional to N log N on the average to sort an array of length N.</p>
+</blockquote>
+<blockquote>
+<p>Quicksort is complementary to mergesort: for mergesort, we break the array into two subarrays to be sorted and then combine the ordered subarrays to make the whole ordered array; for quicksort, we rearrange the array such that, when the two subarrays are sorted, the whole array is ordered.</p>
+</blockquote>
+<blockquote>
+<p>Ultimately, the efficiency of the sort depends on how well the partitioning divides the array, which in turn depends on the value of the partitioning item’s key.</p>
+</blockquote>
+<blockquote>
+<p>The best case for quicksort is when each partitioning stage divides the array exactly in half.</p>
+</blockquote>
+<blockquote>
+<p>it can be extremely inefficient if the partitions are unbalanced</p>
+</blockquote>
+<blockquote>
+<p>Quicksort is slower than insertion sort for tiny subarrays.</p>
+</blockquote>
+<blockquote>
+<p>( Improving quicksort) It turns out that most of the available improvement comes from choosing a sample of size 3 and then partitioning on the middle item</p>
+</blockquote>
+<blockquote>
+<p>It was a classical programming exercise popularized by E. W. Dijkstra as the Dutch National Flag problem, because it is like sorting an array with three possible key values, which might correspond to the three colors on the flag.</p>
+</blockquote>
+<blockquote>
+<p>A carefully tuned version of quicksort is likely to run significantly faster on most computers for most applications than will any other compare-based sorting method.</p>
+</blockquote>
+<h2>2.4 Priority Queues</h2>
+<blockquote>
+<p>(computer running several apps) This effect is typically achieved by assigning a priority to events associated with applications, then always choosing to process next the highest-priority event.</p>
+</blockquote>
+<blockquote>
+<p>An appropriate data type in such an environment supports two operations: remove the maximum and insert. Such a data type is called a priority queue.</p>
+</blockquote>
+<blockquote>
+<p>Some important applications of priority queues include simulation systems, where the keys correspond to event times, to be processed in chronological order; job scheduling, where the keys correspond to priorities indicating which tasks are to be performed first; and numerical computations, where the keys represent computational errors, indicating in which order we should deal with them</p>
+</blockquote>
+<blockquote>
+<p>We can use any priority queue as the basis for a sorting algorithm by inserting a sequence of items, then successively removing the smallest to get them out, in order.</p>
+</blockquote>
+<blockquote>
+<p>Using <strong>unordered sequences</strong> is the prototypical lazy approach to this problem, where we defer doing work until necessary (to find the maximum);</p>
+</blockquote>
+<blockquote>
+<p>Using <strong>ordered sequences</strong> is the prototypical eager approach to the problem, where we do as much work as we can up front (keep the list sorted on insertion) to make later operations efficient.</p>
+</blockquote>
+<blockquote>
+<p>For stacks and queues, we were able to develop implementations of all the operations that take constant time; for priority queues, all of the elementary implementations just discussed have the property that either the insert or the remove the maximum operation takes linear time in the worst case. The heap data structure that we consider next enables implementations where both operations are guaranteed to be fast.</p>
+</blockquote>
+<blockquote>
+<p>A binary tree is <strong>heap-ordered</strong> if the key in each node is larger than or equal to the keys in that node’s two children (if any).</p>
+</blockquote>
+<blockquote>
+<p>(<strong>Complete binary tree</strong>) We draw such a structure by placing the root node and then proceeding down the page and from left to right,
+drawing and connecting two nodes beneath each node on the previous level until we have drawn N nodes.</p>
+</blockquote>
+<blockquote>
+<p>A <strong>binary heap</strong> is a collection of keys arranged in a complete heap-ordered binary tree, represented in level order in an array (not using the first entry).</p>
+</blockquote>
+<blockquote>
+<p>In a heap, the parent of the node in position k is in position ⎣k /2⎦ and, conversely, the two children of the node in position k are in positions 2k and 2k + 1.</p>
+</blockquote>
+<blockquote>
+<p>Complete binary trees represented as arrays (heaps) are rigid structures, but they have just enough flexibility to allow us to implement efficient priority-queue operations.</p>
+</blockquote>
+<blockquote>
+<p>(Travel up or down to restore the heap order) We refer to this process as <strong>reheapifying</strong>, or <strong>restoring heap order</strong></p>
+</blockquote>
+<p>TO DO - sink forward</p>
+<h1>Three - Searching</h1>
+<p>TO DO</p>
+<h1>Four - Graphs</h1>
+<h2>4.1 Undirected Graphs</h2>
+<blockquote>
+<p>A <strong>graph</strong> is a set of vertices and a collection of edges that each connect a pair of vertices.</p>
+</blockquote>
+<blockquote>
+<p>Our definition allows two simple anomalies:</p>
+<ul>
+<li>A self-loop is an edge that connects a vertex to itself.</li>
+<li>Two edges that connect the same pair of vertices are parallel.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>When there is an edge connecting two vertices, we say that the vertices are <em>adjacent</em> to one another and that the edge is <em>incident</em> to both vertices.</p>
+</blockquote>
+<blockquote>
+<p>The <strong>degree</strong> of a vertex is the number of edges incident to it.</p>
+</blockquote>
+<blockquote>
+<p>A <strong>path</strong> in a graph is a sequence of vertices connected by edges</p>
+</blockquote>
+<blockquote>
+<p>A <strong>simple path</strong> is one with no repeated vertices.</p>
+</blockquote>
+<blockquote>
+<p>A <strong>cycle</strong> is a path with at least one edge whose first and last vertices are the same.</p>
+</blockquote>
+<blockquote>
+<p>when we want to allow repeated vertices, we refer to general paths and cycles.</p>
+</blockquote>
+<blockquote>
+<p>A <strong>graph is connected</strong> if there is a path from every vertex to every other vertex in the graph. A <strong>graph that is not connected</strong> consists of a set of connected components, which are maximal connected subgraphs.</p>
+</blockquote>
+<blockquote>
+<p>An <strong>acyclic</strong> graph is a graph with no cycles.</p>
+</blockquote>
+<blockquote>
+<p>A <strong>tree</strong> is an acyclic connected graph.</p>
+</blockquote>
+<blockquote>
+<p>A <strong>spanning tree</strong> of a connected graph is a subgraph that contains all of that graph’s vertices and is a single tree.</p>
+</blockquote>
+<blockquote>
+<p>A disjoint set of trees is called a <strong>forest</strong>.</p>
+</blockquote>
+<blockquote>
+<p>For example, a graph G with V vertices is a tree if and only if it satisfies any of the following five conditions:</p>
+<ul>
+<li>G has V1 edges and no cycles.</li>
+<li>G has V1 edges and is connected.</li>
+<li>G is connected, but removing any edge disconnects it.</li>
+<li>G is acyclic, but adding any edge creates a cycle.</li>
+<li>Exactly one simple path connects each pair of vertices in G.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>A <strong>sparse</strong> graph has relatively few of the possible edges present; a <strong>dense</strong> graph has relatively few of the possible edges missing.</p>
+</blockquote>
+<blockquote>
+<p>A bipartite graph is a graph whose vertices we can divide into two sets such that all edges connect a vertex in one set with a vertex in the other set.</p>
+</blockquote>
+<blockquote>
+<p>An adjacency matrix, where we maintain a V-by-V boolean array, with the entry in row v and column w defined to be true if there is an edge adjacent to both vertex v and vertex w in the graph, and to be false otherwise.</p>
+</blockquote>
+<blockquote>
+<p>An array of edges, using an Edge class representations with two instance variables of type int.</p>
+</blockquote>
+<blockquote>
+<p>An array of adjacency lists, where we maintain a vertex-indexed array of lists of the vertices adjacent to each vertex.</p>
+</blockquote>
+<blockquote>
+<p><strong>Tremaux exploration</strong>. To explore all passages in a maze:</p>
+<ul>
+<li>Take any unmarked passage, unrolling a string behind you.</li>
+<li>Mark all intersections and passages when you first visit them.</li>
+<li>Retrace steps (using the string) when approaching a marked intersection.</li>
+<li>Retrace steps when no unvisited options remain at an intersection encountered while retracing steps.</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>To visit a vertex:</p>
+<ul>
+<li>Mark it as having been visited.</li>
+<li>Visit (recursively) all the vertices that are adjacent to it and that have not yet been marked.</li>
+</ul>
+<p>This method is called <strong>depth-first search (DFS)</strong></p>
+</blockquote>
+<blockquote>
+<p>in DFS of an undirected graph, we either do a recursive drawing with both edges call when we encounter an edge v-w (if w is not marked) or skip the edge (if w is marked)</p>
+</blockquote>
+<blockquote>
+<p><strong>Connectivity</strong>. Given a graph, support queries of the form Are two given vertices connected ? and How many connected components does the graph have ?</p>
+</blockquote>
+<blockquote>
+<p><strong>Single-source paths</strong>. Given a graph and a source vertex s, support queries of the form Is there a path from s to a given target vertex v? If so, find such a path.</p>
 </blockquote></div><div class="Footer__FooterWrapper-sc-1j1fu1i-0 hMUEgu"><div class="ContactMe__ContactWrapper-azhkgc-0 cAtMQC"><p>Did you like my work? Contact me at:</p><a href="mailto:renanzr@gmail.com"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0xMC42ODgsOTUuMTU2QzgwLjk1OCwxNTQuNjY3LDIwNC4yNiwyNTkuMzY1LDI0MC41LDI5Mi4wMWM0Ljg2NSw0LjQwNiwxMC4wODMsNi42NDYsMTUuNSw2LjY0Ng0KCQkJCWM1LjQwNiwwLDEwLjYxNS0yLjIxOSwxNS40NjktNi42MDRjMzYuMjcxLTMyLjY3NywxNTkuNTczLTEzNy4zODUsMjI5Ljg0NC0xOTYuODk2YzQuMzc1LTMuNjk4LDUuMDQyLTEwLjE5OCwxLjUtMTQuNzE5DQoJCQkJQzQ5NC42MjUsNjkuOTksNDgyLjQxNyw2NCw0NjkuMzMzLDY0SDQyLjY2N2MtMTMuMDgzLDAtMjUuMjkyLDUuOTktMzMuNDc5LDE2LjQzOEM1LjY0Niw4NC45NTgsNi4zMTMsOTEuNDU4LDEwLjY4OCw5NS4xNTZ6Ii8+DQoJCQk8cGF0aCBkPSJNNTA1LjgxMywxMjcuNDA2Yy0zLjc4MS0xLjc2LTguMjI5LTEuMTQ2LTExLjM3NSwxLjU0MkM0MTYuNTEsMTk1LjAxLDMxNy4wNTIsMjc5LjY4OCwyODUuNzYsMzA3Ljg4NQ0KCQkJCWMtMTcuNTYzLDE1Ljg1NC00MS45MzgsMTUuODU0LTU5LjU0Mi0wLjAyMWMtMzMuMzU0LTMwLjA1Mi0xNDUuMDQyLTEyNS0yMDguNjU2LTE3OC45MTdjLTMuMTY3LTIuNjg4LTcuNjI1LTMuMjgxLTExLjM3NS0xLjU0Mg0KCQkJCUMyLjQxNywxMjkuMTU2LDAsMTMyLjkyNywwLDEzNy4wODN2MjY4LjI1QzAsNDI4Ljg2NSwxOS4xMzUsNDQ4LDQyLjY2Nyw0NDhoNDI2LjY2N0M0OTIuODY1LDQ0OCw1MTIsNDI4Ljg2NSw1MTIsNDA1LjMzMw0KCQkJCXYtMjY4LjI1QzUxMiwxMzIuOTI3LDUwOS41ODMsMTI5LjE0Niw1MDUuODEzLDEyNy40MDZ6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="email" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://www.linkedin.com/in/renanroggia/" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM4MiAzODIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM4MiAzODI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiMwMDc3Qjc7IiBkPSJNMzQ3LjQ0NSwwSDM0LjU1NUMxNS40NzEsMCwwLDE1LjQ3MSwwLDM0LjU1NXYzMTIuODg5QzAsMzY2LjUyOSwxNS40NzEsMzgyLDM0LjU1NSwzODJoMzEyLjg4OQ0KCUMzNjYuNTI5LDM4MiwzODIsMzY2LjUyOSwzODIsMzQ3LjQ0NFYzNC41NTVDMzgyLDE1LjQ3MSwzNjYuNTI5LDAsMzQ3LjQ0NSwweiBNMTE4LjIwNywzMjkuODQ0YzAsNS41NTQtNC41MDIsMTAuMDU2LTEwLjA1NiwxMC4wNTYNCglINjUuMzQ1Yy01LjU1NCwwLTEwLjA1Ni00LjUwMi0xMC4wNTYtMTAuMDU2VjE1MC40MDNjMC01LjU1NCw0LjUwMi0xMC4wNTYsMTAuMDU2LTEwLjA1Nmg0Mi44MDYNCgljNS41NTQsMCwxMC4wNTYsNC41MDIsMTAuMDU2LDEwLjA1NlYzMjkuODQ0eiBNODYuNzQ4LDEyMy40MzJjLTIyLjQ1OSwwLTQwLjY2Ni0xOC4yMDctNDAuNjY2LTQwLjY2NlM2NC4yODksNDIuMSw4Ni43NDgsNDIuMQ0KCXM0MC42NjYsMTguMjA3LDQwLjY2Niw0MC42NjZTMTA5LjIwOCwxMjMuNDMyLDg2Ljc0OCwxMjMuNDMyeiBNMzQxLjkxLDMzMC42NTRjMCw1LjEwNi00LjE0LDkuMjQ2LTkuMjQ2LDkuMjQ2SDI4Ni43Mw0KCWMtNS4xMDYsMC05LjI0Ni00LjE0LTkuMjQ2LTkuMjQ2di04NC4xNjhjMC0xMi41NTYsMy42ODMtNTUuMDIxLTMyLjgxMy01NS4wMjFjLTI4LjMwOSwwLTM0LjA1MSwyOS4wNjYtMzUuMjA0LDQyLjExdjk3LjA3OQ0KCWMwLDUuMTA2LTQuMTM5LDkuMjQ2LTkuMjQ2LDkuMjQ2aC00NC40MjZjLTUuMTA2LDAtOS4yNDYtNC4xNC05LjI0Ni05LjI0NlYxNDkuNTkzYzAtNS4xMDYsNC4xNC05LjI0Niw5LjI0Ni05LjI0Nmg0NC40MjYNCgljNS4xMDYsMCw5LjI0Niw0LjE0LDkuMjQ2LDkuMjQ2djE1LjY1NWMxMC40OTctMTUuNzUzLDI2LjA5Ny0yNy45MTIsNTkuMzEyLTI3LjkxMmM3My41NTIsMCw3My4xMzEsNjguNzE2LDczLjEzMSwxMDYuNDcyDQoJTDM0MS45MSwzMzAuNjU0TDM0MS45MSwzMzAuNjU0eiIvPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPC9zdmc+DQo=" alt="linkedin" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a><a href="https://github.com/rroggia" target="_blank"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE2LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgd2lkdGg9IjQzOC41MzZweCIgaGVpZ2h0PSI0MzguNTM2cHgiIHZpZXdCb3g9IjAgMCA0MzguNTM2IDQzOC41MzYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDQzOC41MzYgNDM4LjUzNjsiDQoJIHhtbDpzcGFjZT0icHJlc2VydmUiPg0KPGc+DQoJPGc+DQoJCTxwYXRoIGQ9Ik0xNTguMTczLDM1Mi41OTljLTMuMDQ5LDAuNTY4LTQuMzgxLDEuOTk5LTMuOTk5LDQuMjgxYzAuMzgsMi4yODMsMi4wOTMsMy4wNDYsNS4xMzgsMi4yODMNCgkJCWMzLjA0OS0wLjc2LDQuMzgtMi4wOTUsMy45OTctMy45OTdDMTYyLjkzMSwzNTMuMDc0LDE2MS4yMTgsMzUyLjIxNiwxNTguMTczLDM1Mi41OTl6Ii8+DQoJCTxwYXRoIGQ9Ik0xNDEuODk4LDM1NC44ODVjLTMuMDQ2LDAtNC41NjgsMS4wNDEtNC41NjgsMy4xMzljMCwyLjQ3NCwxLjYxOSwzLjUxOCw0Ljg1MywzLjEzOGMzLjA0NiwwLDQuNTctMS4wNDcsNC41Ny0zLjEzOA0KCQkJQzE0Ni43NTMsMzU1LjU1MywxNDUuMTM0LDM1NC41MDIsMTQxLjg5OCwzNTQuODg1eiIvPg0KCQk8cGF0aCBkPSJNMTE5LjYyOSwzNTQuMDIyYy0wLjc2LDIuMDk1LDAuNDc4LDMuNTE5LDMuNzExLDQuMjg0YzIuODU1LDEuMTM3LDQuNjY0LDAuNTY4LDUuNDI0LTEuNzE0DQoJCQljMC41NzItMi4wOTEtMC42NjYtMy42MS0zLjcxMS00LjU2OEMxMjIuMTk3LDM1MS4yNjUsMTIwLjM5LDM1MS45MjIsMTE5LjYyOSwzNTQuMDIyeiIvPg0KCQk8cGF0aCBkPSJNNDE0LjQxLDI0LjEyM0MzOTguMzI2LDguMDQyLDM3OC45NjQsMCwzNTYuMzA5LDBIODIuMjI1QzU5LjU3NywwLDQwLjIwOCw4LjA0MiwyNC4xMjMsMjQuMTIzDQoJCQlDOC4wNDIsNDAuMjA3LDAsNTkuNTc2LDAsODIuMjI1djI3NC4wODhjMCwyMi42NSw4LjA0Miw0Mi4wMTcsMjQuMTIzLDU4LjA5OGMxNi4wODQsMTYuMDg0LDM1LjQ1NCwyNC4xMjYsNTguMTAyLDI0LjEyNmg2My45NTMNCgkJCWM0LjE4NCwwLDcuMzI3LTAuMTQ0LDkuNDItMC40MjRjMi4wOTItMC4yODgsNC4xODQtMS41MjYsNi4yNzktMy43MTdjMi4wOTYtMi4xODcsMy4xNC01LjM3NiwzLjE0LTkuNTYyDQoJCQljMC0wLjU2OC0wLjA1LTcuMDQ2LTAuMTQ0LTE5LjQxN2MtMC4wOTctMTIuMzc1LTAuMTQ0LTIyLjE3Ni0wLjE0NC0yOS40MWwtNi41NjcsMS4xNDNjLTQuMTg3LDAuNzYtOS40NjksMS4wOTUtMTUuODQ2LDAuOTk5DQoJCQljLTYuMzc0LTAuMDk2LTEyLjk5LTAuNzYtMTkuODQxLTEuOTk4Yy02Ljg1NS0xLjIzOS0xMy4yMjktNC4wOTMtMTkuMTMtOC41NjJjLTUuODk4LTQuNDc3LTEwLjA4NS0xMC4zMjgtMTIuNTYtMTcuNTU5DQoJCQlsLTIuODU2LTYuNTcxYy0xLjkwMy00LjM3My00Ljg5OS05LjIyOS04Ljk5Mi0xNC41NTRjLTQuMDkzLTUuMzMyLTguMjMyLTguOTQ5LTEyLjQxOS0xMC44NTJsLTEuOTk5LTEuNDI4DQoJCQljLTEuMzMxLTAuOTUxLTIuNTY4LTIuMDk4LTMuNzExLTMuNDI5Yy0xLjE0MS0xLjMzNS0xLjk5Ny0yLjY2OS0yLjU2OC0zLjk5N2MtMC41NzEtMS4zMzUtMC4wOTctMi40MywxLjQyNy0zLjI4OQ0KCQkJYzEuNTI0LTAuODU1LDQuMjgxLTEuMjc5LDguMjgtMS4yNzlsNS43MDgsMC44NTVjMy44MDgsMC43Niw4LjUxNiwzLjA0MiwxNC4xMzQsNi44NTFjNS42MTQsMy44MDYsMTAuMjI5LDguNzU0LDEzLjg0NiwxNC44NDMNCgkJCWM0LjM4LDcuODA2LDkuNjU3LDEzLjc1LDE1Ljg0NiwxNy44NDNjNi4xODQsNC4wOTcsMTIuNDE5LDYuMTQzLDE4LjY5OSw2LjE0M3MxMS43MDQtMC40NzYsMTYuMjc0LTEuNDI0DQoJCQljNC41NjUtMC45NTQsOC44NDgtMi4zODUsMTIuODQ3LTQuMjg4YzEuNzEzLTEyLjc1MSw2LjM3Ny0yMi41NTksMTMuOTg4LTI5LjQxYy0xMC44NDgtMS4xNDMtMjAuNjAyLTIuODU0LTI5LjI2NS01LjE0DQoJCQljLTguNjU4LTIuMjg2LTE3LjYwNS01Ljk5NS0yNi44MzUtMTEuMTM2Yy05LjIzNC01LjE0LTE2Ljg5NC0xMS41MTItMjIuOTg1LTE5LjEzYy02LjA5LTcuNjE4LTExLjA4OC0xNy42MS0xNC45ODctMjkuOTc4DQoJCQljLTMuOTAxLTEyLjM3NS01Ljg1Mi0yNi42NTItNS44NTItNDIuODI5YzAtMjMuMDI5LDcuNTIxLTQyLjYzNywyMi41NTctNTguODE0Yy03LjA0NC0xNy4zMi02LjM3OS0zNi43MzIsMS45OTctNTguMjQyDQoJCQljNS41Mi0xLjcxNCwxMy43MDYtMC40MjgsMjQuNTU0LDMuODU1YzEwLjg1LDQuMjg2LDE4Ljc5NCw3Ljk1MSwyMy44NCwxMC45OTJjNS4wNDYsMy4wNDIsOS4wODksNS42MTQsMTIuMTM1LDcuNzENCgkJCWMxNy43MDUtNC45NDksMzUuOTc2LTcuNDIzLDU0LjgxOC03LjQyM2MxOC44NDEsMCwzNy4xMTUsMi40NzQsNTQuODIxLDcuNDIzbDEwLjg0OS02Ljg1MmM3LjQyNi00LjU3LDE2LjE4LTguNzU3LDI2LjI2OS0xMi41NjINCgkJCWMxMC4wODgtMy44MDYsMTcuNzk1LTQuODU0LDIzLjEyNy0zLjE0YzguNTYyLDIxLjUxLDkuMzI4LDQwLjkyMiwyLjI3OSw1OC4yNDFjMTUuMDM2LDE2LjE3OSwyMi41NTksMzUuNzg2LDIyLjU1OSw1OC44MTUNCgkJCWMwLDE2LjE4LTEuOTUxLDMwLjUwNS01Ljg1Miw0Mi45NjljLTMuODk4LDEyLjQ2Ny04LjkzOSwyMi40NjMtMTUuMTMsMjkuOTgxYy02LjE4NCw3LjUxOS0xMy44OTQsMTMuODQzLTIzLjEyNCwxOC45ODYNCgkJCWMtOS4yMzIsNS4xMzctMTguMTc4LDguODUzLTI2Ljg0LDExLjEzMmMtOC42NjEsMi4yODYtMTguNDE0LDQuMDA0LTI5LjI2Myw1LjE0N2M5Ljg5MSw4LjU2MiwxNC44MzksMjIuMDcyLDE0LjgzOSw0MC41Mzh2NjguMjM4DQoJCQljMCwzLjIzNywwLjQ3Miw1Ljg1MiwxLjQyNCw3Ljg1MWMwLjk1OCwxLjk5OCwyLjQ3OCwzLjM3NCw0LjU3MSw0LjE0MWMyLjEwMiwwLjc2LDMuOTQ5LDEuMjM1LDUuNTcxLDEuNDI0DQoJCQljMS42MjIsMC4xOTEsMy45NDksMC4yODcsNi45OTUsMC4yODdoNjMuOTUzYzIyLjY0OCwwLDQyLjAxOC04LjA0Miw1OC4wOTUtMjQuMTI2YzE2LjA4NC0xNi4wODQsMjQuMTI2LTM1LjQ1NCwyNC4xMjYtNTguMTAyDQoJCQlWODIuMjI1QzQzOC41MzMsNTkuNTc2LDQzMC40OTEsNDAuMjA0LDQxNC40MSwyNC4xMjN6Ii8+DQoJCTxwYXRoIGQ9Ik04Ni43OTMsMzE5LjE5NWMtMS4zMzEsMC45NDgtMS4xNDEsMi40NzEsMC41NzIsNC41NjVjMS45MDYsMS45MDIsMy40MjcsMi4xODksNC41NywwLjg1NQ0KCQkJYzEuMzMxLTAuOTQ4LDEuMTQxLTIuNDcxLTAuNTc1LTQuNTY5Qzg5LjQ1OCwzMTguMzM2LDg3LjkzNiwzMTguMDQ5LDg2Ljc5MywzMTkuMTk1eiIvPg0KCQk8cGF0aCBkPSJNNzcuMzc0LDMxMi4wNTdjLTAuNTcsMS4zMzUsMC4wOTYsMi40NzgsMS45OTksMy40MjZjMS41MjEsMC45NTUsMi43NjIsMC43NjcsMy43MTEtMC41NjgNCgkJCWMwLjU3LTEuMzM1LTAuMDk2LTIuNDc4LTEuOTk5LTMuNDMzQzc5LjE4MiwzMTAuOTEsNzcuOTQ1LDMxMS4xMDIsNzcuMzc0LDMxMi4wNTd6Ii8+DQoJCTxwYXRoIGQ9Ik05NS42NDYsMzMwLjMzMWMtMS43MTUsMC45NDgtMS43MTUsMi42NjYsMCw1LjEzN2MxLjcxMywyLjQ3OCwzLjMyOCwzLjE0Miw0Ljg1MywxLjk5OGMxLjcxNC0xLjMzNCwxLjcxNC0zLjE0MiwwLTUuNDI3DQoJCQlDOTguOTc4LDMyOS41NzEsOTcuMzU5LDMyOC45OTMsOTUuNjQ2LDMzMC4zMzF6Ii8+DQoJCTxwYXRoIGQ9Ik0xMDUuNjQxLDM0My4xNzRjLTEuNzE0LDEuNTI2LTEuMzM2LDMuMzI3LDEuMTQyLDUuNDI4YzIuMjgxLDIuMjc5LDQuMTg1LDIuNTY2LDUuNzA4LDAuODQ5DQoJCQljMS41MjQtMS41MTksMS4xNDMtMy4zMjYtMS4xNDItNS40MkMxMDkuMDY4LDM0MS43NTEsMTA3LjE2NCwzNDEuNDYzLDEwNS42NDEsMzQzLjE3NHoiLz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==" alt="github" class="ContactMe__ContactImage-azhkgc-1 hswHrn"/></a></div><div></div><div class="AdditionalInformation__AdditionalInfoWrapper-itnhco-0 gMVlmL"><p>This blog was created by Renan Roggia using gatsby.</p><p>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
   
   
