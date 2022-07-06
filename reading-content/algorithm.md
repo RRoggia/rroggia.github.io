@@ -286,11 +286,21 @@ date: '2022-05-09'
 
 > (Travel up or down to restore the heap order) We refer to this process as **reheapifying**, or **restoring heap order**
 
-TO DO - sink forward
+> Where elementary implementations using an ordered array or an unordered array require linear time for one of the operations, a heap-based implementation provides a guarantee that both operations complete in logarithmic time.
+
+> (Multiway heaps) There is a tradeoff between the lower cost from the reduced tree height (log d N) and the higher cost of finding the largest of the **d** children at each node
 
 # Three - Searching
 
-TO DO
+>  We use the term **symbol table** to describe an abstract mechanism where we save information (a value) that we can later search for and retrieve by specifying a key.
+
+> Symbol tables are sometimes called dictionaries, by analogy with the time-honored system of providing definitions for words by listing them alphabetically in a reference book.
+
+## 3.1 Symbol Tables
+
+> A **symbol table** is a data structure for key-value pairs that supports two operations: insert (put) a new pair into the table and search for (get) the value associated with a given key.
+
+> These conventions define the associative array abstraction, where you can think of a symbol table as being just like an array, where keys are indices and values are array entries.
 
 # Four - Graphs
 
@@ -335,7 +345,7 @@ TO DO
 
 > A **sparse** graph has relatively few of the possible edges present; a **dense** graph has relatively few of the possible edges missing.
 
-> A bipartite graph is a graph whose vertices we can divide into two sets such that all edges connect a vertex in one set with a vertex in the other set.
+> A **bipartite** graph is a graph whose vertices we can divide into two sets such that all edges connect a vertex in one set with a vertex in the other set.
 
 > An adjacency matrix, where we maintain a V-by-V boolean array, with the entry in row v and column w defined to be true if there is an edge adjacent to both vertex v and vertex w in the graph, and to be false otherwise.
 
@@ -363,3 +373,19 @@ TO DO
 
 > **Single-source paths**. Given a graph and a source vertex s, support queries of the form Is there a path from s to a given target vertex v? If so, find such a path.
 
+> **Single-source shortest paths.** Given a graph and a source vertex s, support queries of the form Is there a path from s to a given target vertex v? If so, find a shortest such path (one with a minimal number of edges).
+
+> DFS is analogous to one person exploring a maze. BFS is analogous to a group of searchers exploring by fanning out in all directions, each unrolling his or her own ball of string. When more than one passage needs to be explored, we imagine that the searchers split up to expore all of them;
+
+> We put the source vertex on the data structure, then perform the following steps until the data structure is empty:
+>
+> - Take the next vertex v from the data structure and mark it.
+> - Put onto the data structure all unmarked vertices that are adjacent to v.
+>
+> The algorithms differ only in the rule used to take the next vertex from the data structure (least recently added for BFS, most recently added for DFS).
+
+> **Cycle detection.** Support this query: Is a given graph acylic ?
+
+> **Two-colorability.** Support this query: Can the vertices of a given graph be assigned one of two colors in such a way that no edge connects vertices of the same color ? which is equivalent to this question: Is the graph bipartite ?
+
+> **Symbol graphs**. Typical applications involve processing graphs defined in files or on web pages, using strings, not integer indices, to define and refer to vertices.
