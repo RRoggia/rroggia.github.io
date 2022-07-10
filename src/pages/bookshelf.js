@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import createNotePath from '../components/Notes/notePath'
 import ReadingContentCard from '../components/ReadingContentCard'
+import useSearchReadingContent from '../components/SearchReadingContent'
+
 const Grid = styled.div`
   width: 100%;
   display: inline-grid;
@@ -34,8 +36,7 @@ function nodeToNotes( node ) {
 }
 
 export default function Bookshelf( { data } ) {
-  const [ readingContentNameFilter, setReadingContentNameFilter ] = useState()
-
+  const [ readingContentNameFilter, filterByName ] = useSearchReadingContent()
   const {
     'allMarkdownRemark': { edges },
     'allFile': { 'edges': covers },
@@ -53,10 +54,8 @@ export default function Bookshelf( { data } ) {
 
   return (
     <BasePage>
-      <input onChange={ ( { 'target': { value } } ) => {
-        setReadingContentNameFilter( value )
-      } }
-      />
+      <h2>Bookshelf</h2>
+      {filterByName()}
       <Grid>
         { [ 'Backlog', 'Planning', 'Reading', 'Read' ].map( status => {
           return (
