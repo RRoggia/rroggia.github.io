@@ -30,7 +30,6 @@ const Ribbon = styled.div`
   width: 100px;
   margin-top: 11%;
   margin-left: 48%;
-
 `
 const RibbonKiller = styled.div`
   overflow: hidden;

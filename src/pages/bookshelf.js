@@ -10,6 +10,20 @@ const Grid = styled.div`
   display: inline-grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   text-align: center;
+
+  @media (max-width: 600px) {
+    display: block;
+  }
+`
+const WhitinGrid = styled.div`
+  @media (max-width: 600px) {
+    display: flex;
+    justify-items:center;
+    overflow-y:scroll;
+    & > div{
+      padding: 0px 100px 0 30px ;
+    }
+  }
 `
 
 function nodeToNotes( node ) {
@@ -46,12 +60,13 @@ export default function Bookshelf( { data } ) {
       <Grid>
         { [ 'Backlog', 'Planning', 'Reading', 'Read' ].map( status => {
           return (
-            <div key={ status }>
+            <div>
               <h2>
                 { `${status} (${!notesByStatus[ status ] ? 0 : notesByStatus[ status ]
                   .filter( b => readingContentNameFilter ? b.title.toLowerCase().includes( readingContentNameFilter.toLowerCase() ) : true )
                   .length})` }
               </h2>
+              <WhitinGrid key={ status }>
               {
                 !notesByStatus[ status ] ?
                   <p>Empty</p> :
@@ -74,6 +89,7 @@ export default function Bookshelf( { data } ) {
                       )
                     } )
               }
+            </WhitinGrid>
             </div>
           )
         } ) }
