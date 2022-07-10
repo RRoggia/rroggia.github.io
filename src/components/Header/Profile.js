@@ -19,6 +19,7 @@ const RoundedAuthorPhoto = styled.img`
   border: 1px solid black;
   &:hover {
     border: 2px solid black;
+    margin: -1px;
   }
 
   @media (max-width: 600px) {
