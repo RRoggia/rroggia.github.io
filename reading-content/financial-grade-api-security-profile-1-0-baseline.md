@@ -9,6 +9,10 @@ date: '2022-07-07'
 
 > The Financial-grade API is a highly secured OAuth profile that aims to provide specific implementation guidelines for security and interoperability.
 
+> Among other security enhancements, this specification provides a secure alternative to screen scraping.
+
+> Importantly, this profile does not provide non-repudiation (signing of authorization requests and responses) and sender-constrained access tokens.
+
 # 5. Baseline security profile
 
 ## 5.1. Introduction
