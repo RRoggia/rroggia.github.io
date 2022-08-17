@@ -2,6 +2,7 @@
 title: 'Algorithms'
 language: 'en-US'
 status: 'Reading'
+coverPath: 'algorithm'
 date: '2022-05-09'
 ---
 
