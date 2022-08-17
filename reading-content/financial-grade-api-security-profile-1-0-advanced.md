@@ -1,7 +1,7 @@
 ---
 title: 'Financial-grade API Security Profile 1.0 - Part 2: Advanced'
 language: 'en-US'
-status: 'Reading'
+status: 'Read'
 date: '2022-07-07'
 ---
 

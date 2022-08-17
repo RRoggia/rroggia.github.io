@@ -1,7 +1,7 @@
 ---
 title: 'Financial-grade API: JWT Secured Authorization Response Mode for OAuth 2.0 (JARM)'
 language: 'en-US'
-status: 'Reading'
+status: 'Read'
 date: '2022-07-08'
 ---
 

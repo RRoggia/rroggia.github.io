@@ -196,9 +196,13 @@ date: '2022-05-09'
 
 > The sorting algorithms divide into two basic types: those that sort in place and use no extra memory except perhaps for a small function call stack or a constant number of instance variables, and those that need enough extra memory to hold another copy of the array to be sorted.
 
+### Selection Sort
+
 > **Selection sort.** One of the simplest sorting algorithms works as follows: First, find the smallest item in the array and exchange it with the first entry (itself if the first entry is already the smallest). Then, find the next smallest item and exchange it with the second entry. Continue in this way until the entire array is sorted. This method is called selection sort because it works by repeatedly selecting the smallest remaining item.
 
 > For example, the person using the sort client might be surprised to realize that it takes about as long to run selection sort for an array that is already in order or for an array with all keys equal as it does for a randomly-ordered array!
+
+### Insertion Sort
 
 > **Insertion sort** The algorithm that people often use to sort bridge hands is to consider the cards one at a time, inserting each into its proper place among those already considered (keeping them sorted).
 
@@ -209,6 +213,8 @@ date: '2022-05-09'
 > Indeed, when the number of inversions is low, insertion sort is likely to be faster than any sorting method that we consider in this chapter.
 
 > In summary, insertion sort is an excellent method for partially sorted arrays and is also a fine method for tiny arrays
+
+### Shell Sort
 
 > **Shellsort** is a simple extension of insertion sort that gains speed by allowing exchanges of array entries that are far apart, to produce partially sorted arrays that can be efficiently sorted, eventually by insertion sort.
 
@@ -289,6 +295,56 @@ date: '2022-05-09'
 > Where elementary implementations using an ordered array or an unordered array require linear time for one of the operations, a heap-based implementation provides a guarantee that both operations complete in logarithmic time.
 
 > (Multiway heaps) There is a tradeoff between the lower cost from the reduced tree height (log d N) and the higher cost of finding the largest of the **d** children at each node
+
+> Immutability of keys. The priority queue contains objects that are created by clients but assumes that client code does not change the keys (which might invalidate the heap-order invariant)
+
+### Heapsort
+
+> We can use any priority queue to develop a sorting method. We insert all the items to be sorted into a minimum-oriented priority queue, then repeatedly use remove the minimum to remove them all in order.
+
+> Using a priority queue represented as an unordered array in this way corresponds to doing a selection sort; using an ordered array corresponds to doing an insertion sort.
+
+> Heapsort breaks into two phases: heap construction, where we reorganize the original array into a heap, and the sortdown, where we pull the items out of the heap in decreasing order to build the sorted result.
+
+> This process is a bit like selection sort (taking the items in decreasing order instead of in increasing order), but it uses many fewer compares because the heap provides a much more efficient way to find the largest item in the unsorted part of the array.
+
+> Although the loops in this program seem to do different tasks (the first constructs the heap, and the second destroys the heap for the sortdown), they are both built around the sink() method.
+
+> Heapsort is significant in the study of the complexity of sorting (see page 279) because it is the only method that we have seen that is optimal (within a constant factor) in its use of both time and space—it is guaranteed to use ~2N lg N compares and constant extra space in the worst case.
+
+## 2.5 Applications
+
+> It stands to reason that an array might not remain sorted if a client is allowed to change the values of keys after the sort.
+
+> The reference approach makes the cost of an exchange roughly equal to the cost of a compare for general situations involving arbitrarily large items (at the cost of the extra space for the references).
+
+> The Java Comparator interface allows us to build multiple orders within a single class. It has a single public method compare() that compares two objects.
+
+> A sorting method is stable if it preserves the relative order of equal keys in the array. ... To begin, suppose that we store events in an array as they arrive, so they are in order of the timestamp in the array. Now suppose that the application requires that the transactions be separated out by location for further processing. One easy way to do so is to sort the array by location. If the sort is unstable, the transactions for each city may not necessarily be in order by timestamp after the sort.
+
+> Some of the sorting methods that we have considered in this chapter are stable (insertion sort and mergesort); many are not (selection sort, shellsort, quicksort, and heapsort).
+
+| algorithm       | stable? | running time          | extra space | notes                                                     |
+| --------------- | ------- | --------------------- | ----------- | --------------------------------------------------------- |
+| selection sort  | no      | N²                    | 1           |                                                           |
+| insertion sort  | yes     | between N and N²      | 1           | depends on order of items                                 |
+| shellsort       | no      | N log N / N ^ 6/5     | 1           |                                                           |
+| quicksort       | no      | N log N               | lg N        | probabilistic guarantee                                   |
+| 3-way quicksort | no      | between N and N log N | lg N        | probabilistic, also depends on distribution of input keys |
+| mergesort       | yes     | N log N               | N           |                                                           |
+| heapsort        | no      | N log N               | 1           |                                                           |
+
+> Perhaps the best way to interpret Property T is as saying that you certainly should seriously consider using quicksort in any sort application where running time is important.
+
+> Java’s systems programmers have chosen to use quicksort (with 3-way partitioning) to implement the primitive-type methods, and mergesort for reference-type methods. The primary practical implications of these choices are, as just discussed, to trade speed and memory usage (for primitive types) for stability (for reference types).
+
+> A reduction is a situation where an algorithm developed for one problem is used to solve another.
+
+> (Duplicates) first sort the array, then make a pass through the sorted array, taking note of duplicate keys that appear consecutively in the ordered array.
+
+> An effective alternative to TopM when you have the items in an array is to just smallest values in the array are in the first k array positions for all k less than the array length.
+
+> (Data sorted) You will also see that the same scheme makes it easy to quickly handle many other kinds of queries. How many items are smaller than a given item? Which items fall within a given range?
 
 # Three - Searching
 
