@@ -89,7 +89,7 @@ export const pageQuery = graphql`
             language
             coverPath
             status
-            date(fromNow:true)
+            date
             references
           }
         }

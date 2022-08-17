@@ -33,7 +33,7 @@ export const pageQuery = graphql`
         node {
           frontmatter {
             title
-            date(fromNow:true)
+            date
           }
           excerpt
           timeToRead
