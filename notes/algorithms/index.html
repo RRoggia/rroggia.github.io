@@ -91,7 +91,12 @@ data-styled.g33[id="Note__NoteContainer-i7okha-1"]{content:"ZkJVA,"}/*!sc*/
 <li>
 <p><a href="#three---searching">Three - Searching</a></p>
 <ul>
-<li><a href="#31-symbol-tables">3.1 Symbol Tables</a></li>
+<li>
+<p><a href="#31-symbol-tables">3.1 Symbol Tables</a></p>
+<ul>
+<li><a href="#ordered-symbol-tables">Ordered Symbol tables</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
@@ -639,11 +644,25 @@ drawing and connecting two nodes beneath each node on the previous level until w
 </blockquote>
 <h2>3.1 Symbol Tables</h2>
 <blockquote>
+<p>Symbol tables are sometimes called dictionaries, by analogy with the time-honored system of providing definitions for words by listing them alphabetically in a reference book.</p>
+</blockquote>
+<blockquote>
 <p>A <strong>symbol table</strong> is a data structure for key-value pairs that supports two operations: insert (put) a new pair into the table and search for (get) the value associated with a given key.</p>
 </blockquote>
 <blockquote>
 <p>These conventions define the associative array abstraction, where you can think of a symbol table as being just like an array, where keys are indices and values are array entries.</p>
 </blockquote>
+<h3>Ordered Symbol tables</h3>
+<blockquote>
+<p>More important, in such implementations, we can think of the symbol table as keeping the keys in order and consider a significantly expanded API that defines numerous natural and useful operations involving relative key order.</p>
+</blockquote>
+<blockquote>
+<p>When studying symbol-table implementations, we count compares (equality tests or key comparisons).</p>
+</blockquote>
+<blockquote>
+<p>For basic (unordered) implementations, the order of the keys in the output of this test client is not specified (it depends on characteristics of the implementation);</p>
+</blockquote>
+<p>FrequencyCounter</p>
 <h1>Four - Graphs</h1>
 <h2>4.1 Undirected Graphs</h2>
 <blockquote>
