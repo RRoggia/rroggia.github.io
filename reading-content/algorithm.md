@@ -355,9 +355,25 @@ date: '2022-05-09'
 
 ## 3.1 Symbol Tables
 
+> Symbol tables are sometimes called dictionaries, by analogy with the time-honored system of providing definitions for words by listing them alphabetically in a reference book.
+
 > A **symbol table** is a data structure for key-value pairs that supports two operations: insert (put) a new pair into the table and search for (get) the value associated with a given key.
 
 > These conventions define the associative array abstraction, where you can think of a symbol table as being just like an array, where keys are indices and values are array entries.
+
+### Ordered Symbol tables
+
+> More important, in such implementations, we can think of the symbol table as keeping the keys in order and consider a significantly expanded API that defines numerous natural and useful operations involving relative key order.
+
+> When studying symbol-table implementations, we count compares (equality tests or key comparisons).
+
+> For basic (unordered) implementations, the order of the keys in the output of this test client is not specified (it depends on characteristics of the implementation);
+
+
+
+FrequencyCounter
+
+
 
 # Four - Graphs
 
