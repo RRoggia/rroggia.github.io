@@ -1,5 +1,5 @@
 ---
-title: 'The Kubernetes Book'
+title: 'The Kubernetes Book - 2019 edition'
 language: 'en-US'
 status: 'Reading'
 date: '2022-07-06'
@@ -227,7 +227,7 @@ Because the Deployment has the ReplicaSet with previous configuration, whenever 
 
 # 6 Kubernetes Services
 
-> Kubernetes Services give us the networking we **can** rely on.
+> ![new concept](/images/concept.png) Kubernetes Services give us the networking we **can** rely on.
 
 > a Kubernetes **Service** is an object in the API that we define in a manifest and POST to the API server.
 
@@ -235,9 +235,131 @@ Because the Deployment has the ReplicaSet with previous configuration, whenever 
 
 > Services use labels to dynamically select the Pods in the cluster they will sen traffic to.
 
+> Think of Services as having a static front-end and a dynamic back-end. The front-end consists of the IP, DNS name, and port and never changes. The back-end consists of the Pods, which are fluid and can be constantly changing.
+
+> Pods and Services are loosely coupled via labels and labels selectors.
+
+> It also provides simple load-balancing
+
+> The logic behind the selection process is a Boolean And.
+
+> Each Service that is created, automatically gets an associated *Endpoint* object.
+
+> Kubernetes supports several types of Services.
+
+> A ClusterIP Service has a stable IP address and port that is only accessible from inside the cluster.
+
+> Kubernetes has another type of Service called a NodePort Service. This builds on top of ClusterIP and enables access from outside of the cluster.
+
+> There are other types of Services, such as LoadBalancer Services. These integrate with load-balancers from your cloud provider such as AWS, Azure, and GCP.
+
 ## My Summary
 
+**What's a Service?**
 
+A Service is a K8 object that enables trusted networking for a Deployment or a set of Pods.
+
+IP address, DNS and Ports together with label selection is what enables Services deliver reliable networking.  A service will route traffic to Pods in the Endpoint that match their Label Selection.
+
+A service contains:
+
+- IP addresses
+- DNS name
+- Ports
+- (is associated an) Endpoint
+- (provides) LoadBalancing
+
+**How does Service matches Pods?**
+
+The Service looks for Pods that contains all labels specified in Service's Label Selector, which means if a pod have an identical set or a super set of the Service's Label Selector it will be matched and it can receive traffic. In the case of a Pod having a super set of the Service's Label selectot, the additional labels will be ignored.
+
+**What's an Endpoint?**
+
+A dynamic list of healthy object in the cluster that matches the Service's label selector.
+
+**How does ClusterIP Service works?**
+
+The ClusterIP is a type of Service that is used for accessing services within the cluster. The ClusterIP Service name, IP address and port are registered in the cluster DNS service. Therefore, all Pods and Objects within the cluster are able to resolve the Service name.
+
+It's important to notice that the IP of a ClusterIP is longlived, which means will remains the same while the cluster lives.
+
+**How does NodePort Service works?**
+
+NodePort builts on top of ClusterIP and it enables access to outside of the cluster. The NodePort Service, in addition to the Name, IP and port it also adds the NodePort to the DNS.
+
+The service enables access from within cluster calling the first three initial parameters. Or they could also hit any cluster node on the NodePort specified.
+
+When a external client hits one of the cluster nodes with the NodePort, this request is redirect to the Service that will determine one Pod from the Endpoint list and route the traffic to it.
+
+**How to use K8 Service Discovery?**
+
+There are two ways. Using the DNS (preferred) or Environment Variables.
+
+The DNS is preferable because everytime a new Service is created the DNS is watching to register them in the DNS.
+
+Using Env Variables is not the best scenario, because pods only receive the env variable when they are created. Therefore, services created after the Pod creation won't be registered.
+
+# 7 Kubernetes storage
+
+> Kubernetes has a mature and feature-rich storage subsystem called the *persistent volume subsystem*.
+
+> All storage on a Kubernetes cluster is called a *volume*.
+
+> plugins will be based on the Container Storage Interface (CSI) which is an open-standard aimed at providing a clean interface for plugins.
+
+> At a high-level, Persistent Volumes (PV) are how we map external storage onto the cluster, and Persistent Volume Claims (PVC) are like tickets that authorize applications (Pods) to use a PV.
+
+> 1. There are rules safeguarding access to a single volume from multiple Pods( more on this later)
+> 2. A single external storage volume can only be used by a single PV. For example, you cannot have a 50GB external volume that has two 25GB Kuberbetes PVs using half of it.
+
+> .spec.accessModes defines how the PV can be mounted. Three options exist:
+>
+> - ReadWriteOnce(RWO)
+> - ReadWriteMany(RWM)
+> - ReadOnlyMany(ROM)
+
+> (Reclaim Policy) Two policies currently exist:
+>
+> - Delete
+> - Retain
+
+
+
+## My Summary
+
+**What's the Container Storage Interface(CSI)?**
+
+The CSI for short is an open-standard aimed to abstract k8 internal storage details easing storage plugin development.
+
+CSI is the middlware between the Storage providers and the K8 internal storage.
+
+The CSI is a standard aimed to improve interoperability between storage vendors. Which means, the storage vendor implements the CSI and their plugin works on multiple orchestrators like Kubernetes and Docker Swarm.
+
+**Which are the three main resources in the Persistent Volume Subsystem?**
+
+The Persistent Volume (PV) - the storage in K8 (which linked to an external storage through CSI).
+
+The Persistent Volume Claims (PVC) - authorization to use a PV or a Storage class.
+
+The Storage Class (SC) - Allows us to define different classes, or tiers, of storage. It creates the PV dynamically.
+
+**What's the behavior of the Access Modes?**
+
+RWO the PV can only be mounted/bound as read and write by a single PVC. Usually a Block Storage.
+
+RWM the PV can only be bound as read and write by a multiple PVC. Usually a File or Object Store.
+
+ROM the PV can only be bound as read only by a multiple PVC.
+
+**What's the behavior of the PV Reclaim policies?**
+
+The delete policy is the default behavior for PVs created via *storage classes*. This policy deletes the PV and associaes resource on the external storage system. It could result in data loss.
+
+The retain policy will keep the PV associated to the cluster, but it will be retained (others PVC won't be able to use it).
+
+# 8 Other important Kubernetes stuff
+
+## My Summary
 
 
 
