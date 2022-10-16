@@ -1,5 +1,6 @@
 function fileSystemToGraph( fileSystem) {
   return fileSystem.reduce( (fileStructure, { node } ) => {
+    console.log(node)
     const [ _ignore, path ] = node.fileAbsolutePath.split("rroggia.github.io")
     console.log(_ignore, path)
     const filePath = path
