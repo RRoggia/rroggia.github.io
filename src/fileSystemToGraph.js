@@ -1,10 +1,13 @@
 function fileSystemToGraph( fileSystem) {
   return fileSystem.reduce( (fileStructure, { node } ) => {
     const [ _ignore, path ] = node.fileAbsolutePath.split("rroggia.github.io")
-    const filePath = path.split("/").filter( a => a !== "" )
+    const filePath = path
+      .split("/")
+      .filter( a => a !== "" )
+      .map(f => f.toLowerCase())
     
     if(!fileStructure.root) {
-      fileStructure.root = filePath[0]
+      fileStructure.root = filePath[0].toLowerCase()
     }
 
     filePath.forEach( (path, index) => {
@@ -19,7 +22,7 @@ function fileSystemToGraph( fileSystem) {
           }
         } else {
           node.isFile = true
-          node.fileName = path
+          node.fileName = path.split(".md")[0]
           fileStructure[node.fileAbsolutePath] = node
         }
       }

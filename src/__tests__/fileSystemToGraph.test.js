@@ -55,7 +55,7 @@ test("File at first level", () => {
         "title": "abc.md",
       },
       "isFile": true,
-      "fileName": "abc.md",
+      "fileName": "abc",
     }
   }
   expect(expected).toEqual(result)
@@ -67,10 +67,10 @@ test("Create folder/file structure", () => {
     "root": "engineer-diary",
     "engineer-diary": {
       isFile: false,
-      folders: ["AWS"],
+      folders: ["aws"],
       files: ["/home/roggia/devs/rroggia.github.io/engineer-diary/abc.md"]
     },
-    "AWS": {
+    "aws": {
       isFile: false,
       folders: ["elastic-compute"],
       files: ["/home/roggia/devs/rroggia.github.io/engineer-diary/AWS/aws.md"]
@@ -86,7 +86,7 @@ test("Create folder/file structure", () => {
         "title": " EC2 - Elastic Compute"
       },
       "isFile": true,
-      "fileName": "EC2.md",
+      "fileName": "ec2",
     },
     "/home/roggia/devs/rroggia.github.io/engineer-diary/AWS/aws.md": {
       "fileAbsolutePath": "/home/roggia/devs/rroggia.github.io/engineer-diary/AWS/aws.md",
@@ -94,7 +94,7 @@ test("Create folder/file structure", () => {
         "title": "AWS"
       },
       "isFile": true,
-      "fileName": "aws.md",
+      "fileName": "aws",
     },
     "/home/roggia/devs/rroggia.github.io/engineer-diary/abc.md": {
       "fileAbsolutePath": "/home/roggia/devs/rroggia.github.io/engineer-diary/abc.md",
@@ -102,7 +102,7 @@ test("Create folder/file structure", () => {
         "title": "abc"
       },
       "isFile": true,
-      "fileName": "abc.md",
+      "fileName": "abc",
     }
   }
   console.log(result);

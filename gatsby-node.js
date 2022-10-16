@@ -38,6 +38,7 @@ exports.createPages = async( { actions, graphql, reporter } ) => {
         edges {
           node {
             fileAbsolutePath
+            html
             frontmatter {
               title
             }
@@ -74,14 +75,12 @@ exports.createPages = async( { actions, graphql, reporter } ) => {
     }
   }
 
-  if( false ) {
-    const diaryGraph = transform.fileSystemToGraph(result.data.diary.edges)
-    createTemplatePagesForDiary( diaryGraph.root, "")
-  }
+  const diaryGraph = transform.fileSystemToGraph(result.data.diary.edges)
+  createTemplatePagesForDiary( diaryGraph.root, "")
 
   function createTemplatePagesForDiary( element, previousPath ) {
     if (diaryGraph[element].isFile){
-      const path = `${previousPath}/${diaryGraph[element].fileName.split(".md")[0].toLowerCase()}`
+      const path = `${previousPath}/${diaryGraph[element].fileName}`
       console.log(`Creating file page ${path}`)
       createPage( {
         path,
@@ -99,7 +98,7 @@ exports.createPages = async( { actions, graphql, reporter } ) => {
         'component': folderTemplate,
         'context': {
           parentPath: path,
-          files: diaryGraph[element].files,
+          files: diaryGraph[element].files.map( f => diaryGraph[f] ),
           folders: diaryGraph[element].folders,
         }
       } )

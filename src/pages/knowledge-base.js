@@ -7,31 +7,39 @@ const Section = styled.section`
   padding: 1.5rem;
   border: 1px black solid;
 `
+const data = [
+  {
+    href: "/notes",
+    title: "Notes",
+    description: "When I'm reading books, articles, or technical stuff I like to highlight the text and summarize what I read, then I can have access to the information without a big effort.",
+  },
+  {
+    href: "/bookshelf",
+    title: "Bookshelf",
+    description: "I try to track what I'm reading and I usually fail. This is one attempt. It's probably outdated.",
+  },
+  {
+    href: "/engineer-diary",
+    title: "Engineer's Diary",
+    description: "Structured information that was promoted from my private notes.",
+  },
+  {
+    href: "/book-dependencies",
+    title: "Book's dependencies",
+    description: "An attempt to visualize my books and its dependencies on other bookes. But I'm lazy and didn't finished it.",
+  },
+]
 const KnowledgeBase = () => {
   return (
     <BasePage>
-      <div>
-          <a href="/notes">
-            <Section>
-              <h2>Notes</h2>
-              <p>When I'm reading books, articles, or technical stuff I like to highlight the text and summarize what I read, then I can have access to the information without a big effort.</p>
-            </Section>
-          </a>
-          <a href="/bookshelf">
-            <Section>
-              <h2>Bookshelf</h2>
-              <p>I try to track what I'm reading and I usually fail. This is one attempt. It's probably outdated.</p>
-            </Section>
-          </a>
-          {false &&
-          <a href="/engineer-diary">
-            <Section>
-              <h2>Engineer's Diary</h2>
-              <p>Structured information that was promoted from my private notes.</p>
-            </Section>
-          </a>
-          }
-      </div>
+      {data && data.map(d => (
+        <a href={d.href}>
+          <Section>
+            <h2>{d.title}</h2>
+            <p>{d.description}</p>
+          </Section>
+        </a>
+      ))}
     </BasePage>
   )
 }
