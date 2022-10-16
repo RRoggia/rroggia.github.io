@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://rroggia.github.io/sitemap.xml
+Sitemap: https://rroggia.github.io/sitemap/sitemap-index.xml
 Host: https://rroggia.github.io
