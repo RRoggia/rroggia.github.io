@@ -68,6 +68,13 @@ module.exports = {
         'name': 'covers',
       },
     },
+    {
+      'resolve': 'gatsby-source-filesystem',
+      'options': {
+        'path': `${__dirname}/engineer-diary`,
+        'name': 'engineer-diary',
+      },
+    },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

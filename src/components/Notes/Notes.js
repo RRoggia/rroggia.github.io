@@ -46,8 +46,7 @@ export default function Notes( { notes } ) {
   const { 'file': emptyCover } = data
   return (
     <>
-      <Title>My notes ...</Title>
-      <p>When I'm reading books, articles, or technical stuff I like to highlight the text and summarize what I read, then I can have access to the information without a big effort.</p>
+      <Title>Notes</Title>
       <Grid>
         { notes && notes.map( n => (
           <NoteLink
