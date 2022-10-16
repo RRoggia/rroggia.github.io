@@ -1,13 +1,14 @@
 function fileSystemToGraph( fileSystem) {
   return fileSystem.reduce( (fileStructure, { node } ) => {
     const [ _ignore, path ] = node.fileAbsolutePath.split("rroggia.github.io")
+    console.log(_ignore, path)
     const filePath = path
       .split("/")
       .filter( a => a !== "" )
       .map(f => f.toLowerCase())
     
     if(!fileStructure.root) {
-      fileStructure.root = filePath[0].toLowerCase()
+      fileStructure.root = filePath[0]
     }
 
     filePath.forEach( (path, index) => {
