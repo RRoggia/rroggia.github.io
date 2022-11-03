@@ -6,6 +6,8 @@ const Section = styled.section`
   margin: 1.5rem;
   padding: 1.5rem;
   border: 1px black solid;
+  border-color: #d0d7de;
+  border-radius: 0.3rem;
 `
 const data = [
   {

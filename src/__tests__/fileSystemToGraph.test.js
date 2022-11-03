@@ -105,6 +105,5 @@ test("Create folder/file structure", () => {
       "fileName": "abc",
     }
   }
-  console.log(result);
   expect(expected).toEqual(result)
 })

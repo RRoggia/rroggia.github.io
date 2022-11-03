@@ -12,6 +12,7 @@ const Section = styled.section`
 const Card = styled.div`
   margin: 1rem 0.5rem;
   border: 1px black solid;
+  border-color: #d0d7de;
   text-align:center;
   align-items: center;
   @media (min-width: 600px) {
@@ -22,7 +23,6 @@ const Card = styled.div`
 
 export default function EngineerDiary({ pageContext }) {
   const { folders, files, path, parentPath } = pageContext
-  console.log(pageContext)
   return (
     <BasePage>
       <h1>Engineer's Diary</h1>

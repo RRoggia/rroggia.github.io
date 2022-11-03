@@ -10,7 +10,7 @@ const Grid = styled.div`
   padding-bottom: 30px;
   marging-bottom: 30px;
   border-bottom: 1px solid black;
-
+	border-color: #d0d7de;
 
   @media (max-width: 600px) {
     display:block;

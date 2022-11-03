@@ -8,6 +8,7 @@ const FooterWrapper = styled.div`
   grid-template-columns: 1fr 2fr 1fr;
   align-items:center;
   border-top: 1px solid black;
+	border-color: #d0d7de;
   padding: 3rem;
   text-transform: uppercase;
   margin-top: 3rem;

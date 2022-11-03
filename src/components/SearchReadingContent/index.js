@@ -10,12 +10,12 @@ const Label = styled.label`
 
 const Input = styled.input`
 	all: unset;
-	border-bottom: 1px solid black;
 	width:80%;
 `
 const Div = styled.div`
 	background: lightpurple;
-	box-shadow: 5px 5px 5px 2px lightgray;
+	border: 1px solid;
+	border-color: #d0d7de;
 	border-radius: 5px;
 	width:95%;
 	margin: 30px 1%;
