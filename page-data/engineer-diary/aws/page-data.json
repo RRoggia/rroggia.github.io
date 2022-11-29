@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-folder-template-js",
     "path": "/engineer-diary/aws",
-    "result": {"pageContext":{"parentPath":"/engineer-diary/aws","files":[],"folders":["compute","management-and-governance","security-identity-and-compliance"]}},
+    "result": {"pageContext":{"parentPath":"/engineer-diary/aws","files":[],"folders":["compute","management-and-governance","security-identity-and-compliance","storage"]}},
     "staticQueryHashes": ["1507822185","2095566405","2894216461","425755332"]}
