@@ -16,7 +16,7 @@ The **master account**, or management account, is the same AWS Standard Account 
 
 AWS Organization also adds the concept of **Organizational Units** which can be used to group member accounts and other OU. These containers can only have 1 parent.
 
-In addition, AWS Organizations adds **Service Control Policies** that can restrict which permissions are allowed in the organizational root, organizational unit and accounts. The SCP do not grant access they work like permissions boundaries limiting what the account can do. Even though the root user cannot be denied access, SCP can reduce the scope of accounts, which will ignore the privileges an root user.
+In addition, AWS Organizations adds **Service Control Policies** that can determine the maximum permissions are allowed in the organizational root, organizational unit and accounts. The SCP do not grant access they work like permissions boundaries limiting what the account can do. Even though the root user cannot be denied access, SCP can reduce the scope of accounts, which will ignore the privileges an root user.
 
 SCP can be used in two ways:
 

@@ -70,6 +70,7 @@ There are several types of Policies:
 
 - **Identity-based**: Identity-based policies grant permissions to an identity.
 - **Resource-based**: Inline policies attached to a resource. They grant permission to the principal that is specified in the policy. An example is Role Trust Policy.
+- **Service Control Policy**: Used by AWS Organizations to determine maximum permissions accounts, or organizational structures can have.
 
 ...
 
