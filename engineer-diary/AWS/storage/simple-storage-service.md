@@ -79,27 +79,30 @@ Static website hosting adds to the pricing a fee for each 1000 requests.
 
 S3 Supports different types of data encryption at rest that are categorized in two groups:
 
-- **Server Side Encryption (SSE)**: Data moves from client to AWS without encryption (only SSL). Encrypts data in the server.
-  - **Customer Provided Keys (SSE-C)**
-    - Customer manages the keys in the client side
-    - AWS manages the encryption/decryption in server side
-  - **S3-Manages Keys (SSE-S3)**
-    - AWS manages keys and the encryption/decryption in server side
-    - Uses AES256 encryption algorithm
-    - S3 creates Root Key to encrypt other keys
-    - Each object will create a key for the object encryption
-    - After encryption the key is encrypted by the root key and store with the object.
-    - The key is discarded.
-    - Doesn't support role separation 
-  - **KMS (SSE-KMS)**
-    - AWS manages keys and the encryption/decryption in server side
-    - KMS provides a plain text key and a encrypted key to S3
-    - DEK are used to encrypt objects, and are stored with it
-    - Supports rotation and role separation
-- **Client Side Encryption (CSE)**: Data already moves to AWS encrypted
-  - The customer manages the keys in the client side
-  - The customer encrypts the objects in the client side
-  - The customer decrypts the objects in the client side
+**Server Side Encryption (SSE)**: Data moves from client to AWS without encryption (only SSL). Encrypts data in the server.
+
+- **Customer Provided Keys (SSE-C)**
+  - Customer manages the keys in the client side
+  - AWS manages the encryption/decryption in server side
+- **S3-Manages Keys (SSE-S3)**
+  - AWS manages keys and the encryption/decryption in server side
+  - Uses AES256 encryption algorithm
+  - S3 creates Root Key to encrypt other keys
+  - Each object will create a key for the object encryption
+  - After encryption the key is encrypted by the root key and store with the object.
+  - The key is discarded.
+  - Doesn't support role separation 
+- **KMS (SSE-KMS)**
+  - AWS manages keys and the encryption/decryption in server side
+  - KMS provides a plain text key and a encrypted key to S3
+  - DEK are used to encrypt objects, and are stored with it
+  - Supports rotation and role separation
+
+**Client Side Encryption (CSE)**: Data already moves to AWS encrypted
+
+- The customer manages the keys in the client side
+- The customer encrypts the objects in the client side
+- The customer decrypts the objects in the client side
 
 ### Lifecycle configuration
 
