@@ -102,14 +102,18 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <p>Static website hosting adds to the pricing a fee for each 1000 requests.</p>
 <h3>Encryption</h3>
 <p>S3 Supports different types of data encryption at rest that are categorized in two groups:</p>
-<ul>
-<li>
 <p><strong>Server Side Encryption (SSE)</strong>: Data moves from client to AWS without encryption (only SSL). Encrypts data in the server.</p>
 <ul>
-<li><strong>Customer Provided Keys (SSE-C)</strong></li>
+<li>
+<p><strong>Customer Provided Keys (SSE-C)</strong></p>
+<ul>
 <li>Customer manages the keys in the client side</li>
 <li>AWS manages the encryption/decryption in server side</li>
-<li><strong>S3-Manages Keys (SSE-S3)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>S3-Manages Keys (SSE-S3)</strong></p>
+<ul>
 <li>AWS manages keys and the encryption/decryption in server side</li>
 <li>Uses AES256 encryption algorithm</li>
 <li>S3 creates Root Key to encrypt other keys</li>
@@ -117,21 +121,23 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <li>After encryption the key is encrypted by the root key and store with the object.</li>
 <li>The key is discarded.</li>
 <li>Doesn't support role separation </li>
-<li><strong>KMS (SSE-KMS)</strong></li>
+</ul>
+</li>
+<li>
+<p><strong>KMS (SSE-KMS)</strong></p>
+<ul>
 <li>AWS manages keys and the encryption/decryption in server side</li>
 <li>KMS provides a plain text key and a encrypted key to S3</li>
 <li>DEK are used to encrypt objects, and are stored with it</li>
 <li>Supports rotation and role separation</li>
 </ul>
 </li>
-<li>
+</ul>
 <p><strong>Client Side Encryption (CSE)</strong>: Data already moves to AWS encrypted</p>
 <ul>
 <li>The customer manages the keys in the client side</li>
 <li>The customer encrypts the objects in the client side</li>
 <li>The customer decrypts the objects in the client side</li>
-</ul>
-</li>
 </ul>
 <h3>Lifecycle configuration</h3>
 <h3>Replication</h3>
