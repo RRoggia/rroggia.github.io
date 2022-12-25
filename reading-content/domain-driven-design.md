@@ -119,17 +119,17 @@ Conforme o entendimento dos desenvolvedores evolui, o modelo acaba sendo refinad
 
 > Para criar um design flexível e rico em conhecimento é necessário ter uma linguagem versátil compartilhada pela equipe e uma experiência ativa com a linguagem que raramente acontecem em projetos de software.
 
-> Um projeto enfrenta sérios problemas quendo sua linguagem é ferida.
+> Um projeto enfrenta sérios problemas quando sua linguagem é ferida.
 >
 > Os especialistas daquele domínio utilizam seu jargão enquanto os membros da equipe técnica possuem sua própria linguagem sintonizada para discutir o domínio em termos do design.
 >
-> A terminologia das discussões do dia a dia fica desligada da tecnologia embutida no código (que, em última instância, é o produto mais importante de um projeto de software). E até mesmo um única pessoa utiliza uma linguagem diferente na fala e na escrita de forma que as expressões mais incisivas do domínio geralmente aparecem em uma forma transitória que nunca é captda no código ou até mesmo na escrita.
+> A terminologia das discussões do dia a dia fica desligada da tecnologia embutida no código (que, em última instância, é o produto mais importante de um projeto de software). E até mesmo um única pessoa utiliza uma linguagem diferente na fala e na escrita de forma que as expressões mais incisivas do domínio geralmente aparecem em uma forma transitória que nunca é capitada no código ou até mesmo na escrita.
 >
 > A tradução enfraquece a comunicação e torna anêmica a assimilação do conhecimento
 >
-> Nenhum desses dialetos pode se tornar uma linguagem comum porque nenhum deles atende todas as necesseidades.
+> Nenhum desses dialetos pode se tornar uma linguagem comum porque nenhum deles atende todas as necessidades.
 
-> O vocabuláro dessa LINGUAGEM ONIPRESENTE inclui os nomes das classes e operações de destaque. A LINGUAGEM inclui termos para discutir regras que se tornaram explícitas no modelo. E é suplementada com termos provenientes de princípios de organização de alto nível impostos sobre o modelo.
+> O vocabulário dessa LINGUAGEM ONIPRESENTE inclui os nomes das classes e operações de destaque. A LINGUAGEM inclui termos para discutir regras que se tornaram explícitas no modelo. E é suplementada com termos provenientes de princípios de organização de alto nível impostos sobre o modelo.
 
 ### Modelando em voz alta
 
@@ -139,7 +139,7 @@ Conforme o entendimento dos desenvolvedores evolui, o modelo acaba sendo refinad
 
 > Se especialistas de um domínio sofisticados não entenderem o modelo, há algo errado com o modelo.
 
-> Em um processo Agile, os requisitos evoluem à medida que o projeto anda, pois raramente o conhecimento existo logo no inicio para especificar adeequadamente um aplicativo.
+> Em um processo Agile, os requisitos evoluem à medida que o projeto anda, pois raramente o conhecimento existo logo no inicio para especificar adequadamente um aplicativo.
 
 ### Documentos e diagramas
 
@@ -149,17 +149,17 @@ Conforme o entendimento dos desenvolvedores evolui, o modelo acaba sendo refinad
 
 ### Documentos de design escritos
 
-> Caa processo Agile tem sua própria filosofia sobre os documetnos. O Extreme Programming defende não usar absolutamente nenhum documento de dessign extra e deixar o código falar por si mesmo.
+> Cada processo Agile tem sua própria filosofia sobre os documentos. O Extreme Programming defende não usar absolutamente nenhum documento de dessign extra e deixar o código falar por si mesmo.
 
-> Outros documentos precisam esclarecer o significado, fazer entender as estruturas em larga escala e concetntrar a atenção nos elementos principais.
+> Outros documentos precisam esclarecer o significado, fazer entender as estruturas em larga escala e concentrar a atenção nos elementos principais.
 
 > Documentos escritos devem complementar o código e a conversa.
 
-> Ao manter os documetnos encutos e contrá-los na complementação do código e das conversas, eles podem permanecer conectados ao projeto.
+> Ao manter os documentos enxutos e concentrá-los na complementação do código e das conversas, eles podem permanecer conectados ao projeto.
 
 ### Base executável
 
-> É preciso ser meticuloso para escrever um código que não simplismente *faça* a coisa certa mas tambem *diga* a coisa certa.
+> É preciso ser meticuloso para escrever um código que não simplesmente *faça* a coisa certa mas também *diga* a coisa certa.
 
 ### Modelos explanatórios
 
@@ -171,10 +171,13 @@ Conforme o entendimento dos desenvolvedores evolui, o modelo acaba sendo refinad
 
 ### Meu Sumário
 
+Projetos de software podem sofrer de problemas onde especialistas do domínio e os desenvolvedores utilizam de linguagens distintas para se comunicar. Os especialistas utilizam os jargões da sua área e os desenvolvedores trabalham com vocabulários e abstrações próprias. É necessário haver uma tradução entre essas duas linguagens e durante essa tradução pode haver ruídos de mal entendimento ou baixa assimilação do domínio e uma futura propagação de má informação. Ambas as linguagens são muito específicas para sua área e não podem ser um linguagem compartilhada por todos os membros do projeto.
 
+Uma linguagem onipresente, no inglês ubiquitous language, é uma linguagem compartilhada entre todos os membros de um projeto. A linguagem se torna a base para o modelo do domínio, o vocabulário dela é composto por nomes das classes e suas operações de destaque. As regras de um domínio ficam explicitas a partir de representações no modelo.
 
+Inicialmente a linguagem e o modelo que surge dela não são tão eficazes e flexíveis, mas a partir da assimilação do conhecimento pode-se evoluir a linguagem e o modelo. O uso consistente da linguagem expõe fraquezas e permite alterações e adições de novos conceitos que evoluirão o modelo. Tanto desenvolvedores quanto os especialistas ao notarem distância da linguagem para com sua área (código ou domínio) levantam esses pontos pra discussão fomentando também a evolução da linguagem.
 
-
+Nesse capítulo o autor traz a comparação entre dois diálogos comparando o uso ou não uso de uma linguagem onipresente.
 
 
 
