@@ -100,10 +100,9 @@ An anonymous function doesn't have an identifier to use to refer to itself from 
 
 Since I don't think anonymous functions are a good idea to use frequently in your programs, I'm not a fan of using the `=>` arrow function form. This kind of function actually has a specific purpose (i.e., handling the `this` keyword lexically), but that doesn't mean we should use it for every function we write. Use the most appropriate tool for each job.
 
-### Coercive Conditional Comparsion
+### Coercive Conditional Comparison
 
 `if` and `? :`-ternary statements, as well as the test clauses in `while` and `for` loops, all perform an implicit value comparison.
-
 
 
 
