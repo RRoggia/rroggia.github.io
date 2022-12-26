@@ -41,7 +41,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <h2>Using the <code>dynamic</code> type</h2>
 <p>Using the <code>dynamic</code> keyword creates variables with <code>dynamic</code> type. Dart is a strongly typed language that can infer the type of variables. When using the <code>dynamic</code> keyword you are explicitly saying no type is expected for that variable. Therefore, variables with type <code>dynamic</code> accept any type and any value.</p>
 <p><em>Example 1: Declaring and initializing a dynamic variable, then assigning a different value and type</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main () {
 
   dynamic alphaNumeric = &quot;A&quot;;
@@ -55,7 +55,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <p>In the example above, when declaring the <code>alphaNumeric</code>, it’s being initialized with the value <code>"A"</code> and type <code>dynamic</code>. When assigning the value <code>1</code> to <code>alphaNumeric</code>, the value changed to <code>1</code> but the type remained <code>dynamic</code>.</p>
 <p>Notice that it’s also possible to declare variables without initializing it.</p>
 <p><em>Example 2: First declaring and then initializing a dynamic variable. After, change its value and type</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main () {
 
   dynamic alphaNumeric;
@@ -78,7 +78,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <p>That’s why the first <code>print( alphaNumeric );</code> prints <code>null</code> in the example 2.</p>
 <p>Variables with <code>dynamic</code> type do have access to the methods of its object current type.</p>
 <p><em>Example 3: Using current type object’s methods with dynamic variable</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
 
   dynamic alphaNumeric;
@@ -94,7 +94,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <h2><code>var</code>iables</h2>
 <p>When using the <code>var</code> keyword to declare and initialize a variable, Dart will infer the type of the variable.</p>
 <p><em>Example 4: Declaring and initializing a variable, then changing its value</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main () {
   var name = &quot;Pele&quot;;
   print( name );
@@ -105,7 +105,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
         </deckgo-highlight-code>
 <p>Dart will implicitly infer the type of <code>name</code> as <code>String</code> due to the initialization’s value. Since Dart is a strongly typed language, every next assignment to that variable must have its same type, or the program will face a compilation error. The example below demonstrates the error:</p>
 <p><em>Example 5: Compilation error when changing the type of a initialized variable during an assignment</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   var name = &quot;Renan&quot;
   name = 42 // A value of type &#39;int&#39; can&#39;t be assigned to a variable of type &#39;String&#39;.
@@ -113,7 +113,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
         </deckgo-highlight-code>
 <p>Based on the examples 4 and 5, one might consider that, when using the <code>var</code> keyword you can always change the value but never the type of a variable. With that in mind, consider the example below:</p>
 <p><em>Example 6: Creating a variable with the <code>var</code> keyword and lazily initializing it. Then trying to change its value and type.</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   var name;
   
@@ -129,7 +129,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <h2>Using dart types</h2>
 <p>Another variation to create variables is to explicitly specify its type.</p>
 <p><em>Example 7: Specifying the variable type</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   String name = &quot;pele&quot;;
   print( name );  
@@ -142,7 +142,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <p>You use the <code>final</code> keyword if you are not intending to change the reference of the variable.</p>
 <p>You can either use final to replace <code>var</code> or use <code>final</code> followed by a type.</p>
 <p><em>Example 8: declaring and initializing final variable</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main () {
   final name = &quot;Edson&quot;;
   print( name );
@@ -156,7 +156,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
 <p>Both <code>name</code> and <code>lastName</code> are <code>String</code> types, Dart implicitly infers the <code>name</code>’s type while <code>lastName</code> is explicitly written in the code. The <code>name2</code> shows a <code>final</code> variable being initialized by another variable.</p>
 <p><code>final</code> variables must be declared and initialized at once. Lazy initialization throws a compiler error.</p>
 <p><em>Example 9: Compile error not initializing the final variable</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   final name; // Error: The final variable &#39;;&#39; must be initialized. final name;
   name = &quot;renan&quot;;
@@ -165,7 +165,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
         </deckgo-highlight-code>
 <p>Trying to assign a new value once the <code>final</code> variable is declared and initialized also throws a compilation error.</p>
 <p><em>Example 10: Assigning new value to final variable</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   final name = &quot;Edson&quot;;
   name = &quot;pele&quot;; //  Can&#39;t assign to the final variable &#39;name&#39;. name = &quot;pele&quot;;
@@ -173,7 +173,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
         </deckgo-highlight-code>
 <p>Although you are not able to assign a new value to a <code>final</code> variable, as shown in example 10, you can still change its value if the reference of the object being held in the variable provides an operation that changes its state.</p>
 <p><em>Example 11: Changing the state of a final variable</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   final list = [];
   list.add( &#39;b&#39; );
@@ -182,14 +182,14 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
         </deckgo-highlight-code>
 <p>It’s also possible to combine the <code>final</code> with the <code>dynamic</code> keyword. Combining both enables the variable to be initialized with any type and any value, but once the variable is declared and initialized it’s not possible to assign new values to it.</p>
 <p><em>Example 12: A final and dynamic variable.</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">final dynamic name = &quot;name&quot;;</code>
         </deckgo-highlight-code>
 <p>A <code>final dynamic</code> variable also does not allow lazy initialization.</p>
 <h2><code>const</code>ants</h2>
 <p>The <code>const</code> defines variables that are compile-time constants. The <code>const</code> variables are implicitly <code>final</code>, therefore, most examples that applies to <code>final</code> applies to <code>const</code> as well, with an addition that a <code>const</code> must be initialized with a value at compile-time ( a number or string literal, a <code>const</code> variable, or the result of an arithmetic operation on constant numbers ).</p>
 <p><em>Example 13: Creating const variables</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   const pi = 3.14;
   const double piTimesTwo = pi * 2;
@@ -199,7 +199,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
         </deckgo-highlight-code>
 <p>In the example 13, Dart infers the type of <code>pi</code> to <code>double</code> while <code>piTimesTwo</code> is explicitly annotated in the code. If the variable is a <code>const</code> its value and state will always remain the same as the initialized during compile-time.</p>
 <p><em>Example 14: Runtime error changing the state of a const variable</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   const list = [];
   list.add( &#39;b&#39; ); // Unsupported operation: Cannot add to an unmodifiable list
@@ -208,7 +208,7 @@ data-styled.g12[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"gPbbrt,"}/*!sc
         </deckgo-highlight-code>
 <p>You can also use the <code>const</code> keyword to create constant values and assign it to <code>var</code> or <code>final</code> variables.</p>
 <p><em>Example 15: <code>var</code> holding a not mutable array</em></p>
-<deckgo-highlight-code   >
+<deckgo-highlight-code language="dart"  >
           <code slot="code">main() {
   var list = const [];
   // list.add( &#39;a&#39; ); // invalid
