@@ -44,8 +44,16 @@ module.exports = {
         'name': 'reading-content',
       },
     },
-    'gatsby-transformer-remark',
+    { 'resolve': 'gatsby-transformer-remark',
+      'options': {
+        'plugins': [
+          {
+            'resolve': `gatsby-remark-highlight-code`,
 
+          },
+        ],
+      },
+    },
     {
       'resolve': `gatsby-plugin-google-fonts`,
       'options': {
