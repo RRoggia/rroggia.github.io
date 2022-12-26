@@ -19,7 +19,7 @@ Using the `dynamic` keyword creates variables with `dynamic` type. Dart is a str
 
 *Example 1: Declaring and initializing a dynamic variable, then assigning a different value and type*
 
-```
+```dart
 main () {
 
   dynamic alphaNumeric = "A";
@@ -37,7 +37,7 @@ Notice that it’s also possible to declare variables without initializing it.
 
 *Example 2: First declaring and then initializing a dynamic variable. After, change its value and type*
 
-```
+```dart
 main () {
 
   dynamic alphaNumeric;
@@ -65,7 +65,7 @@ Variables with `dynamic` type do have access to the methods of its object curren
 
 *Example 3: Using current type object’s methods with dynamic variable*
 
-```
+```dart
 main() {
 
   dynamic alphaNumeric;
@@ -86,7 +86,7 @@ When using the `var` keyword to declare and initialize a variable, Dart will inf
 
 *Example 4: Declaring and initializing a variable, then changing its value*
 
-```
+```dart
 main () {
   var name = "Pele";
   print( name );
@@ -100,7 +100,7 @@ Dart will implicitly infer the type of `name` as `String` due to the initializat
 
 *Example 5: Compilation error when changing the type of a initialized variable during an assignment*
 
-```
+```dart
 main() {
   var name = "Renan"
   name = 42 // A value of type 'int' can't be assigned to a variable of type 'String'.
@@ -111,7 +111,7 @@ Based on the examples 4 and 5, one might consider that, when using the `var` key
 
 *Example 6: Creating a variable with the `var` keyword and lazily initializing it. Then trying to change its value and type.*
 
-```
+```dart
 main() {
   var name;
   
@@ -133,7 +133,7 @@ Another variation to create variables is to explicitly specify its type.
 
 *Example 7: Specifying the variable type*
 
-```
+```dart
 main() {
   String name = "pele";
   print( name );  
@@ -154,7 +154,7 @@ You can either use final to replace `var` or use `final` followed by a type.
 
 *Example 8: declaring and initializing final variable*
 
-```
+```dart
 main () {
   final name = "Edson";
   print( name );
@@ -172,7 +172,7 @@ Both `name` and `lastName` are `String` types, Dart implicitly infers the `name`
 
 *Example 9: Compile error not initializing the final variable*
 
-```
+```dart
 main() {
   final name; // Error: The final variable ';' must be initialized. final name;
   name = "renan";
@@ -184,7 +184,7 @@ Trying to assign a new value once the `final` variable is declared and initializ
 
 *Example 10: Assigning new value to final variable*
 
-```
+```dart
 main() {
   final name = "Edson";
   name = "pele"; //  Can't assign to the final variable 'name'. name = "pele";
@@ -195,7 +195,7 @@ Although you are not able to assign a new value to a `final` variable, as shown 
 
 *Example 11: Changing the state of a final variable*
 
-```
+```dart
 main() {
   final list = [];
   list.add( 'b' );
@@ -207,7 +207,7 @@ It’s also possible to combine the `final` with the `dynamic` keyword. Combinin
 
 *Example 12: A final and dynamic variable.*
 
-```
+```dart
 final dynamic name = "name";
 ```
 
@@ -219,7 +219,7 @@ The `const` defines variables that are compile-time constants. The `const` varia
 
 *Example 13: Creating const variables*
 
-```
+```dart
 main() {
   const pi = 3.14;
   const double piTimesTwo = pi * 2;
@@ -232,7 +232,7 @@ In the example 13, Dart infers the type of `pi` to `double` while `piTimesTwo` i
 
 *Example 14: Runtime error changing the state of a const variable*
 
-```
+```dart
 main() {
   const list = [];
   list.add( 'b' ); // Unsupported operation: Cannot add to an unmodifiable list
@@ -244,7 +244,7 @@ You can also use the `const` keyword to create constant values and assign it to 
 
 *Example 15: `var` holding a not mutable array*
 
-```
+```dart
 main() {
   var list = const [];
   // list.add( 'a' ); // invalid
