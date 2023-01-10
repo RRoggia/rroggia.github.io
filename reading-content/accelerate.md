@@ -1,10 +1,14 @@
 ---
 id: '978-1942788331'
 title: 'Accelerate'
+subtitle: 'Building and Scaling High Performing Technology Organizations'
 language: 'en-US'
 status: 'Read'
 coverPath: 'accelerate'
 date: '2021-03-25'
+edition: '1st'
+publishDate: '2018-03-27'
+authors: ['Nicole Forsgren', 'Jez Humble', 'Gene Kim']
 ---
 
 # Praise for accelerate

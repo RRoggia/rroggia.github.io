@@ -1,5 +1,5 @@
 ---
-id: '9788544100882'
+id: '978-8544100882'
 title: 'Scrum'
 subtitle: 'A arte de fazer o dobro do trabalho na metade do tempo'
 language: 'pt-BR'

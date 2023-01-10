@@ -53,7 +53,7 @@ export default function BooksTimeline({ data }) {
             {n.subtitle ? <h4 className="vertical-timeline-element-subtitle">{n.subtitle}</h4> : <></>}
             <p>ISBN: {n.id}</p>
             <p>Edition: {n.edition}</p>
-            <p>Authors: {n?.authors}</p>
+            <p>Authors: {n?.authors?.toString().replace(/,/g, ', ')}</p>
             {n.translations ? <p>Translations: {n?.translations}</p> : <></>}
             <p>Language: {n.language}</p>
           </VerticalTimelineElement>

@@ -1,9 +1,13 @@
 ---
+id: '978-0131479418'
 title: 'Agile estimating and planning'
 language: 'en-US'
 status: 'Read'
 coverPath: 'agile-estimating-and-planning'
 date: '2020-03-01'
+edition: '1st'
+publishDate: '2005-11-01'
+authors: ['Mike Cohn']
 ---
 
 # Foreword - Jim Highsmith
