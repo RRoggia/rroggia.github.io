@@ -5,6 +5,7 @@ language: 'pt-BR'
 status: 'Reading'
 coverPath: 'domain-driven-design'
 date: '2021-04-04'
+publishDate: '2016-12-16'
 ---
 
 # Introdução

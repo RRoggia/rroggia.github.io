@@ -5,6 +5,7 @@ language: 'en-US'
 status: 'Reading'
 coverPath: 'enterprise-integration-patterns'
 date: '2022-12-25'
+publishDate: '2003-10-10'
 ---
 
 # Chapter 7
