@@ -1,11 +1,11 @@
 /* eslint-disable id-length */
-import React, { useState } from 'react'
+import React from 'react'
 import BasePage from '../components/Base/BasePage'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import createNotePath from '../components/Notes/notePath'
 import ReadingContentCard from '../components/ReadingContentCard'
 import useSearchReadingContent from '../components/SearchReadingContent'
+import { allMarkdownRemarkToNotes, transformNotesByReadingStatus } from '../allMarkdownRemarkTransformation'
 
 const Grid = styled.div`
   width: 100%;
@@ -28,70 +28,56 @@ const WhitinGrid = styled.div`
   }
 `
 
-function nodeToNotes( node ) {
-  return {
-    ...node.node.frontmatter,
-    'url': createNotePath( node.node.frontmatter.title )
-  }
-}
-
-export default function Bookshelf( { data } ) {
-  const [ readingContentNameFilter, filterByName ] = useSearchReadingContent()
+export default function Bookshelf({ data }) {
+  const [readingContentNameFilter, filterByName] = useSearchReadingContent()
   const {
-    'allMarkdownRemark': { edges },
     'allFile': { 'edges': covers },
     'file': emptyCover
   } = data
-  const notes = edges.map( nodeToNotes )
-  const notesByStatus = notes
-    .reduce( ( byStatus, note ) => {
-      if ( !byStatus[ note.status ] ) {
-        byStatus[ note.status ] = []
-      }
-      byStatus[ note.status ].push( note )
-      return byStatus
-    }, {} )
+
+  const notesByStatus = allMarkdownRemarkToNotes(data)
+    .reduce(transformNotesByReadingStatus, {})
 
   return (
     <BasePage>
       <h2>Bookshelf</h2>
       {filterByName()}
       <Grid>
-        { [ 'Backlog', 'Planning', 'Reading', 'Read' ].map( status => {
+        {['Backlog', 'Planning', 'Reading', 'Read'].map(status => {
           return (
             <div>
               <h2>
-                { `${status} (${!notesByStatus[ status ] ? 0 : notesByStatus[ status ]
-                  .filter( b => readingContentNameFilter ? b.title.toLowerCase().includes( readingContentNameFilter.toLowerCase() ) : true )
-                  .length})` }
+                {`${status} (${!notesByStatus[status] ? 0 : notesByStatus[status]
+                  .filter(b => readingContentNameFilter ? b.title.toLowerCase().includes(readingContentNameFilter.toLowerCase()) : true)
+                  .length})`}
               </h2>
-              <WhitinGrid key={ status }>
-              {
-                !notesByStatus[ status ] ?
-                  <p>Empty</p> :
-                  notesByStatus[ status ]
-                    .filter( b => readingContentNameFilter ? b.title.toLowerCase().includes( readingContentNameFilter.toLowerCase() ) : true )
-                    .map( b => {
-                      return (
-                        <div key={ b.title }>
-                          <ReadingContentCard
-                            key={ b.title }
-                            title={ b.title }
-                            status={ b.status }
-                            coverPath={ b.coverPath }
-                            language={ b.language }
-                            date={ b.date }
-                            covers={ covers }
-                            emptyCover={ emptyCover }
-                          />
-                        </div>
-                      )
-                    } )
-              }
-            </WhitinGrid>
+              <WhitinGrid key={status}>
+                {
+                  !notesByStatus[status] ?
+                    <p>Empty</p> :
+                    notesByStatus[status]
+                      .filter(b => readingContentNameFilter ? b.title.toLowerCase().includes(readingContentNameFilter.toLowerCase()) : true)
+                      .map(b => {
+                        return (
+                          <div key={b.title}>
+                            <ReadingContentCard
+                              key={b.title}
+                              title={b.title}
+                              status={b.status}
+                              coverPath={b.coverPath}
+                              language={b.language}
+                              date={b.date}
+                              covers={covers}
+                              emptyCover={emptyCover}
+                            />
+                          </div>
+                        )
+                      })
+                }
+              </WhitinGrid>
             </div>
           )
-        } ) }
+        })}
       </Grid>
     </BasePage>
   )

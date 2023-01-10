@@ -6,7 +6,6 @@ import { allMarkdownRemarkToPost } from '../allMarkdownRemarkTransformation'
 
 const IndexPage = ({ data }) => {
   const posts = allMarkdownRemarkToPost(data)
-  console.log(posts)
 
   return (
     <BasePage>
