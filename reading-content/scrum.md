@@ -1,9 +1,15 @@
 ---
-title: 'A arte de fazer o dobro do trabalho na metade do tempo'
+id: '9788544100882'
+title: 'Scrum'
+subtitle: 'A arte de fazer o dobro do trabalho na metade do tempo'
 language: 'pt-BR'
 status: 'Read'
 coverPath: 'a-arte-de-fazer-o-dobro-do-trabalho-na-metade-do-tempo'
 date: '2020-01-01'
+edition: '1st'
+publishDate: '2014-10-25'
+authors: ['Jeff Sutherland']
+translations: ['Natalie Gerhardt']
 ---
 
 # Prefacio

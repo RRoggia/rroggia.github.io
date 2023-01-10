@@ -36,11 +36,15 @@ Each file must have a `frontmatter` identification. For example:
 
 ```
 ---
-title: 'Accelerate'
+id: '9788544100882'
+title: 'Scrum'
+subtitle: 'A arte de fazer o dobro na metade do tempo'
+edition: '1st'
 language: 'en-US'
 status: 'Reading'
-coverPath: 'accelerate'
+coverPath: 'a-arte-de-fazer-o-dobro-do-trabalho-na-metade-do-tempo'
 date: '2021-03-25'
+publishDate: '2020-03-22'
 ---
 ```
 
