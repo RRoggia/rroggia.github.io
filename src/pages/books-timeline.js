@@ -13,11 +13,11 @@ const BookCover = styled(GatsbyImage)`
     margin-bottom: 2rem;
   }
 `
-function getCoverImage( covers, title, emptyCover ) {
-  const coverNode = covers.find( cover => {
+function getCoverImage(covers, title, emptyCover) {
+  const coverNode = covers.find(cover => {
     return cover.node.name === title
-  } )
-  if ( !coverNode ) {
+  })
+  if (!coverNode) {
     return emptyCover
   }
   return coverNode.node
@@ -31,7 +31,7 @@ export default function BooksTimeline({ data }) {
 
   const notes = allMarkdownRemarkToNotes(data)
     .filter(n => n.publishDate)
-    .sort((a,b) => new Date(a.publishDate) - new Date(b.publishDate))
+    .sort((a, b) => new Date(a.publishDate) - new Date(b.publishDate))
 
   console.log(notes)
 
@@ -50,10 +50,11 @@ export default function BooksTimeline({ data }) {
               alt={n.title}
             />
             <h3 className="vertical-timeline-element-title">{n.title}</h3>
+            {n.subtitle ? <h4 className="vertical-timeline-element-subtitle">{n.subtitle}</h4> : <></>}
             <p>ISBN: {n.id}</p>
             <p>Edition: {n.edition}</p>
             <p>Authors: {n?.authors}</p>
-            {n.translations? <p>Translations: {n?.translations}</p> :<></>}
+            {n.translations ? <p>Translations: {n?.translations}</p> : <></>}
             <p>Language: {n.language}</p>
           </VerticalTimelineElement>
         )}

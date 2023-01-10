@@ -38,13 +38,15 @@ Each file must have a `frontmatter` identification. For example:
 ---
 id: '9788544100882'
 title: 'Scrum'
-subtitle: 'A arte de fazer o dobro na metade do tempo'
-edition: '1st'
-language: 'en-US'
-status: 'Reading'
+subtitle: 'A arte de fazer o dobro do trabalho na metade do tempo'
+language: 'pt-BR'
+status: 'Read'
 coverPath: 'a-arte-de-fazer-o-dobro-do-trabalho-na-metade-do-tempo'
-date: '2021-03-25'
-publishDate: '2020-03-22'
+date: '2020-01-01'
+edition: '1st'
+publishDate: '2014-10-25'
+authors: ['Jeff Sutherland']
+translations: ['Natalie Gerhardt']
 ---
 ```
 
