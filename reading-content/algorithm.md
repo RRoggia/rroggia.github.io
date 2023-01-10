@@ -1,9 +1,13 @@
 ---
+id: '978-0321573513'
 title: 'Algorithms'
 language: 'en-US'
 status: 'Reading'
 coverPath: 'algorithm'
 date: '2022-05-09'
+edition: '4th'
+publishDate: '2011-03-19'
+authors: ['Robert Sedgewick', 'Kevin Wayne']
 ---
 
 # One - Fundamentals

@@ -1,9 +1,14 @@
 ---
-title: 'Agile Testing - A practical guide for testers and agile teams'
+id: '978-0321534460'
+title: 'Agile Testing'
+subtitle: 'A practical guide for testers and agile teams'
 language: 'en-US'
 status: 'Read'
 coverPath: 'agile-testing-a-practical-guide-for-testers-and-agile-teams'
 date: '2015-06-01'
+edition: '1st'
+publishDate: '2009-01-01'
+authors: ['Lisa Crispin', 'Janet Gregory']
 ---
 
 # Foreword by Mike Cohn
