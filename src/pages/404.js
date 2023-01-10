@@ -5,7 +5,7 @@ import BasePage from '../components/Base/BasePage'
 const NotFoundPage = () => {
   return (
     <BasePage>
-      <div>In progress</div>
+      <div>I don't have this page yet!! maybe in the future</div>
     </BasePage>
   )
 }

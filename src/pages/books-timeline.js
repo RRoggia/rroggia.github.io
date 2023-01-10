@@ -14,7 +14,6 @@ const BookCover = styled(GatsbyImage)`
   }
 `
 function getCoverImage( covers, title, emptyCover ) {
-  console.log(covers)
   const coverNode = covers.find( cover => {
     return cover.node.name === title
   } )
@@ -32,6 +31,9 @@ export default function BooksTimeline({ data }) {
 
   const notes = allMarkdownRemarkToNotes(data)
     .filter(n => n.publishDate)
+    .sort((a,b) => new Date(a.publishDate) - new Date(b.publishDate))
+
+  console.log(notes)
 
   return (
     <BasePage>
@@ -48,8 +50,11 @@ export default function BooksTimeline({ data }) {
               alt={n.title}
             />
             <h3 className="vertical-timeline-element-title">{n.title}</h3>
-            <p>Language: {n.language}</p>
             <p>ISBN: {n.id}</p>
+            <p>Edition: {n.edition}</p>
+            <p>Authors: {n?.authors}</p>
+            {n.translations? <p>Translations: {n?.translations}</p> :<></>}
+            <p>Language: {n.language}</p>
           </VerticalTimelineElement>
         )}
       </VerticalTimeline>
@@ -65,11 +70,14 @@ export const pageQuery = graphql`
           frontmatter {
             id
             title
+            subtitle
             language
             coverPath
-            status
             date
+            edition
             publishDate
+            authors
+            translations
           }
         }
       }
