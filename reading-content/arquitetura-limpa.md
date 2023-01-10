@@ -1,9 +1,15 @@
 ---
+id: '978-8550804606'
 title: 'Arquitetura Limpa'
+subtitle: 'O Guia do Artesão para Estrutura e Design de Software'
 language: 'pt-BR'
 status: 'Reading'
 coverPath: 'arquitetura-limpa'
 date: '2021-01-01'
+edition: '1st'
+publishDate: '2019-04-23'
+authors: ['Robert Martin']
+translations: ['Samantha Batista']
 ---
 
 # I - Introdução
