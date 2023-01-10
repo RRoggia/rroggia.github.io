@@ -1,25 +1,16 @@
 import React from 'react'
-import { graphql } from 'gatsby'
 import BasePage from '../components/Base/BasePage'
 import Posts from '../components/Posts/Posts'
-import createPostPath from '../components/Posts/postPath'
+import { graphql } from 'gatsby'
+import { allMarkdownRemarkToPost } from '../allMarkdownRemarkTransformation'
 
-function nodeToPost( node ) {
-  return {
-    ...node.node.frontmatter,
-    'excerpt': node.node.excerpt,
-    'timeToRead': node.node.timeToRead,
-    'url': createPostPath( node.node.frontmatter.title )
-  }
-}
-
-const IndexPage = ( { data } ) => {
-  const { 'allMarkdownRemark': { edges } } = data
-  const posts = edges.map( nodeToPost )
+const IndexPage = ({ data }) => {
+  const posts = allMarkdownRemarkToPost(data)
+  console.log(posts)
 
   return (
     <BasePage>
-      <Posts posts={ posts } />
+      <Posts posts={posts} />
     </BasePage>
   )
 }
@@ -27,19 +18,18 @@ const IndexPage = ( { data } ) => {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query {
-    allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/posts/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
-      edges {
-        node {
-          frontmatter {
-            title
-            date
-          }
-          excerpt
-          timeToRead
+query {
+  allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/posts/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
+    edges {
+      node {
+        frontmatter {
+          title
+          date
         }
+        excerpt
+        timeToRead
       }
     }
   }
-`
+}`
 
