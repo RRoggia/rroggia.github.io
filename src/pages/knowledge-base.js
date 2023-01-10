@@ -30,12 +30,17 @@ const data = [
     title: "Book's dependencies",
     description: "An attempt to visualize my books and its dependencies on other bookes. But I'm lazy and didn't finished it.",
   },
+  {
+    href: "/books-timeline",
+    title: "Book's timeline",
+    description: "Timeline with book published date.",
+  },
 ]
 const KnowledgeBase = () => {
   return (
     <BasePage>
       {data && data.map(d => (
-        <a href={d.href}>
+        <a href={d.href} key={d.href}>
           <Section>
             <h2>{d.title}</h2>
             <p>{d.description}</p>
