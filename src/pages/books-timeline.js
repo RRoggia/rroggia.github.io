@@ -1,20 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import createNotePath from '../components/Notes/notePath'
 import BasePage from '../components/Base/BasePage'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import 'react-vertical-timeline-component/style.min.css';
-
-function nodeToNotes(node) {
-  return {
-    ...node.node.frontmatter,
-    'url': createNotePath(node.node.frontmatter.title)
-  }
-}
+import { allMarkdownRemarkToNotes } from '../allMarkdownRemarkTransformation'
 
 const BookCover = styled(GatsbyImage)`
   @media (max-width: 600px) {
@@ -34,12 +26,11 @@ function getCoverImage( covers, title, emptyCover ) {
 
 export default function BooksTimeline({ data }) {
   const {
-    'allMarkdownRemark': { edges },
     'allFile': { 'edges': covers },
     'file': emptyCover
   } = data
-  const notes = edges
-    .map(nodeToNotes)
+
+  const notes = allMarkdownRemarkToNotes(data)
     .filter(n => n.publishDate)
 
   return (

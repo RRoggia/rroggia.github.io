@@ -1,26 +1,16 @@
 import React from 'react'
 import BasePage from '../components/Base/BasePage'
 import Notes from '../components/Notes/Notes'
-import createNotePath from '../components/Notes/notePath'
-
 import { graphql } from 'gatsby'
+import { allMarkdownRemarkToNotes } from '../allMarkdownRemarkTransformation'
 
-function nodeToNotes( node ) {
-  return {
-    ...node.node.frontmatter,
-    'url': createNotePath( node.node.frontmatter.title )
-  }
-}
-
-const NotesPage = ( { data } ) => {
-  const { 'allMarkdownRemark': { edges } } = data
-  const notes = edges
-    .filter( edge => edge.node.html !== '' )
-    .map( nodeToNotes )
+const NotesPage = ({ data }) => {
+  const notes = allMarkdownRemarkToNotes(data)
+    .filter(node => node && node.html !== '')
 
   return (
     <BasePage>
-      <Notes notes={ notes } />
+      <Notes notes={notes} />
     </BasePage>
   )
 }

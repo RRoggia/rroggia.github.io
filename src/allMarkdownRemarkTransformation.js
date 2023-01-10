@@ -17,6 +17,7 @@ export function allMarkdownRemarkToNotes(data) {
   const { 'allMarkdownRemark': { edges } } = data
   return edges.map((node) => ({
     ...node.node.frontmatter,
+    'html': node.node?.html,
     'url': createNotePath(node.node.frontmatter.title)
   }))
 }
