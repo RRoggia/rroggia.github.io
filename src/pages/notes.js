@@ -25,6 +25,7 @@ export const pageQuery = graphql`
           html
           frontmatter {
             title
+            subtitle
             language
             coverPath
             status

@@ -5,7 +5,7 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 const NoteCard = styled.div`
   display: inline;
 `
-const BookCover = styled( GatsbyImage )`
+const BookCover = styled(GatsbyImage)`
   @media (max-width: 600px) {
     margin-bottom: 2rem;
   }
@@ -13,8 +13,8 @@ const BookCover = styled( GatsbyImage )`
 
 const Ribbon = styled.div`
   color: white;
-  background-color: ${( note ) => {
-    switch ( note.status ) {
+  background-color: ${(note) => {
+    switch (note.status) {
       case 'Read':
         return 'green'
       case 'Notes':
@@ -39,29 +39,30 @@ const RibbonKiller = styled.div`
   margin: auto;
 `
 
-function getCoverImage( covers, title, emptyCover ) {
-  const coverNode = covers.find( cover => {
+function getCoverImage(covers, title, emptyCover) {
+  const coverNode = covers.find(cover => {
     return cover.node.name === title
-  } )
-  if ( !coverNode ) {
+  })
+  if (!coverNode) {
     return emptyCover
   }
   return coverNode.node
 }
 
-export default function ReadingContentCard( { title, status, coverPath, language, date, covers, emptyCover } ) {
+export default function ReadingContentCard({ title, subtitle, status, coverPath, language, date, covers, emptyCover, hasRibbon = true }) {
   return (
     <NoteCard >
-      <h3> { title } </h3>
+      <h3> {title} </h3>
+      {subtitle ? <h4> {subtitle} </h4> : <></>}
       <RibbonKiller>
-        <Ribbon status={ status }>{ status }</Ribbon>
+        {hasRibbon ? <Ribbon status={status}>{status}</Ribbon> : <></>}
         <BookCover
-          image={ getImage( getCoverImage( covers, `${coverPath}`, emptyCover ) ) }
-          alt={ title }
+          image={getImage(getCoverImage(covers, `${coverPath}`, emptyCover))}
+          alt={title}
         />
       </RibbonKiller>
-      <p>Language: { language }</p>
-      {date ? <p>Date: { date }</p> : null}
+      <p>Language: {language}</p>
+      {date ? <p>Date: {date}</p> : <></>}
     </NoteCard>
   )
 }

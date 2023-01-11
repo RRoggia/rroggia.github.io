@@ -55,6 +55,7 @@ export default function Notes( { notes } ) {
           >
             <ReadingContentCard
               title={ n.title }
+              subtitle={ n.subtitle }
               status={ n.status }
               coverPath={ n.coverPath }
               language={ n.language }

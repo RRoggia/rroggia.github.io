@@ -6,6 +6,7 @@ import { graphql } from 'gatsby'
 import ReadingContentCard from '../components/ReadingContentCard'
 import useSearchReadingContent from '../components/SearchReadingContent'
 import { allMarkdownRemarkToNotes, transformNotesByReadingStatus } from '../allMarkdownRemarkTransformation'
+import NoteLink from '../components/NoteLink'
 
 const Grid = styled.div`
   width: 100%;
@@ -26,6 +27,15 @@ const WhitinGrid = styled.div`
       padding: 0px 100px 0 30px ;
     }
   }
+`
+
+const CheckNotesAction = styled.p`
+  background: #0000000d;
+  width: 50%;
+  text-align: center;
+  display: inline;
+  padding: 0.3rem;
+  border-radius: 0.3rem;
 `
 
 export default function Bookshelf({ data }) {
@@ -65,13 +75,16 @@ export default function Bookshelf({ data }) {
                             <ReadingContentCard
                               key={b.title}
                               title={b.title}
+                              subtitle={b.subtitle}
                               status={b.status}
                               coverPath={b.coverPath}
                               language={b.language}
                               date={b.date}
                               covers={covers}
                               emptyCover={emptyCover}
+                              hasRibbon={false}
                             />
+                            {b.html ? <NoteLink title={b.title}><CheckNotesAction>Check my notes</CheckNotesAction></NoteLink> : <></>}
                           </div>
                         )
                       })
@@ -90,8 +103,10 @@ export const pageQuery = graphql`
     allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
       edges {
         node {
+          html
           frontmatter {
             title
+            subtitle
             language
             coverPath
             status
