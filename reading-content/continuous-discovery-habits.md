@@ -1,9 +1,14 @@
 ---
+id: '978-1736633304'
 title: 'Continuous Discovery Habits'
+subtitle: 'Discover Products that Create Customer Value and Business Value'
 language: 'en-US'
 status: 'Reading'
 coverPath: 'continuous-discovery-habits'
 date: '2021-09-13'
+edition: '1st'
+publishDate: '2021-04-14'
+authors: ['Teresa Torres']
 ---
 
 # Foreword
