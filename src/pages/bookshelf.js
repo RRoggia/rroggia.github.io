@@ -38,6 +38,8 @@ export default function Bookshelf({ data }) {
   const notesByStatus = allMarkdownRemarkToNotes(data)
     .reduce(transformNotesByReadingStatus, {})
 
+  const filterByTitle = b => readingContentNameFilter ? b.title.toLowerCase().includes(readingContentNameFilter.toLowerCase()) : true
+
   return (
     <BasePage>
       <h2>Bookshelf</h2>
@@ -48,7 +50,7 @@ export default function Bookshelf({ data }) {
             <div>
               <h2>
                 {`${status} (${!notesByStatus[status] ? 0 : notesByStatus[status]
-                  .filter(b => readingContentNameFilter ? b.title.toLowerCase().includes(readingContentNameFilter.toLowerCase()) : true)
+                  .filter(filterByTitle)
                   .length})`}
               </h2>
               <WhitinGrid key={status}>
@@ -56,7 +58,7 @@ export default function Bookshelf({ data }) {
                   !notesByStatus[status] ?
                     <p>Empty</p> :
                     notesByStatus[status]
-                      .filter(b => readingContentNameFilter ? b.title.toLowerCase().includes(readingContentNameFilter.toLowerCase()) : true)
+                      .filter(filterByTitle)
                       .map(b => {
                         return (
                           <div key={b.title}>

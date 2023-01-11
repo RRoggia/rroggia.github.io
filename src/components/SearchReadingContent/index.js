@@ -1,4 +1,3 @@
-import { Placeholder } from 'gatsby-plugin-image';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
@@ -27,7 +26,8 @@ export default function SearchReadingContent() {
 
 	return [
 		readingContentNameFilter,
-		()=> (
+		function filterByName () {
+      return (
 			<Div>
 				<Label for="readingContentFilter">Filter</Label>
 				<Input 
@@ -38,6 +38,7 @@ export default function SearchReadingContent() {
 					placeholder="e.g. Agile"
 				/>
 			</Div>
-		)
+      )
+    }
 	]
 }
