@@ -1,9 +1,13 @@
 ---
+id: '978-1617292934'
 title: 'Camel In Action'
 language: 'en-US'
 status: 'Reading'
 coverPath: 'camel-in-action'
 date: '2022-07-05'
+publishDate: '2018-02-18'
+edition: '2nd'
+authors: ['Claus Ibsen', 'Jonathan Anstey']
 ---
 
 # Part 1 First Steps
