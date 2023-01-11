@@ -1,11 +1,15 @@
 ---
 id: '978-8550800653'
 title: 'Domain Driven Design'
+subtitle: 'Atacando as Complexidades no Coração do Software'
 language: 'pt-BR'
 status: 'Reading'
 coverPath: 'domain-driven-design'
 date: '2021-04-04'
+edition: '3rd'
 publishDate: '2016-12-16'
+authors: ['Eric Evans']
+translations: ['Tibério Júlio Couto Novais']
 ---
 
 # Introdução
