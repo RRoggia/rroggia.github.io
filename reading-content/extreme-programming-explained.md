@@ -1,9 +1,11 @@
 ---
-id: '875-0321278654'
-title: 'Extreme Programming Explained 2nd'
+id: '978-0321278654'
+title: 'Extreme Programming Explained'
+subtitle: 'Embrace Change'
 language: 'en-US'
 status: 'Read'
 coverPath: 'extreme-programming-explained-2nd'
+edition: '2nd'
 date: '2021-06-20'
 references:
  - 978-0135957059
@@ -13,6 +15,8 @@ references:
  - 978-0134757599
  - 978-8573076103
  - 978-8573071702
+publishDate: '2004-11-01'
+authors: [ 'Kent Beck', 'Cynthia Andres']
 ---
 
 # Praise for *Extreme Programming Explained, Second Edition*

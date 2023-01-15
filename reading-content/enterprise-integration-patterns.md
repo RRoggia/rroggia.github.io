@@ -1,11 +1,14 @@
 ---
 id: '978-0321200686'
 title: 'Enterprise Integration Patterns'
+subtitle: 'Designing, Building, and Deploying Messaging Solutions'
 language: 'en-US'
 status: 'Reading'
+edition: '1st'
 coverPath: 'enterprise-integration-patterns'
 date: '2022-12-25'
 publishDate: '2003-10-10'
+authors: ['Gregor Hohpe', 'Bobby Woolf']
 ---
 
 # Chapter 7
