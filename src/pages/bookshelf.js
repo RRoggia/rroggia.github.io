@@ -57,7 +57,7 @@ export default function Bookshelf({ data }) {
       <Grid>
         {['Backlog', 'Planning', 'Reading', 'Read'].map(status => {
           return (
-            <div>
+            <div key={status}>
               <h2>
                 {`${status} (${!notesByStatus[status] ? 0 : notesByStatus[status]
                   .filter(filterByTitle)

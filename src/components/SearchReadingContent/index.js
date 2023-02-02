@@ -29,7 +29,7 @@ export default function SearchReadingContent() {
 		function filterByName () {
       return (
 			<Div>
-				<Label for="readingContentFilter">Filter</Label>
+				<Label htmlFor="readingContentFilter">Filter</Label>
 				<Input 
 					key="readingContentFilter"
 					onChange={ ( { 'target': { value } } ) => {
