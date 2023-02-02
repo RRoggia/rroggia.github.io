@@ -83,6 +83,13 @@ module.exports = {
         'name': 'engineer-diary',
       },
     },
+    {
+        'resolve': 'gatsby-source-filesystem',
+        'options': {
+          'path': `${__dirname}/content/tutorials`,
+          'name': 'tutorials',
+        },
+    },
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

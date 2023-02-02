@@ -12,6 +12,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   const noteTemplate = require.resolve('./src/templates/NoteTemplate.js')
   const folderTemplate = require.resolve('./src/templates/FolderTemplate.js')
   const fileTemplate = require.resolve('./src/templates/FileTemplate.js')
+  const tutorialFileTemplate = require.resolve('./src/templates/TutorialFileTemplate.js')
 
   const result = await graphql(`
     {
@@ -45,6 +46,16 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
+      tutorials: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/content/tutorials/**"}} ) {
+        edges {
+          node {
+            html
+            frontmatter {
+              title
+            }
+          }
+        }
+      }
     }
   ` )
 
@@ -52,9 +63,11 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     reporter.panicOnBuild(`Error while running GraphQL query.`)
     return
   }
+  console.log( result.data)
 
   result.data.posts.edges.forEach(createTemplatePages('posts', blogPostTemplate))
   result.data.notes.edges.forEach(createTemplatePages('notes', noteTemplate))
+  result.data.tutorials.edges.forEach(createTemplatePages('tutorials', tutorialFileTemplate))
 
   const diaryGraph = transform.fileSystemToGraph(result.data.diary.edges)
   createTemplatePagesForDiary(diaryGraph.root, "")
@@ -68,11 +81,13 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
       }
 
       const path = createPath(pathPrefix, title)
+      console.log(`Creating file page ${path}`)
       createPage({
         path,
         'component': template,
         'context': {
           title,
+          html
         },
       })
     }

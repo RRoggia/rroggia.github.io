@@ -35,6 +35,11 @@ const data = [
     title: "Book's timeline",
     description: "Timeline with book published date.",
   },
+  {
+    href: "/tutorials",
+    title: "Tutorials",
+    description: "Courses and Tutorials."
+  }
 ]
 const KnowledgeBase = () => {
   return (
