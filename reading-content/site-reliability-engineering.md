@@ -2,7 +2,7 @@
 id: '978-1491929124'
 title: 'Site Reliability Engineering'
 language: 'en-US'
-status: 'Reading'
+status: 'Planning'
 coverPath: 'site-reliability-engineering'
 date: '2021-05-07'
 ---

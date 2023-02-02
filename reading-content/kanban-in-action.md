@@ -1,7 +1,7 @@
 ---
 title: 'Kanban in action'
 language: 'en-US'
-status: 'Reading'
+status: 'Planning'
 coverPath: 'kanban-in-action'
 date: '2021-08-29'
 ---

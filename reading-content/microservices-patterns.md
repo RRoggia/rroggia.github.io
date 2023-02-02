@@ -1,7 +1,7 @@
 ---
 title: 'Microservices Patterns'
 language: 'en-US'
-status: 'Reading'
+status: 'Planning'
 coverPath: 'microservices-patterns'
 date: '2021-05-04'
 ---

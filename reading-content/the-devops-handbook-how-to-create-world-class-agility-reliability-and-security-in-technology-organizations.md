@@ -2,7 +2,7 @@
 id: '978-1942788003'
 title: 'The DevOPS Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations'
 language: 'en-US'
-status: 'Reading'
+status: 'Planning'
 coverPath: 'the-devops-handbook'
 date: '2022-03-22'
 ---

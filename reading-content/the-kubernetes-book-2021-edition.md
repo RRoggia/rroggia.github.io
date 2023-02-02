@@ -1,7 +1,7 @@
 ---
 title: 'The Kubernetes Book - 2021 edition'
 language: 'en-US'
-status: 'Reading'
+status: 'Planning'
 date: '2022-07-06'
 ---
 

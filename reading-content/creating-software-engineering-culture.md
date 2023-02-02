@@ -2,7 +2,7 @@
 id: '978-0932633330'
 title: 'Creating a Software Engineering Culture'
 language: 'en-US'
-status: 'Reading'
+status: 'Planning'
 coverPath: 'creating-a-software-engineering-culture'
 date: '2022-01-01'
 edition: '1st'

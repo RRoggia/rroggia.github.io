@@ -2,7 +2,7 @@
 id: '978-1942788812'
 title: 'Team Topologies'
 language: 'en-US'
-status: 'Reading'
+status: 'Planning'
 date: '2021-06-21'
 references:
  - 978-8550811147
