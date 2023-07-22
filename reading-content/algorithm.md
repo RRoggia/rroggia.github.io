@@ -371,9 +371,23 @@ authors: ['Robert Sedgewick', 'Kevin Wayne']
 
 > For basic (unordered) implementations, the order of the keys in the output of this test client is not specified (it depends on characteristics of the implementation);
 
+> One straightforward option for the underlying data structure for a symbol table is a linked list of nodes that contain keys and values
+
+> One useful measure is to compute the total cost of searching for all of the keys in the table, divided by N. This quantity is precisely the expected number of compares required for a search under the condition that searches for each key in the table are equally likely. We refer to such a search as a random search hit.
+
+> we use the term search hit to refer to a successful search and search miss to refer to an unsuccessful search.
+
+> (About ordered array binary search) The underlying data structure is a pair of parallel arrays, one for the keys and one for the values. Algorithm 3.2 (BinarySearchST) on the facing page keeps Comparable keys in order in the array, then uses array indexing to enable fast implementation of get() and other operations.
+
+## 3.2 Binary Search Trees (BST)
+
+> a symbol-table implementation that combines the flexibility of insertion in a linked list with the efficiency of search in an ordered array.
+
+> Specifically, using two links per node (instead of the one link per node found in linked lists) leads to an efficient symbol-table implementation based on the binary search tree data structure, which qualifies as one of the most fundamental algorithms in computer science.
+
+> In a binary tree, we have the restriction that every node is pointed to by just one other node, which is called its parent (except for one node, the root, which has no nodes pointing to it), and that each node has exactly two links, which are called its left and right links, that point to nodes called its left and right child, respectively.
 
 
-FrequencyCounter
 
 
 

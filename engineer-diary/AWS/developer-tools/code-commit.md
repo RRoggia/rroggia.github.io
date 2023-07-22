@@ -8,7 +8,11 @@ title: 'Code Commit'
 
 Code Commit is a version control system (VCS) service  that enables you to store and manage Git repositories in your AWS Account.
 
-It offers similiar functionalities like the most known VCS products like GitHub. The **repository**, represents a git repository, is its base unit. For the developers to clone the repository locally they need to setup either the SSH or HTTPS security credentials in the IAM serivce. The user authorization is also managed by the IAM.
+It offers similiar functionalities like the most known VCS products like GitHub.
+
+## Core Concepts
+
+The **repository**, represents a git repository, is its base unit. For the developers to clone the repository locally they need to setup either the SSH or HTTPS security credentials in the IAM serivce. The user authorization is also managed by the IAM.
 
 You can create **Approval rule** templates for pull request (PR) and assign it to repositories, you can define a **minimum number of approvals** and a **pool of approval members**, which only their approval are count for the minimum number of approvals. These rules can be applied only for PRs of a specific destination branch.
 
