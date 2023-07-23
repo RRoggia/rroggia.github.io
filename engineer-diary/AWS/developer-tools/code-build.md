@@ -6,7 +6,7 @@ title: 'Code Build'
 
 ## Overview
 
-Code Build is AWS build service. It provides compute resources to compile, run unit tests and  to produce your artifacts.
+Code Build is AWS build service. It provides compute resources to compile, run unit tests and  to produce your artifacts. This service runs for an AWS Region.
 
 ## Core Concepts
 
@@ -16,7 +16,7 @@ The Build project has an **Environment**, it determines the base image and the I
 
 The build logs can be configured to use both CloudWatch and S3.
 
-A build's artifact can be published to a S3 Bucket.
+A build's **Artifact** can be published to a S3 Bucket.
 
 You can generate Notification based on the Build State Events (Failed, Succeeded,...) this can send notifications to a SNS Topic, Slack or Microsoft Teams.
 

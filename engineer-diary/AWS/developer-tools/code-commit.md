@@ -6,7 +6,7 @@ title: 'Code Commit'
 
 ## Overview
 
-Code Commit is a version control system (VCS) service  that enables you to store and manage Git repositories in your AWS Account.
+Code Commit is a version control system (VCS) service  that enables you to store and manage Git repositories in your AWS Account. This service runs for an AWS Region.
 
 It offers similiar functionalities like the most known VCS products like GitHub.
 
