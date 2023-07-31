@@ -86,22 +86,31 @@ data-styled.g39[id="Note__NoteContainer-sc-i7okha-1"]{content:"fOhQCv,"}/*!sc*/
 <li>
 <p><a href="#deploying-sam-applications">Deploying SAM applications</a></p>
 <ul>
+<li><a href="#step-1-build">Step 1: Build</a></li>
 <li><a href="#step-2-package">Step 2: Package</a></li>
 </ul>
 </li>
+<li><a href="#step-3-deploy">Step 3: Deploy</a></li>
 <li><a href="#inspecting-a-stack-from-the-command-line">Inspecting a Stack from the command line</a></li>
 </ul>
 </li>
 <li>
 <p><a href="#4-development-and-troubleshooting">4. Development and Troubleshooting</a></p>
 <ul>
+<li>
+<p><a href="#retrieving-execution-logs">Retrieving execution logs</a></p>
+<ul>
 <li><a href="#retrieving-logs-from-the-command-line">Retrieving logs from the command line</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>
 <p><a href="#5-safe-deployment">5. Safe Deployment</a></p>
 <ul>
 <li><a href="#function-configuration">Function configuration</a></li>
+<li><a href="#versions-and-aliases">Versions and aliases</a></li>
+<li><a href="#gradual-deployments">Gradual deployments</a></li>
 </ul>
 </li>
 </ul>
@@ -119,9 +128,6 @@ data-styled.g39[id="Note__NoteContainer-sc-i7okha-1"]{content:"fOhQCv,"}/*!sc*/
 </blockquote>
 <blockquote>
 <p>Serverless applications only need to provide the code that should run when an event happens and configure the triggers in the execution environment to call that code.</p>
-</blockquote>
-<blockquote>
-<p>The right comparison to think about is WiFi. When you browse the internet using a ‘wireless’ connection in a coffee shop, your device talks to a router just a few feet away, and there is a wire coming out of that router and taking your packets to the internet. But you don’t need to care about that wire or manage it actively. AWS Lambda is serverless in the same way WiFi is wireless. here are network servers, virtual and physical machines running in the background, but you don’t really need to care about them any more.</p>
 </blockquote>
 <p>Two main benefits:</p>
 <ol>
@@ -228,7 +234,7 @@ data-styled.g39[id="Note__NoteContainer-sc-i7okha-1"]{content:"fOhQCv,"}/*!sc*/
 <p>With Node.js, all tasks run through a single core anyway, so with JavaScript you won’t get any further processing speed improvements if you ask for more than 1.75 GB. With Java or other languages that can take advantage of multiple cores, asking for the maximum allowed memory might give you faster responses and lower cost for CPU-intensive tasks.</p>
 </blockquote>
 <blockquote>
-<p>the best way to optimise costs and performance is to explore various parameter combinations</p>
+<p>the best way to optimize costs and performance is to explore various parameter combinations</p>
 </blockquote>
 <h3>When to use Lambda</h3>
 <blockquote>
@@ -255,10 +261,15 @@ data-styled.g39[id="Note__NoteContainer-sc-i7okha-1"]{content:"fOhQCv,"}/*!sc*/
 <h1>Part I - Basic development tasks</h1>
 <h2>2. Setup tools for local development</h2>
 <blockquote>
-<p>The AWS Serverless Application 0odel (SA0) is a set of products that simplify developing, testing and de
-ploying applications using AWS Lambda.</p>
+<p>The AWS Serverless Application Model (SAM) is a set of products that simplify developing, testing and deploying applications using AWS Lambda.</p>
 </blockquote>
 <h2>3. Create a web service</h2>
+<blockquote>
+<p>SAM command line tools can generate sample projects and events, so you can get started easily</p>
+</blockquote>
+<blockquote>
+<p>The --runtime argument tells SAM which programming language we’ll use to write the Lambda function, or more precisely which execution environment it is intended to run in.</p>
+</blockquote>
 <blockquote>
 <p>Lambda has pre-packaged execution environments, called runtimes, for many popular language</p>
 </blockquote>
@@ -268,6 +279,9 @@ ploying applications using AWS Lambda.</p>
 </blockquote>
 <blockquote>
 <p>We can modify the template file, and CloudFormation will reconfigure or delete only the resources that actually need to change. If a resource update fails for whatever reason, CloudFormation will reset all the other resources to the previous configuration, managing a whole set of infrastructural components as a single unit.</p>
+</blockquote>
+<blockquote>
+<p>The transform setting activates SAM features and resources, allowing us to use compact descriptions for many building blocks commonly used in serverless applications.</p>
 </blockquote>
 <h3>The lambda programming model</h3>
 <blockquote>
@@ -288,9 +302,24 @@ ploying applications using AWS Lambda.</p>
 <li>Deploy: upload the packaged template to CloudFormation, and execute the changes to create a running infrastructure.</li>
 </ol>
 </blockquote>
+<h4>Step 1: Build</h4>
+<blockquote>
+<p><code>sam build</code></p>
+</blockquote>
+<blockquote>
+<p>If your build process needs to compile binary executables, pass the --use-container option to sam build. his will execute the build process inside a Docker container matching the Lambda runtime.</p>
+</blockquote>
 <h4>Step 2: Package</h4>
 <blockquote>
 <p>we will first need an S3 bucket to host our function packages. In the continuous delivery jargon, this will be our binary artefact storage.</p>
+</blockquote>
+<blockquote>
+<p>SAM has a convenient shortcut to zip up and upload function packages to S3.</p>
+<p><code>sam package --s3-bucket s3-unique-bucket-name --output-template-file output.yaml</code></p>
+</blockquote>
+<h3>Step 3: Deploy</h3>
+<blockquote>
+<p><code>sam deploy --template-file output.yaml --stack-name sam-test-1 --capabilities CAPABILITY_IAM</code></p>
 </blockquote>
 <h3>Inspecting a Stack from the command line</h3>
 <blockquote>
@@ -298,22 +327,41 @@ ploying applications using AWS Lambda.</p>
 </blockquote>
 <h2>4. Development and Troubleshooting</h2>
 <blockquote>
+<p>I strongly suggest using SAM and CloudFormation to manage functions that you actually care about, in order to perform reliable and reproducible deployments.</p>
+</blockquote>
+<blockquote>
 <p>Reliable centralised logging for a highly distributed system is a huge technical challenge, but
 with Lambda that comes with the basic setup and is included in the price.</p>
 </blockquote>
-<h3>Retrieving logs from the command line</h3>
+<h3>Retrieving execution logs</h3>
+<blockquote>
+<p>CloudWatch groups logs into two levels of hierarchy: log groups and log streams. Log groups correspond to a logical service. AWS Lambda creates a log group for each function.</p>
+</blockquote>
+<blockquote>
+<p> A single log group can have multiple log streams, which typically correspond to a single running process.</p>
+</blockquote>
+<blockquote>
+<p>Lambda creates a log stream for each container instance (each cold start).</p>
+</blockquote>
+<blockquote>
+<p>To show older messages, specify a starting point with <code>-s</code>. You can also restrict the end of the message period with the <code>-e</code> option. Provide a relative value such as <code>5mins ago</code> or a speciﬁc time in the format <code>YYYY-MM-DD HH:MM:SS</code>.</p>
+</blockquote>
+<h4>Retrieving logs from the command line</h4>
+<blockquote>
+<p>You can either provide the full physical name of the function, in which case the stack name is not important, or provide the logical name of the function and the stack name.</p>
+</blockquote>
 <h2>5. Safe Deployment</h2>
 <blockquote>
 <p>a Lambda deployment does not create or destroy any containers. It only creates a new function configuration.</p>
 </blockquote>
 <h3>Function configuration</h3>
 <blockquote>
-<p>With AWS Lambda in particular, events do not target a particular function. hey target a particular version of a function, or, more precisely, events are connected to a version of the function configuration.</p>
+<p>With AWS Lambda in particular, events do not target a particular function. They target a particular version of a function, or, more precisely, events are connected to a version of the function configuration.</p>
 </blockquote>
 <blockquote>
 <p>Function configuration describes all the properties of a runtime environment necessary to spin up a new container.</p>
 <ul>
-<li>The runtime type and </li>
+<li>The runtime type and version</li>
 <li>How much memory and time the function can use</li>
 <li>The URL of the function code package</li>
 <li>The IAM role specifying what this function can access in AWS and who can call this function</li>
@@ -321,10 +369,39 @@ with Lambda that comes with the basic setup and is included in the price.</p>
 </ul>
 </blockquote>
 <blockquote>
+<p>(About $LATEST Version) When we run <code>sam deploy</code>, Lambda only needs to update this conﬁguration; it does not really need to start up or stop any containers.</p>
+</blockquote>
+<h3>Versions and aliases</h3>
+<blockquote>
 <p>Published versions are read-only copies of function configurations, and they are not wiped out after a subsequent update.</p>
 </blockquote>
 <blockquote>
+<p>An event source can request that a particular published function version handles its events.</p>
+</blockquote>
+<blockquote>
 <p>Lambda allows us to declare configuration aliases, meaningful names pointing to a numerical version. For example, we can create an alias called live to represent a published configuration version, and set up all event sources to request that alias. After an application update, we do not need to rewire event sources.</p>
+</blockquote>
+<blockquote>
+<p>When an AWS Serverless Function template includes the AutoPublishAlias property, SAM will automatically conﬁgure all event sources speciﬁed inside the resource to request that particular alias.</p>
+</blockquote>
+<blockquote>
+<p>Unlike application hosts where rolling back to a previous version requires another deployment, switching back and forth between versions with Lambda can be almost instant. You can also use old published versions for as long as you want.</p>
+</blockquote>
+<h3>Gradual deployments</h3>
+<blockquote>
+<p>An alias always points to some numerical version, but it can point to more than one version at the same time.</p>
+</blockquote>
+<blockquote>
+<p>Lambda supports automatic load balancing between versions assigned to the same alias, using a feature called routing conﬁguration.</p>
+</blockquote>
+<blockquote>
+<p>SAM can automate two types of deployment preference: linear and canary.</p>
+</blockquote>
+<blockquote>
+<p>Linear deployments work by incrementally moving trafﬁc during a period of time.</p>
+</blockquote>
+<blockquote>
+<p>Canary deployments work in two steps. At the start of the deployment, CodeDeploy sets up routing so that the new version gets a speciﬁc percentage of requests. If there are no problems until the end of the deployment, the alias is completely assigned to the new version.</p>
 </blockquote>
 <h1>Part II - Working with AWS Services</h1>
 <h2>6. Handling HTTP Requests</h2>
