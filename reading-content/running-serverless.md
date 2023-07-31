@@ -12,8 +12,6 @@ date: '2021-01-01'
 
 > Serverless applications only need to provide the code that should run when an event happens and configure the triggers in the execution environment to call that code.
 
-> The right comparison to think about is WiFi. When you browse the internet using a ‘wireless’ connection in a coffee shop, your device talks to a router just a few feet away, and there is a wire coming out of that router and taking your packets to the internet. But you don’t need to care about that wire or manage it actively. AWS Lambda is serverless in the same way WiFi is wireless. here are network servers, virtual and physical machines running in the background, but you don’t really need to care about them any more.
-
 Two main benefits:
 
 1. Short time to market
@@ -99,7 +97,7 @@ Two main benefits:
 
 > With Node.js, all tasks run through a single core anyway, so with JavaScript you won’t get any further processing speed improvements if you ask for more than 1.75 GB. With Java or other languages that can take advantage of multiple cores, asking for the maximum allowed memory might give you faster responses and lower cost for CPU-intensive tasks.
 
-> the best way to optimise costs and performance is to explore various parameter combinations
+> the best way to optimize costs and performance is to explore various parameter combinations
 
 ### When to use Lambda
 
@@ -121,10 +119,13 @@ Two main benefits:
 
 ## 2. Setup tools for local development
 
-> The AWS Serverless Application 0odel (SA0) is a set of products that simplify developing, testing and de
-> ploying applications using AWS Lambda.
+> The AWS Serverless Application Model (SAM) is a set of products that simplify developing, testing and deploying applications using AWS Lambda.
 
 ## 3. Create a web service
+
+> SAM command line tools can generate sample projects and events, so you can get started easily
+
+> The --runtime argument tells SAM which programming language we’ll use to write the Lambda function, or more precisely which execution environment it is intended to run in.
 
 > Lambda has pre-packaged execution environments, called runtimes, for many popular language
 
@@ -133,6 +134,8 @@ Two main benefits:
 > CloudFormation converts a source file describing an application infrastructure (called template) into a set of running, configured cloud resources (called stack).
 
 > We can modify the template file, and CloudFormation will reconfigure or delete only the resources that actually need to change. If a resource update fails for whatever reason, CloudFormation will reset all the other resources to the previous configuration, managing a whole set of infrastructural components as a single unit.
+
+> The transform setting activates SAM features and resources, allowing us to use compact descriptions for many building blocks commonly used in serverless applications.
 
 ### The lambda programming model
 
@@ -150,9 +153,23 @@ Two main benefits:
 > 2. Package: bundle each function into a self-contained ZIP archive and up load to S3 , and produce a copy of the source application template that points to remote resources instead of local directories.
 > 3. Deploy: upload the packaged template to CloudFormation, and execute the changes to create a running infrastructure.
 
+#### Step 1: Build
+
+> `sam build`
+
+> If your build process needs to compile binary executables, pass the --use-container option to sam build. his will execute the build process inside a Docker container matching the Lambda runtime.
+
 #### Step 2: Package
 
 > we will first need an S3 bucket to host our function packages. In the continuous delivery jargon, this will be our binary artefact storage.
+
+> SAM has a convenient shortcut to zip up and upload function packages to S3.
+>
+> `sam package --s3-bucket s3-unique-bucket-name --output-template-file output.yaml`
+
+### Step 3: Deploy
+
+> `sam deploy --template-file output.yaml --stack-name sam-test-1 --capabilities CAPABILITY_IAM`
 
 ### Inspecting a Stack from the command line
 
@@ -160,10 +177,24 @@ Two main benefits:
 
 ## 4. Development and Troubleshooting
 
+> I strongly suggest using SAM and CloudFormation to manage functions that you actually care about, in order to perform reliable and reproducible deployments.
+
 > Reliable centralised logging for a highly distributed system is a huge technical challenge, but
 > with Lambda that comes with the basic setup and is included in the price.
 
-### Retrieving logs from the command line
+### Retrieving execution logs
+
+> CloudWatch groups logs into two levels of hierarchy: log groups and log streams. Log groups correspond to a logical service. AWS Lambda creates a log group for each function.
+
+>  A single log group can have multiple log streams, which typically correspond to a single running process.
+
+> Lambda creates a log stream for each container instance (each cold start).
+
+> To show older messages, specify a starting point with `-s`. You can also restrict the end of the message period with the `-e` option. Provide a relative value such as `5mins ago` or a speciﬁc time in the format `YYYY-MM-DD HH:MM:SS`.
+
+#### Retrieving logs from the command line
+
+> You can either provide the full physical name of the function, in which case the stack name is not important, or provide the logical name of the function and the stack name.
 
 ## 5. Safe Deployment
 
@@ -171,19 +202,41 @@ Two main benefits:
 
 ### Function configuration
 
-> With AWS Lambda in particular, events do not target a particular function. hey target a particular version of a function, or, more precisely, events are connected to a version of the function configuration.
+> With AWS Lambda in particular, events do not target a particular function. They target a particular version of a function, or, more precisely, events are connected to a version of the function configuration.
 
 > Function configuration describes all the properties of a runtime environment necessary to spin up a new container.
 >
-> * The runtime type and 
+> * The runtime type and version
 > * How much memory and time the function can use
 > * The URL of the function code package
 > * The IAM role specifying what this function can access in AWS and who can call this function
 > * Error recovery, logging and environment parameters of the function
 
+> (About $LATEST Version) When we run `sam deploy`, Lambda only needs to update this conﬁguration; it does not really need to start up or stop any containers.
+
+### Versions and aliases
+
 > Published versions are read-only copies of function configurations, and they are not wiped out after a subsequent update.
 
+> An event source can request that a particular published function version handles its events.
+
 > Lambda allows us to declare configuration aliases, meaningful names pointing to a numerical version. For example, we can create an alias called live to represent a published configuration version, and set up all event sources to request that alias. After an application update, we do not need to rewire event sources.
+
+> When an AWS Serverless Function template includes the AutoPublishAlias property, SAM will automatically conﬁgure all event sources speciﬁed inside the resource to request that particular alias.
+
+> Unlike application hosts where rolling back to a previous version requires another deployment, switching back and forth between versions with Lambda can be almost instant. You can also use old published versions for as long as you want.
+
+### Gradual deployments
+
+> An alias always points to some numerical version, but it can point to more than one version at the same time.
+
+> Lambda supports automatic load balancing between versions assigned to the same alias, using a feature called routing conﬁguration.
+
+> SAM can automate two types of deployment preference: linear and canary.
+
+> Linear deployments work by incrementally moving trafﬁc during a period of time.
+
+> Canary deployments work in two steps. At the start of the deployment, CodeDeploy sets up routing so that the new version gets a speciﬁc percentage of requests. If there are no problems until the end of the deployment, the alias is completely assigned to the new version.
 
 # Part II - Working with AWS Services
 
