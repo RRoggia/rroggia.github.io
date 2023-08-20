@@ -131,7 +131,17 @@ It can be used to return parts of an object instead of the whole object. S3 Sele
 
 ### S3 Events
 
-### 
+When **Event Notification** are enabled S3 sends an event to a **Destination** which can be a Lambda, SQS or SNS whenever the event occurs in the bucket. There are several **event types**  that you can configure:
+
+- Object create
+- Object removal
+- Object restore
+- Changing Object ACL
+- Object tagging
+- Reduced Redundancy Storage
+- Replication
+- Lifecycle
+- Intelligent tiering
 
 
 
