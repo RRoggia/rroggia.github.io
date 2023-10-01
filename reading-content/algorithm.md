@@ -387,7 +387,76 @@ authors: ['Robert Sedgewick', 'Kevin Wayne']
 
 > In a binary tree, we have the restriction that every node is pointed to by just one other node, which is called its parent (except for one node, the root, which has no nodes pointing to it), and that each node has exactly two links, which are called its left and right links, that point to nodes called its left and right child, respectively.
 
+> we can view each link as pointing to a binary tree, the tree whose root is the referenced node.
 
+> The running times of algorithms on binary search trees depend on the shapes of the trees, which, in turn, depend on the order in which keys are inserted.
+
+> Adding the depths of all nodes, we get a quantity known as the internal path length of the tree
+
+> Good performance of the basic BST implementation is dependent on the keys being sufficiently similar to random keys that the tree is not likely to contain many long paths.
+
+## 3.3 Balanced Search Trees
+
+> In an N-node tree, we would like the height to be ~lg N so that we can guarantee that all searches can be completed in ~lg N compares, just as for binary search
+
+### 2-3 Search Trees
+
+> The primary step to get the flexibility that we need to guarantee balance in search trees is to allow the nodes in our trees to hold more than one key.
+
+> Referring to the nodes in a standard BST as 2-nodes (they hold two links and one key), we now also allow 3-nodes, which hold three links and two keys
+
+> A 2-3 search tree is a tree that is either empty or
+>
+> - A 2-node, with one key (and associated value) and two links, a left link to a 2-3 search tree with smaller keys, and a right link to a 2-3 search tree with larger keys
+> - A 3-node, with two keys (and associated values) and three links, a left link to a 2-3 search tree with smaller keys, a middle link to a 2-3 search tree with keys between the node’s keys, and a right link to a 2-3 search tree with larger keys
+>
+> As usual, we refer to a link to an empty tree as a null link.
+
+> A perfectly balanced 2-3 search tree is one whose null links are all the same distance from the root.
+
+> The primary reason that 2-3 trees are useful is that we can do insertions and still maintain perfect balance.
+
+> The 4-node may be the root; it may be the left child or the right child of a 2-node; or it may be the left child, middle child, or right child of a 3-node.
+
+> These local transformations preserve the global properties that the tree is ordered and perfectly balanced: the number of links on the path from the root to any null link is the same.
+
+> If the length of every path from a root to a null link is h before the transformation, then it is h after the transformation.
+
+> The primary purpose of balancing is to provide insurance against a bad worst case, but we would prefer the overhead cost for that insurance to be low.
+
+### Red Black BST
+
+> We will consider a simple representation known as a red-black BST that leads to a natural implementation
+
+> We think of the links as being of two different types: red links, which bind together two 2-nodes to represent 3-nodes, and black links, which bind together the 2-3 tree.
+
+> satisfying the following three restrictions:
+>
+> - Red links lean left.
+> - No node has two red links connected to it.
+> - The tree has perfect  black balance: every path from the root to a null link has the same number of black links.
+
+> Given any 2-3 tree, we can immediately derive a corresponding BST, just by converting each node as specified.
+
+> red-black BSTs are both BSTs and 2-3 trees
+
+> we can maintain our 1-1 correspondence between 2-3 trees and red-black BSTs during insertion by judicious use of three simple operations: left rotate, right rotate, and color flip.
+
+## My Summary
+
+### Balanced Search Trees
+
+Balanced Search Trees aim to avoid the Binary Search Tree worst case scenario (having all elements pending to the same side of a three). By having a balanced tree we guarantee a logarithmic time during the search due to the tree's height. it allows the client to create its tree using any sequence of keys and having great search performance.
+
+#### 2-3 Search 
+
+These trees can have the following type of nodes:
+
+- Null link
+- 2 node: 1 Key and 2 links (smaller than Key and higher than Key)
+- 3 node: 2 Keys and 3 links (smaller than Key 1, between Key 1 and Key 2 and higher than Key 2)
+
+The 2-3 tree is balanced, meaning, all the leaf nodes (null links) are the same distance to the root node. That's why enabling more than one key per node is important. it allows you to transform a 2 node into a 3 node when adding a key without losing the balance of the tree.
 
 
 

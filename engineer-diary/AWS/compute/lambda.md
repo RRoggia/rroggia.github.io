@@ -54,10 +54,9 @@ As mentioned above Lambdas handle concurrency, multiple invocations at same time
 Lambda offers two features to help you to deal with concurrency:
 
 - **Reserved**: Reserves a portion of the Concurrency pool for a specific function. Avoiding that less important functions cause disruption in more important functions.
-
 - **Provisioned**: Pre-initializes a number of Execution Environment ensuring its piece in the concurrency pool and reducing cold starts.
 
-  
+##  TO DO
 
 **Log**
 
