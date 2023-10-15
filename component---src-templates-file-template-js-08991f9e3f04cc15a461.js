@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrroggia_github_io=self.webpackChunkrroggia_github_io||[]).push([[815],{9891:function(e,t,n){n.r(t),n.d(t,{default:function(){return l}});var r=n(7294),a=n(5695);function l(e){var t=e.pageContext,n=t.frontmatter,l=t.html;t.tableOfContents;return r.createElement(a.Z,null,r.createElement("div",{className:"content"},r.createElement("h1",null,n.title),r.createElement("div",{dangerouslySetInnerHTML:{__html:l}})))}}}]);
+//# sourceMappingURL=component---src-templates-file-template-js-08991f9e3f04cc15a461.js.map
