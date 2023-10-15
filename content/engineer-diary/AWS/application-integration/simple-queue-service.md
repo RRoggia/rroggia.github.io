@@ -11,10 +11,24 @@ SQS is a regional fully managed queue service commonly used to integrate distrib
 
 ## Core Concept
 
-SQS supports two types of Queues:
+The main core concept of SQS are the queues. It supports two types of **Queues**:
 
 - **FIFO**: The messages are **delivered exactly once** using the First In, First Out as the **ordering mechanism**. However, it has a limit of 3000 messages per second. Its performance is reduced due to the order and delivery guarantees. It supports up to 300 messages per second or using batch (10 events in a message) 3000 messages. Queues require the **.fifo** suffix.
 - **Standard**: Best effort ordering mechanism (**order is not guaranteed**), and a message is delivered **at least once** (potentially more times).
+
+Once you create the queue you can't change its type.
+
+The queue receive events through the SQS `sendMessage` or `sendMessageBatch` API. The **message size** can be up to 256 KB for a single message or in the Batch API the number of message times the maximum message size. 
+
+A message remains in the queue until it is deleted, is moved or expires. Messages expire when reach the maximum **retention period**. It can range between 1 minute to 14 days. To move a message you configure a **Redrive policy** to send undeliverable messages (could not be processed after up to 1000 attempts or expired messages) to a **Dead Letter Queue (DLQ)**. The Redrive policy specifies the source queue, the DLQ where the message is going to be moved and the number of times a consumer attempts to process a message (`maxReceiveCount`).
+
+DLQ are used to handle the lifecycle of unconsumed messages . By default, all queues can be used as DLQ. However, the source and DLQ must have the same type both standard or both FIFO). You can also enable the **Redrive allow policy** in a queue to detail the source queues you want to allow or deny sources queues to move messages to the queue.
+
+
+
+# TODO
+
+
 
 # Simple Queue Service
 
@@ -27,10 +41,6 @@ Pooling
 - Long (wait Time Seconds)
   - up to 20 seconds
 
-messages can live up to 14 days in queue
-
-messages up to 256
-
 visibility timeout
 
 - default is 30 seconds
@@ -38,15 +48,11 @@ visibility timeout
 - the time the message is hidden in the queue
 - retries if not explicit delete
 
-DLQ
+
 
 ASG can scale based on queue size
 
 Lambdas can be triggered by messages in queue
-
-#  SQS Standard vs FIFO Queues
-
-fifo queue must have the .fifo suffix
 
 # SQS Delay Queues
 
@@ -65,12 +71,6 @@ DelaySeconds
 # SQS Dead-Letter Queues
 
 receiveCountAttribute is increased every time the message is received
-
-redrive policy
-
-- specifies source queue
-- where the messages will be moved
-- defines the maxReceiveCOunt
 
 retention period should be longer than queue
 
