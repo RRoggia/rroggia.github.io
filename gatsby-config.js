@@ -33,14 +33,14 @@ module.exports = {
     {
       'resolve': 'gatsby-source-filesystem',
       'options': {
-        'path': `${__dirname}/posts`,
+        'path': `${__dirname}/content/posts`,
         'name': 'posts',
       },
     },
     {
       'resolve': 'gatsby-source-filesystem',
       'options': {
-        'path': `${__dirname}/reading-content`,
+        'path': `${__dirname}/content/reading-content`,
         'name': 'reading-content',
       },
     },
@@ -79,7 +79,7 @@ module.exports = {
     {
       'resolve': 'gatsby-source-filesystem',
       'options': {
-        'path': `${__dirname}/engineer-diary`,
+        'path': `${__dirname}/content/engineer-diary`,
         'name': 'engineer-diary',
       },
     },
