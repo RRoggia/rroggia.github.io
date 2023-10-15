@@ -2,11 +2,12 @@
 The intent is to have **very** simplistic blog where I can centralize information about me, things I read, and things I would like to share.
 
 - [My blog](#my-blog)
-  - [Structure](#structure)
-    - [Config](#config)
-    - [Markup Folders](#markup-folders)
-      - [Reading Content Folder](#reading-content-folder)
+  - [Writing Content](#writing-content)
+      - [Reading Content Folder](#reading-content)
       - [Posts](#posts)
+      - [Engineer Diary](#engineer-diary)
+  - [App Structure](#app-structure)
+    - [Config](#config)
     - [Pages](#pages)
     - [Templates](#templates)
     - [Covers](#covers)
@@ -17,20 +18,11 @@ The intent is to have **very** simplistic blog where I can centralize informatio
     - [Deploy to production](#deploy-to-production)
       - [Automatic Deploy](#automatic-deploy)
 
-## Structure
-I tried my best to differentiate what is content, and what is part of the blog structure.
+## Writing Content
+To write content you need to add a markdown (`.md`) file to one of the folders described below. These folders represent the content shown in the blog.
 
-### Config
-
-In the root folder the `gatsby-config.js` configures the structure described below.
-
-It also adds metadata to the blog like the Google Analytics TAG and my social network tags.
-
-### Markup Folders
-These folders represent the content shown in the blog.
-
-#### Reading Content Folder
-Contains the data used by the `Notes` and the `Bookshelf` pages. For files that only contains the `frontmatter` will not have its path generated. Therefore, you have to add a `html` to your `.md` and it will generate a path for it during build time. Its path is created based on the file name.
+### Reading Content
+This is the main data source for the app. It contains the data used by the `/notes`, `/bookshelf`, `/book-dependencies` and `/books-timeline` pages. The markdown files start with a `frontmatter` in the beggining of the file. However, for files that only contains the `frontmatter` and no content it will not have its path generated. Therefore, you have to add a `html` to your `.md` and it will generate a path for it during build time. Its path is created based on the file name.
 
 Each file must have a `frontmatter` identification. For example:
 
@@ -47,6 +39,8 @@ edition: '1st'
 publishDate: '2014-10-25'
 authors: ['Jeff Sutherland']
 translations: ['Natalie Gerhardt']
+references:
+ - <book-id>
 ---
 ```
 
@@ -54,7 +48,7 @@ translations: ['Natalie Gerhardt']
 - Notes are sorted by Date. The date represents either the finish reading date or the last time I read it.
 - If a note doesn't have a `title` or `html` (markup content) a note won't be created, but it will appear in the bookshelf
 
-#### Posts
+### Posts
 Each Post will have its own path created during build time. Its path is created based on the file name.
 
 Each file must have a `frontmatter` identification. For example:
@@ -66,6 +60,27 @@ published: true
 date: '2019-11-06'
 ---
 ```
+
+### Engineer Diary
+Similar to the other content it's also written in `.md`. The content structure mimics the folder/file structure in the `engineer-diary` folder. Adding a new file automatically generates all the paths to navigate to that file.
+
+ Each file must have a `frontmatter` identification. For example:
+```
+---
+title: 'Event Bridge'
+---
+```
+
+The folder's name is used for its path.
+
+## App Structure
+I tried my best to differentiate what is content, and what is part of the blog structure.
+
+### Config
+
+In the root folder the `gatsby-config.js` configures the structure described below.
+
+It also adds metadata to the blog like the Google Analytics TAG and my social network tags.
 
 ### Pages
 The `pages` folder contains the resources created statically. The file name represents the path you can access it in production. For example, you can access the `notes` pages in the `/notes` path.
