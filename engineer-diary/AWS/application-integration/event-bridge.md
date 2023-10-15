@@ -25,6 +25,8 @@ An Event bus is a router that receives **events** from multiple **sources** and 
 - Custom: Customer created event bus. Can be used to integrate your applications.
 - SaaS provider: It's used to receive events from AWS Partners like Salesforce.
 
+![Event bus types](/images/engineer-diary/AWS/application-integration/event-bridge/event-bus-types.png)
+
 Each Event bus can have up to 300 Event rules, an event rule can be configured to send the event to other Event bus in the same and different accounts and in different regions.
 
 An **Event Rule** matches incoming events and send to targets for processing. An event rule is assigned to an event bus. AWS provides managed rules which are created by them. There are two types of Event rules:
