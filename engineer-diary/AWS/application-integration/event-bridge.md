@@ -4,6 +4,10 @@ title: 'Event Bridge'
 
 [Documentation](https://docs.aws.amazon.com/eventbridge/)
 
+Demo:
+
+- [Publish to Event Bus and send to SQS Target](https://github.com/RRoggia/aws-workloads/tree/main/event-bridge)
+
 ## Overview
 
 Event Bridge provides functionality to integrate applications using events. The event bridge is a regional service hosted by AWS where you can create your own Event Buses or Pipes and configure it to send the events to other services and applications.
@@ -34,9 +38,18 @@ Besides the event matching mechanism the Event Rule also expects from 1 to 5 tar
 
 A Target provides some extra functionality, for example it allows you to configure **Input transformation** to manipulate the event data before sending it to its target, it allows to send the event to a SQS Dead Letter Queue in case the targets fails to receive the event and configure retrial policies. In case an Event rule is triggered and has multiple targets they run in parallel.
 
+Event bus also supports **Archive**. An archive receives all events of a given event bus, or, you can specify Event Patterns to filter events that are sent to the archive. Archives can have indefinite retention periods or any custom time.
+
+You can **Replay** events in an archive. When you create a Replay you specify a time frame, then, it uses an archive as source and replays the events in that time frame to the same event bus that initially recorded the event. You can configure which Event Rules should be evaluated in the target event bus during the replay.
+
 ### Integrating with Pipes
 
-Pipes also support advanced event data manipulation with an **Enrichment step** that sends the event to some AWS Services like API Gateway or Lambda to enhance the event data before sending to its  target.
+**Pipes** offer a similar functionality than Event Bus, however, it's a point to point channel. Therefore, only one source and one target are allowed.
 
+In addition, pipes supports optional Filtering and Enhancement steps. In the **Filtering step**, you can use the Event Pattern to filter the events sent through the pipe. In the **Enhancement step**, you can configure AWS Lambda, API Gateway or a Step function or an API destination to enhance the event data. 
 
+The pipes supports Input transformation before sending the event data to both the Enhancement step and to the target.
 
+### Security
+
+It's important to notice that for both pipes and Event Bus, the target needs to allow the Event Bridge to interact its resource. For example, if an Event Rule sends event data to a SQS queue. The queue needs to allow the Event rule to send message to the queue.
