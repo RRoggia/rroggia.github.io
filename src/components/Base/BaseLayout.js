@@ -28,6 +28,13 @@ const GlobalStyle = createGlobalStyle`
     width: 50%;
     max-width: 400px;
   }
+  .content a {
+    text-decoration: underline;
+    color: blue;
+    &:visited {
+      color: purple;
+    }
+  }
 `
 
 export default function BaseLayout( { children } ) {
