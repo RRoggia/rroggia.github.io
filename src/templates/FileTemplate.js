@@ -7,7 +7,7 @@ export default function EngineerDiary( { pageContext } ) {
 
   return (
     <BasePage>
-      <div>
+      <div className='content'>
         <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{ '__html': html }}/>
       </div>

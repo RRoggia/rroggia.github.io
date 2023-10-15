@@ -21,6 +21,13 @@ const GlobalStyle = createGlobalStyle`
       color: none;
     }
   }
+  .content img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 400px;
+  }
 `
 
 export default function BaseLayout( { children } ) {
