@@ -4,6 +4,11 @@ title: 'Lambda'
 
 [Documentation](https://docs.aws.amazon.com/lambda/index.html)
 
+Demo:
+
+- [Asynchronous Invocation](https://github.com/RRoggia/aws-workloads/tree/main/lambda/sam-async-invocation)
+- [Event Source invocation](https://github.com/RRoggia/aws-workloads/tree/main/lambda/sam-event-source-invocation)
+
 ## Overview
 
 It's one of the AWS compute services that enable you to run code without the need to provision or manage any servers. It's high-available, auto scalable, you don't pay for idle resources only for what you use, easy to use with little configurations.
@@ -25,21 +30,21 @@ The Lambda's Execution environment provides a secure and isolated runtime to exe
 
 The Execution Environment manages the **Memory**, **Timeout** and **Ephemeral Storage** specified in the Lambda function's configuration. You increase your Lambda's compute power by increasing its memory.
 
-During the Lambda Function execution the function assumes an **Execution Role**, an **IAM Role** that is specified during the Lambda Function creation. It specifies the function's permissions to access other AWS services. Besides the IAM Role, you can also specify an **IAM Resource Policies** which enables you to add permissions to external Principals.
+You can configure two policies in a Lambda:
+
+-  **Execution Role:** What the function can do. During the Lambda Function execution the function assumes an **Execution Role**, an **IAM Role** that is specified during the Lambda Function creation. It specifies the function's permissions to access other AWS services.
+- **IAM Resource Policies**: Who can invoke the function. Identifies which resources can invoke the lambda, including external Principals.
 
 You can use several tools to invoke your function like the Lambda console, a function URL endpoint, AWS SDK, the AWS CLI and more. In addition, the Lambda function can have **Triggers**, a resource configured that allow another AWS Services to invoke the function if certain event or condition occur.
 
-There are two types of Lambda function invocation Synchronous and Asynchronous.
+There are three types of invocation model that you can use to trigger a Lambda function:
 
-**Synchronous** invocations you wait the lambda to process the event and respond. The API Gateway sends synchronous invocation. It's also possible to create a **Function URL** for your lambda, and use it to consume it synchronously your function. Once created the URL never changes. This feature is ideal for a single-function microservices without needs of advanced requirements.
+1. **Synchronous** invocations wait the lambda to process the event and respond. No built-in retries the application code needs to handle it. The API Gateway sends synchronous invocation. It's also possible to create a **Function URL** for your lambda, and use it to consume it synchronously your function. Once created the URL never changes. This feature is ideal for a single-function microservices without needs of advanced requirements.
 
-For **Asynchronous** invocations, the Lambda queues the events for processing and returns a response immediately. This type of invocation supports **retries**, **Max Age of Event**, a **Dead Letter Queue** (DLQ) and you can configure it to send response to **Destinations** (SQS queue, SNS topic, Lambda or EventBrige). You can have different destinations in case of failure or success.
-
-The DLQ is an alternative to the **on-failure Destination** their differences are that DLQ is tied to function's version specific configuration while the Destination is not, the destination also supports additional targets.
-
-S3 and SNS are examples of AWS Services that invoke the Lambda function asynchronously.
-
-There's a third way to invoke lambda functions using an **Event Source Mapping**. An Event source mapping is a Lambda managed resource that reads the data from an Event Source and invokes the Lambda function with the data. You can use it with services that do not invoke a Lambda function directly. For example, Amazon Kinesis streams or SQS. When using Event source mapping, by default it uses batch records together in a single payload. Similarly to the Asynchronous invocation it supports retrial of the whole batch, destinations and DLQ.
+2. For **Asynchronous** invocations, the Lambda queues the events for processing and returns a response immediately. This type of invocation supports **retries**, **Max Age of Event**, a **Dead Letter Queue** (DLQ) and you can configure it to send response to **Destinations** (SQS queue, SNS topic, Lambda or EventBrige). You can have different destinations in case of failure or success.
+   The DLQ is an alternative to the **on-failure Destination** their differences are that DLQ is tied to function's version specific configuration while the Destination is not, the destination also supports additional targets.
+   S3 and SNS are examples of AWS Services that invoke the Lambda function asynchronously.
+3. You can also use **Pooling** as a third way to invoke lambda functions is using an **Event Source Mapping**. An Event source mapping is a Lambda managed resource that reads the data from an Event Source and invokes the Lambda function with the data. You can use it with services that do not invoke a Lambda function directly. For example, Amazon Kinesis streams or SQS. When using Event source mapping, by default it uses batch records together in a single payload. Similarly to the Asynchronous invocation it supports retrial of the whole batch, destinations and DLQ.
 
 You can create Function's **Versions** to manage deployments of your code by locking its code and most of its settings (runtime, handler, code, environment variables and more). You can also use its ARN to invoke an specific version of a function. The **$LATEST** version pointing to the last unpublished code in your lambda. Once you publish a new version you need to deploy changes to the **$LATEST**  to be able to deploy more versions.
 
