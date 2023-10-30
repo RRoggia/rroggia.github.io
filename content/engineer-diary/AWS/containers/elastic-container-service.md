@@ -22,9 +22,9 @@ A **Task Definitions** is a blueprint that contains all the information required
 
 The task definition is used to run either a **Standalone Task** or a **Service**. 
 
-- **Standalone Tasks**: 
+- **Standalone Tasks**: Batch jobs that perform and then stop.
 
-- **Services**: 
+- **Services**: Long running stateless applications services and applications that can scale in and out.
 
 The **Service Scheduler** is responsible for the placement decisions based on the placement strategies and constraints. It also monitors and replaces unhealthy tasks.
 
@@ -110,7 +110,7 @@ task group
       - [ ] Large workload - overhead conscios
 
 - [ ] Tasks
-  - [ ] 
+  - [ ] Scheduled tasks
 
 - [ ] Service
   - [ ] High availability
@@ -119,6 +119,9 @@ task group
   - [ ] Deployment options
   - [x] it can deploy a lb in front of the service
 - [ ] Service connect
+
+  - [ ] namespaces
+
 
 
 
