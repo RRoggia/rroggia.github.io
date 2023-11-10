@@ -4,6 +4,10 @@ title: 'ECS - Elastic Container Service'
 
 [Documentation](https://docs.aws.amazon.com/ecs/index.html)
 
+Demo:
+
+- [Fargate Cluster](https://github.com/RRoggia/aws-workloads/tree/main/ecs/fargate)
+
 ## Overview
 
 ECS is an AWS fully managed container orchestration service that is hosted per region and allows you to run, schedule and manage your Docker Containers without having to worry with task scheduling.
@@ -56,7 +60,7 @@ There's three possible states that a Task Definition can have:
 
 When Inactivating or deleting task definitions the tasks and services running are not disrupted. 
 
-### Services
+### EC2 Launch Type
 
 When deploying a Service in a EC2 Launch Type (Fargate do not support it) the Service Scheduler applies first the **Task Placement constraints** and then the **Task Placement Strategies**.
 
@@ -77,51 +81,33 @@ The strategy types are:
 
 By default the Service Scheduler uses the `spread` across `attribute:ecs.availability-zone` Task Placement strategy. It tries its best to spread evenly the instances across AZ. 
 
+### Tasks
 
+There are few options to start a new Task in ECS:
 
+- `runTask`: Allows you to use Task Placement Strategies and Constraints.
+- `createTask`: Allows you to specify directly the containers Id
+- Scheduled Tasks: Integrate with EventBridge to trigger Tasks at a given schedule.
+- Through the AWS console.
 
+### Services
 
+The Service Deployment configuration determines the deployment strategy your Service uses. You an use one of the following **Deployment Type** :
 
+- **Rolling Update**: Uses both `minimumHealthyPercent` and `maximumPercent` to determine how many instances can be added/removed.
+  - `minimumHealthyPercent`: The desired tasks times Percentage rounded up determines the minimum number of healthy tasks.
+  - `maximumPercent`: The desired tasks times Percentage rounded down determines the maximum number of tasks that can be started.
 
-# TODO
-
-ECS Anywhere
-
-**Controller** 
-
-**Provisioning**
-
-task group
-
-
-- [ ] Cluster
-  - [ ] Within a VPC
-  - [ ] multi AZ
-  - [ ] Modes
-    - [ ] EC2
-      - [ ] Uses auto scaling groups to manage cluster instances
-      - [ ] you are responsible for the cluster sizing
-      - [ ] Large workload - price conscious
-        - [ ] can use reserved instances
-
-    - [ ] FARGATE
-      - [ ] tasks and services run from a fargate share infrastructure
-      - [ ] tasks and services have network interfaces within the vpc
-      - [ ] Large workload - overhead conscios
-
-- [ ] Tasks
-  - [ ] Scheduled tasks
-
-- [ ] Service
-  - [ ] High availability
-  - [ ] Restarts
-  - [ ] how we want the task to scale 
-  - [ ] Deployment options
-  - [x] it can deploy a lb in front of the service
-- [ ] Service connect
-
-  - [ ] namespaces
-
+- **Blue/Green with CodeDeploy**: Shifts traffic between blue and green instances accordingly to the algorithm.
+  - Canary: Shifts traffic in 2 increments. The second increment X minutes after the first.
+    1. `ECSCanary10percent5Minutes`: Shifts 10%, then after 5 minutes shifts the remaining 90%.
+    2. `ECSCanary10percent15Minutes`: Shifts 10%, then after 15 minutes shifts the remaining 90%.
+  - Linear: Shifts traffic in equal increments at every X minutes.
+    - `ECSLinear10PercentEvery1Minutes`: Shifts 10% every 1 minute. After 10 minutes, all traffic is shifted.
+    - `ECSLinear10PercentEvery3Minutes`: Shifts 10% every 3 minute. After 30 minutes, all traffic is shifted.
+  - All at once: Shifts traffic all at once.
+    - `ECSAllAtOnce`
+- **External Deployment**: Third party deployment controller.
 
 
 
