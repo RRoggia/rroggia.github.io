@@ -156,7 +156,7 @@ There are three complexity's symptoms:
 
 The last symptom can be the worst, because the changes can lead to bugs that you wouldn't notice since you are not expecting them.
 
-Complexity has two causes that has as consequence the above mentioned symptoms:
+The symptoms above are happen due two causes:
 
 1. **Dependencies**: "When a piece of code cannot be understood or modified in isolation".
 
@@ -290,8 +290,6 @@ The author suggests that the best way to lower development cost is to hire great
 
 > A deep module is a good abstraction because only a small fraction of its internal complexity is visible to its users.
 
-> A deep module is a good abstraction because only a small fraction of its internal complexity is visible to its users.
-
 > This module has no interface at all; it works invisibly behind the scenes to reclaim unused memory.
 
 ## 4.5 Shallow modules
@@ -330,9 +328,103 @@ Now that we understand the modular design, the impact of its interface and how t
 
 In deep modules, the interface (the cost) is smaller than the benefits (the implementation). So you are basically hiding the unimportant and highlight the important information in your interface.
 
+# Chapter 5 - Information Hiding (and Leakage)
 
+## 5.1 Information Hiding
 
+> The basic idea is that each module should encapsulate a few pieces of knowledge,
 
+> First, it simplifies the interface to a module.
 
+> If a piece of information is hidden, there are no dependencies on that information outside the module containing the information, so a design change related to that information will affect only the one module.
 
+> Note: hiding variables and methods in a class by declaring them private isn’t the same thing as information hiding.
 
+> However, partial information hiding also has value.
+
+## 5.2 Information Leakage
+
+> The opposite of information hiding is *information leakage*. Information leakage occurs when a design decision is reflected in multiple modules.
+
+> If a piece of information is reflected in the interface for a module, then by definition it has been leaked; thus, simpler interfaces tend to correlate with better information hiding.
+
+> (Two classes depending on the file format) if the format changes, both classes will need to be modified. Back-door leakage
+
+> “How can I reorganize these classes so that this particular piece of knowledge only affects a single class?”
+
+> merge them into a single class.
+
+> pull the information out of all of the affected classes and create a new class that encapsulates just that information.
+
+> only if you can find a simple interface that abstracts away from the details;
+
+## 5.3 Temporal Decomposition
+
+> In temporal decomposition, the structure of a system corresponds to the time order in which operations will occur.
+
+> (Red Flag) Information leakage occurs when the same knowledge is used in multiple places, such as two different classes that both understand the format of a particular type of file.
+
+> When designing modules, focus on the knowledge that’s needed to perform each task, not the order in which tasks occur.
+
+## 5.4 Example: HTTP server
+
+> (Ref Flag) In temporal decomposition, execution order is reflected in the code structure: operations that happen at different times are in different methods or classes. If the same knowledge is used at different points in execution, it gets encoded in multiple places, resulting in information leakage.
+
+## 5.5 Example: too many classes
+
+> information hiding can often be improved by making a class slightly larger
+
+> resulting class contains everything related to that capability.
+
+## 5.6 Example: HTTP parameter handling
+
+> First, they recognized that server applications don’t care whether a parameter is specified in the header line or the body of the request, so they hid this distinction from callers and merged the parameters from both locations together.
+
+> It provides a slightly deeper interface than getParams above; more importantly, it hides the internal representation of parameters.
+
+## 5.7 Example: defaults in HTTP Response
+
+>  They are also an example of partial information hiding: in the normal case, the caller need not be aware of the existence of the defaulted item
+
+> (Red Flag) If the API for a commonly used feature forces users to learn about other features that are rarely used, this increases the cognitive load on users who don’t need the rarely used features.
+
+## 5.8 Information hiding within a class
+
+> In addition, try to minimize the number of places where each instance variable is used.
+
+## 5.9 Taking it too far
+
+> If the information is needed outside the module, then you must *not* hide it.
+
+> if a module can automatically adjust its configuration, that is better than exposing configuration parameters.
+
+## 5.10 Conclusion
+
+> different pieces of knowledge that are needed to carry out the tasks of your application, and design each module to encapsulate one or a few of those pieces of knowledge.
+
+## My Summary
+
+Information hiding is a technique where you expose a module through an interface with only the essential information and the irrelevant data is hidden in its implementation. Therefore, hiding the algorithms, data structure, design decisions or any kind of implementation details that are not relevant for the module's clients. This possibly reduces two symptoms of complexity:
+
+1. Reduces cognitive load: Client code only needs to worry with the interface.
+2. Reduces change amplification: Reduces the amount of information that is not relevant to the client code but that the client code still depends on. Because, the client knows less irrelevant information, the changes in this information won't impact it making easier to evolve the module.
+
+Information hiding can be partial, image a module that has a private attribute however it exposes it through public methods. Partial information hiding is still better than Information Leakage since it creates less dependencies between classes.
+
+The opposite of Information  hiding is Information leakage. Any information (design decisions) relevant or not exposed to the client's code either to  the module's interface through other meanings can be considered an information leakage (sharing file, dbs tables, ...).
+
+Information leakage is one of the major red flags in the software design. You can remove the leakage by merging several small classes that depend on the same information by merging them into one class. Even better if you can have a simple interface for the new class and you are able to hide previously exposed implementation details.
+
+ Another option is to pull the information that affects several classes and create a new class that encapsulates that information.
+
+![Information leakage possible solutions](/images/reading-content/a-philosophy-of-software-design/ch5-ch5-merge-into-single.drawio.png)
+
+Temporal decomposition is another red flag which is a common cause for information leakage. It's common to happen when you break down your modules based on the time they occur in your system. For example, several classes to read, write, modify the same file. Resulting in several classes having to know the same piece of information.
+
+In this chapter the author introduces an example of the temporal decomposition where there's several classes for handling an HTTP Request. One class to read it, other to parse, and so on. In this case, for the client code it's better to depend only in one larger and deeper class that has all the information related to the HTTP Request.
+
+Another example is about the Parameters of the HTTP Request were the API exposes the internal data structure of the module. Where a better approach would be to expose directly a method that returns the value.
+
+Partial information hiding with defaults values in a module is a good example on how 
+
+- Overexposure
