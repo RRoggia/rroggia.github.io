@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-folder-template-js",
     "path": "/engineer-diary",
-    "result": {"pageContext":{"parentPath":"/engineer-diary","files":[],"folders":["aws"]}},
+    "result": {"pageContext":{"parentPath":"/engineer-diary","files":[],"folders":["aws","cheatscheet"]}},
     "staticQueryHashes": ["1507822185","2095566405","2894216461","425755332"]}
