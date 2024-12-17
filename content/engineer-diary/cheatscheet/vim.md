@@ -1,3 +1,7 @@
+---
+title: 'Vim Cheat Scheet'
+---
+
 # Normal Mode
 
 Follows this structure `(number) Operator + (number) motion`
