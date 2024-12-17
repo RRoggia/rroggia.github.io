@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-folder-template-js",
     "path": "/engineer-diary/aws",
-    "result": {"pageContext":{"parentPath":"/engineer-diary/aws","files":[],"folders":["compute","containers","application-integration","developer-tools","management-and-governance","networking-and-content-delivery","security-identity-and-compliance","database","storage"]}},
+    "result": {"pageContext":{"parentPath":"/engineer-diary/aws","files":[],"folders":["application-integration","compute","database","containers","management-and-governance","developer-tools","networking-and-content-delivery","security-identity-and-compliance","storage"]}},
     "staticQueryHashes": ["1507822185","2095566405","2894216461","425755332"]}
