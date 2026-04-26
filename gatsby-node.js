@@ -15,7 +15,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const result = await graphql(`
     {
-      posts: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/posts/**"}}, sort: { order: DESC, fields: [frontmatter___date] } ) {
+      posts: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/posts/**"}},sort: {frontmatter: {date: DESC}})  {
         edges {
           node {
             frontmatter {
@@ -24,7 +24,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      notes: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: { order: DESC, fields: [frontmatter___date] } ) {
+      notes: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/reading-content/**"}},sort: {frontmatter: {date: DESC}}) {
         edges {
           node {
             html
@@ -34,7 +34,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
           }
         }
       }
-      diary: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/engineer-diary/**"}}, sort: {order: DESC, fields: [frontmatter___date] } ) {
+      diary: allMarkdownRemark( filter: {fileAbsolutePath: {glob: "**/engineer-diary/**"}}, sort: {frontmatter: {date: DESC}}){
         edges {
           node {
             fileAbsolutePath

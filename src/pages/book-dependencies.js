@@ -5,7 +5,7 @@ import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
 
-const BookDependencies = ( { data } ) => {
+const BookDependencies = ({ data }) => {
   const {
     'allMarkdownRemark': { edges },
     'allFile': { 'edges': fallbackCovers },
@@ -13,18 +13,18 @@ const BookDependencies = ( { data } ) => {
     'file': emptyCover
   } = data
 
-  const nodes = edges.map( ( { 'node': { 'frontmatter': { title, coverPath, references, id } } }, index ) => {
-    const coverReference2 = covers.find( cover => {
-      const [ imageName ] = cover.node.fixed.originalName.split( '.' )
+  const nodes = edges.map(({ 'node': { 'frontmatter': { title, coverPath, references, id } } }, index) => {
+    const coverReference2 = covers.find(cover => {
+      const [imageName] = cover.node.fixed.originalName.split('.')
       return imageName === coverPath
-    } )
-    const image = coverReference2 ? coverReference2.node.fixed.src : getImage( emptyCover ).images.fallback.src
+    })
+    const image = coverReference2 ? coverReference2.node.fixed.src : getImage(emptyCover).images.fallback.src
 
-    const coverReference = fallbackCovers.find( cover => cover.node.name === coverPath )
-    const coverNode = getImage( coverReference ? coverReference.node : emptyCover )
+    const coverReference = fallbackCovers.find(cover => cover.node.name === coverPath)
+    const coverNode = getImage(coverReference ? coverReference.node : emptyCover)
     const fallbackImage = coverNode.images.fallback.src
 
-    return ( {
+    return ({
       'id': id ? id : index,
       title,
       'label': title,
@@ -33,15 +33,15 @@ const BookDependencies = ( { data } ) => {
       'brokenImage': fallbackImage,
       'size': 50,
       references
-    } )
-  } )
+    })
+  })
 
-  const graphEdges = nodes.flatMap( node => {
-    return node.references?.map( ref => ( {
+  const graphEdges = nodes.flatMap(node => {
+    return node.references?.map(ref => ({
       'from': node.id,
       'to': ref
-    } ) )
-  } ).filter( node => node )
+    }))
+  }).filter(node => node)
 
   const graph = {
     nodes,
@@ -68,8 +68,8 @@ const BookDependencies = ( { data } ) => {
       <div>
         <h1>Book's dependencies</h1>
         <Graph
-          graph={ graph }
-          options={ options }
+          graph={graph}
+          options={options}
         />
       </div>
     </BasePage>
@@ -80,7 +80,8 @@ export default BookDependencies
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
+    
+    allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: {frontmatter: {date: DESC}}) {
       edges {
         node {
           frontmatter {

@@ -100,7 +100,7 @@ export default function Bookshelf({ data }) {
 
 export const pageQuery = graphql`
   query {
-    allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: {order: DESC, fields: [frontmatter___date]}) {
+    allMarkdownRemark(filter: {fileAbsolutePath: {glob: "**/reading-content/**"}}, sort: {frontmatter: { date: DESC }}) {
       edges {
         node {
           html
