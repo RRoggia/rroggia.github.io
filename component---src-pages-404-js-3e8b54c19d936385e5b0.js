@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkrroggia_github_io=self.webpackChunkrroggia_github_io||[]).push([[8883],{429:function(e,t,u){u.r(t);var a=u(7294),i=u(687);t.default=()=>a.createElement(i.Z,null,a.createElement("div",null,"I don't have this page yet!! maybe in the future"))}}]);
+//# sourceMappingURL=component---src-pages-404-js-3e8b54c19d936385e5b0.js.map
