@@ -1,6 +1,4 @@
-
 ---
-
 title: 'VPC Peering'
 ---
 
