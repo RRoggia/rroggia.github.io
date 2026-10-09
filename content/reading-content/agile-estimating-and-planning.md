@@ -8,6 +8,8 @@ date: '2020-03-01'
 edition: '1st'
 publishDate: '2005-11-01'
 authors: ['Mike Cohn']
+references:
+ - '978-0321278654'
 ---
 
 # Foreword - Jim Highsmith

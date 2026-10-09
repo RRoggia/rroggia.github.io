@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import BasePage from '../components/Base/BasePage'
+import SEO from '../components/Base/SEO'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
@@ -9,25 +10,47 @@ import 'react-vertical-timeline-component/style.min.css';
 import { allMarkdownRemarkToNotes } from '../allMarkdownRemarkTransformation'
 
 const BookCover = styled(GatsbyImage)`
+  background: #ffffff;
+
   @media (max-width: 600px) {
     margin-bottom: 2rem;
   }
 `
 const SelectYear = styled.select`
-  width: 100px;
-  height: 50px;
-  font-size: 1.3rem;
-  text-align: center;
-  border:none;
-  border-radius:0.3rem;
-  margin-left: 10px;
-  appearance: none;
-  background: #0000000d;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  background: var(--bg);
+  color: inherit;
+  font: inherit;
+`
+
+const TimelineTheme = styled.div`
+  .vertical-timeline::before {
+    background: var(--rule);
+  }
+
+  .vertical-timeline-element-content {
+    background: var(--surface);
+    color: var(--ink);
+    box-shadow: none;
+    border: 1px solid var(--rule);
+  }
+
+  .vertical-timeline-element-content-arrow {
+    display: none;
+  }
+
+  .vertical-timeline-element-icon {
+    box-shadow: 0 0 0 4px var(--bg);
+  }
 `
 
 const SelectDiv = styled.div`
   display: flex;
-  margin: 15px;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 2rem;
 `
 
 function getCoverImage(covers, title, emptyCover) {
@@ -40,7 +63,7 @@ function getCoverImage(covers, title, emptyCover) {
   return coverNode.node
 }
 
-const EMPTY = "------"
+const EMPTY = "All years"
 export default function BooksTimeline({ data }) {
   const [notes, setNotes] = useState([])
   const [selectedYear, setSelectedYear] = useState(EMPTY)
@@ -73,9 +96,10 @@ export default function BooksTimeline({ data }) {
 
   return (
     <BasePage>
+      <h1>Books timeline</h1>
       <SelectDiv>
-        <p>Year:</p>
-        <SelectYear onChange={(e) => { setSelectedYear(e.target.value) }}>
+        <label htmlFor="timelineYear">Publication year</label>
+        <SelectYear id="timelineYear" onChange={(e) => { setSelectedYear(e.target.value) }}>
           {yearOptions && yearOptions.map(y => {
             return (
               <option value={y} key={y}>{y}</option>
@@ -83,6 +107,7 @@ export default function BooksTimeline({ data }) {
           })}
         </SelectYear>
       </SelectDiv>
+      <TimelineTheme>
       <VerticalTimeline>
 
         {notes && notes
@@ -108,6 +133,7 @@ export default function BooksTimeline({ data }) {
             </VerticalTimelineElement>
           )}
       </VerticalTimeline>
+      </TimelineTheme>
     </BasePage>
   )
 }
@@ -150,3 +176,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head = () => <SEO title="Books timeline" />

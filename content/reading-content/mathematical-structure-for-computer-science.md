@@ -1,4 +1,5 @@
 ---
+id: 'mathematical-structures-for-computer-science'
 title: 'Mathematical Structure for Computer Science'
 language: 'en-US'
 status: 'Reading'

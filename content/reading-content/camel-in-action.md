@@ -8,6 +8,8 @@ date: '2022-07-05'
 publishDate: '2018-02-18'
 edition: '2nd'
 authors: ['Claus Ibsen', 'Jonathan Anstey']
+references:
+ - '978-0321200686'
 ---
 
 # Part 1 First Steps

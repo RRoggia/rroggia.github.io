@@ -1,9 +1,13 @@
 ---
+id: '978-1617294549'
 title: 'Microservices Patterns'
 language: 'en-US'
 status: 'Planning'
 coverPath: 'microservices-patterns'
 date: '2021-05-04'
+references:
+ - '978-0321200686'
+ - '978-8550800653'
 ---
 
 # Chapter 1 - Escaping monolithic hell

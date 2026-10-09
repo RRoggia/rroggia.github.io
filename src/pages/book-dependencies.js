@@ -1,9 +1,19 @@
 import React from 'react'
+import styled from 'styled-components'
 import BasePage from '../components/Base/BasePage'
+import SEO from '../components/Base/SEO'
 import Graph from 'react-graph-vis'
 import { graphql } from 'gatsby'
 import { getImage } from 'gatsby-plugin-image'
 
+
+// The graph canvas uses dark labels and edges, so it keeps a light panel in both color schemes.
+const GraphPanel = styled.div`
+  background: #ffffff;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  overflow: hidden;
+`
 
 const BookDependencies = ({ data }) => {
   const {
@@ -66,11 +76,13 @@ const BookDependencies = ({ data }) => {
   return (
     <BasePage>
       <div>
-        <h1>Book's dependencies</h1>
-        <Graph
-          graph={graph}
-          options={options}
-        />
+        <h1>Book dependencies</h1>
+        <GraphPanel>
+          <Graph
+            graph={graph}
+            options={options}
+          />
+        </GraphPanel>
       </div>
     </BasePage>
   )
@@ -124,3 +136,5 @@ export const pageQuery = graphql`
     }    
   }
 `
+
+export const Head = () => <SEO title="Book dependencies" />

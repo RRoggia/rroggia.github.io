@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import BasePage from '../components/Base/BasePage'
 import Note from '../components/Notes/Note'
+import SEO from '../components/Base/SEO'
 
 export default function NoteTemplate( { data } ) {
   const { 'markdownRemark': { 'frontmatter': post, html, tableOfContents } } = data
@@ -10,6 +11,10 @@ export default function NoteTemplate( { data } ) {
       <Note { ...{ post, html, tableOfContents } } />
     </BasePage>
   )
+}
+
+export function Head( { data } ) {
+  return <SEO title={ data.markdownRemark.frontmatter.title } />
 }
 
 export const pageQuery = graphql`

@@ -1,6 +1,7 @@
 /* eslint-disable id-length */
 import React from 'react'
 import BasePage from '../components/Base/BasePage'
+import SEO from '../components/Base/SEO'
 import styled from 'styled-components'
 import { graphql } from 'gatsby'
 import ReadingContentCard from '../components/ReadingContentCard'
@@ -9,33 +10,55 @@ import { allMarkdownRemarkToNotes, transformNotesByReadingStatus } from '../allM
 import NoteLink from '../components/NoteLink'
 
 const Grid = styled.div`
-  width: 100%;
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2rem;
 
-  @media (max-width: 600px) {
-    display: block;
+  @media (max-width: 900px) {
+    grid-template-columns: minmax(0, 1fr);
   }
 `
+
+const ColumnTitle = styled.h2`
+  margin: 0 0 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: 1.1rem;
+
+  span {
+    color: var(--muted);
+    font-weight: 400;
+  }
+`
+
 const WhitinGrid = styled.div`
-  @media (max-width: 600px) {
-    display: flex;
-    justify-items:center;
-    overflow-y:scroll;
-    & > div{
-      padding: 0px 100px 0 30px ;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+
+  @media (max-width: 900px) {
+    flex-direction: row;
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
   }
 `
 
-const CheckNotesAction = styled.p`
-  background: #0000000d;
-  width: 50%;
-  text-align: center;
-  display: inline;
-  padding: 0.3rem;
-  border-radius: 0.3rem;
+const Empty = styled.p`
+  margin: 0;
+  color: var(--muted);
+`
+
+const CheckNotesAction = styled( NoteLink )`
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--accent);
+  font-size: 0.85rem;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `
 
 export default function Bookshelf({ data }) {
@@ -52,21 +75,21 @@ export default function Bookshelf({ data }) {
 
   return (
     <BasePage>
-      <h2>Bookshelf</h2>
+      <h1>Bookshelf</h1>
       {filterByName()}
       <Grid>
         {['Backlog', 'Planning', 'Reading', 'Read'].map(status => {
           return (
             <div key={status}>
-              <h2>
-                {`${status} (${!notesByStatus[status] ? 0 : notesByStatus[status]
+              <ColumnTitle>
+                {status} <span>{!notesByStatus[status] ? 0 : notesByStatus[status]
                   .filter(filterByTitle)
-                  .length})`}
-              </h2>
+                  .length}</span>
+              </ColumnTitle>
               <WhitinGrid key={status}>
                 {
                   !notesByStatus[status] ?
-                    <p>Empty</p> :
+                    <Empty>Nothing here yet.</Empty> :
                     notesByStatus[status]
                       .filter(filterByTitle)
                       .map(b => {
@@ -84,7 +107,7 @@ export default function Bookshelf({ data }) {
                               emptyCover={emptyCover}
                               hasRibbon={false}
                             />
-                            {b.html ? <NoteLink title={b.title}><CheckNotesAction>Check my notes</CheckNotesAction></NoteLink> : <></>}
+                            {b.html ? <CheckNotesAction title={b.title}>Read my notes</CheckNotesAction> : <></>}
                           </div>
                         )
                       })
@@ -133,3 +156,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export const Head = () => <SEO title="Bookshelf" />

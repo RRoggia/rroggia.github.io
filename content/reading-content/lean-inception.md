@@ -8,4 +8,6 @@ coverPath: 'lean-inception'
 edition: '1st'
 publishDate: '2018-12-01'
 authors: ['Paulo Caroli']
+references:
+ - '978-8543108629'
 ---

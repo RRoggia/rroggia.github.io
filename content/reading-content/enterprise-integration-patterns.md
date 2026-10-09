@@ -9,6 +9,8 @@ coverPath: 'enterprise-integration-patterns'
 date: '2022-12-25'
 publishDate: '2003-10-10'
 authors: ['Gregor Hohpe', 'Bobby Woolf']
+references:
+ - '978-8573076103'
 ---
 
 # Chapter 7

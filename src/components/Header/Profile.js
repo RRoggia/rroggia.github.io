@@ -2,38 +2,51 @@ import { useStaticQuery, graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
 
-const PersonalInfoWrapper = styled.div`
-  padding: 1rem;
-  text-align:center;
+const Intro = styled.section`
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding-bottom: 3rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--rule);
 
   @media (max-width: 600px) {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    align-items:center;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding-bottom: 2rem;
   }
 `
-const RoundedAuthorPhoto = styled.img`
-  border-radius: 100%;
-  max-width: 150px;
-  max-height: 150px;
-  border: 1px solid black;
-  &:hover {
-    border: 2px solid black;
-    margin: -1px;
-  }
+
+const Photo = styled.img`
+  display: block;
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
 
   @media (max-width: 600px) {
-    max-width: 75px;
-    max-height: 75px;
+    width: 80px;
+    height: 80px;
   }
 `
-const Name = styled.p`
-  text-transform: uppercase;
-  font-weight: bold;
-  color: gray;
+
+const Name = styled.h1`
+  margin: 0 0 0.75rem;
+  font-size: clamp(2.5rem, 7vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
 `
 
-export default function MenuBar() {
+const Description = styled.p`
+  margin: 0;
+  max-width: 34rem;
+  color: var(--muted);
+  font-size: 1.15rem;
+  line-height: 1.5;
+`
+
+export default function Profile() {
   const data = useStaticQuery( graphql`
     query Profile{
       site {
@@ -49,15 +62,15 @@ export default function MenuBar() {
   ` )
   const { 'site': { 'siteMetadata': { 'mySelf': { name, description, image } } } } = data
   return (
-    <PersonalInfoWrapper>
-      <RoundedAuthorPhoto
+    <Intro>
+      <Photo
         src={ image }
-        alt={ `${name}'s photo` }
+        alt={ name }
       />
       <div>
         <Name>{ name }</Name>
-        <p>{ description }</p>
+        <Description>{ description }</Description>
       </div>
-    </PersonalInfoWrapper>
+    </Intro>
   )
 }

@@ -1,15 +1,14 @@
 import React from 'react'
-import styled from 'styled-components'
+import { Link } from 'gatsby'
 import createNotePath from '../Notes/notePath'
 
-const WrappedA = styled.a`
-  margin-bottom: 3rem;
-`
-
-export default function NoteLink( { title, children } ) {
+export default function NoteLink( { title, children, className } ) {
   return (
-    <WrappedA href={ createNotePath( title ) }>
+    <Link
+      to={ createNotePath( title ) }
+      className={ className }
+    >
       {children}
-    </WrappedA>
+    </Link>
   )
 }

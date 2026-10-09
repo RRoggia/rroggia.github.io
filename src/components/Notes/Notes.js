@@ -5,20 +5,26 @@ import { graphql, useStaticQuery } from 'gatsby'
 import ReadingContentCard from '../ReadingContentCard/index'
 import NoteLink from '../NoteLink/index'
 
-const Grid = styled.div`
-  display: inline-grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  text-align: center;
-
-  @media (max-width: 600px) {
-    display: block;
-    & > h2 {
-      text-align: left;
-    }
-  }
+const Intro = styled.p`
+  max-width: 40rem;
+  margin: 0 0 2.5rem;
+  color: var(--muted);
+  font-size: 1.1rem;
 `
 
-const Title = styled.h2`
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 2.5rem 2rem;
+
+  & > a:hover h3 {
+    color: var(--accent);
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1rem;
+  }
 `
 
 export default function Notes( { notes } ) {
@@ -46,7 +52,8 @@ export default function Notes( { notes } ) {
   const { 'file': emptyCover } = data
   return (
     <>
-      <Title>Notes</Title>
+      <h1>Reading notes</h1>
+      <Intro>Highlights and summaries from the books and articles I have read.</Intro>
       <Grid>
         { notes && notes.map( n => (
           <NoteLink

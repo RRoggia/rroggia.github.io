@@ -1,4 +1,5 @@
 ---
+id: '978-1617291050'
 title: 'Kanban in action'
 language: 'en-US'
 status: 'Planning'

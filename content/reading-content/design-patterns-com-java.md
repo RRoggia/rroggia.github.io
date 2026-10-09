@@ -8,4 +8,6 @@ coverPath: 'design-patterns-com-java'
 edition: '1st'
 publishDate: '2012-01-01'
 authors: ['Eduardo Guerra']
+references:
+ - '978-8573076103'
 ---

@@ -1,5 +1,6 @@
 import React from 'react'
 import BasePage from '../components/Base/BasePage'
+import SEO from '../components/Base/SEO'
 import Notes from '../components/Notes/Notes'
 import { graphql } from 'gatsby'
 import { allMarkdownRemarkToNotes } from '../allMarkdownRemarkTransformation'
@@ -37,3 +38,4 @@ export const pageQuery = graphql`
   }
 `
 
+export const Head = () => <SEO title="Reading notes" />

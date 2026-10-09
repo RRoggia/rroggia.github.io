@@ -1,8 +1,14 @@
 ---
+id: 'fapi-1-advanced'
 title: 'Financial-grade API Security Profile 1.0 - Part 2: Advanced'
 language: 'en-US'
 status: 'Read'
 date: '2022-07-07'
+references:
+ - 'fapi-1-baseline'
+ - 'fapi-jarm'
+ - 'rfc8705'
+ - 'rfc6749'
 ---
 
 # Introduction

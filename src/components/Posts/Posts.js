@@ -3,23 +3,35 @@ import React from 'react'
 import styled from 'styled-components'
 import PostPreview from './PostPreview.js'
 
-const Wrapper = styled.div`
-  width: 85%;
-  margin: 2rem auto;
+const Heading = styled.h2`
+  margin: 2rem 0 0.5rem;
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0;
+`
+
+const List = styled.ol`
+  margin: 0;
+  padding: 0;
+  list-style: none;
 `
 
 export default function Posts( { posts } ) {
   return (
-    <Wrapper>
-      <h2>Dear diary ...</h2>
-      { !posts
-        ? <p>No post was found.</p>
-        : posts.map( p => (
-          <PostPreview
-            key={ p.title }
-            { ...p }
-          /> ) ) }
-    </Wrapper>
+    <section>
+      <Heading>Writing</Heading>
+      { !posts || posts.length === 0
+        ? <p>No posts published yet.</p>
+        : (
+          <List>
+            { posts.map( p => (
+              <PostPreview
+                key={ p.url }
+                { ...p }
+              /> ) ) }
+          </List>
+        ) }
+    </section>
   )
 }
-

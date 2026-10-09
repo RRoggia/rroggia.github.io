@@ -1,66 +1,102 @@
 import React from 'react'
-import BasePage from '../components/Base/BasePage'
 import styled from 'styled-components'
+import BasePage from '../components/Base/BasePage'
+import SEO from '../components/Base/SEO'
 
-
-const Section = styled.section`
-  display: inline-grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  width:100%;
+const Title = styled.h1`
+  margin: 0 0 0.5rem;
 `
 
-const Card = styled.div`
-  margin: 1rem 0.5rem;
-  border: 1px black solid;
-  border-color: #d0d7de;
-  text-align:center;
-  align-items: center;
-  @media (min-width: 600px) {
-    padding: 1.5rem;
-    margin: 1rem;
+const Path = styled.p`
+  margin: 0 0 2.5rem;
+  color: var(--muted);
+`
+
+const SectionTitle = styled.h2`
+  margin: 2rem 0 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--muted);
+`
+
+const Grid = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+`
+
+const Entry = styled.a`
+  display: block;
+  height: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  font-weight: 500;
+  text-transform: ${props => props.$folder ? 'capitalize' : 'none'};
+
+  &:hover {
+    border-color: var(--accent);
+    color: var(--accent);
   }
 `
 
+function formatPath( path ) {
+  return ( path || '' )
+    .split( '/' )
+    .filter( Boolean )
+    .slice( 1 )
+    .map( segment => segment.replace( /-/gu, ' ' ).replace( /^\w/u, letter => letter.toUpperCase() ) )
+    .join( ' / ' )
+}
+
 export default function EngineerDiary({ pageContext }) {
-  const { folders, files, path, parentPath } = pageContext
+  const { folders, files, parentPath } = pageContext
+  const location = formatPath( parentPath )
   return (
     <BasePage>
-      <h1>Engineer's Diary</h1>
+      <Title>Engineer's diary</Title>
+      <Path>{ location || 'Structured notes on cloud platforms, tooling and infrastructure.' }</Path>
       {folders && folders.length > 0 &&
-        (<div>
-          <h2>Folders</h2>
-          <Section>
-            {folders.map(f => {
-              return (
-                <a href={`${parentPath}/${f}`}>
-                  <Card>
-                    <h3>{f}</h3>
-                  </Card>
-                </a>
-              )
-            })}
-          </Section>
-        </div>
+        (<section>
+          <SectionTitle>Topics</SectionTitle>
+          <Grid>
+            {folders.map(f => (
+              <li key={f}>
+                <Entry
+                  href={`${parentPath}/${f}`}
+                  $folder
+                >
+                  {f.replace( /-/gu, ' ' )}
+                </Entry>
+              </li>
+            ))}
+          </Grid>
+        </section>
         )
       }
       {files && files.length > 0 && (
-        <div>
-          <h2>Content</h2>
-          <Section>
-            {files.map(f => {
-              return (
-                <a href={`${parentPath}/${f.fileName}`}>
-                  <Card>
-                    <h3>{f.frontmatter.title}</h3>
-                  </Card>
-                </a>
-              )
-            })}
-          </Section>
-        </div>
+        <section>
+          <SectionTitle>Pages</SectionTitle>
+          <Grid>
+            {files.map(f => (
+              <li key={f.fileName}>
+                <Entry href={`${parentPath}/${f.fileName}`}>
+                  {f.frontmatter.title}
+                </Entry>
+              </li>
+            ))}
+          </Grid>
+        </section>
       )
       }
     </BasePage>
   )
 }
 
+export function Head( { pageContext } ) {
+  const location = formatPath( pageContext.parentPath )
+  return <SEO title={ location ? `${location} | Engineer's diary` : `Engineer's diary` } />
+}

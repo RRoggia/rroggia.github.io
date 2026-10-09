@@ -9,6 +9,9 @@ date: '2021-03-25'
 edition: '1st'
 publishDate: '2018-03-27'
 authors: ['Nicole Forsgren', 'Jez Humble', 'Gene Kim']
+references:
+ - '978-1942788003'
+ - '978-8543108629'
 ---
 
 # Praise for accelerate

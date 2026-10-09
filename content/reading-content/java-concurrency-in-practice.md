@@ -7,4 +7,6 @@ coverPath: 'java-concurrency-in-practice'
 edition: '1st'
 publishDate: '2006-05-01'
 authors: ['Brian Goetz']
+references:
+ - '978-0134685991'
 ---

@@ -10,6 +10,10 @@ edition: '3rd'
 publishDate: '2016-12-16'
 authors: ['Eric Evans']
 translations: ['Tibério Júlio Couto Novais']
+references:
+ - '978-8573076103'
+ - '978-0134757599'
+ - '978-0321278654'
 ---
 
 # Introdução

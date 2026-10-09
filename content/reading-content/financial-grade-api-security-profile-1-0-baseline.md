@@ -1,8 +1,12 @@
 ---
+id: 'fapi-1-baseline'
 title: 'Financial-grade API Security Profile 1.0 - Part 1: Baseline'
 language: 'en-US'
 status: 'Read'
 date: '2022-07-07'
+references:
+ - 'rfc6749'
+ - 'rfc7636'
 ---
 
 # Introduction

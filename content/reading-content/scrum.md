@@ -10,6 +10,9 @@ edition: '1st'
 publishDate: '2014-10-25'
 authors: ['Jeff Sutherland']
 translations: ['Natalie Gerhardt']
+references:
+ - '978-8573071702'
+ - '978-8550802534'
 ---
 
 # Prefacio

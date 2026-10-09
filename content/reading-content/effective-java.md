@@ -9,4 +9,7 @@ coverPath: 'effective-java'
 date: '2019-01-01'
 publishDate: '2018-01-06'
 authors: ['Joshua Bloch']
+references:
+ - '978-8573076103'
+ - '9780321349606'
 ---

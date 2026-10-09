@@ -1,4 +1,5 @@
 ---
+id: 'the-kubernetes-book-2019'
 title: 'The Kubernetes Book - 2019 edition'
 language: 'en-US'
 status: 'Planning'

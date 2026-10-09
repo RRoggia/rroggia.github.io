@@ -1,4 +1,5 @@
 ---
+id: 'the-kubernetes-book-2021'
 title: 'The Kubernetes Book - 2021 edition'
 language: 'en-US'
 status: 'Planning'

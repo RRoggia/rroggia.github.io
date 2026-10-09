@@ -1,4 +1,5 @@
 ---
+id: '979-8621536459'
 title: 'You Dont know JS - Scope & Closures'
 language: 'en-US'
 status: 'Read'

@@ -9,6 +9,7 @@ references:
  - 978-8582600320
  - 978-1942788331
  - 978-8573076103
+ - '978-0321278654'
 ---
 
 # Foreword to the First Edition

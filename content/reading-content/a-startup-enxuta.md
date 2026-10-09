@@ -10,4 +10,6 @@ edition: '1st'
 publishDate: '2019-10-25'
 authors: ['Eric Ries']
 translations: ['Alves calado']
+references:
+ - '978-8573071702'
 ---

@@ -1,4 +1,5 @@
 ---
+id: 'ydkjsy-get-started'
 title: 'You Dont know JS - Get Started'
 language: 'en-US'
 status: 'Read'

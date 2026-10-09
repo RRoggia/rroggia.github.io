@@ -1,4 +1,5 @@
 ---
+id: 'scrum-guide'
 title: 'Scrum guide'
 language: 'en-US'
 status: 'Read'

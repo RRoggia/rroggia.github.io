@@ -1,8 +1,7 @@
 import * as React from 'react'
-import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
-export default function SEO() {
+export default function SEO( { 'title': pageTitle, 'description': pageDescription } ) {
   const data = useStaticQuery( graphql`
     query SEO{
       site {
@@ -17,10 +16,12 @@ export default function SEO() {
       }
     }
   ` )
-  const { 'site': { 'siteMetadata': { title, siteUrl, description, 'mySelf': { image } } } } = data
+  const { 'site': { 'siteMetadata': { 'title': siteTitle, siteUrl, 'description': siteDescription, 'mySelf': { image } } } } = data
+  const title = pageTitle ? `${pageTitle} | ${siteTitle}` : `${siteTitle} | Software Engineer`
+  const description = pageDescription || siteDescription
 
   return (
-    <Helmet>
+    <>
       <title>{ title }</title>
       <meta
         name="title"
@@ -63,7 +64,7 @@ export default function SEO() {
       <meta
         property="twitter:title"
         content={ title }
-      />;
+      />
       <meta
         property="twitter:description"
         content={ description }
@@ -72,6 +73,6 @@ export default function SEO() {
         property="twitter:image"
         content={ image }
       />
-    </Helmet>
+    </>
   )
 }

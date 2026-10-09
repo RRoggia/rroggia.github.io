@@ -9,4 +9,8 @@ edition: '1st'
 publishDate: '2018-04-18'
 authors: ['Gene Kim', 'Jez Humble', 'Patrick Debois', 'John Willis']
 translations: ['João Tortello']
+references:
+ - '978-0988262591'
+ - '978-8543108629'
+ - '978-8573071702'
 ---

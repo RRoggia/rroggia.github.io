@@ -10,4 +10,6 @@ edition: '1st'
 publishDate: '2020-09-25'
 authors: ['Robert Martin']
 translations: ['Cibelle Ravaglia']
+references:
+ - '978-0321278654'
 ---

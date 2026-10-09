@@ -1,4 +1,5 @@
 ---
+id: '978-1491904152'
 title: 'You Dont know JS - this & Object Prototypes'
 language: 'en-US'
 status: 'Reading'

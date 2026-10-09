@@ -5,6 +5,10 @@ language: 'en-US'
 status: 'Planning'
 coverPath: 'the-devops-handbook'
 date: '2022-03-22'
+references:
+ - '978-0988262591'
+ - '978-8543108629'
+ - '978-8573071702'
 ---
 
 # Foreword

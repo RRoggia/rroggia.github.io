@@ -9,4 +9,8 @@ publishDate: '2010-08-30'
 coverPath: 'implementando-o-desenvolvimento-lean-de-software'
 authors: ['Mary Poppendieck', 'Tom Poppendieck' ]
 translations: ['Luiz Cláudio Parzianello', 'Jean Felipe Patikowski Cheiran']
+references:
+ - '978-8573071702'
+ - '978-0321278654'
+ - '978-8550802534'
 ---
