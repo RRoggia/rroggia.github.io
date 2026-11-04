@@ -1,0 +1,414 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="generator" content="Gatsby 5.16.1"/><meta name="title" content="Java Streams by Example | Renan Roggia" data-gatsby-head="true"/><meta name="description" content="Java Streams by Example: 10 Exercises, Every Method Explained My last serious Java was Java 7. To catch up, I&#x27;m working through every feature added since then…" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:url" content="https://rroggia.github.io" data-gatsby-head="true"/><meta property="og:title" content="Java Streams by Example | Renan Roggia" data-gatsby-head="true"/><meta property="og:description" content="Java Streams by Example: 10 Exercises, Every Method Explained My last serious Java was Java 7. To catch up, I&#x27;m working through every feature added since then…" data-gatsby-head="true"/><meta property="og:image" content="https://rroggia.github.io/images/my-photo.jpg" data-gatsby-head="true"/><meta property="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:url" content="https://rroggia.github.io" data-gatsby-head="true"/><meta property="twitter:title" content="Java Streams by Example | Renan Roggia" data-gatsby-head="true"/><meta property="twitter:description" content="Java Streams by Example: 10 Exercises, Every Method Explained My last serious Java was Java 7. To catch up, I&#x27;m working through every feature added since then…" data-gatsby-head="true"/><meta property="twitter:image" content="https://rroggia.github.io/images/my-photo.jpg" data-gatsby-head="true"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><title data-gatsby-head="true">Java Streams by Example | Renan Roggia</title><style data-styled="" data-styled-version="5.3.6">.enWpqL{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;max-width:var(--wide);margin:0 auto;padding:0 1.5rem;}/*!sc*/
+@media (max-width:600px){.enWpqL{padding:0 1rem;}}/*!sc*/
+data-styled.g1[id="BaseLayout__Wrapper-sc-1p0za7x-0"]{content:"enWpqL,"}/*!sc*/
+:root{--bg:#ffffff;--surface:#f4f6f7;--ink:#1a1d21;--muted:#5d6670;--rule:#e2e6ea;--accent:#0e6b58;--highlight:#fdf3d8;--font-sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--font-serif:'Source Serif Pro',Georgia,'Times New Roman',serif;--font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--measure:68ch;--wide:1080px;color-scheme:light;}/*!sc*/
+@media (prefers-color-scheme:dark){:root{--bg:#14171a;--surface:#1d2125;--ink:#e6e9ec;--muted:#9aa4ae;--rule:#2c3137;--accent:#5cc7ad;--highlight:#3a3324;color-scheme:dark;}}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}/*!sc*/
+h1,h2,h3,h4{font-family:var(--font-sans);font-weight:600;line-height:1.2;-webkit-letter-spacing:-0.01em;-moz-letter-spacing:-0.01em;-ms-letter-spacing:-0.01em;letter-spacing:-0.01em;}/*!sc*/
+h1{font-size:2.25rem;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;}/*!sc*/
+h2{font-size:1.5rem;}/*!sc*/
+h3{font-size:1.2rem;}/*!sc*/
+a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}/*!sc*/
+img{max-width:100%;}/*!sc*/
+::selection{background:var(--highlight);color:var(--ink);}/*!sc*/
+.prose{max-width:var(--measure);font-family:var(--font-serif);font-size:1.125rem;line-height:1.75;overflow-wrap:break-word;}/*!sc*/
+.prose h1,.prose h2,.prose h3,.prose h4{margin:2.25rem 0 0.75rem;}/*!sc*/
+.prose h1{font-size:1.75rem;}/*!sc*/
+.prose h2{font-size:1.4rem;}/*!sc*/
+.prose h3{font-size:1.15rem;}/*!sc*/
+.prose h4{font-size:1rem;}/*!sc*/
+.prose p,.prose ul,.prose ol,.prose blockquote,.prose table{margin:0 0 1.25rem;}/*!sc*/
+.prose ul,.prose ol{padding-left:1.4em;}/*!sc*/
+.prose li{margin-bottom:0.35rem;}/*!sc*/
+.prose li > ul,.prose li > ol{margin:0.35rem 0 0;}/*!sc*/
+.prose a{color:var(--accent);-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration-thickness:1px;text-decoration-thickness:1px;text-underline-offset:0.2em;}/*!sc*/
+.prose a:hover{-webkit-text-decoration-thickness:2px;text-decoration-thickness:2px;}/*!sc*/
+.prose strong{font-weight:600;}/*!sc*/
+.prose code{font-family:var(--font-mono);font-size:0.85em;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:0.1em 0.35em;}/*!sc*/
+.prose pre{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1rem;line-height:1.5;}/*!sc*/
+.prose pre code{background:none;border:0;padding:0;}/*!sc*/
+.prose deckgo-highlight-code{--deckgo-highlight-code-font-family:var(--font-mono);--deckgo-highlight-code-font-size:0.875rem;margin:1.5rem 0;}/*!sc*/
+.prose blockquote{margin-left:0;margin-right:0;padding:0.75rem 1.25rem;background:var(--highlight);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;}/*!sc*/
+.prose blockquote p:last-child{margin-bottom:0;}/*!sc*/
+.prose img{display:block;height:auto;margin:1.5rem auto;border-radius:4px;}/*!sc*/
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;font-family:var(--font-sans);font-size:0.95rem;}/*!sc*/
+.prose th,.prose td{padding:0.5rem 0.75rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top;}/*!sc*/
+.prose th{font-weight:600;}/*!sc*/
+.prose hr{border:0;border-top:1px solid var(--rule);margin:2.5rem 0;}/*!sc*/
+@media (max-width:600px){.prose{font-size:1.0625rem;}}/*!sc*/
+@media (prefers-reduced-motion:reduce){*{-webkit-transition:none !important;transition:none !important;}}/*!sc*/
+data-styled.g2[id="sc-global-czlnlo1"]{content:"sc-global-czlnlo1,"}/*!sc*/
+.LklWw{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.25rem 1.75rem;}/*!sc*/
+data-styled.g3[id="NavigationMenu__Nav-sc-6dpd3o-0"]{content:"LklWw,"}/*!sc*/
+.hMnvRr{color:var(--muted);font-size:0.95rem;padding-bottom:0.2rem;border-bottom:2px solid transparent;}/*!sc*/
+.hMnvRr:hover{color:var(--ink);}/*!sc*/
+.hMnvRr[aria-current]{color:var(--ink);border-bottom-color:var(--accent);}/*!sc*/
+data-styled.g4[id="NavigationMenu__NavigationLink-sc-6dpd3o-1"]{content:"hMnvRr,"}/*!sc*/
+.bvLmGA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:baseline;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;gap:0.75rem 2rem;padding:1.5rem 0;border-bottom:1px solid var(--rule);}/*!sc*/
+data-styled.g5[id="Header__Bar-sc-8apuby-0"]{content:"bvLmGA,"}/*!sc*/
+.cDLkEB{font-size:1.125rem;font-weight:600;-webkit-letter-spacing:-0.01em;-moz-letter-spacing:-0.01em;-ms-letter-spacing:-0.01em;letter-spacing:-0.01em;}/*!sc*/
+data-styled.g6[id="Header__Wordmark-sc-8apuby-1"]{content:"cDLkEB,"}/*!sc*/
+.eOsikg{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;gap:1rem 2rem;padding:2rem 0 3rem;border-top:1px solid var(--rule);color:var(--muted);font-size:0.9rem;}/*!sc*/
+.eOsikg p{margin:0;}/*!sc*/
+data-styled.g7[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"eOsikg,"}/*!sc*/
+.kihuSm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.5rem 1.5rem;margin:0;padding:0;list-style:none;}/*!sc*/
+.kihuSm a:hover{color:var(--ink);}/*!sc*/
+data-styled.g8[id="Footer__Links-sc-1j1fu1i-1"]{content:"kihuSm,"}/*!sc*/
+.faIAWJ{-webkit-flex:1;-ms-flex:1;flex:1;padding:3rem 0 4rem;}/*!sc*/
+@media (max-width:600px){.faIAWJ{padding:2rem 0 3rem;}}/*!sc*/
+data-styled.g9[id="BasePage__Main-sc-ptapkq-0"]{content:"faIAWJ,"}/*!sc*/
+.iguyID{max-width:var(--measure);margin:0 auto;}/*!sc*/
+data-styled.g10[id="Post__Article-sc-o9k349-0"]{content:"iguyID,"}/*!sc*/
+.blvkSq{margin:0 0 1rem;font-size:clamp(2rem,5vw,2.75rem);line-height:1.15;}/*!sc*/
+data-styled.g11[id="Post__Title-sc-o9k349-1"]{content:"blvkSq,"}/*!sc*/
+.igqOCK{margin:0 0 2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule);color:var(--muted);font-size:0.95rem;}/*!sc*/
+data-styled.g12[id="Post__Meta-sc-o9k349-2"]{content:"igqOCK,"}/*!sc*/
+</style><link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,600|IBM+Plex+Mono:400,500|Source+Serif+Pro:400,400i,600&amp;display=swap" rel="stylesheet"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="BaseLayout__Wrapper-sc-1p0za7x-0 enWpqL"><header class="Header__Bar-sc-8apuby-0 bvLmGA"><a class="Header__Wordmark-sc-8apuby-1 cDLkEB" href="/">Renan Roggia</a><nav aria-label="Main" class="NavigationMenu__Nav-sc-6dpd3o-0 LklWw"><a aria-current="page" class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/">Writing</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/engineer-diary/">Engineer&#x27;s diary</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/books/">Books</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/about-me/">About</a></nav></header><main class="BasePage__Main-sc-ptapkq-0 faIAWJ"><article class="Post__Article-sc-o9k349-0 iguyID"><header><h1 class="Post__Title-sc-o9k349-1 blvkSq">Java Streams by Example</h1><p class="Post__Meta-sc-o9k349-2 igqOCK"><time dateTime="2026-11-03">November 3, 2026</time>, <!-- -->7 min read</p></header><div class="prose"><h1>Java Streams by Example: 10 Exercises, Every Method Explained</h1>
+<p>My last serious Java was Java 7. To catch up, I'm working through every feature added since then, and the first stop was the <strong>Streams API</strong> from Java 8. I solved 10 exercises on a small online-shop dataset. This post explains every stream method I used, with the code I wrote.</p>
+<h2>The data</h2>
+<p>All the examples use four simple classes:</p>
+<ul>
+<li><code>Product</code>: id, name, <code>Category</code> (ELECTRONICS, BOOKS, CLOTHING, HOME) and price</li>
+<li><code>Customer</code>: id, name, city</li>
+<li><code>Order</code>: id, customer, <code>OrderStatus</code> (SHIPPED, DELIVERED, CANCELLED) and a list of <code>OrderLine</code></li>
+<li><code>OrderLine</code>: a product, a quantity, and <code>getSubtotal()</code> (price × quantity)</li>
+</ul>
+<p>The dataset has 11 products, 6 customers and 10 orders.</p>
+<h2>How a stream pipeline works</h2>
+<p>Every exercise follows the same three-part shape:</p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">products.stream()                       // 1. source: where the elements come from
+        .filter(p -&gt; p.getPrice() &gt; 50) // 2. intermediate operations: each returns a new Stream
+        .map(Product::getName)
+        .collect(Collectors.toList());  // 3. terminal operation: produces the result</code>
+        </deckgo-highlight-code>
+<ol>
+<li><strong>Source</strong>: <code>collection.stream()</code> turns a collection into a <code>Stream</code>.</li>
+<li><strong>Intermediate operations</strong> (<code>filter</code>, <code>map</code>, <code>sorted</code>, …) describe a transformation. They are <em>lazy</em>: nothing runs yet.</li>
+<li><strong>Terminal operation</strong> (<code>collect</code>, <code>count</code>, <code>max</code>, <code>sum</code>, …) runs the whole pipeline and produces a result. A stream can be consumed only once.</li>
+</ol>
+<p>Compared to Java 7, the big change is that you describe <em>what</em> you want instead of writing the loop that does it. The rule I followed for all 10 exercises: one pipeline per method, no <code>for</code> loops, no mutable variables.</p>
+<h2>Filter, map, sort: <code>filter</code>, <code>map</code>, <code>sorted</code>, <code>distinct</code>, <code>collect</code></h2>
+<p><strong>Exercise 1: names of the products in a category, sorted alphabetically.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static List&lt;String&gt; productNamesInCategory(List&lt;Product&gt; products, Category category) {
+    return products.stream()
+            .filter(p -&gt; category == p.getCategory())
+            .map(Product::getName)
+            .sorted()
+            .collect(Collectors.toList());
+}</code>
+        </deckgo-highlight-code>
+<ul>
+<li><strong><code>filter(Predicate)</code></strong> keeps only the elements for which the condition is true.</li>
+<li><strong><code>map(Function)</code></strong> turns each element into something else, here a <code>Product</code> into its name. <code>Product::getName</code> is a <em>method reference</em>, short for <code>p -> p.getName()</code>.</li>
+<li><strong><code>sorted()</code></strong> sorts by natural order (alphabetical for <code>String</code>). <code>sorted(Comparator)</code> lets you choose the order.</li>
+<li><strong><code>collect(Collectors.toList())</code></strong> gathers the results into a <code>List</code>.</li>
+</ul>
+<p>Enums are compared with <code>==</code>: there is only one instance of each value, and <code>==</code> never throws a <code>NullPointerException</code>.</p>
+<p><strong>Exercise 4: the cities of customers with an order in a given status, each city once, sorted.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static List&lt;String&gt; citiesWithOrderStatus(List&lt;Order&gt; orders, OrderStatus status) {
+    return orders.stream()
+            .filter(o -&gt; o.getStatus() == status)
+            .map(Order::getCustomer)
+            .map(Customer::getCity)
+            .distinct()
+            .sorted()
+            .collect(Collectors.toList());
+}</code>
+        </deckgo-highlight-code>
+<ul>
+<li>Chaining two <strong><code>map</code></strong> calls walks through the objects step by step: order → customer → city.</li>
+<li><strong><code>distinct()</code></strong> removes duplicates, using <code>equals</code>. Lisbon appears twice in the data but only once in the result.</li>
+</ul>
+<h2>Counting and finding: <code>count</code>, <code>max</code>, <code>Comparator</code>, <code>Optional</code></h2>
+<p><strong>Exercise 2: how many customers live in a city.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static long countCustomersFromCity(List&lt;Customer&gt; customers, String city) {
+    return customers.stream()
+            .filter(c -&gt; city.equals(c.getCity()))
+            .count();
+}</code>
+        </deckgo-highlight-code>
+<p><strong><code>count()</code></strong> is a terminal operation that returns a <code>long</code>. Writing <code>city.equals(c.getCity())</code> instead of the other way round avoids a <code>NullPointerException</code> when a customer has no city.</p>
+<p><strong>Exercise 3: the most expensive product.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static Optional&lt;Product&gt; mostExpensiveProduct(List&lt;Product&gt; products) {
+    return products.stream().max(Comparator.comparingDouble(Product::getPrice));
+}</code>
+        </deckgo-highlight-code>
+<ul>
+<li><strong><code>max(Comparator)</code></strong> (and <code>min</code>) return an <strong><code>Optional</code></strong>, because the stream might be empty. <code>Optional.empty()</code> replaces the old habit of returning <code>null</code>.</li>
+<li><strong><code>Comparator.comparingDouble(Product::getPrice)</code></strong> builds the comparator from a method reference.</li>
+</ul>
+<p>Java 8 added factory methods to <code>Comparator</code> (<code>comparing</code>, <code>comparingInt</code>, <code>comparingDouble</code>) and methods to combine them (<code>reversed()</code>, <code>thenComparing()</code>). There's rarely a reason to write a comparator by hand anymore.</p>
+<h2>Flattening and summing: <code>flatMap</code>, <code>mapToDouble</code>, <code>sum</code></h2>
+<p><strong>Exercise 5: total revenue of all delivered orders.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static double totalDeliveredRevenue(List&lt;Order&gt; orders) {
+    return orders.stream()
+            .filter(o -&gt; o.getStatus() == OrderStatus.DELIVERED)
+            .flatMap(o -&gt; o.getLines().stream())
+            .mapToDouble(OrderLine::getSubtotal)
+            .sum();
+}</code>
+        </deckgo-highlight-code>
+<ul>
+<li><strong><code>flatMap(Function)</code></strong> handles the one-to-many case. Each order has <em>several</em> lines. <code>map</code> would give a <code>Stream&#x3C;List&#x3C;OrderLine>></code>; <code>flatMap</code> merges all those small streams into one flat <code>Stream&#x3C;OrderLine></code>.</li>
+<li><strong><code>mapToDouble(...)</code></strong> switches to a <code>DoubleStream</code>, a stream of primitive <code>double</code> values. There are also <code>IntStream</code> and <code>LongStream</code>.</li>
+<li><strong><code>sum()</code></strong> is available only on primitive streams. It returns <code>0.0</code> for an empty stream, so there's no <code>Optional</code> to unwrap. Primitive streams also offer <code>average()</code>, <code>max()</code> and <code>summaryStatistics()</code>.</li>
+</ul>
+<h2>Grouping and partitioning: <code>groupingBy</code>, <code>mapping</code>, <code>averagingDouble</code>, <code>partitioningBy</code>, <code>summingInt</code></h2>
+<p>This is where <code>Collectors</code> shines: some of the most useful work happens <em>inside</em> <code>collect</code>.</p>
+<p><strong>Exercise 6: product names grouped by category.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static Map&lt;Category, List&lt;String&gt;&gt; productNamesByCategory(List&lt;Product&gt; products) {
+    return products.stream()
+            .collect(groupingBy(Product::getCategory,
+                    mapping(Product::getName, toList())));
+}</code>
+        </deckgo-highlight-code>
+<ul>
+<li><strong><code>groupingBy(classifier)</code></strong> builds a <code>Map</code>: the classifier picks each element's key, and the elements with the same key go into a list. On its own, it would give <code>Map&#x3C;Category, List&#x3C;Product>></code>.</li>
+<li>The second argument is a <strong>downstream collector</strong>: it decides what to do with the elements of each group. <strong><code>mapping(Product::getName, toList())</code></strong> turns each product into its name, then collects the names, giving <code>Map&#x3C;Category, List&#x3C;String>></code>.</li>
+</ul>
+<p><strong>Exercise 7: average price per category.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static Map&lt;Category, Double&gt; averagePriceByCategory(List&lt;Product&gt; products) {
+    return products.stream()
+            .collect(groupingBy(Product::getCategory,
+                    averagingDouble(Product::getPrice)));
+}</code>
+        </deckgo-highlight-code>
+<p>The same <code>groupingBy</code>, with a different downstream collector: <strong><code>averagingDouble</code></strong>. Its relatives are <code>summingInt</code>/<code>summingDouble</code>, <code>counting()</code>, <code>minBy</code>/<code>maxBy</code> and <code>joining()</code> for strings.</p>
+<p><strong>Exercise 8: split order ids into "total above a threshold" and "the rest".</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static Map&lt;Boolean, List&lt;String&gt;&gt; partitionOrderIdsByTotal(List&lt;Order&gt; orders, double threshold) {
+    return orders.stream()
+            .collect(partitioningBy(o -&gt; total(o) &gt; threshold,
+                    mapping(Order::getId, toList())));
+}
+
+private static double total(Order o) {
+    return o.getLines().stream().mapToDouble(OrderLine::getSubtotal).sum();
+}</code>
+        </deckgo-highlight-code>
+<ul>
+<li><strong><code>partitioningBy(Predicate)</code></strong> is a special case of <code>groupingBy</code> with exactly two keys, <code>true</code> and <code>false</code>. Both keys are always present, even if one list is empty.</li>
+<li>It takes a downstream collector too, here <code>mapping</code> to keep only the ids.</li>
+<li>Moving the order total into a small <code>total(Order)</code> helper keeps the condition readable.</li>
+</ul>
+<p><strong>Exercise 10: total quantity sold per product.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static Map&lt;String, Integer&gt; quantitySoldPerProduct(List&lt;Order&gt; orders) {
+    return orders.stream()
+            .filter(o -&gt; o.getStatus() == DELIVERED)
+            .flatMap(o -&gt; o.getLines().stream())
+            .collect(groupingBy(line -&gt; line.getProduct().getName(),
+                    summingInt(OrderLine::getQuantity)));
+}</code>
+        </deckgo-highlight-code>
+<p>This combines <code>flatMap</code> (order → lines) with <code>groupingBy</code> + <strong><code>summingInt</code></strong>. Another way is <code>Collectors.toMap</code>:</p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">.collect(toMap(line -&gt; line.getProduct().getName(), OrderLine::getQuantity, Integer::sum));</code>
+        </deckgo-highlight-code>
+<p>The third argument is a <strong>merge function</strong>: it decides what happens when two elements map to the same key. Here, it adds the quantities.</p>
+<h2>Streaming over a Map: <code>entrySet().stream()</code>, <code>comparingByValue</code>, <code>limit</code></h2>
+<p><strong>Exercise 9: the top <code>n</code> customers by money spent.</strong></p>
+<deckgo-highlight-code language="java"  >
+          <code slot="code">public static List&lt;String&gt; topSpenders(List&lt;Order&gt; orders, int n) {
+    return orders.stream()
+            .filter(o -&gt; o.getStatus() == OrderStatus.DELIVERED)
+            .collect(groupingBy(o -&gt; o.getCustomer().getName(),
+                    summingDouble(StreamExercises::total)))
+            .entrySet()
+            .stream()
+            .sorted(Entry.&lt;String, Double&gt;comparingByValue().reversed()
+                    .thenComparing(Entry.comparingByKey()))
+            .limit(n)
+            .map(Entry::getKey)
+            .collect(Collectors.toList());
+}</code>
+        </deckgo-highlight-code>
+<p>This is two pipelines in one:</p>
+<ol>
+<li><strong>Aggregate</strong>: <code>groupingBy</code> + <code>summingDouble</code> builds a <code>Map&#x3C;String, Double></code> of customer name → total spent.</li>
+<li><strong>Rank</strong>: a <code>Map</code> isn't a stream, but <strong><code>entrySet().stream()</code></strong> gives a <code>Stream&#x3C;Map.Entry&#x3C;String, Double>></code>, which can be sorted like anything else.</li>
+</ol>
+<ul>
+<li><strong><code>Map.Entry.comparingByValue()</code></strong> / <strong><code>comparingByKey()</code></strong> are ready-made comparators for map entries.</li>
+<li><strong><code>.reversed()</code></strong> flips the order, so the highest spender comes first.</li>
+<li><strong><code>.thenComparing(...)</code></strong> breaks ties by name (more on that below).</li>
+<li><strong><code>limit(n)</code></strong> keeps only the first <code>n</code> elements.</li>
+<li><strong><code>map(Entry::getKey)</code></strong> keeps just the names.</li>
+</ul>
+<h2>Pitfalls I hit along the way</h2>
+<ul>
+<li><strong><code>comparingByValue().reversed()</code> doesn't compile.</strong> Once you chain <code>.reversed()</code>, Java can no longer infer the generic types. Spell them out with <code>Entry.&#x3C;String, Double>comparingByValue().reversed()</code>, or write <code>Entry.comparingByValue(Comparator.reverseOrder())</code>.</li>
+<li><strong><code>HashMap</code> order is undefined.</strong> <code>groupingBy</code> returns a <code>HashMap</code>, so when two customers spend the same amount, their order in the result can change between runs or JDK versions. Add a tie-breaker with <code>thenComparing</code>. If you need the keys in order, <code>groupingBy(classifier, () -> new EnumMap&#x3C;>(Category.class), downstream)</code> lets you choose the map type.</li>
+<li><strong><code>toMap</code> throws on duplicate keys.</strong> Without a merge function, <code>Collectors.toMap</code> throws <code>IllegalStateException: Duplicate key</code>.</li>
+</ul>
+<h2>Cheat sheet</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Kind</th>
+<th>What it does</th>
+<th>Exercise</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>stream()</code></td>
+<td>source</td>
+<td>Turns a collection into a stream</td>
+<td>all</td>
+</tr>
+<tr>
+<td><code>filter(predicate)</code></td>
+<td>intermediate</td>
+<td>Keeps the elements that match</td>
+<td>1, 2, 4, 5, 9, 10</td>
+</tr>
+<tr>
+<td><code>map(function)</code></td>
+<td>intermediate</td>
+<td>Transforms each element</td>
+<td>1, 4, 9</td>
+</tr>
+<tr>
+<td><code>flatMap(function)</code></td>
+<td>intermediate</td>
+<td>One element → many, flattened into one stream</td>
+<td>5, 10</td>
+</tr>
+<tr>
+<td><code>distinct()</code></td>
+<td>intermediate</td>
+<td>Removes duplicates (uses <code>equals</code>)</td>
+<td>4</td>
+</tr>
+<tr>
+<td><code>sorted()</code> / <code>sorted(comparator)</code></td>
+<td>intermediate</td>
+<td>Sorts naturally or by a comparator</td>
+<td>1, 4, 9</td>
+</tr>
+<tr>
+<td><code>limit(n)</code></td>
+<td>intermediate</td>
+<td>Keeps the first n elements</td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>mapToDouble(function)</code></td>
+<td>intermediate</td>
+<td>Switches to a primitive <code>DoubleStream</code></td>
+<td>5, 8</td>
+</tr>
+<tr>
+<td><code>count()</code></td>
+<td>terminal</td>
+<td>Number of elements, as a <code>long</code></td>
+<td>2</td>
+</tr>
+<tr>
+<td><code>max(comparator)</code></td>
+<td>terminal</td>
+<td>Largest element, as an <code>Optional</code></td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>sum()</code></td>
+<td>terminal (primitive streams)</td>
+<td>Adds the values; 0 when empty</td>
+<td>5, 8</td>
+</tr>
+<tr>
+<td><code>collect(collector)</code></td>
+<td>terminal</td>
+<td>Gathers the results using a <code>Collector</code></td>
+<td>1, 4, 6–10</td>
+</tr>
+<tr>
+<td><code>Collectors.toList()</code></td>
+<td>collector</td>
+<td>Collects into a <code>List</code></td>
+<td>1, 4, 6, 8, 9</td>
+</tr>
+<tr>
+<td><code>Collectors.groupingBy(key, downstream)</code></td>
+<td>collector</td>
+<td>Builds a <code>Map</code> of key → group</td>
+<td>6, 7, 9, 10</td>
+</tr>
+<tr>
+<td><code>Collectors.partitioningBy(predicate, downstream)</code></td>
+<td>collector</td>
+<td>Splits into <code>true</code> / <code>false</code> groups</td>
+<td>8</td>
+</tr>
+<tr>
+<td><code>Collectors.mapping(function, downstream)</code></td>
+<td>collector</td>
+<td>Transforms elements inside a group</td>
+<td>6, 8</td>
+</tr>
+<tr>
+<td><code>Collectors.averagingDouble(function)</code></td>
+<td>collector</td>
+<td>Average of a group</td>
+<td>7</td>
+</tr>
+<tr>
+<td><code>Collectors.summingInt</code> / <code>summingDouble</code></td>
+<td>collector</td>
+<td>Sum of a group</td>
+<td>9, 10</td>
+</tr>
+<tr>
+<td><code>Comparator.comparingDouble(function)</code></td>
+<td>comparator</td>
+<td>Compares by a numeric property</td>
+<td>3</td>
+</tr>
+<tr>
+<td><code>Map.Entry.comparingByValue()</code> / <code>comparingByKey()</code></td>
+<td>comparator</td>
+<td>Compares map entries</td>
+<td>9</td>
+</tr>
+<tr>
+<td><code>reversed()</code> / <code>thenComparing(...)</code></td>
+<td>comparator</td>
+<td>Reverses the order / breaks ties</td>
+<td>9</td>
+</tr>
+</tbody>
+</table></div></article></main><footer class="Footer__FooterWrapper-sc-1j1fu1i-0 eOsikg"><p>© 2026 Renan Roggia</p><ul class="Footer__Links-sc-1j1fu1i-1 kihuSm"><li><a href="mailto:renanzr@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/renanroggia/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://github.com/rroggia" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-150419482-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/java-streams-by-example/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-5752ebca197c1502ec35.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-37b44f10ab2b0a8fc5e5.js\"],\"component---src-pages-about-me-js\":[\"/component---src-pages-about-me-js-6c3c5cd2bba959d1daa9.js\"],\"component---src-pages-book-dependencies-js\":[\"/component---src-pages-book-dependencies-js-3c0db4bc9a0863a83da4.js\"],\"component---src-pages-books-js\":[\"/component---src-pages-books-js-f8eb28a007a833fc0ef4.js\"],\"component---src-pages-books-timeline-js\":[\"/component---src-pages-books-timeline-js-1300de0e3c9af6dc4811.js\"],\"component---src-pages-bookshelf-js\":[\"/component---src-pages-bookshelf-js-6c62d0b326f635dd2713.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-970929de3a7f828e43bc.js\"],\"component---src-pages-notes-js\":[\"/component---src-pages-notes-js-050d4448eabf83951085.js\"],\"component---src-templates-file-template-js\":[\"/component---src-templates-file-template-js-f168a0f4ea5ecb2f8f02.js\"],\"component---src-templates-folder-template-js\":[\"/component---src-templates-folder-template-js-e278a77d42bed7c71dd5.js\"],\"component---src-templates-note-template-js\":[\"/component---src-templates-note-template-js-3b29621b18b18374b4b0.js\"],\"component---src-templates-post-template-js\":[\"/component---src-templates-post-template-js-01078e49a0421a049ece.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="33208c4f4d2c91cace32";</script><script src="/webpack-runtime-0cfe7a765c2429e6521b.js" async></script><script src="/framework-a20000016e97e304a183.js" async></script><script src="/app-5752ebca197c1502ec35.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
