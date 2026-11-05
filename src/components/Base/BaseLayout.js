@@ -208,6 +208,14 @@ const GlobalStyle = createGlobalStyle`
       border-radius: 4px;
     }
 
+    video {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 1.5rem auto;
+      border-radius: 4px;
+    }
+
     table {
       display: block;
       overflow-x: auto;

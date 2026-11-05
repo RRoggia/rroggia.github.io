@@ -1,6 +1,6 @@
 ---
 title: 'Java Streams by Example'
-tags: []
+tags: ['java', 'streams']
 published: true
 date: '2026-11-03'
 ---
