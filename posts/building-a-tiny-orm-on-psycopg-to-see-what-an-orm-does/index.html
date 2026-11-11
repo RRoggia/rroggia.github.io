@@ -1,0 +1,295 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="generator" content="Gatsby 5.16.1"/><meta name="title" content="Building a Tiny ORM on psycopg to See What an ORM Does | Renan Roggia" data-gatsby-head="true"/><meta name="description" content="Building a Tiny ORM on psycopg to See What an ORM Does I use ORMs all the time without thinking much about what happens between my objects and the database. To…" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:url" content="https://rroggia.github.io" data-gatsby-head="true"/><meta property="og:title" content="Building a Tiny ORM on psycopg to See What an ORM Does | Renan Roggia" data-gatsby-head="true"/><meta property="og:description" content="Building a Tiny ORM on psycopg to See What an ORM Does I use ORMs all the time without thinking much about what happens between my objects and the database. To…" data-gatsby-head="true"/><meta property="og:image" content="https://rroggia.github.io/images/my-photo.jpg" data-gatsby-head="true"/><meta property="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:url" content="https://rroggia.github.io" data-gatsby-head="true"/><meta property="twitter:title" content="Building a Tiny ORM on psycopg to See What an ORM Does | Renan Roggia" data-gatsby-head="true"/><meta property="twitter:description" content="Building a Tiny ORM on psycopg to See What an ORM Does I use ORMs all the time without thinking much about what happens between my objects and the database. To…" data-gatsby-head="true"/><meta property="twitter:image" content="https://rroggia.github.io/images/my-photo.jpg" data-gatsby-head="true"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><title data-gatsby-head="true">Building a Tiny ORM on psycopg to See What an ORM Does | Renan Roggia</title><style data-styled="" data-styled-version="5.3.6">.enWpqL{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;max-width:var(--wide);margin:0 auto;padding:0 1.5rem;}/*!sc*/
+@media (max-width:600px){.enWpqL{padding:0 1rem;}}/*!sc*/
+data-styled.g1[id="BaseLayout__Wrapper-sc-1p0za7x-0"]{content:"enWpqL,"}/*!sc*/
+:root{--bg:#ffffff;--surface:#f4f6f7;--ink:#1a1d21;--muted:#5d6670;--rule:#e2e6ea;--accent:#0e6b58;--highlight:#fdf3d8;--font-sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--font-serif:'Source Serif Pro',Georgia,'Times New Roman',serif;--font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--measure:68ch;--wide:1080px;color-scheme:light;}/*!sc*/
+@media (prefers-color-scheme:dark){:root{--bg:#14171a;--surface:#1d2125;--ink:#e6e9ec;--muted:#9aa4ae;--rule:#2c3137;--accent:#5cc7ad;--highlight:#3a3324;color-scheme:dark;}}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}/*!sc*/
+h1,h2,h3,h4{font-family:var(--font-sans);font-weight:600;line-height:1.2;-webkit-letter-spacing:-0.01em;-moz-letter-spacing:-0.01em;-ms-letter-spacing:-0.01em;letter-spacing:-0.01em;}/*!sc*/
+h1{font-size:2.25rem;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;}/*!sc*/
+h2{font-size:1.5rem;}/*!sc*/
+h3{font-size:1.2rem;}/*!sc*/
+a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}/*!sc*/
+img{max-width:100%;}/*!sc*/
+::selection{background:var(--highlight);color:var(--ink);}/*!sc*/
+.prose{max-width:var(--measure);font-family:var(--font-serif);font-size:1.125rem;line-height:1.75;overflow-wrap:break-word;}/*!sc*/
+.prose h1,.prose h2,.prose h3,.prose h4{margin:2.25rem 0 0.75rem;}/*!sc*/
+.prose h1{font-size:1.75rem;}/*!sc*/
+.prose h2{font-size:1.4rem;}/*!sc*/
+.prose h3{font-size:1.15rem;}/*!sc*/
+.prose h4{font-size:1rem;}/*!sc*/
+.prose p,.prose ul,.prose ol,.prose blockquote,.prose table{margin:0 0 1.25rem;}/*!sc*/
+.prose ul,.prose ol{padding-left:1.4em;}/*!sc*/
+.prose li{margin-bottom:0.35rem;}/*!sc*/
+.prose li > ul,.prose li > ol{margin:0.35rem 0 0;}/*!sc*/
+.prose a{color:var(--accent);-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration-thickness:1px;text-decoration-thickness:1px;text-underline-offset:0.2em;}/*!sc*/
+.prose a:hover{-webkit-text-decoration-thickness:2px;text-decoration-thickness:2px;}/*!sc*/
+.prose strong{font-weight:600;}/*!sc*/
+.prose code{font-family:var(--font-mono);font-size:0.85em;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:0.1em 0.35em;}/*!sc*/
+.prose pre{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1rem;line-height:1.5;}/*!sc*/
+.prose pre code{background:none;border:0;padding:0;}/*!sc*/
+.prose deckgo-highlight-code{--deckgo-highlight-code-font-family:var(--font-mono);--deckgo-highlight-code-font-size:0.875rem;margin:1.5rem 0;}/*!sc*/
+.prose blockquote{margin-left:0;margin-right:0;padding:0.75rem 1.25rem;background:var(--highlight);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;}/*!sc*/
+.prose blockquote p:last-child{margin-bottom:0;}/*!sc*/
+.prose img{display:block;height:auto;margin:1.5rem auto;border-radius:4px;}/*!sc*/
+.prose video{display:block;max-width:100%;height:auto;margin:1.5rem auto;border-radius:4px;}/*!sc*/
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;font-family:var(--font-sans);font-size:0.95rem;}/*!sc*/
+.prose th,.prose td{padding:0.5rem 0.75rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top;}/*!sc*/
+.prose th{font-weight:600;}/*!sc*/
+.prose hr{border:0;border-top:1px solid var(--rule);margin:2.5rem 0;}/*!sc*/
+@media (max-width:600px){.prose{font-size:1.0625rem;}}/*!sc*/
+@media (prefers-reduced-motion:reduce){*{-webkit-transition:none !important;transition:none !important;}}/*!sc*/
+data-styled.g2[id="sc-global-gbZSJK1"]{content:"sc-global-gbZSJK1,"}/*!sc*/
+.LklWw{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.25rem 1.75rem;}/*!sc*/
+data-styled.g3[id="NavigationMenu__Nav-sc-6dpd3o-0"]{content:"LklWw,"}/*!sc*/
+.hMnvRr{color:var(--muted);font-size:0.95rem;padding-bottom:0.2rem;border-bottom:2px solid transparent;}/*!sc*/
+.hMnvRr:hover{color:var(--ink);}/*!sc*/
+.hMnvRr[aria-current]{color:var(--ink);border-bottom-color:var(--accent);}/*!sc*/
+data-styled.g4[id="NavigationMenu__NavigationLink-sc-6dpd3o-1"]{content:"hMnvRr,"}/*!sc*/
+.bvLmGA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:baseline;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;gap:0.75rem 2rem;padding:1.5rem 0;border-bottom:1px solid var(--rule);}/*!sc*/
+data-styled.g5[id="Header__Bar-sc-8apuby-0"]{content:"bvLmGA,"}/*!sc*/
+.cDLkEB{font-size:1.125rem;font-weight:600;-webkit-letter-spacing:-0.01em;-moz-letter-spacing:-0.01em;-ms-letter-spacing:-0.01em;letter-spacing:-0.01em;}/*!sc*/
+data-styled.g6[id="Header__Wordmark-sc-8apuby-1"]{content:"cDLkEB,"}/*!sc*/
+.eOsikg{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;gap:1rem 2rem;padding:2rem 0 3rem;border-top:1px solid var(--rule);color:var(--muted);font-size:0.9rem;}/*!sc*/
+.eOsikg p{margin:0;}/*!sc*/
+data-styled.g7[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"eOsikg,"}/*!sc*/
+.kihuSm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.5rem 1.5rem;margin:0;padding:0;list-style:none;}/*!sc*/
+.kihuSm a:hover{color:var(--ink);}/*!sc*/
+data-styled.g8[id="Footer__Links-sc-1j1fu1i-1"]{content:"kihuSm,"}/*!sc*/
+.faIAWJ{-webkit-flex:1;-ms-flex:1;flex:1;padding:3rem 0 4rem;}/*!sc*/
+@media (max-width:600px){.faIAWJ{padding:2rem 0 3rem;}}/*!sc*/
+data-styled.g9[id="BasePage__Main-sc-ptapkq-0"]{content:"faIAWJ,"}/*!sc*/
+.iguyID{max-width:var(--measure);margin:0 auto;}/*!sc*/
+data-styled.g10[id="Post__Article-sc-o9k349-0"]{content:"iguyID,"}/*!sc*/
+.blvkSq{margin:0 0 1rem;font-size:clamp(2rem,5vw,2.75rem);line-height:1.15;}/*!sc*/
+data-styled.g11[id="Post__Title-sc-o9k349-1"]{content:"blvkSq,"}/*!sc*/
+.igqOCK{margin:0 0 2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule);color:var(--muted);font-size:0.95rem;}/*!sc*/
+data-styled.g12[id="Post__Meta-sc-o9k349-2"]{content:"igqOCK,"}/*!sc*/
+.cRfCfj{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.5rem;margin:3rem 0 0;padding:1.5rem 0 0;border-top:1px solid var(--rule);list-style:none;}/*!sc*/
+.cRfCfj li{padding:0.15rem 0.6rem;background:var(--surface);border-radius:4px;color:var(--muted);font-size:0.85rem;}/*!sc*/
+data-styled.g13[id="Post__Tags-sc-o9k349-3"]{content:"cRfCfj,"}/*!sc*/
+</style><link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,600|IBM+Plex+Mono:400,500|Source+Serif+Pro:400,400i,600&amp;display=swap" rel="stylesheet"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="BaseLayout__Wrapper-sc-1p0za7x-0 enWpqL"><header class="Header__Bar-sc-8apuby-0 bvLmGA"><a class="Header__Wordmark-sc-8apuby-1 cDLkEB" href="/">Renan Roggia</a><nav aria-label="Main" class="NavigationMenu__Nav-sc-6dpd3o-0 LklWw"><a aria-current="page" class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/">Writing</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/engineer-diary/">Engineer&#x27;s diary</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/books/">Books</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/about-me/">About</a></nav></header><main class="BasePage__Main-sc-ptapkq-0 faIAWJ"><article class="Post__Article-sc-o9k349-0 iguyID"><header><h1 class="Post__Title-sc-o9k349-1 blvkSq">Building a Tiny ORM on psycopg to See What an ORM Does</h1><p class="Post__Meta-sc-o9k349-2 igqOCK"><time dateTime="2026-11-11T00:00:00.000Z">November 11, 2026</time>, <!-- -->6 min read</p></header><div class="prose"><h1>Building a Tiny ORM on psycopg to See What an ORM Does</h1>
+<p>I use ORMs all the time without thinking much about what happens between my objects and the database. To find out, I wrote a small Python app against the Postgres cluster in my homelab. It started with raw SQL and no abstraction. I added layers one at a time, each time something hurt.</p>
+<p>This post walks through those steps: raw psycopg, a generic data access object, a decorator that describes tables, and finally mappers and repositories. Each step fixes a problem the previous one exposed. At the end I'm left with a decent picture of what an ORM does for me, and a clear reason to stop building my own.</p>
+<h2>The setup</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Language</td>
+<td>Python 3.12+, managed with <code>uv</code></td>
+</tr>
+<tr>
+<td>Driver</td>
+<td>psycopg 3</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>Postgres on my homelab Kubernetes cluster</td>
+</tr>
+<tr>
+<td>Domain</td>
+<td>Users, items and orders, a small order-management app</td>
+</tr>
+</tbody>
+</table>
+<h2>Step 1: raw SQL with psycopg</h2>
+<p>psycopg makes the first step easy. Open a connection, get a cursor and run SQL:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">with psycopg.connect(settings.pg_url) as conn, conn.cursor() as cursor:
+    cursor.execute(
+        &quot;SELECT * FROM users WHERE national_identifier = %s&quot;, (&quot;111111111&quot;,)
+    )
+    user = cursor.fetchone()          # a tuple: (id, name, national_identifier)
+
+    cursor.execute(
+        &quot;INSERT INTO orders (user_id, status) VALUES (%s, %s)&quot;,
+        (user[0], &quot;IN_PROGRESS&quot;),
+    )
+    conn.commit()</code>
+        </deckgo-highlight-code>
+<p>This works, and it shows clearly what goes to the database. Two problems appear quickly:</p>
+<ul>
+<li><strong>Nothing is reusable.</strong> Every query is a one-off string. Inserting into <code>items</code> means writing a new <code>INSERT</code> with a new column list, even though it follows the same pattern as <code>users</code>.</li>
+<li><strong>Results are tuples.</strong> <code>user[0]</code> is the id only because of the column order in the table. Add a column and that code silently breaks.</li>
+</ul>
+<p>What I wanted was one API to interact with any table, so the rest of the code doesn't build SQL strings.</p>
+<h2>Step 2: dataclasses and a generic data access object</h2>
+<p>The first abstraction has two parts.</p>
+<p>The first part is a set of <strong>dataclasses that mirror the tables</strong>, one per table, with one field per column:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">@dataclass
+class User:
+    name: str
+    national_identifier: str
+    id: UUID | None = None</code>
+        </deckgo-highlight-code>
+<p>The second part is a <strong>generic data access object</strong> that builds SQL from those dataclasses. It's generic over the row type <code>T</code> and the primary-key type <code>K</code>, so one class serves every table:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">class DBAPI[T, K]:
+    def __init__(self, conn: Connection, model_class: type[T]) -&gt; None: ...
+
+    def insert(self, entity: T) -&gt; T: ...
+    def fetch_all(self) -&gt; Iterable[T]: ...
+    def fetch_by_id(self, id: K) -&gt; T | None: ...
+    def delete_all(self) -&gt; None: ...</code>
+        </deckgo-highlight-code>
+<p>Two psycopg features do most of the work:</p>
+<ul>
+<li><strong><code>psycopg.sql</code> composes queries safely.</strong> Table and column names go through <code>sql.Identifier</code>, which quotes them, and values go through placeholders, so nothing is concatenated into the query text. <code>insert</code> reads the column list from <code>dataclasses.fields(entity)</code> and skips fields that are <code>None</code>. That lets the database fill defaults like generated ids, and <code>RETURNING *</code> hands them back.</li>
+<li><strong><code>class_row</code> turns rows into objects.</strong> With <code>row_factory=class_row(model_class)</code>, psycopg builds the dataclass from each row, so code reads <code>user.id</code> instead of <code>user[0]</code>.</li>
+</ul>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">names = [f.name for f in dataclasses.fields(entity) if getattr(entity, f.name) is not None]
+values = [getattr(entity, n) for n in names]
+
+statement = sql.SQL(&quot;insert into {table} ({fields}) values ({}) returning *&quot;).format(
+    sql.SQL(&quot;, &quot;).join(sql.Placeholder() * len(names)),
+    table=sql.Identifier(table_name),
+    fields=sql.SQL(&quot;, &quot;).join(map(sql.Identifier, names)),
+)</code>
+        </deckgo-highlight-code>
+<p>This alone gives a lot of flexibility. Inserting a user and inserting an item now go through the same code:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">users = DBAPI[User, UUID](conn, User)
+items = DBAPI[Item, int](conn, Item)
+
+users.insert(User(&quot;Test user&quot;, &quot;123456789&quot;))
+items.fetch_all()</code>
+        </deckgo-highlight-code>
+<h2>Step 3: describing tables with a decorator</h2>
+<p>The generic version soon hits the places where tables differ. The <code>K</code> type parameter already covers different primary-key types, such as a <code>UUID</code> for users and an <code>int</code> for items. The SQL also needs two facts the dataclass doesn't carry:</p>
+<ul>
+<li><strong>The table name.</strong> The class is <code>User</code>, but the table is <code>users</code>. Items live in <code>items</code> and order lines in <code>orders_items</code>.</li>
+<li><strong>The primary-key column.</strong> <code>fetch_by_id</code> needs to know which column to filter on. It's <code>id</code> for users but <code>code</code> for items.</li>
+</ul>
+<p>I could pass these into every <code>DBAPI</code> constructor, but then each call site has to know schema details. Instead I attached the metadata to the class with a decorator, much like the table and column annotations that ORMs such as JPA use:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">@table(&quot;items&quot;, &quot;code&quot;)
+@dataclass
+class Item:
+    name: str
+    description: str
+    value: Decimal
+    quantity: int
+    code: int | None = None</code>
+        </deckgo-highlight-code>
+<p>The decorator doesn't change the class. It records the metadata in a module-level registry and returns the class unchanged:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">registry: dict[str, TableMetadata] = {}
+
+def table(name: str, pk: str = &quot;id&quot;):
+    def decorate(cls):
+        registry[cls.__qualname__] = TableMetadata(name, pk, cls)
+        return cls
+    return decorate</code>
+        </deckgo-highlight-code>
+<p><code>DBAPI</code> looks the class up in the registry when it's created, and raises if the class was never decorated. Every query then reads the table and primary-key column from that metadata:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">statement = sql.SQL(&quot;select * from {table} where {id} = {id_value}&quot;).format(
+    table=sql.Identifier(self._tableMetadata.table_key),
+    id=sql.Identifier(self._tableMetadata.table_p_key),
+    id_value=sql.Literal(id),
+)</code>
+        </deckgo-highlight-code>
+<p>The call site stays <code>DBAPI[Item, int](conn, Item)</code>, with no schema arguments. The class describes itself, and the data access object reads that description. That is the core pattern behind declarative ORMs.</p>
+<h2>Step 4: mappers and a repository layer</h2>
+<p>With table access sorted, a different problem showed up. The objects the application wants to work with aren't the same as the rows in the database.</p>
+<table>
+<thead>
+<tr>
+<th>Concept</th>
+<th>Application object</th>
+<th>Table row</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Item code</td>
+<td><code>str</code>, with validation rules</td>
+<td><code>int</code> identity column starting at 10000</td>
+</tr>
+<tr>
+<td>Order owner</td>
+<td>a whole <code>User</code></td>
+<td>a <code>user_id</code> foreign key</td>
+</tr>
+<tr>
+<td>Timestamps</td>
+<td>optional, set by the app or the database</td>
+<td>filled by column defaults</td>
+</tr>
+</tbody>
+</table>
+<p>If the application used the row dataclasses directly, every business rule would be shaped by the table layout. So I split them in two:</p>
+<ul>
+<li><strong>Domain objects</strong> in <code>domain/</code>. They're plain dataclasses with business rules, such as <code>Item.validate()</code> and <code>Order.create_order()</code>, and no database knowledge.</li>
+<li><strong>Row models</strong> in <code>models/</code>. They're decorated with <code>@table</code> and match the tables exactly.</li>
+</ul>
+<p>Something has to convert between the two. That's a <strong>mapper</strong>, a small class with two methods:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">class UserMapper:
+    def to_table(self, input: User) -&gt; UserRow:
+        return UserRow(name=input.name, national_identifier=input.national_identifier)
+
+    def from_table(self, output: UserRow) -&gt; User:
+        return User(id=output.id, name=output.name,
+                    national_identifier=output.national_identifier)</code>
+        </deckgo-highlight-code>
+<p>On top of the mapper and the <code>DBAPI</code> sits a <strong>repository</strong>. It takes domain objects in, converts them, calls the <code>DBAPI</code> and converts the results back. The rest of the app never sees a row model:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">class ItemRepository:
+    def __init__(self, dao: DBAPI[ItemRow, int], mapper: Mapper[Item, ItemRow]): ...
+
+    def insert(self, entity: Item) -&gt; Item:
+        if entity.code is not None and self._dao.fetch_by_id(int(entity.code)):
+            raise ValueError(&quot;Item already exists&quot;)
+        inserted = self._dao.insert(self._mapper.to_table(entity))
+        return self._mapper.from_table(inserted)</code>
+        </deckgo-highlight-code>
+<p>The repository is also where the API starts to speak the application's language instead of generic database operations. It works in domain types, and it holds rules like "an item code must be unique". Above it, managers such as <code>UserManager.create_user</code> and <code>OrderManager.place_order</code> expose business operations. They depend on a <code>Repository</code> <code>Protocol</code> instead of a concrete class, so a test can swap in an in-memory version.</p>
+<p>A single call now flows through every layer:</p>
+<deckgo-highlight-code   >
+          <code slot="code">UserManager.create_user(User)                  application
+  -&gt; UserRepository.insert(User)               repository
+       -&gt; UserMapper.to_table(User) -&gt; UserRow mapper
+       -&gt; DBAPI[UserRow, UUID].insert(UserRow) data access
+            -&gt; INSERT ... RETURNING *          psycopg -&gt; Postgres
+       &lt;- UserRow -&gt; UserMapper.from_table -&gt; User</code>
+        </deckgo-highlight-code>
+<h2>Where this leaves me</h2>
+<p>Building these layers by hand showed the behind the scenes of what an ORM does for me: it generates SQL from class metadata, turns rows into objects, and keeps the domain separate from the schema. It also showed me what's still missing, and every gap is a large piece of work:</p>
+<ul>
+<li><strong>Relationships.</strong> An order row can hold <code>user_id</code>, but not a <code>User</code>. Loading related objects without N+1 queries is a feature of its own.</li>
+<li><strong>A unit of work.</strong> <code>DBAPI</code> commits after every statement, so placing an order with several line items can't be atomic.</li>
+<li><strong>Queries and migrations.</strong> There's no filtering, ordering or pagination, and the tables are created with raw <code>CREATE TABLE</code> strings.</li>
+</ul>
+<p>Building those isn't the goal of my project, so the next step is moving to SQLAlchemy. The domain, the application layer and the mappers stay as they are. The <code>@table</code> registry, <code>DBAPI</code> and the commit-per-statement model are what get replaced.</p></div><ul aria-label="Tags" class="Post__Tags-sc-o9k349-3 cRfCfj"><li>python</li><li>postgres</li><li>psycopg</li><li>orm</li><li>architecture</li><li>homelab</li></ul></article></main><footer class="Footer__FooterWrapper-sc-1j1fu1i-0 eOsikg"><p>© 2026 Renan Roggia</p><ul class="Footer__Links-sc-1j1fu1i-1 kihuSm"><li><a href="mailto:renanzr@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/renanroggia/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://github.com/rroggia" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-150419482-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/building-a-tiny-orm-on-psycopg-to-see-what-an-orm-does/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-5752ebca197c1502ec35.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-37b44f10ab2b0a8fc5e5.js\"],\"component---src-pages-about-me-js\":[\"/component---src-pages-about-me-js-6c3c5cd2bba959d1daa9.js\"],\"component---src-pages-book-dependencies-js\":[\"/component---src-pages-book-dependencies-js-3c0db4bc9a0863a83da4.js\"],\"component---src-pages-books-js\":[\"/component---src-pages-books-js-f8eb28a007a833fc0ef4.js\"],\"component---src-pages-books-timeline-js\":[\"/component---src-pages-books-timeline-js-1300de0e3c9af6dc4811.js\"],\"component---src-pages-bookshelf-js\":[\"/component---src-pages-bookshelf-js-6c62d0b326f635dd2713.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-970929de3a7f828e43bc.js\"],\"component---src-pages-notes-js\":[\"/component---src-pages-notes-js-050d4448eabf83951085.js\"],\"component---src-templates-file-template-js\":[\"/component---src-templates-file-template-js-f168a0f4ea5ecb2f8f02.js\"],\"component---src-templates-folder-template-js\":[\"/component---src-templates-folder-template-js-e278a77d42bed7c71dd5.js\"],\"component---src-templates-note-template-js\":[\"/component---src-templates-note-template-js-3b29621b18b18374b4b0.js\"],\"component---src-templates-post-template-js\":[\"/component---src-templates-post-template-js-01078e49a0421a049ece.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="292455d05c1f3919830f";</script><script src="/webpack-runtime-807978ef3ab90182750a.js" async></script><script src="/framework-a20000016e97e304a183.js" async></script><script src="/app-5752ebca197c1502ec35.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="generator" content="Gatsby 5.16.1"/><meta name="title" content="Python Variable Scopes and Closures | Renan Roggia" data-gatsby-head="true"/><meta name="description" content="Python Variable Scopes and Closures I&#x27;m reading Fluent Python by Luciano Ramalho, and one of the topics that caught my attention is how Python decides the scope…" data-gatsby-head="true"/><meta property="og:type" content="website" data-gatsby-head="true"/><meta property="og:url" content="https://rroggia.github.io" data-gatsby-head="true"/><meta property="og:title" content="Python Variable Scopes and Closures | Renan Roggia" data-gatsby-head="true"/><meta property="og:description" content="Python Variable Scopes and Closures I&#x27;m reading Fluent Python by Luciano Ramalho, and one of the topics that caught my attention is how Python decides the scope…" data-gatsby-head="true"/><meta property="og:image" content="https://rroggia.github.io/images/my-photo.jpg" data-gatsby-head="true"/><meta property="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta property="twitter:url" content="https://rroggia.github.io" data-gatsby-head="true"/><meta property="twitter:title" content="Python Variable Scopes and Closures | Renan Roggia" data-gatsby-head="true"/><meta property="twitter:description" content="Python Variable Scopes and Closures I&#x27;m reading Fluent Python by Luciano Ramalho, and one of the topics that caught my attention is how Python decides the scope…" data-gatsby-head="true"/><meta property="twitter:image" content="https://rroggia.github.io/images/my-photo.jpg" data-gatsby-head="true"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><title data-gatsby-head="true">Python Variable Scopes and Closures | Renan Roggia</title><style data-styled="" data-styled-version="5.3.6">.enWpqL{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;max-width:var(--wide);margin:0 auto;padding:0 1.5rem;}/*!sc*/
+@media (max-width:600px){.enWpqL{padding:0 1rem;}}/*!sc*/
+data-styled.g1[id="BaseLayout__Wrapper-sc-1p0za7x-0"]{content:"enWpqL,"}/*!sc*/
+:root{--bg:#ffffff;--surface:#f4f6f7;--ink:#1a1d21;--muted:#5d6670;--rule:#e2e6ea;--accent:#0e6b58;--highlight:#fdf3d8;--font-sans:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;--font-serif:'Source Serif Pro',Georgia,'Times New Roman',serif;--font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;--measure:68ch;--wide:1080px;color-scheme:light;}/*!sc*/
+@media (prefers-color-scheme:dark){:root{--bg:#14171a;--surface:#1d2125;--ink:#e6e9ec;--muted:#9aa4ae;--rule:#2c3137;--accent:#5cc7ad;--highlight:#3a3324;color-scheme:dark;}}/*!sc*/
+*,*::before,*::after{box-sizing:border-box;}/*!sc*/
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-sans);font-size:1rem;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}/*!sc*/
+h1,h2,h3,h4{font-family:var(--font-sans);font-weight:600;line-height:1.2;-webkit-letter-spacing:-0.01em;-moz-letter-spacing:-0.01em;-ms-letter-spacing:-0.01em;letter-spacing:-0.01em;}/*!sc*/
+h1{font-size:2.25rem;-webkit-letter-spacing:-0.02em;-moz-letter-spacing:-0.02em;-ms-letter-spacing:-0.02em;letter-spacing:-0.02em;}/*!sc*/
+h2{font-size:1.5rem;}/*!sc*/
+h3{font-size:1.2rem;}/*!sc*/
+a{color:inherit;-webkit-text-decoration:none;text-decoration:none;}/*!sc*/
+a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px;}/*!sc*/
+img{max-width:100%;}/*!sc*/
+::selection{background:var(--highlight);color:var(--ink);}/*!sc*/
+.prose{max-width:var(--measure);font-family:var(--font-serif);font-size:1.125rem;line-height:1.75;overflow-wrap:break-word;}/*!sc*/
+.prose h1,.prose h2,.prose h3,.prose h4{margin:2.25rem 0 0.75rem;}/*!sc*/
+.prose h1{font-size:1.75rem;}/*!sc*/
+.prose h2{font-size:1.4rem;}/*!sc*/
+.prose h3{font-size:1.15rem;}/*!sc*/
+.prose h4{font-size:1rem;}/*!sc*/
+.prose p,.prose ul,.prose ol,.prose blockquote,.prose table{margin:0 0 1.25rem;}/*!sc*/
+.prose ul,.prose ol{padding-left:1.4em;}/*!sc*/
+.prose li{margin-bottom:0.35rem;}/*!sc*/
+.prose li > ul,.prose li > ol{margin:0.35rem 0 0;}/*!sc*/
+.prose a{color:var(--accent);-webkit-text-decoration:underline;text-decoration:underline;-webkit-text-decoration-thickness:1px;text-decoration-thickness:1px;text-underline-offset:0.2em;}/*!sc*/
+.prose a:hover{-webkit-text-decoration-thickness:2px;text-decoration-thickness:2px;}/*!sc*/
+.prose strong{font-weight:600;}/*!sc*/
+.prose code{font-family:var(--font-mono);font-size:0.85em;background:var(--surface);border:1px solid var(--rule);border-radius:4px;padding:0.1em 0.35em;}/*!sc*/
+.prose pre{overflow-x:auto;background:var(--surface);border:1px solid var(--rule);border-radius:6px;padding:1rem;line-height:1.5;}/*!sc*/
+.prose pre code{background:none;border:0;padding:0;}/*!sc*/
+.prose deckgo-highlight-code{--deckgo-highlight-code-font-family:var(--font-mono);--deckgo-highlight-code-font-size:0.875rem;margin:1.5rem 0;}/*!sc*/
+.prose blockquote{margin-left:0;margin-right:0;padding:0.75rem 1.25rem;background:var(--highlight);border-left:3px solid var(--accent);border-radius:0 4px 4px 0;}/*!sc*/
+.prose blockquote p:last-child{margin-bottom:0;}/*!sc*/
+.prose img{display:block;height:auto;margin:1.5rem auto;border-radius:4px;}/*!sc*/
+.prose video{display:block;max-width:100%;height:auto;margin:1.5rem auto;border-radius:4px;}/*!sc*/
+.prose table{display:block;overflow-x:auto;border-collapse:collapse;font-family:var(--font-sans);font-size:0.95rem;}/*!sc*/
+.prose th,.prose td{padding:0.5rem 0.75rem;border-bottom:1px solid var(--rule);text-align:left;vertical-align:top;}/*!sc*/
+.prose th{font-weight:600;}/*!sc*/
+.prose hr{border:0;border-top:1px solid var(--rule);margin:2.5rem 0;}/*!sc*/
+@media (max-width:600px){.prose{font-size:1.0625rem;}}/*!sc*/
+@media (prefers-reduced-motion:reduce){*{-webkit-transition:none !important;transition:none !important;}}/*!sc*/
+data-styled.g2[id="sc-global-gbZSJK1"]{content:"sc-global-gbZSJK1,"}/*!sc*/
+.LklWw{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.25rem 1.75rem;}/*!sc*/
+data-styled.g3[id="NavigationMenu__Nav-sc-6dpd3o-0"]{content:"LklWw,"}/*!sc*/
+.hMnvRr{color:var(--muted);font-size:0.95rem;padding-bottom:0.2rem;border-bottom:2px solid transparent;}/*!sc*/
+.hMnvRr:hover{color:var(--ink);}/*!sc*/
+.hMnvRr[aria-current]{color:var(--ink);border-bottom-color:var(--accent);}/*!sc*/
+data-styled.g4[id="NavigationMenu__NavigationLink-sc-6dpd3o-1"]{content:"hMnvRr,"}/*!sc*/
+.bvLmGA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-align-items:baseline;-webkit-box-align:baseline;-ms-flex-align:baseline;align-items:baseline;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;gap:0.75rem 2rem;padding:1.5rem 0;border-bottom:1px solid var(--rule);}/*!sc*/
+data-styled.g5[id="Header__Bar-sc-8apuby-0"]{content:"bvLmGA,"}/*!sc*/
+.cDLkEB{font-size:1.125rem;font-weight:600;-webkit-letter-spacing:-0.01em;-moz-letter-spacing:-0.01em;-ms-letter-spacing:-0.01em;letter-spacing:-0.01em;}/*!sc*/
+data-styled.g6[id="Header__Wordmark-sc-8apuby-1"]{content:"cDLkEB,"}/*!sc*/
+.eOsikg{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;gap:1rem 2rem;padding:2rem 0 3rem;border-top:1px solid var(--rule);color:var(--muted);font-size:0.9rem;}/*!sc*/
+.eOsikg p{margin:0;}/*!sc*/
+data-styled.g7[id="Footer__FooterWrapper-sc-1j1fu1i-0"]{content:"eOsikg,"}/*!sc*/
+.kihuSm{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.5rem 1.5rem;margin:0;padding:0;list-style:none;}/*!sc*/
+.kihuSm a:hover{color:var(--ink);}/*!sc*/
+data-styled.g8[id="Footer__Links-sc-1j1fu1i-1"]{content:"kihuSm,"}/*!sc*/
+.faIAWJ{-webkit-flex:1;-ms-flex:1;flex:1;padding:3rem 0 4rem;}/*!sc*/
+@media (max-width:600px){.faIAWJ{padding:2rem 0 3rem;}}/*!sc*/
+data-styled.g9[id="BasePage__Main-sc-ptapkq-0"]{content:"faIAWJ,"}/*!sc*/
+.iguyID{max-width:var(--measure);margin:0 auto;}/*!sc*/
+data-styled.g10[id="Post__Article-sc-o9k349-0"]{content:"iguyID,"}/*!sc*/
+.blvkSq{margin:0 0 1rem;font-size:clamp(2rem,5vw,2.75rem);line-height:1.15;}/*!sc*/
+data-styled.g11[id="Post__Title-sc-o9k349-1"]{content:"blvkSq,"}/*!sc*/
+.igqOCK{margin:0 0 2.5rem;padding-bottom:1.5rem;border-bottom:1px solid var(--rule);color:var(--muted);font-size:0.95rem;}/*!sc*/
+data-styled.g12[id="Post__Meta-sc-o9k349-2"]{content:"igqOCK,"}/*!sc*/
+.cRfCfj{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;gap:0.5rem;margin:3rem 0 0;padding:1.5rem 0 0;border-top:1px solid var(--rule);list-style:none;}/*!sc*/
+.cRfCfj li{padding:0.15rem 0.6rem;background:var(--surface);border-radius:4px;color:var(--muted);font-size:0.85rem;}/*!sc*/
+data-styled.g13[id="Post__Tags-sc-o9k349-3"]{content:"cRfCfj,"}/*!sc*/
+</style><link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,400i,500,600|IBM+Plex+Mono:400,500|Source+Serif+Pro:400,400i,600&amp;display=swap" rel="stylesheet"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="BaseLayout__Wrapper-sc-1p0za7x-0 enWpqL"><header class="Header__Bar-sc-8apuby-0 bvLmGA"><a class="Header__Wordmark-sc-8apuby-1 cDLkEB" href="/">Renan Roggia</a><nav aria-label="Main" class="NavigationMenu__Nav-sc-6dpd3o-0 LklWw"><a aria-current="page" class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/">Writing</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/engineer-diary/">Engineer&#x27;s diary</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/books/">Books</a><a class="NavigationMenu__NavigationLink-sc-6dpd3o-1 hMnvRr" href="/about-me/">About</a></nav></header><main class="BasePage__Main-sc-ptapkq-0 faIAWJ"><article class="Post__Article-sc-o9k349-0 iguyID"><header><h1 class="Post__Title-sc-o9k349-1 blvkSq">Python Variable Scopes and Closures</h1><p class="Post__Meta-sc-o9k349-2 igqOCK"><time dateTime="2026-11-09">November 9, 2026</time>, <!-- -->3 min read</p></header><div class="prose"><h1>Python Variable Scopes and Closures</h1>
+<p>I'm reading <em>Fluent Python</em> by Luciano Ramalho, and one of the topics that caught my attention is how Python decides the scope of a variable. These are my notes on it.</p>
+<h2>Local vs global scope</h2>
+<p>Python does not require you to declare a variable. Since there is no declaration to look at, the scope is defined by how the variable is used inside the function, or by specific keywords.</p>
+<p>A variable is considered local to a function if:</p>
+<ol>
+<li>It is a parameter in the function definition.</li>
+<li>A value is bound to it anywhere inside the function.</li>
+</ol>
+<p>If neither of these match, Python looks for the variable in the global scope.</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">counter = 10
+
+def read_global():
+    print(counter)  # not a parameter and never assigned, so it&#39;s global
+
+def parameter_is_local(counter):
+    print(counter)  # local, because it&#39;s a parameter
+
+def assignment_is_local():
+    counter = 99    # local, because a value is bound to it
+    print(counter)
+
+read_global()           # 10
+parameter_is_local(1)   # 1
+assignment_is_local()   # 99
+print(counter)          # 10, the global was not changed</code>
+        </deckgo-highlight-code>
+<p>The word <em>anywhere</em> in the second rule matters. The decision is made for the whole function body, so an assignment on the last line also affects the lines before it:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">counter = 10
+
+def broken():
+    print(counter)  # UnboundLocalError
+    counter = 99</code>
+        </deckgo-highlight-code>
+<p>Even though a global <code>counter</code> exists, the assignment makes <code>counter</code> a local variable in all of <code>broken</code>, and it has no value yet when <code>print</code> runs.</p>
+<h2>The global keyword</h2>
+<p>To bind a value to the global variable from inside a function, use the <code>global</code> keyword to identify it as coming from the global scope:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">counter = 10
+
+def with_global():
+    global counter
+    counter = 99
+
+with_global()
+print(counter)  # 99</code>
+        </deckgo-highlight-code>
+<h2>Closures</h2>
+<p>A closure is a function that holds bindings for its free variables. A free variable is a variable that is used in a function defined inside another function, and which is not part of the local scope nor the global scope.</p>
+<p>For example, if <code>function_a</code> has a variable <code>ab</code> and the definition of <code>function_b</code>, and <code>function_b</code> uses <code>ab</code>, then <code>function_b</code> is a closure:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">def function_a():
+    ab = &#39;hello from A&#39;
+
+    def function_b():
+        return ab
+
+    return function_b
+
+b = function_a()
+print(b())  # hello from A</code>
+        </deckgo-highlight-code>
+<p><code>function_a</code> has already returned when <code>b()</code> is called, but <code>function_b</code> still holds the binding for <code>ab</code>. You can see it in the function attributes:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">print(b.__code__.co_freevars)             # (&#39;ab&#39;,)
+print(b.__closure__[0].cell_contents)     # hello from A</code>
+        </deckgo-highlight-code>
+<p>This also completes the lookup described earlier: for a variable that is not local, Python checks the enclosing functions before it gets to the global scope.</p>
+<h2>Mutable and immutable values in a closure</h2>
+<p>The scope rules also change how you work with the values inside a closure, depending on whether they are mutable or immutable.</p>
+<p>With a mutable value, such as a list, you change the internals of the object. There is no assignment to the variable, so it stays a free variable and you don't need any keyword:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">def make_history():
+    history = []
+
+    def add(value):
+        history.append(value)  # changes the list, doesn&#39;t rebind the variable
+        return history
+
+    return add
+
+add = make_history()
+add(1)
+print(add(2))  # [1, 2]</code>
+        </deckgo-highlight-code>
+<p>With an immutable value, such as a number, the only way to "change" it is to bind a new value to the variable. That assignment makes it a local variable, and the closure breaks:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">def make_counter():
+    count = 0
+
+    def increment():
+        count += 1  # UnboundLocalError
+        return count
+
+    return increment</code>
+        </deckgo-highlight-code>
+<p><code>count += 1</code> is the same as <code>count = count + 1</code>, so <code>count</code> is local to <code>increment</code> and has no value when it's read. The <code>nonlocal</code> keyword solves this by marking the variable as a free variable, even though it's being assigned:</p>
+<deckgo-highlight-code language="python"  >
+          <code slot="code">def make_counter():
+    count = 0
+
+    def increment():
+        nonlocal count
+        count += 1
+        return count
+
+    return increment
+
+increment = make_counter()
+increment()
+print(increment())  # 2</code>
+        </deckgo-highlight-code>
+<h2>Summary</h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Scope</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Parameter of the function</td>
+<td>Local</td>
+</tr>
+<tr>
+<td>Value bound inside the function</td>
+<td>Local</td>
+</tr>
+<tr>
+<td>Declared with <code>global</code></td>
+<td>Global</td>
+</tr>
+<tr>
+<td>Declared with <code>nonlocal</code></td>
+<td>Free variable from the enclosing function</td>
+</tr>
+<tr>
+<td>Only read, and exists in an enclosing function</td>
+<td>Free variable from the enclosing function</td>
+</tr>
+<tr>
+<td>Only read, and doesn't exist in an enclosing function</td>
+<td>Global</td>
+</tr>
+</tbody>
+</table></div><ul aria-label="Tags" class="Post__Tags-sc-o9k349-3 cRfCfj"><li>python</li><li>closures</li><li>books</li></ul></article></main><footer class="Footer__FooterWrapper-sc-1j1fu1i-0 eOsikg"><p>© 2026 Renan Roggia</p><ul class="Footer__Links-sc-1j1fu1i-1 kihuSm"><li><a href="mailto:renanzr@gmail.com">Email</a></li><li><a href="https://www.linkedin.com/in/renanroggia/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li><li><a href="https://github.com/rroggia" target="_blank" rel="noopener noreferrer">GitHub</a></li></ul></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-150419482-1', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/posts/python-variable-scopes-and-closures/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-5752ebca197c1502ec35.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-37b44f10ab2b0a8fc5e5.js\"],\"component---src-pages-about-me-js\":[\"/component---src-pages-about-me-js-6c3c5cd2bba959d1daa9.js\"],\"component---src-pages-book-dependencies-js\":[\"/component---src-pages-book-dependencies-js-3c0db4bc9a0863a83da4.js\"],\"component---src-pages-books-js\":[\"/component---src-pages-books-js-f8eb28a007a833fc0ef4.js\"],\"component---src-pages-books-timeline-js\":[\"/component---src-pages-books-timeline-js-1300de0e3c9af6dc4811.js\"],\"component---src-pages-bookshelf-js\":[\"/component---src-pages-bookshelf-js-6c62d0b326f635dd2713.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-970929de3a7f828e43bc.js\"],\"component---src-pages-notes-js\":[\"/component---src-pages-notes-js-050d4448eabf83951085.js\"],\"component---src-templates-file-template-js\":[\"/component---src-templates-file-template-js-f168a0f4ea5ecb2f8f02.js\"],\"component---src-templates-folder-template-js\":[\"/component---src-templates-folder-template-js-e278a77d42bed7c71dd5.js\"],\"component---src-templates-note-template-js\":[\"/component---src-templates-note-template-js-3b29621b18b18374b4b0.js\"],\"component---src-templates-post-template-js\":[\"/component---src-templates-post-template-js-01078e49a0421a049ece.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="292455d05c1f3919830f";</script><script src="/webpack-runtime-807978ef3ab90182750a.js" async></script><script src="/framework-a20000016e97e304a183.js" async></script><script src="/app-5752ebca197c1502ec35.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
